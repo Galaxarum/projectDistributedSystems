@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dataStructures/ReplicaList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectDistributedSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projectDistributedSystems.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/dataStoreInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/DataStoreInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/groupCommunicationInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/GroupCommunicationInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/SocketListener.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582798208234</updated>
-      <workItem from="1582798211205" duration="3731000" />
+      <workItem from="1582798211205" duration="4019000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -99,7 +89,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582799510844</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Still beginning">
+      <created>1582801966649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582801966649</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update README.md">
+      <created>1582802160017</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1582802160017</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,7 +112,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init workspace" />
     <MESSAGE value="Added interfaces, main, scratch of SocketListener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added interfaces, main, scratch of SocketListener" />
+    <MESSAGE value="Still beginning" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Project_Structure" timestamp="1582798685276">
@@ -119,10 +125,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582799583205" />
-    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582801966487">
+    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582802259363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582801966487" />
+    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582802259363" />
     <state x="743" y="223" width="424" height="586" key="FileChooserDialogImpl" timestamp="1582799570066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -131,10 +137,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="443" y="96" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582799540954" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582801968809">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582802162863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582801968809" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582802162863" />
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582799463706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
