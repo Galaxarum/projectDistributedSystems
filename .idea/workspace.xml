@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/dataStoreInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/groupCommunicationInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/SocketListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1YO0CpzitSzg0Eebax7oKTdvWBM" />
   <component name="ProjectViewState">
@@ -11,14 +38,69 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Advanced user interfaces" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="" />
+      <created>1582798208234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582798208234</updated>
+      <workItem from="1582798211205" duration="1193000" />
+    </task>
+    <task id="LOCAL-00001" summary="Init workspace">
+      <created>1582798358711</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582798358711</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init workspace" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="555" y="180" width="800" height="672" key="#Project_Structure" timestamp="1582798685276">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="180" width="800" height="672" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1582798685276" />
+    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582798358339">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582798358339" />
+    <state x="443" y="96" width="1024" height="840" key="SettingsEditor" timestamp="1582799465153">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="443" y="96" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582799465153" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582798370862">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582798370862" />
+    <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582799463706">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
   </component>
 </project>
