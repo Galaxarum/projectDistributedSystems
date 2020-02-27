@@ -1,8 +1,8 @@
-package network;
+package middleware.network;
 
-import dataStructures.ReplicaList;
+import middleware.dataStructures.ReplicaList;
 import lombok.RequiredArgsConstructor;
-import messages.HandShakeMessage;
+import middleware.messages.HandShakeMessage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -26,10 +26,8 @@ public class ServerSocketListener implements Runnable {
                 final HandShakeMessage handShakeMessage  = (HandShakeMessage) in.readObject();
 
                 if(handShakeMessage.isFromClient()){
-                    //TODO: manage client connection
                     new Thread(new ClientSocketListener(socket)).start();
                 }else {
-                    //TODO: record new replica
                     replicaList.put(socket); // The other replicas will be updated by the ReplicaSocketListener
                     new Thread(new ReplicaSocketListener(socket)).start();
                 }

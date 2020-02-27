@@ -1,4 +1,4 @@
-package network;
+package middleware.network;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

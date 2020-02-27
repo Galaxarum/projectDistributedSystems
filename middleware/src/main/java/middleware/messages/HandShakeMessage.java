@@ -1,4 +1,4 @@
-package messages;
+package middleware.messages;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

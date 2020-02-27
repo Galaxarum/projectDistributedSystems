@@ -1,4 +1,4 @@
-package network;
+package middleware.network;
 
 import lombok.RequiredArgsConstructor;
 

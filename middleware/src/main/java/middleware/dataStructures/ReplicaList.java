@@ -1,4 +1,4 @@
-package dataStructures;
+package middleware.dataStructures;
 
 import lombok.AccessLevel;
 import lombok.Getter;
