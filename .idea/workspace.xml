@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener">
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/dataStructures/ReplicaList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/HandShakeMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/network/ClientSocketListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/network/ReplicaSocketListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/network/ServerSocketListener.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,6 +78,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="middleware.group" />
+      <recent name="middleware.messages" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -75,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582798208234</updated>
       <workItem from="1582798211205" duration="4019000" />
+      <workItem from="1582816865189" duration="11262000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -104,7 +128,35 @@
       <option name="project" value="LOCAL" />
       <updated>1582802160017</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update pom.xml, update ReplicaList">
+      <created>1582817108582</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1582817108582</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener">
+      <created>1582821383210</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1582821383210</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update Main, ReplicaList (rationalized)">
+      <created>1582821445197</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582821445197</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactored into two different modules">
+      <created>1582823288562</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582823288562</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,7 +167,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -126,25 +180,49 @@
     <MESSAGE value="Added interfaces, main, scratch of SocketListener" />
     <MESSAGE value="Still beginning" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Update pom.xml, update ReplicaList" />
+    <MESSAGE value="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener" />
+    <MESSAGE value="Update Main, ReplicaList (rationalized)" />
+    <MESSAGE value="Refactored into two different modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored into two different modules" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="180" width="800" height="672" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1582817851250" />
     <state x="555" y="180" width="800" height="672" key="#Project_Structure" timestamp="1582798685276">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="180" width="800" height="672" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1582798685276" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1582806955207">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1582826082086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582806955207" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582826082086" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582799583205" />
-    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582802368333">
+    <state x="496" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582822819352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582802368333" />
+    <state x="496" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582822819352" />
+    <state x="743" y="381" width="434" height="279" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582822635477">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="381" width="434" height="279" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1582822635477" />
+    <state x="743" y="402" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1582822801154">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="402" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1582822801154" />
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582829295565">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582829295565" />
+    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582823288438">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582823288438" />
     <state x="743" y="223" width="424" height="586" key="FileChooserDialogImpl" timestamp="1582799570066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -153,10 +231,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="443" y="96" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582799540954" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582802369649">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582823290238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582802369649" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582823290238" />
     <state x="643" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1582816867522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -165,5 +243,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
+    <state x="376" y="142" width="1157" height="748" key="new project wizard" timestamp="1582822596209">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="376" y="142" width="1157" height="748" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1582822596209" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1582823701936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582823701936" />
   </component>
 </project>

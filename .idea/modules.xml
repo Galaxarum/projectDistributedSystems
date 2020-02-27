@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/application/application.iml" filepath="$PROJECT_DIR$/application/application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/middleware/middleware.iml" filepath="$PROJECT_DIR$/middleware/middleware.iml" />
       <module fileurl="file://$PROJECT_DIR$/projectDistributedSystems.iml" filepath="$PROJECT_DIR$/projectDistributedSystems.iml" />
     </modules>
   </component>
