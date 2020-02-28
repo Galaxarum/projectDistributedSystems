@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/database/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/database/DatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/dataStructures/ReplicaList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/HandShakeMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/network/ClientSocketListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/network/ReplicaSocketListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/network/ServerSocketListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +61,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Advanced user interfaces" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -82,10 +78,25 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="middleware" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="middleware.group" />
       <recent name="middleware.messages" />
     </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -99,6 +110,7 @@
       <updated>1582798208234</updated>
       <workItem from="1582798211205" duration="4019000" />
       <workItem from="1582816865189" duration="11262000" />
+      <workItem from="1582928225001" duration="4292000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -195,14 +207,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="180" width="800" height="672" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1582798685276" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1582826082086">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="672" y="240" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1582932411091">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="672" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1582932411091" />
     <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582826082086" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582799583205" />
+    <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1582928272214">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582928272214" />
     <state x="496" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582822819352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -215,6 +232,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="402" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1582822801154" />
+    <state x="284" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582932449184">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="284" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582932449184" />
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582829295565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -227,9 +248,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="223" width="424" height="586" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582799570066" />
-    <state x="443" y="96" width="1024" height="840" key="SettingsEditor" timestamp="1582799540954">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="388" y="97" width="900" height="849" key="SettingsEditor" timestamp="1582928266609">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="388" y="97" width="900" height="849" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1582928266609" />
     <state x="443" y="96" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582799540954" />
     <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582823290238">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -243,13 +265,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
+    <state x="578" y="299" key="extract.method.dialog" timestamp="1582931101680">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="578" y="299" key="extract.method.dialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582931101680" />
+    <state x="498" y="282" width="683" height="486" key="find.popup" timestamp="1582932040502">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="498" y="282" width="683" height="486" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1582932040502" />
     <state x="376" y="142" width="1157" height="748" key="new project wizard" timestamp="1582822596209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="376" y="142" width="1157" height="748" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1582822596209" />
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1582823701936">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="545" y="230" width="670" height="685" key="search.everywhere.popup" timestamp="1582931684020">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="545" y="230" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1582931684020" />
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582823701936" />
   </component>
 </project>

@@ -1,6 +1,9 @@
 package middleware;
 
+import middleware.database.DatabaseManager;
 import middleware.group.GroupManager;
+
+import java.io.IOException;
 
 public class MessagingMiddlewareImpl implements MessagingMiddleware {
 
@@ -8,9 +11,11 @@ public class MessagingMiddlewareImpl implements MessagingMiddleware {
 
     private final GroupManager groupManager;
     private final VectorClockedMessageManager messageManager;
+    private DatabaseManager databaseManager;
 
     public MessagingMiddlewareImpl(String id, int port){
-        this.groupManager = new GroupManager(id, port);
+        databaseManager = new DatabaseManager();
+        this.groupManager = new GroupManager(id, port, databaseManager);
     }
 
     public MessagingMiddlewareImpl(String id){
@@ -18,7 +23,7 @@ public class MessagingMiddlewareImpl implements MessagingMiddleware {
     }
 
     @Override
-    public void join(String knownHost) {
+    public void join(String knownHost) throws IOException, ClassNotFoundException {
         groupManager.join(knownHost);
     }
 
