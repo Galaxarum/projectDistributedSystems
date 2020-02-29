@@ -21,7 +21,7 @@ public class MessagingMiddlewareImpl implements MessagingMiddleware<String,Objec
     }
 
     @Override
-    public void join(String knownHost) throws IOException, ClassNotFoundException {
+    public void join(String knownHost) throws IOException {
         groupManager.join(knownHost);
     }
 
