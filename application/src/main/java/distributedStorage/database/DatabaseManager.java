@@ -1,4 +1,4 @@
-package middleware.database;
+package distributedStorage.database;
 
 public class DatabaseManager {
 

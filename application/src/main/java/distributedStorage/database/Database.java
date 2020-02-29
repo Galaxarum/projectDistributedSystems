@@ -1,4 +1,4 @@
-package middleware.database;
+package distributedStorage.database;
 
 import java.util.HashMap;
 
