@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,19 +211,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="180" width="800" height="672" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1582798685276" />
-    <state x="672" y="240" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1582932411091">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1582994159740">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1582932411091" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582826082086" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582994159740" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582799583205" />
-    <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1582928272214">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="787" y="417" width="293" height="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1582993375797">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582928272214" />
+    <state x="787" y="417" width="293" height="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582993375797" />
     <state x="496" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582822819352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -245,6 +250,10 @@
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
     <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582823288438" />
+    <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1582993574593">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="100" y="99" width="1720" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582993574593" />
     <state x="743" y="223" width="424" height="586" key="FileChooserDialogImpl" timestamp="1582799570066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
