@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/database/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/database/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +99,7 @@
       <updated>1582798208234</updated>
       <workItem from="1582798211205" duration="4019000" />
       <workItem from="1582816865189" duration="11262000" />
-      <workItem from="1582928225001" duration="4292000" />
+      <workItem from="1582928225001" duration="4441000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -168,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582823288562</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added JoinGroupUseCase and DatabaseManager">
+      <created>1582932585890</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582932585890</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +192,8 @@
     <MESSAGE value="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener" />
     <MESSAGE value="Update Main, ReplicaList (rationalized)" />
     <MESSAGE value="Refactored into two different modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored into two different modules" />
+    <MESSAGE value="Added JoinGroupUseCase and DatabaseManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JoinGroupUseCase and DatabaseManager" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -240,9 +237,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582829295565" />
-    <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582823288438">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="383" y="110" width="1034" height="814" key="CommitChangelistDialog2" timestamp="1582932585685">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932585685" />
     <state x="438" y="109" width="1034" height="814" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582823288438" />
     <state x="743" y="223" width="424" height="586" key="FileChooserDialogImpl" timestamp="1582799570066">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -253,13 +251,15 @@
     </state>
     <state x="388" y="97" width="900" height="849" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1582928266609" />
     <state x="443" y="96" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582799540954" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582823290238">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="486" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582932590413">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
     <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582823290238" />
-    <state x="643" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1582816867522">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="563" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1582980714678">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="563" y="349" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582980714678" />
     <state x="643" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582816867522" />
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582799463706">
       <screen x="0" y="0" width="1920" height="1040" />
