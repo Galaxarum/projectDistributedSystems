@@ -1,8 +1,5 @@
 package middleware.group;
 
-import middleware.database.Database;
-import middleware.database.DatabaseManager;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -16,17 +13,15 @@ public class JoinGroupUseCase {
     private String myDeviceName;
     private int myPort;
     private Socket targetSocket;
-    private DatabaseManager databaseManager;
 
-    public JoinGroupUseCase(Socket targetSocket, Map<String, NodeInfo> replicas, String myDeviceName, int myPort, DatabaseManager databaseManager) {
+    public JoinGroupUseCase(Socket targetSocket, Map<String, NodeInfo> replicas, String myDeviceName, int myPort) {
         this.replicas = replicas;
         this.myDeviceName = myDeviceName;
         this.myPort = myPort;
         this.targetSocket = targetSocket;
-        this.databaseManager = databaseManager;
     }
 
-    public void execute() throws IOException, ClassNotFoundException {
+    public void execute() throws IOException {
         sendJoin();
         sendSync(targetSocket);
         sendReadyToAll();
@@ -43,14 +38,12 @@ public class JoinGroupUseCase {
         });
     }
 
-    private void sendSync(Socket targetSocket) throws IOException, ClassNotFoundException {
+    private void sendSync(Socket targetSocket) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(targetSocket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(targetSocket.getInputStream());
 
         out.writeObject(GroupCommands.SYNC);
         out.writeObject(myDeviceName);
-
-        databaseManager.set((Database) in.readObject());
     }
 
     private void sendReadyToAll()  {

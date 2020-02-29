@@ -1,7 +1,6 @@
 package middleware.group;
 
 import lombok.SneakyThrows;
-import middleware.database.DatabaseManager;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,28 +13,26 @@ public class GroupManager {
 
     private final String MY_DEVICE_NAME;
     private final int PORT;
-    private DatabaseManager databaseManager;
     private Map<String,Socket> socketMap = new HashMap<>();   //TODO: this must be shared with messaging middleware impl
     private Map<String,NodeInfo> replicas = new HashMap<>();
     private Socket targetSocket;
 
-    public GroupManager(String id, int port, DatabaseManager databaseManager){
+    public GroupManager(String id, int port){
         this.MY_DEVICE_NAME = id;
         this.PORT = port;
 
         //TODO: start a server socket thread
-        this.databaseManager = databaseManager;
+    }
+
+    public void join(String knownHost) throws IOException {
+        getReplicas(knownHost);
+
+        new JoinGroupUseCase(this.targetSocket, this.replicas, this.MY_DEVICE_NAME, this.PORT).execute();
+
     }
 
     @SneakyThrows(ClassNotFoundException.class)
-    public void join(String knownHost) throws IOException, ClassNotFoundException {
-        getReplicas(knownHost);
-
-        new JoinGroupUseCase(this.targetSocket, this.replicas, this.MY_DEVICE_NAME, this.PORT, this.databaseManager).execute();
-
-    }
-
-    private void getReplicas(String knownHost) throws IOException, ClassNotFoundException {
+    private void getReplicas(String knownHost) throws IOException {
         targetSocket = new Socket(knownHost,PORT);
 
         ObjectOutputStream out = new ObjectOutputStream(targetSocket.getOutputStream());
