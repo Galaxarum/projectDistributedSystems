@@ -1,21 +1,19 @@
 package middleware;
 
-import middleware.database.DatabaseManager;
 import middleware.group.GroupManager;
+import middleware.primitives.DataOperations;
 
 import java.io.IOException;
 
-public class MessagingMiddlewareImpl implements MessagingMiddleware {
+public class MessagingMiddlewareImpl implements MessagingMiddleware<String,Object> {
 
     public static final int DEFAULT_PORT = 12345;
 
     private final GroupManager groupManager;
-    private final VectorClockedMessageManager messageManager;
-    private DatabaseManager databaseManager;
+
 
     public MessagingMiddlewareImpl(String id, int port){
-        databaseManager = new DatabaseManager();
-        this.groupManager = new GroupManager(id, port, databaseManager);
+        this.groupManager = new GroupManager(id, port);
     }
 
     public MessagingMiddlewareImpl(String id){
@@ -33,7 +31,7 @@ public class MessagingMiddlewareImpl implements MessagingMiddleware {
     }
 
     @Override
-    public void sendVectorClockedMessage(VectorClockedMessage message) {
-        messageManager.send(message);
+    public void shareOperation(DataOperations command, String key, Object value) {
+
     }
 }
