@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Moved package database into the applicative module">
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" afterDir="false" />
-    </list>
-    <list id="b809748b-2f78-45b7-8b6f-d57304e45cf7" name="Moved package database into the applicative module" comment="Too wide commit">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/DataOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -231,7 +225,42 @@
       <option name="project" value="LOCAL" />
       <updated>1583000669933</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add DataOperations">
+      <created>1583000691848</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1583000691848</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update JoinGroupUseCase, GroupManager&#10;-Removed DatabaseManager instances&#10;-Removed unneeded 'throws'">
+      <created>1583000791257</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1583000791258</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update MessagingMiddlewareImpl&#10;Removed unused 'throws'">
+      <created>1583000816847</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1583000816847</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update ClientCommandListener&#10;Added some code">
+      <created>1583000861083</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1583000861083</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update Main&#10;Rationalized execution flow">
+      <created>1583000892522</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1583000892522</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +295,12 @@
     <MESSAGE value="Moved package database into applicative module" />
     <MESSAGE value="Update MessagingMiddleware&#10;Added generic types" />
     <MESSAGE value="Update MessagingMiddlewareImpl&#10;-Added generics&#10;-Cleaned up misplaced attributes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update MessagingMiddlewareImpl&#10;-Added generics&#10;-Cleaned up misplaced attributes" />
+    <MESSAGE value="Add DataOperations" />
+    <MESSAGE value="Update JoinGroupUseCase, GroupManager&#10;-Removed DatabaseManager instances&#10;-Removed unneeded 'throws'" />
+    <MESSAGE value="Update MessagingMiddlewareImpl&#10;Removed unused 'throws'" />
+    <MESSAGE value="Update ClientCommandListener&#10;Added some code" />
+    <MESSAGE value="Update Main&#10;Rationalized execution flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Main&#10;Rationalized execution flow" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -319,11 +353,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582829295565" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583000860974">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583000892405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583000860974" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583000892405" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -358,11 +392,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="486" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1582932590413">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583000902103">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582823290238" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583000902103" />
     <state x="483" y="302" key="com.intellij.ide.util.TipDialog" timestamp="1582981654807">
       <screen x="0" y="23" width="1440" height="838" />
     </state>
@@ -373,6 +407,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
+    <state x="757" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583000896014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583000896014" />
     <state x="578" y="299" key="extract.method.dialog" timestamp="1582931101680">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
