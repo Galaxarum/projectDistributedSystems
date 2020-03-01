@@ -1,5 +1,7 @@
 package middleware.group;
 
+import middleware.primitives.GroupCommands;
+
 public class NodeInfo{
 	private String hostname;
 	private int port;

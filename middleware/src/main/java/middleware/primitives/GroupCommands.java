@@ -1,4 +1,4 @@
-package middleware.group;
+package middleware.primitives;
 
 public enum GroupCommands {
     /**
@@ -14,7 +14,7 @@ public enum GroupCommands {
      */
     SYNC,
     /**
-     * Sent to all the replicas at join completion to unlock them
+     * Used to confirm the execution of some operations
      */
-    READY
+    ACK
 }

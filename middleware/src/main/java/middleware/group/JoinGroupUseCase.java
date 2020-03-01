@@ -1,5 +1,7 @@
 package middleware.group;
 
+import middleware.primitives.GroupCommands;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
