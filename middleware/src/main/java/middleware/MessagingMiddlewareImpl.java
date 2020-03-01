@@ -12,11 +12,11 @@ public class MessagingMiddlewareImpl implements MessagingMiddleware<String,Objec
     private final GroupManager groupManager;
 
 
-    public MessagingMiddlewareImpl(String id, int port){
+    public MessagingMiddlewareImpl(String id, int port) throws IOException {
         this.groupManager = new GroupManager(id, port);
     }
 
-    public MessagingMiddlewareImpl(String id){
+    public MessagingMiddlewareImpl(String id) throws IOException {
         this(id,DEFAULT_PORT);
     }
 

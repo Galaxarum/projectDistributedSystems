@@ -23,7 +23,7 @@ public class ClientCommandListener extends PrimitiveParser<DataOperations> {
      */
     private final DatabaseManager databaseManager = Main.getDatabaseManager();
 
-    public ClientCommandListener(Socket clientSocket) throws IOException {
+    private ClientCommandListener(Socket clientSocket) throws IOException {
         super(clientSocket);
     }
 
@@ -46,5 +46,9 @@ public class ClientCommandListener extends PrimitiveParser<DataOperations> {
             default:
                 throw new ParsingException(command.toString());
         }
+    }
+
+    public static ClientCommandListener getInstance(Socket clientSocket) throws IOException {
+        return new ClientCommandListener(clientSocket);
     }
 }

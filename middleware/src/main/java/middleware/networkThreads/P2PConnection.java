@@ -11,7 +11,7 @@ import static middleware.primitives.GroupCommands.ACK;
 
 public class P2PConnection extends PrimitiveParser<GroupCommands> {
 
-    public P2PConnection(Socket clientSocket) throws IOException {
+    private P2PConnection(Socket clientSocket) throws IOException {
         super(clientSocket);
     }
 
@@ -34,6 +34,10 @@ public class P2PConnection extends PrimitiveParser<GroupCommands> {
             default:
                 throw new ParsingException(command.toString());
         }
+    }
+
+    public static P2PConnection getInstance(Socket clientSocket) throws IOException {
+        return new P2PConnection(clientSocket);
     }
 
 }

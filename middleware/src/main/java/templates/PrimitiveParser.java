@@ -1,13 +1,11 @@
 package templates;
 
 import exceptions.ParsingException;
-import middleware.primitives.DataOperations;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 public abstract class PrimitiveParser<T> implements Runnable{
@@ -28,7 +26,7 @@ public abstract class PrimitiveParser<T> implements Runnable{
      */
     private static final Logger logger = Logger.getLogger(PrimitiveParser.class.getName());
 
-    public PrimitiveParser(Socket clientSocket) throws IOException {
+    protected PrimitiveParser(Socket clientSocket) throws IOException {
         this.clientSocket = clientSocket;
         this.in = new ObjectInputStream(clientSocket.getInputStream());
         this.out = new ObjectOutputStream(clientSocket.getOutputStream());
@@ -90,4 +88,8 @@ public abstract class PrimitiveParser<T> implements Runnable{
      * @param command the command to manage
      */
     protected abstract void parseCommand(T command) throws ParsingException;
+
+    public static PrimitiveParser getInstance(Socket clientSocket) throws IOException {
+        return null;
+    }
 }
