@@ -1,8 +1,9 @@
 package middleware.group;
 
 import lombok.SneakyThrows;
-import middleware.networkThreads.ConnectionAcceptor;
+import middleware.networkThreads.P2PConnection;
 import middleware.primitives.GroupCommands;
+import templates.ServerSocketRunnable;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -22,7 +23,7 @@ public class GroupManager {
     public GroupManager(String id, int port) throws IOException {
         this.MY_DEVICE_NAME = id;
         this.PORT = port;
-        new Thread(new ConnectionAcceptor(this.PORT)).start();
+        new Thread(new ServerSocketRunnable<P2PConnection>(this.PORT)).start();
     }
 
     public void join(String knownHost) throws IOException {

@@ -1,10 +1,11 @@
 package distributedStorage;
 
 import distributedStorage.database.DatabaseManager;
-import distributedStorage.network.ClientConnectionManager;
+import distributedStorage.network.ClientCommandListener;
 import lombok.Getter;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
+import templates.ServerSocketRunnable;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -51,7 +52,7 @@ public class Main {
     private static DatabaseManager databaseManager = new DatabaseManager();
 
     /**
-     * Starts a {@link ClientConnectionManager} and (if not the first replica) calls {@link MessagingMiddleware#join(String)}.
+     * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join(String)}.
      * Adds {@link MessagingMiddleware#leave()} during the {@link Runtime#addShutdownHook(Thread)} method
      * @param args the command line arguments
      * <table>
@@ -79,7 +80,7 @@ public class Main {
      *     <tr>
      *         <td>{@value CLIENT_PORT_INDEX}</td>
      *         <td>Custom port for client-server communication. Use {@value ILLEGAL_PORT} to use a default port</td>
-     *         <td>N</td>
+     *         <td>Y</td>
      *     </tr>
      * </table>
      */
@@ -94,16 +95,17 @@ public class Main {
         final String id = args[ID_INDEX];
         final String knownHost = args[KNOWN_HOST_INDEX];
         final int middlewarePort = parsePortArgs(args,MIDDLEWARE_PORT_INDEX);
-        final int clientPort = parsePortArgs(args,CLIENT_PORT_INDEX);
+        final int clientPort = Integer.parseInt(args[CLIENT_PORT_INDEX]);
         messagingMiddleware = messagingMiddleware(id, middlewarePort);
 
-        new Thread(clientConnectionManager(clientPort)).start();
-
-        //Very first replica has no group to join
-        if(!FIRST_REPLICA_DISCRIMINATOR.equals(knownHost)) try {
-            messagingMiddleware.join(knownHost);
-        } catch (IOException e) {
-            logger.severe("Unable to join the group");
+        try {
+            new Thread(new ServerSocketRunnable<ClientCommandListener>(clientPort)).start();
+            //Very first replica has no group to join
+            if(!FIRST_REPLICA_DISCRIMINATOR.equals(knownHost))
+                messagingMiddleware.join(knownHost);
+        }catch (IOException e){
+            logger.severe("IO exception occurred at startup");
+            e.printStackTrace();
             return;
         }
 
@@ -140,24 +142,6 @@ public class Main {
         return port==ILLEGAL_PORT?
                 new MessagingMiddlewareImpl(id):
                 new MessagingMiddlewareImpl(id,port);
-    }
-
-    /**
-     * Tries to create a {@link ClientConnectionManager} using {@link ClientConnectionManager#ClientConnectionManager(int)} if {@code port!={@value ILLEGAL_PORT}}, using {@link ClientConnectionManager#ClientConnectionManager()} otherwise.
-     * If an {@link IOException} is thrown, stops the application
-     * @param port The port to use to communicate with the clients.
-     * @return A configured {@link ClientConnectionManager}.
-     */
-    private static ClientConnectionManager clientConnectionManager(int port) {
-        try {
-            return port == ILLEGAL_PORT ?
-                    new ClientConnectionManager() :
-                    new ClientConnectionManager(port);
-        }catch (IOException e){
-            logger.severe("cannot start ClientConnectionManager");
-            System.exit(1);
-            return null;
-        }
     }
 
 }
