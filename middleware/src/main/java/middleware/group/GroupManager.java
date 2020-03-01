@@ -1,6 +1,8 @@
 package middleware.group;
 
 import lombok.SneakyThrows;
+import middleware.networkThreads.ConnectionAcceptor;
+import middleware.primitives.GroupCommands;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,11 +19,10 @@ public class GroupManager {
     private Map<String,NodeInfo> replicas = new HashMap<>();
     private Socket targetSocket;
 
-    public GroupManager(String id, int port){
+    public GroupManager(String id, int port) throws IOException {
         this.MY_DEVICE_NAME = id;
         this.PORT = port;
-
-        //TODO: start a server socket thread
+        new Thread(new ConnectionAcceptor(this.PORT)).start();
     }
 
     public void join(String knownHost) throws IOException {

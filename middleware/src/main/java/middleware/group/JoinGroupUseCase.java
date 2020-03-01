@@ -52,7 +52,7 @@ public class JoinGroupUseCase {
         socketMap.entrySet().stream().forEach(replica -> {
             try {
                 ObjectOutputStream out = new ObjectOutputStream(replica.getValue().getOutputStream());
-                out.writeObject(GroupCommands.READY);
+                out.writeObject(GroupCommands.ACK);
             } catch (IOException e) {
                 e.printStackTrace();
             }
