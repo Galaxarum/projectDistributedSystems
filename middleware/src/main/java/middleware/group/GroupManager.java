@@ -31,9 +31,7 @@ public class GroupManager <K,V>{
 
     public Map<K,V> join(String knownHost) throws IOException {
         getReplicas(knownHost);
-
-        new JoinGroupUseCase(this.targetSocket, this.replicas, this.MY_DEVICE_NAME, this.PORT).execute();
-
+        return new JoinGroupUseCase<K,V>(this.targetSocket, this.socketMap).execute();
     }
 
     @SneakyThrows(ClassNotFoundException.class)

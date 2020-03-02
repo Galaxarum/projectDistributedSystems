@@ -1,5 +1,6 @@
 package middleware.group;
 
+import exceptions.BrokenProtocolException;
 import middleware.primitives.GroupCommands;
 
 import java.io.IOException;
@@ -9,49 +10,35 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JoinGroupUseCase {
-    private Map<String,NodeInfo> replicas;
-    private Map<String, Socket> socketMap = new HashMap<>();
-    private String myDeviceName;
-    private int myPort;
+public class JoinGroupUseCase <K,V>{
+    private Map<String, Socket> socketMap;
     private Socket targetSocket;
 
-    public JoinGroupUseCase(Socket targetSocket, Map<String, NodeInfo> replicas, String myDeviceName, int myPort) {
-        this.replicas = replicas;
-        this.myDeviceName = myDeviceName;
-        this.myPort = myPort;
+    public JoinGroupUseCase(Socket targetSocket, Map<String, Socket> socketMap) {
         this.targetSocket = targetSocket;
+        this.socketMap = socketMap;
     }
 
-    public void execute() throws IOException {
-        sendJoin();
-        sendSync(targetSocket);
-        sendReadyToAll();
+    public Map<K,V> execute() throws IOException {
+        Map<K,V> data = synch(targetSocket);
+        multicastAck();
+        return data;
     }
 
-    private void sendJoin(){
-        socketMap.entrySet().stream().forEach(replica -> {
-            try{
-                ObjectOutputStream newOut = new ObjectOutputStream(replica.getValue().getOutputStream());
-                newOut.writeObject(GroupCommands.JOINING);
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-        });
-    }
-
-    private void sendSync(Socket targetSocket) throws IOException {
+    private Map<K,V> synch(Socket targetSocket) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(targetSocket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(targetSocket.getInputStream());
-
         out.writeObject(GroupCommands.SYNC);
-        out.writeObject(myDeviceName);
+        try {
+            return (Map<K,V>) in.readObject();
+        }catch (ClassCastException | ClassNotFoundException e){
+            throw new BrokenProtocolException("Impossible to initialize data from known replica",e);
+        }
     }
 
-    private void sendReadyToAll()  {
-        socketMap.entrySet().stream().forEach(replica -> {
-            try {
-                ObjectOutputStream out = new ObjectOutputStream(replica.getValue().getOutputStream());
+    private void multicastAck() {
+        socketMap.forEach((key, value) -> {
+            try(ObjectOutputStream out = new ObjectOutputStream(value.getOutputStream());) {
                 out.writeObject(GroupCommands.ACK);
             } catch (IOException e) {
                 e.printStackTrace();
