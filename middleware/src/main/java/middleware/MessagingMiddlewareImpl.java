@@ -4,16 +4,17 @@ import middleware.group.GroupManager;
 import middleware.primitives.DataOperations;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class MessagingMiddlewareImpl implements MessagingMiddleware<String,Object> {
 
     public static final int DEFAULT_PORT = 12345;
 
-    private final GroupManager groupManager;
+    private final GroupManager<String,Object> groupManager;
 
 
     public MessagingMiddlewareImpl(String id, int port) throws IOException {
-        this.groupManager = new GroupManager(id, port);
+        this.groupManager = new GroupManager<>(id, port);
     }
 
     public MessagingMiddlewareImpl(String id) throws IOException {
@@ -21,8 +22,8 @@ public class MessagingMiddlewareImpl implements MessagingMiddleware<String,Objec
     }
 
     @Override
-    public void join(String knownHost) throws IOException {
-        groupManager.join(knownHost);
+    public Map<String, Object> join(String knownHost) throws IOException {
+        return groupManager.join(knownHost);
     }
 
     @Override

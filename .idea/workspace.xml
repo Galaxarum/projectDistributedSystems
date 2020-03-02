@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +128,7 @@
       <workItem from="1582981644981" duration="267000" />
       <workItem from="1583072872857" duration="6800000" />
       <workItem from="1583080471391" duration="18000" />
-      <workItem from="1583166314428" duration="3503000" />
+      <workItem from="1583166314428" duration="3788000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -318,7 +312,35 @@
       <option name="project" value="LOCAL" />
       <updated>1583079666400</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Add BrokenProtocolException">
+      <created>1583169835652</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1583169835652</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Update PrimitiveParser, ServerSocketRunnable&#10;Finalized generic instantiation in ServerSocketRunnable&#10;Removed method PrimitiveParser.getInstance">
+      <created>1583169896700</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1583169896700</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Update GroupManager&#10;-Generified GroupManager&#10;-Made GroupManager.join return the initial data (received after synch)&#10;-Finalized JOIN and JOINING behaviour">
+      <created>1583170015842</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1583170015842</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls">
+      <created>1583170104332</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1583170104332</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,10 +360,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Still beginning" />
-    <MESSAGE value="Update README.md" />
-    <MESSAGE value="Update pom.xml, update ReplicaList" />
-    <MESSAGE value="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener" />
     <MESSAGE value="Update Main, ReplicaList (rationalized)" />
     <MESSAGE value="Refactored into two different modules" />
     <MESSAGE value="Added JoinGroupUseCase and DatabaseManager" />
@@ -363,7 +381,11 @@
     <MESSAGE value="Update GroupManager, JoinGroupUseCase" />
     <MESSAGE value="Add ServerSocketRunnable, Removed ConnectionAcceptor.java, ClientConnectionManager.java" />
     <MESSAGE value="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl" />
+    <MESSAGE value="Add BrokenProtocolException" />
+    <MESSAGE value="Update PrimitiveParser, ServerSocketRunnable&#10;Finalized generic instantiation in ServerSocketRunnable&#10;Removed method PrimitiveParser.getInstance" />
+    <MESSAGE value="Update GroupManager&#10;-Generified GroupManager&#10;-Made GroupManager.join return the initial data (received after synch)&#10;-Finalized JOIN and JOINING behaviour" />
+    <MESSAGE value="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -421,11 +443,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583079012257" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583170015663">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583170104130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583170015663" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583170104130" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
