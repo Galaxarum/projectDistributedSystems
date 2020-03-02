@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientConnectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/networkThreads/ConnectionAcceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/networkThreads/P2PConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/networkThreads/P2PConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +132,9 @@
       <workItem from="1582816865189" duration="11262000" />
       <workItem from="1582928225001" duration="4441000" />
       <workItem from="1582981644981" duration="267000" />
-      <workItem from="1583072872857" duration="6672000" />
+      <workItem from="1583072872857" duration="6800000" />
+      <workItem from="1583080471391" duration="18000" />
+      <workItem from="1583166314428" duration="3503000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -304,7 +304,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583077967490</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add ServerSocketRunnable, Removed ConnectionAcceptor.java, ClientConnectionManager.java">
+      <created>1583079639904</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1583079639904</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl">
+      <created>1583079666400</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1583079666400</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,8 +338,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Init workspace" />
-    <MESSAGE value="Added interfaces, main, scratch of SocketListener" />
     <MESSAGE value="Still beginning" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Update pom.xml, update ReplicaList" />
@@ -349,7 +361,9 @@
     <MESSAGE value="Update ClientCommandListener to extend PrimitiveParser" />
     <MESSAGE value="Moved GroupCommands" />
     <MESSAGE value="Update GroupManager, JoinGroupUseCase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManager, JoinGroupUseCase" />
+    <MESSAGE value="Add ServerSocketRunnable, Removed ConnectionAcceptor.java, ClientConnectionManager.java" />
+    <MESSAGE value="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -382,6 +396,10 @@
     </state>
     <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582928272214" />
     <state x="787" y="417" width="293" height="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582993375797" />
+    <state x="643" y="250" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583166323759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="643" y="250" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583166323759" />
     <state x="496" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582997171479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -403,11 +421,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583079012257" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583079639731">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583079666248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583079639731" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583079666247" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -446,29 +464,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583002352403">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583079667838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583002352403" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583079667838" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583077218036" />
-    <state x="643" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1583072874650">
+    <state x="643" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1583166316928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="563" y="349" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582980714678" />
-    <state x="643" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583072874650" />
+    <state x="643" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583166316928" />
     <state x="483" y="302" key="com.intellij.ide.util.TipDialog/0.23.1440.838@0.23.1440.838" timestamp="1582981654807" />
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582799463706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
-    <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583072981802">
+    <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583166395921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583072981802" />
+    <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583166395921" />
     <state x="578" y="299" key="extract.method.dialog" timestamp="1582931101680">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
