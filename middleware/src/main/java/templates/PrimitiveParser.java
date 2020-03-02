@@ -1,10 +1,12 @@
 package templates;
 
 import exceptions.ParsingException;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.ParameterizedType;
 import java.net.Socket;
 import java.util.logging.Logger;
 
@@ -89,7 +91,4 @@ public abstract class PrimitiveParser<T> implements Runnable{
      */
     protected abstract void parseCommand(T command) throws ParsingException;
 
-    public static PrimitiveParser getInstance(Socket clientSocket) throws IOException {
-        return null;
-    }
 }
