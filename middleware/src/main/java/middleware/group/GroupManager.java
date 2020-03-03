@@ -24,10 +24,14 @@ public class GroupManager <K,V>{
     // OPT: this is mandatory only for the leader replica
     private Map<String,NodeInfo> replicas = new HashMap<>();
 
-    public GroupManager(String id, int port, String leaderHost) throws IOException {
-        this.MY_ID = id;
-        this.leaderSocket = new Socket(leaderHost,port);
-        new Thread(new ServerSocketRunnable<P2PConnection>(port)).start();
+    public GroupManager(String id, int port, String leaderHost) {
+        try {
+            this.MY_ID = id;
+            this.leaderSocket = new Socket(leaderHost, port);
+            new Thread(new ServerSocketRunnable<P2PConnection>(port)).start();
+        }catch (IOException e){
+            throw new BrokenProtocolException("Impossible to initialize the connection",e);
+        }
     }
 
     /**

@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/DataOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/PrimitiveOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/PrimitiveOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +132,7 @@
       <workItem from="1583072872857" duration="6800000" />
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
-      <workItem from="1583227007738" duration="5825000" />
+      <workItem from="1583227007738" duration="6437000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -382,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583232095904</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Javadocs">
+      <created>1583233001203</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1583233001203</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reduced previous commit" />
     <MESSAGE value="Moved package database into applicative module" />
     <MESSAGE value="Update MessagingMiddleware&#10;Added generic types" />
     <MESSAGE value="Update MessagingMiddlewareImpl&#10;-Added generics&#10;-Cleaned up misplaced attributes" />
@@ -427,7 +430,8 @@
     <MESSAGE value="Add Primitive (marker interface) and PrimitiveOps (containing utility validation methods)" />
     <MESSAGE value="Update DataOperations, GroupCommands&#10;-Implementing Primitive marker interface&#10;-Added 'LEAVE' to GroupCommands" />
     <MESSAGE value="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager" />
+    <MESSAGE value="Javadocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Javadocs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -450,11 +454,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="866" y="273" width="424" height="579" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582995353835" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1583232856755">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1583233199927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1582932411091" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583232856755" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583233199927" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -489,11 +493,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583230055143" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583232095706">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583233001077">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583232095706" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583233001077" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
