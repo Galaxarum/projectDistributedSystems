@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/PrimitiveOps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/JoinGroupUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/DataOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/PrimitiveOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/PrimitiveOps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +135,7 @@
       <workItem from="1583072872857" duration="6800000" />
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
-      <workItem from="1583227007738" duration="4829000" />
+      <workItem from="1583227007738" duration="5825000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -354,7 +354,35 @@
       <option name="project" value="LOCAL" />
       <updated>1583170158418</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Update BrokenProtocolException&#10;Extending IllegalStateException instead of IllegalArgumentException">
+      <created>1583231924750</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1583231924750</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Add Primitive (marker interface) and PrimitiveOps (containing utility validation methods)">
+      <created>1583231938348</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1583231938348</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Update DataOperations, GroupCommands&#10;-Implementing Primitive marker interface&#10;-Added 'LEAVE' to GroupCommands">
+      <created>1583232043750</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1583232043750</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager">
+      <created>1583232095904</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1583232095904</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,10 +402,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored into two different modules" />
-    <MESSAGE value="Added JoinGroupUseCase and DatabaseManager" />
-    <MESSAGE value="Added Main, ClientConnectionManager, ClientCommandListener" />
-    <MESSAGE value="Moved package database into the applicative module" />
     <MESSAGE value="Reduced previous commit" />
     <MESSAGE value="Moved package database into applicative module" />
     <MESSAGE value="Update MessagingMiddleware&#10;Added generic types" />
@@ -399,7 +423,11 @@
     <MESSAGE value="Update GroupManager&#10;-Generified GroupManager&#10;-Made GroupManager.join return the initial data (received after synch)&#10;-Finalized JOIN and JOINING behaviour" />
     <MESSAGE value="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls" />
     <MESSAGE value="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Made MessagingMiddleware.join return the received map&#10;-Added support for generic typed Group Manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Made MessagingMiddleware.join return the received map&#10;-Added support for generic typed Group Manager" />
+    <MESSAGE value="Update BrokenProtocolException&#10;Extending IllegalStateException instead of IllegalArgumentException" />
+    <MESSAGE value="Add Primitive (marker interface) and PrimitiveOps (containing utility validation methods)" />
+    <MESSAGE value="Update DataOperations, GroupCommands&#10;-Implementing Primitive marker interface&#10;-Added 'LEAVE' to GroupCommands" />
+    <MESSAGE value="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -422,11 +450,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="866" y="273" width="424" height="579" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582995353835" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1583078284586">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1583232856755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1582932411091" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583078284586" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583232856755" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -461,11 +489,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583230055143" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583232043578">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583232095706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583232043578" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583232095706" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -504,11 +532,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583170160834">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583232097873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583170160834" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583232097873" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

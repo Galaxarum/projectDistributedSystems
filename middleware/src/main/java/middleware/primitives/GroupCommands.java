@@ -1,7 +1,8 @@
 package middleware.primitives;
 
-import exceptions.BrokenProtocolException;
-
+/**
+ * This {@linkplain Primitive} contains the commands used for group management
+ */
 public enum GroupCommands implements Primitive{
     /**
      * Sent to the known host when joining
@@ -19,6 +20,9 @@ public enum GroupCommands implements Primitive{
      * Used to confirm the execution of some operations
      */
     ACK,
+    /**
+     * Sent to other replica to signal intention to leave
+     */
     LEAVE;
 
 

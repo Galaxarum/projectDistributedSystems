@@ -1,5 +1,8 @@
 package exceptions;
 
+/**
+ * This exception should be raised when a communication protocol doesn't behave as expected
+ */
 public class BrokenProtocolException extends IllegalArgumentException {
     public BrokenProtocolException(String s){
         super(s);
