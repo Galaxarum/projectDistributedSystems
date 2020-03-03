@@ -1,6 +1,6 @@
 package exceptions;
 
-public class BrokenProtocolException extends IllegalStateException {
+public class BrokenProtocolException extends IllegalArgumentException {
     public BrokenProtocolException(String s){
         super(s);
     }
