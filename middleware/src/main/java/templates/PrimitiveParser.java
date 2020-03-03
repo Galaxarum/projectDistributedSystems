@@ -1,6 +1,7 @@
 package templates;
 
 import exceptions.ParsingException;
+import middleware.primitives.Primitive;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -8,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-public abstract class PrimitiveParser<T> implements Runnable{
+public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
     /**
      * The connection to the client
      */
@@ -34,7 +35,7 @@ public abstract class PrimitiveParser<T> implements Runnable{
 
     /**
      * While {@linkplain #clientSocket} is opened,
-     * calls {@linkplain #parseCommand(Object)} over the next command in {@linkplain #in}.
+     * calls {@linkplain #parseCommand(Primitive)} over the next command in {@linkplain #in}.
      * Catches {@link ParsingException}, {@link ClassCastException}, {@link ClassNotFoundException}, {@link IOException} logging the exception and closing the connection
      */
     @Override

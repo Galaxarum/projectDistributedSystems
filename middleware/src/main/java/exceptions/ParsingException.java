@@ -5,7 +5,7 @@ import lombok.Getter;
 public class ParsingException extends Exception {
 
     @Getter
-    private String unexpectedCommand;
+    private final String unexpectedCommand;
 
     public ParsingException(String unexpectedCommand){
         this(unexpectedCommand, null);

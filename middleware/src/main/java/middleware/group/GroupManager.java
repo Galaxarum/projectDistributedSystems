@@ -38,7 +38,6 @@ public class GroupManager <K,V>{
     }
 
     /**
-     * {@inheritDoc}
      * This implementation runs the following communication protocol:
      * <ul>
      *     <li>Inform the leader of the fact you're joining</li>
@@ -82,7 +81,6 @@ public class GroupManager <K,V>{
     }
 
     /**
-     * {@inheritDoc}
      * This implementation runs the following communication protocol for each known replica:
      * <ul>
      *     <li>Inform the replica of your intention to leave the group</li>

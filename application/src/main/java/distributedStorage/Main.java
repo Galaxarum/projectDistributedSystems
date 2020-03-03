@@ -50,7 +50,7 @@ public class Main {
      * Used to manage the local data
      */
     @Getter
-    private static DatabaseManager databaseManager = new DatabaseManager();
+    private final static DatabaseManager databaseManager = new DatabaseManager();
 
     /**
      * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join()}.

@@ -1,6 +1,7 @@
 package templates;
 
 import middleware.networkThreads.P2PConnection;
+import middleware.primitives.Primitive;
 
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
@@ -8,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-public class ServerSocketRunnable<T extends PrimitiveParser> implements Runnable {
+public class ServerSocketRunnable<T extends PrimitiveParser<? extends Primitive>> implements Runnable {
     /**
      * Used to accept connections with the other replicas
      */

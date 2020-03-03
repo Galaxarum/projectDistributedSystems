@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocksManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocksManager.java" afterDir="false" />
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Fixed some warnings">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/ParsingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/exceptions/ParsingException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
@@ -135,7 +135,7 @@
       <workItem from="1583072872857" duration="6800000" />
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
-      <workItem from="1583227007738" duration="7110000" />
+      <workItem from="1583227007738" duration="7672000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -424,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583234120394</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fixed some warnings">
+      <created>1583234163728</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1583234163728</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update MessagingMiddlewareImpl&#10;Removed unused 'throws'" />
     <MESSAGE value="Update ClientCommandListener&#10;Added some code" />
     <MESSAGE value="Update Main&#10;Rationalized execution flow" />
     <MESSAGE value="Documented Main" />
@@ -469,7 +475,8 @@
     <MESSAGE value="Update Main&#10;-Adapted to latest commits" />
     <MESSAGE value="Moved DataOperations to application level" />
     <MESSAGE value="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl" />
+    <MESSAGE value="Fixed some warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some warnings" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -531,19 +538,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583230055143" />
-    <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583233644626">
+    <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583234585859">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583233644626" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583234120275">
+    <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583234583151">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583234120275" />
-    <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583234583151" />
+    <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583234570438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="100" y="99" width="1720" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583000797721" />
+    <state x="100" y="99" width="1720" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583234570438" />
     <state x="743" y="223" width="424" height="586" key="FileChooserDialogImpl" timestamp="1582799570066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -614,10 +621,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="376" y="142" width="1157" height="748" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1582822596209" />
-    <state x="545" y="230" width="670" height="685" key="search.everywhere.popup" timestamp="1582931684020">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1583234504755">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="545" y="230" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1582931684020" />
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582823701936" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583234504755" />
   </component>
 </project>
