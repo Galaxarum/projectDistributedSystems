@@ -36,8 +36,4 @@ public class P2PConnection extends PrimitiveParser<GroupCommands> {
         }
     }
 
-    public static P2PConnection getInstance(Socket clientSocket) throws IOException {
-        return new P2PConnection(clientSocket);
-    }
-
 }

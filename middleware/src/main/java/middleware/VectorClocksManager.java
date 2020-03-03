@@ -1,6 +1,7 @@
 package middleware;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -16,11 +17,8 @@ public class VectorClocksManager {
     /**
      * Maps ids to clocks
      */
+    @Getter
     private VectorClocks clocks = new VectorClocks();
-    
-    public VectorClocks getClocks(){
-   	 return clocks;
-    }
     
     public void add(String deviceId, Integer timestamp) {
    	 clocks.put(deviceId, timestamp);
