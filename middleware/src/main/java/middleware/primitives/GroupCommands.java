@@ -1,6 +1,8 @@
 package middleware.primitives;
 
-public enum GroupCommands {
+import exceptions.BrokenProtocolException;
+
+public enum GroupCommands implements Primitive{
     /**
      * Sent to the known host when joining
      */
@@ -16,5 +18,8 @@ public enum GroupCommands {
     /**
      * Used to confirm the execution of some operations
      */
-    ACK
+    ACK,
+    LEAVE;
+
+
 }

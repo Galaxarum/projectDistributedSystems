@@ -1,6 +1,6 @@
 package middleware.primitives;
 
-public enum DataOperations {
+public enum DataOperations implements Primitive{
     PUT,
     GET,
     DELETE
