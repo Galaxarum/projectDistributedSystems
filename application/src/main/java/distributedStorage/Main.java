@@ -3,8 +3,10 @@ package distributedStorage;
 import distributedStorage.database.DatabaseManager;
 import distributedStorage.network.ClientCommandListener;
 import lombok.Getter;
+import lombok.SneakyThrows;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
+import middleware.primitives.Primitive;
 import primitives.DataOperations;
 import templates.ServerSocketRunnable;
 
@@ -33,6 +35,7 @@ public class Main {
      * The index in args where the port to use for communications with the client is expected
      */
     public static final int CLIENT_PORT_INDEX = 3;
+    public static final int STORAGE_PATH_INDEX = 4;
     /**
      * The value that will be assigned to an illegal or missing port specification
      */
@@ -50,7 +53,7 @@ public class Main {
      * Used to manage the local data
      */
     @Getter
-    private final static DatabaseManager databaseManager = new DatabaseManager();
+    private static DatabaseManager<String,Object> databaseManager;
 
     /**
      * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join()}.
@@ -85,7 +88,7 @@ public class Main {
      *     </tr>
      * </table>
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //Stop if some mandatory parameter is missing
         if(args.length<=Integer.max(ID_INDEX,KNOWN_HOST_INDEX)){
             final String error = "Id or known host missing";
@@ -97,7 +100,12 @@ public class Main {
         final String leaderHost = args[KNOWN_HOST_INDEX];
         final int middlewarePort = parsePortArgs(args,MIDDLEWARE_PORT_INDEX);
         final int clientPort = Integer.parseInt(args[CLIENT_PORT_INDEX]);
-        messagingMiddleware = messagingMiddleware(id, middlewarePort, leaderHost);
+        final String persistencePath = args[STORAGE_PATH_INDEX];
+
+        messagingMiddleware = middlewarePort==ILLEGAL_PORT?
+                new MessagingMiddlewareImpl<>(id,leaderHost):
+                new MessagingMiddlewareImpl<>(id,middlewarePort,leaderHost);
+        databaseManager = DatabaseManager.getInstance(persistencePath,String.class,Object.class);
 
         try {
             new Thread(new ServerSocketRunnable<ClientCommandListener>(clientPort)).start();
@@ -114,6 +122,8 @@ public class Main {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             logger.finest("Leaving the group");
             messagingMiddleware.leave();
+            logger.finest("Closing db state");
+            databaseManager.close();
             logger.finest("Shutdown completed");
         }));
     }
@@ -131,18 +141,6 @@ public class Main {
         }catch (ArrayIndexOutOfBoundsException | NumberFormatException e){
             return ILLEGAL_PORT;
         }
-    }
-
-    /**
-     * Creates a {@link MessagingMiddleware} with the given parameters, evaluating the validity of the given port
-     * @param id The id of this replica
-     * @param port The port on which the middleware should operate
-     * @return a {@link MessagingMiddleware} configured with the given parameters
-     */
-    private static MessagingMiddleware<String,Object, DataOperations> messagingMiddleware(String id, int port,String leader){
-        return port==ILLEGAL_PORT?
-                new MessagingMiddlewareImpl<>(id,leader):
-                new MessagingMiddlewareImpl<>(id,port,leader);
     }
 
 }
