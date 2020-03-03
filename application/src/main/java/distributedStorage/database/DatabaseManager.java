@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.io.*;
-import java.net.URI;
 import java.util.Hashtable;
 
 public class DatabaseManager <K,V>{
@@ -48,13 +47,9 @@ public class DatabaseManager <K,V>{
         return (DatabaseManager<K, V>) instance;
     }
 
-    @SuppressWarnings("unchecked")
-    public static <K,V> DatabaseManager<K,V> getInstance(URI persistenceURI,Class<K> keyClass, Class<V> valueClass) throws IOException {
-        if(instance == null){
-            return new DatabaseManager<K, V>(new File(persistenceURI),keyClass,valueClass);
-        }else if(!(DatabaseManager.keyClass.equals(keyClass) && DatabaseManager.valueClass.equals(valueClass)))
-            throw new IllegalAccessError("Trying to change data type is forbidden");
-        return (DatabaseManager<K, V>) instance;
+    @SneakyThrows
+    public void close() {
+        persist();
+        fileOut.close();
     }
-
 }

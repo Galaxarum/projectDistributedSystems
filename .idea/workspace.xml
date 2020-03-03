@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +134,7 @@
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
       <workItem from="1583227007738" duration="7859000" />
-      <workItem from="1583240003912" duration="3246000" />
+      <workItem from="1583240003912" duration="8254000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -448,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583242520743</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour">
+      <created>1583243413348</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1583243413348</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +478,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add ParsingException, ConnectionAcceptor, P2PConnection" />
     <MESSAGE value="Update ClientCommandListener to extend PrimitiveParser" />
     <MESSAGE value="Moved GroupCommands" />
     <MESSAGE value="Update GroupManager, JoinGroupUseCase" />
@@ -493,7 +502,8 @@
     <MESSAGE value="Fixed more warnings" />
     <MESSAGE value="Update NodeInfo, P2PConnection, VectorClocksManager&#10;-Replaced boilerplate code using Lombok&#10;-removed useless method in P2PConnection" />
     <MESSAGE value="Update DatabaseManager, Removed Database.java&#10;- DatabaseManager made a singleton class&#10;- Added primitives to DatabaseManager&#10;- Replaced Database.java with a simple HashMap" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update DatabaseManager, Removed Database.java&#10;- DatabaseManager made a singleton class&#10;- Added primitives to DatabaseManager&#10;- Replaced Database.java with a simple HashMap" />
+    <MESSAGE value="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -504,10 +514,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="180" width="800" height="672" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1582798685276" />
-    <state x="555" y="180" width="800" height="672" key="#TODO" timestamp="1583228472741">
+    <state x="555" y="180" width="800" height="672" key="#TODO" timestamp="1583247998779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="180" width="800" height="672" key="#TODO/0.0.1920.1040@0.0.1920.1040" timestamp="1583228472741" />
+    <state x="555" y="180" width="800" height="672" key="#TODO/0.0.1920.1040@0.0.1920.1040" timestamp="1583247998779" />
     <state x="541" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582995504843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -516,11 +526,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="866" y="273" width="424" height="579" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582995353835" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1583233199927">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1583246204073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1582932411091" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583233199927" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583246204073" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -559,11 +569,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583242520316">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583248118837">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583242520316" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248118837" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583234570438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -602,11 +612,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583242577666">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583243415953">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583242577666" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583243415953" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -638,6 +648,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="376" y="142" width="1157" height="748" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1582822596209" />
+    <state x="705" y="150" width="500" height="732" key="refactoring.ChangeSignatureDialog" timestamp="1583246376286">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="705" y="150" width="500" height="732" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583246376286" />
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1583234504755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

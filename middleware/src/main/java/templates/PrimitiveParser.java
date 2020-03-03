@@ -1,5 +1,6 @@
 package templates;
 
+import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
 import middleware.primitives.Primitive;
 
@@ -57,6 +58,7 @@ public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
                 stop();
             }
         }
+        stop();
     }
 
     /**
@@ -80,8 +82,17 @@ public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
     protected final void writeObjectSafe(Object object){
         try{
             out.writeObject(object);
+            out.flush();
         } catch (IOException e) {
-            logger.fine("IOException happened when writing on the following stream: "+out.toString()+". The connection will be interrupted");
+            throw new BrokenProtocolException("IOException happened when writing on the following stream: "+out.toString()+". The connection will be interrupted");
+        }
+    }
+
+    protected final Object readObjectSafe(){
+        try {
+            return in.readObject();
+        }catch (IOException | ClassNotFoundException e){
+            throw new BrokenProtocolException("Unable to read incoming data from the stream: "+in.toString());
         }
     }
 
