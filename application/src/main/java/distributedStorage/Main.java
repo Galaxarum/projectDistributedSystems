@@ -5,6 +5,7 @@ import distributedStorage.network.ClientCommandListener;
 import lombok.Getter;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
+import middleware.primitives.DataOperations;
 import templates.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class Main {
      * Used to communicate with the other replicas end enforce the required communication properties
      */
     @Getter
-    private static MessagingMiddleware<String,Object> messagingMiddleware;
+    private static MessagingMiddleware<String,Object,DataOperations> messagingMiddleware;
     /**
      * Used to manage the local data
      */
@@ -52,7 +53,7 @@ public class Main {
     private static DatabaseManager databaseManager = new DatabaseManager();
 
     /**
-     * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join(String)}.
+     * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join()}.
      * Adds {@link MessagingMiddleware#leave()} during the {@link Runtime#addShutdownHook(Thread)} method
      * @param args the command line arguments
      * <table>
@@ -69,7 +70,7 @@ public class Main {
      *     </tr>
      *     <tr>
      *         <td>{@value KNOWN_HOST_INDEX}</td>
-     *         <td>The address of a running replica</td>
+     *         <td>The address of the leader replica</td>
      *         <td>Y</td>
      *     </tr>
      *     <tr>
@@ -93,16 +94,16 @@ public class Main {
         }
 
         final String id = args[ID_INDEX];
-        final String knownHost = args[KNOWN_HOST_INDEX];
+        final String leaderHost = args[KNOWN_HOST_INDEX];
         final int middlewarePort = parsePortArgs(args,MIDDLEWARE_PORT_INDEX);
         final int clientPort = Integer.parseInt(args[CLIENT_PORT_INDEX]);
-        messagingMiddleware = messagingMiddleware(id, middlewarePort);
+        messagingMiddleware = messagingMiddleware(id, middlewarePort, leaderHost);
 
         try {
             new Thread(new ServerSocketRunnable<ClientCommandListener>(clientPort)).start();
             //Very first replica has no group to join
-            if(!FIRST_REPLICA_DISCRIMINATOR.equals(knownHost))
-                messagingMiddleware.join(knownHost);
+            if(!FIRST_REPLICA_DISCRIMINATOR.equals(leaderHost))
+                messagingMiddleware.join();
         }catch (IOException e){
             logger.severe("IO exception occurred at startup");
             e.printStackTrace();
@@ -138,10 +139,10 @@ public class Main {
      * @param port The port on which the middleware should operate
      * @return a {@link MessagingMiddleware} configured with the given parameters
      */
-    private static MessagingMiddleware<String,Object> messagingMiddleware(String id, int port){
+    private static MessagingMiddleware<String,Object, DataOperations> messagingMiddleware(String id, int port,String leader){
         return port==ILLEGAL_PORT?
-                new MessagingMiddlewareImpl(id):
-                new MessagingMiddlewareImpl(id,port);
+                new MessagingMiddlewareImpl<>(id,leader):
+                new MessagingMiddlewareImpl<>(id,port,leader);
     }
 
 }
