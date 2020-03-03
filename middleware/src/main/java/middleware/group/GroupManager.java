@@ -1,9 +1,9 @@
 package middleware.group;
 
 import exceptions.BrokenProtocolException;
-import lombok.SneakyThrows;
 import middleware.networkThreads.P2PConnection;
 import middleware.primitives.GroupCommands;
+import middleware.primitives.PrimitiveOps;
 import templates.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -13,59 +13,131 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-import static middleware.primitives.GroupCommands.*;
 
 public class GroupManager <K,V>{
 
     private final String MY_ID;
-    private final int PORT;
-    private Map<String,Socket> socketMap = new HashMap<>();   //TODO: this must be shared with messaging middleware impl
+    private final Socket leaderSocket;
+    //TODO: this must be shared with messaging middleware impl
+    private Map<String,Socket> socketMap = new HashMap<>();
+    //TODO: this must be shared with messaging middleware impl
+    // OPT: this is mandatory only for the leader replica
     private Map<String,NodeInfo> replicas = new HashMap<>();
-    private Socket targetSocket;
 
-    public GroupManager(String id, int port) throws IOException {
+    public GroupManager(String id, int port, String leaderHost) throws IOException {
         this.MY_ID = id;
-        this.PORT = port;
-        new Thread(new ServerSocketRunnable<P2PConnection>(this.PORT)).start();
+        this.leaderSocket = new Socket(leaderHost,port);
+        new Thread(new ServerSocketRunnable<P2PConnection>(port)).start();
     }
 
-    public Map<K,V> join(String knownHost) throws IOException {
-        getReplicas(knownHost);
-        return new JoinGroupUseCase<K,V>(this.targetSocket, this.socketMap).execute();
-    }
+    /**
+     * {@inheritDoc}
+     * This implementation runs the following communication protocol:
+     * <ul>
+     *     <li>Inform the leader of the fact you're joining</li>
+     *     <li>Receive replica list</li>
+     *     <li>Inform all the replicas of the fact you're joining</li>
+     *     <li>Ask the leader for a copy of the data</li>
+     *     <li>Ack the leader</li>
+     *     <li>Return the received data</li>
+     * </ul>
+     * @return A copy of the application data
+     * @implNote Since processes will never fail by assumption, we may assume that the known replica will always be the same replica (for instance the first replica created).
+     * This allows us to avoid implementing some kind of distributed mutex mechanism, keeping it a local mutex managed by the leader process
+     */
+    public Map<K,V> join() {
 
-    @SneakyThrows(ClassNotFoundException.class)
-    private void getReplicas(String knownHost) throws IOException {
-        targetSocket = new Socket(knownHost,PORT);
+        try(ObjectOutputStream out = new ObjectOutputStream(leaderSocket.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(leaderSocket.getInputStream())) {
 
-        ObjectOutputStream out = new ObjectOutputStream(targetSocket.getOutputStream());
-        ObjectInputStream in = new ObjectInputStream(targetSocket.getInputStream());
+            Map<K, V> data;
 
-        out.writeObject(JOIN);
-        out.writeObject(MY_ID);
+            out.writeObject(GroupCommands.JOIN);
+            out.writeObject(MY_ID);
 
-        try {
+            //Receive list of actual replicas from the leader (the list will include the leader itself)
             replicas = (Map<String, NodeInfo>) in.readObject();
-        }catch (ClassCastException e){
-            throw new BrokenProtocolException("Expected instance of "+ Map.class.getName()+" of parameters "+String.class.getName()+","+NodeInfo.class.getName(),e);
-        }
 
-        for (Map.Entry<String,NodeInfo> singleNode :replicas.entrySet()) {
-            final String id = singleNode.getKey();
-            final NodeInfo nodeInfo = singleNode.getValue();
-            Socket newSocket = new Socket(nodeInfo.getHostname(),nodeInfo.getPort());
-            try(ObjectOutputStream newOut = new ObjectOutputStream(newSocket.getOutputStream());
-                ObjectInputStream newIn = new ObjectInputStream(newSocket.getInputStream())){
-                    newOut.writeObject(JOINING);
-                    final GroupCommands ack = (GroupCommands) newIn.readObject();
-                    if(!ACK.equals(ack))
-                        throw new BrokenProtocolException("Expected "+ACK+" but "+newIn+" was received. This breaks the group joining protocol");
-            }
-            socketMap.put(id, newSocket);
+            replicas.forEach(this::initReplica);
+
+            //Get data from the master replica
+            out.writeObject(GroupCommands.SYNC);
+            data = (Map<K, V>) in.readObject();
+            out.writeObject(GroupCommands.ACK);
+            return data;
+
+        }catch (ClassNotFoundException | ClassCastException e) {
+            throw new BrokenProtocolException("Unexpected object received", e);
+        }catch (IOException e){
+            throw new BrokenProtocolException("Assumption on channel reliability failed");
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * This implementation runs the following communication protocol for each known replica:
+     * <ul>
+     *     <li>Inform the replica of your intention to leave the group</li>
+     *     <li>Send your id to allow identification of this replica</li>
+     *     <li>Wait for an ack</li>
+     * </ul>
+     * OPT: split send and receive for better parallelism
+     */
     public void leave() {
+        socketMap.forEach((id,socket)->{
+            try(ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(socket.getInputStream())){
 
+                //Inform current replica of leaving
+                out.writeObject(GroupCommands.LEAVE);
+                out.writeObject(MY_ID);
+
+                //Expect Ack
+                final GroupCommands ack = (GroupCommands) in.readObject();
+                PrimitiveOps.checkEquals(GroupCommands.ACK,ack);
+
+            } catch (IOException e) {
+                throw new BrokenProtocolException("Assumption on channel reliability failed");
+            } catch (ClassNotFoundException | ClassCastException e) {
+                throw new BrokenProtocolException("Unexpected object received",e);
+            }
+        });
+    }
+
+    /**
+     *This method will init a specific replica performing the following operations:
+     * <ul>
+     *     <li>Open a {@linkplain Socket} connection with the given replica, using the information holden into {@code nodeInfo}</li>
+     *     <li>Send {@linkplain GroupCommands#JOINING} to the replica</li>
+     *     <li>Wait for {@linkplain GroupCommands#ACK}</li>
+     *     <li>Store the tuple {@code <id, socket>} into {@linkplain #socketMap}</li>
+     * </ul>
+     * @param id the identifier of the replica to initialize
+     * @param nodeInfo the informations about the replica to initialize
+     */
+    //Inform other replicas of your existence and store a socket to communicate with them (They'll add you to their local list)
+    //OPT: Split sending JOINING and receiving ACK for better parallelism
+    private void initReplica(String id,NodeInfo nodeInfo){
+        try {
+
+            //Create a socket for the replica
+            Socket newSocket = new Socket(nodeInfo.getHostname(), nodeInfo.getPort());
+
+            //Send "JOINING" and expect "ACK"
+            try (ObjectOutputStream newOut = new ObjectOutputStream(newSocket.getOutputStream());
+                 ObjectInputStream newIn = new ObjectInputStream(newSocket.getInputStream())) {
+                newOut.writeObject(GroupCommands.JOINING);
+                final GroupCommands ack = (GroupCommands) newIn.readObject();
+                PrimitiveOps.checkEquals(GroupCommands.ACK,ack);
+            }
+
+            //Save the replica
+            socketMap.put(id, newSocket);
+
+        } catch (IOException e) {
+            throw new BrokenProtocolException("Assumption on channel reliability failed");
+        } catch (ClassNotFoundException | ClassCastException e) {
+            throw new BrokenProtocolException("Unexpected object received",e);
+        }
     }
 }
