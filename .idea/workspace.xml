@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour">
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +131,7 @@
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
       <workItem from="1583227007738" duration="7859000" />
-      <workItem from="1583240003912" duration="8254000" />
+      <workItem from="1583240003912" duration="8510000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -458,7 +455,28 @@
       <option name="project" value="LOCAL" />
       <updated>1583243413348</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Update DatabaseManager&#10;Removed useless modules">
+      <created>1583248354436</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1583248354436</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Update ClientCommandListener&#10;Extended ClientCommandListener.parseCommand method">
+      <created>1583248405213</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1583248405213</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Update Main&#10;Added DatabaseManager initialization and usage">
+      <created>1583248466756</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1583248466756</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,9 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update ClientCommandListener to extend PrimitiveParser" />
-    <MESSAGE value="Moved GroupCommands" />
-    <MESSAGE value="Update GroupManager, JoinGroupUseCase" />
     <MESSAGE value="Add ServerSocketRunnable, Removed ConnectionAcceptor.java, ClientConnectionManager.java" />
     <MESSAGE value="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl" />
     <MESSAGE value="Add BrokenProtocolException" />
@@ -503,7 +518,10 @@
     <MESSAGE value="Update NodeInfo, P2PConnection, VectorClocksManager&#10;-Replaced boilerplate code using Lombok&#10;-removed useless method in P2PConnection" />
     <MESSAGE value="Update DatabaseManager, Removed Database.java&#10;- DatabaseManager made a singleton class&#10;- Added primitives to DatabaseManager&#10;- Replaced Database.java with a simple HashMap" />
     <MESSAGE value="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour" />
+    <MESSAGE value="Update DatabaseManager&#10;Removed useless modules" />
+    <MESSAGE value="Update ClientCommandListener&#10;Extended ClientCommandListener.parseCommand method" />
+    <MESSAGE value="Update Main&#10;Added DatabaseManager initialization and usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Main&#10;Added DatabaseManager initialization and usage" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -569,11 +587,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583248404996">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583248466614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248404996" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248466614" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583234570438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -612,11 +630,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583243415953">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583248475922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583243415953" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248475922" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -631,10 +649,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
-    <state x="757" y="439" width="395" height="155" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583227014356">
+    <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583248468900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="439" width="395" height="155" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583227014356" />
+    <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248468900" />
     <state x="578" y="299" key="extract.method.dialog" timestamp="1582931101680">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

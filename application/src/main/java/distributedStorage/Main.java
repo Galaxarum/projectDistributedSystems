@@ -64,27 +64,22 @@ public class Main {
      *     <tr>
      *         <td><b>Index</b></td>
      *         <td><b>Content</b></td>
-     *         <td><b>Mandatory</b></td>
      *     </tr>
      *     <tr>
      *         <td>{@value ID_INDEX}</td>
      *         <td>The id of this replica</td>
-     *         <td>Y</td>
      *     </tr>
      *     <tr>
      *         <td>{@value KNOWN_HOST_INDEX}</td>
      *         <td>The address of the leader replica</td>
-     *         <td>Y</td>
      *     </tr>
      *     <tr>
      *         <td>{@value MIDDLEWARE_PORT_INDEX}</td>
      *         <td>Custom port for communication between replicas. Use {@value ILLEGAL_PORT} to use a default port</td>
-     *         <td>N</td>
      *     </tr>
      *     <tr>
      *         <td>{@value CLIENT_PORT_INDEX}</td>
      *         <td>Custom port for client-server communication. Use {@value ILLEGAL_PORT} to use a default port</td>
-     *         <td>Y</td>
      *     </tr>
      * </table>
      */
