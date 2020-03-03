@@ -44,6 +44,13 @@ public class Main {
      * The string to use in the position {@value KNOWN_HOST_INDEX} when running the very first replica of a group
      */
     public static final String FIRST_REPLICA_DISCRIMINATOR = "first";
+
+    public static final String ARGS_DIGEST = "To start the application provide the following arguments in the following order (values in square braces sets the actual value to a default one): "+System.lineSeparator()+
+            "Id_of_this_node " +
+            "Address_of_the_leader_replica(use \""+FIRST_REPLICA_DISCRIMINATOR+"\" when starting the first replica) " +
+            "Port_for_communication_with_other_replicas["+ILLEGAL_PORT+"] " +
+            "Port_for_communication_with_clients["+ILLEGAL_PORT+"] " +
+            "Path_to_file_used_for_data_persistence";
     /**
      * Used to communicate with the other replicas end enforce the required communication properties
      */
@@ -84,58 +91,41 @@ public class Main {
      * </table>
      */
     public static void main(String[] args) throws IOException {
-        //Stop if some mandatory parameter is missing
-        if(args.length<=Integer.max(ID_INDEX,KNOWN_HOST_INDEX)){
-            final String error = "Id or known host missing";
-            logger.severe(error);
-            throw new IllegalArgumentException(error);
-        }
-
-        final String id = args[ID_INDEX];
-        final String leaderHost = args[KNOWN_HOST_INDEX];
-        final int middlewarePort = parsePortArgs(args,MIDDLEWARE_PORT_INDEX);
-        final int clientPort = Integer.parseInt(args[CLIENT_PORT_INDEX]);
-        final String persistencePath = args[STORAGE_PATH_INDEX];
-
-        messagingMiddleware = middlewarePort==ILLEGAL_PORT?
-                new MessagingMiddlewareImpl<>(id,leaderHost):
-                new MessagingMiddlewareImpl<>(id,middlewarePort,leaderHost);
-        databaseManager = DatabaseManager.getInstance(persistencePath,String.class,Object.class);
-
         try {
-            new Thread(new ServerSocketRunnable<ClientCommandListener>(clientPort)).start();
-            //Very first replica has no group to join
-            if(!FIRST_REPLICA_DISCRIMINATOR.equals(leaderHost))
-                messagingMiddleware.join();
-        }catch (IOException e){
-            logger.severe("IO exception occurred at startup");
-            e.printStackTrace();
-            return;
-        }
 
-        //Add a shutdownHook to leave before shutting down
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            logger.finest("Leaving the group");
-            messagingMiddleware.leave();
-            logger.finest("Closing db state");
-            databaseManager.close();
-            logger.finest("Shutdown completed");
-        }));
-    }
+            final String id = args[ID_INDEX];
+            final String leaderHost = args[KNOWN_HOST_INDEX];
+            final int middlewarePort = Integer.parseInt(args[MIDDLEWARE_PORT_INDEX]);
+            final int clientPort = Integer.parseInt(args[CLIENT_PORT_INDEX]);
+            final String persistencePath = args[STORAGE_PATH_INDEX];
 
-    /**
-     * Handles the possible exceptions raised by calling {@link Integer#parseInt(String)} with {@code args[index]}, returning {@value ILLEGAL_PORT} in case of error
-     * @param args Contains the String to parse
-     * @param index The index of the String to parse
-     * @return {@code Integer.parseInt(args[index])} if the line raises no exception
-     * {@value ILLEGAL_PORT} if an {@link ArrayIndexOutOfBoundsException} or a {@link NumberFormatException} is thrown by that line
-     */
-    private static int parsePortArgs(String[] args, int index){
-        try{
-            return Integer.parseInt(args[index]);
+            messagingMiddleware = middlewarePort == ILLEGAL_PORT ?
+                    new MessagingMiddlewareImpl<>(id, leaderHost) :
+                    new MessagingMiddlewareImpl<>(id, middlewarePort, leaderHost);
+            databaseManager = DatabaseManager.getInstance(persistencePath, String.class, Object.class);
+
+            try {
+                new Thread(new ServerSocketRunnable<ClientCommandListener>(clientPort)).start();
+                //Very first replica has no group to join
+                if (!FIRST_REPLICA_DISCRIMINATOR.equals(leaderHost))
+                    messagingMiddleware.join();
+            } catch (IOException e) {
+                logger.severe("IO exception occurred at startup");
+                e.printStackTrace();
+                return;
+            }
+
+            //Add a shutdownHook to leave before shutting down
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                logger.finest("Leaving the group");
+                messagingMiddleware.leave();
+                logger.finest("Closing db state");
+                databaseManager.close();
+                logger.finest("Shutdown completed");
+            }));
         }catch (ArrayIndexOutOfBoundsException | NumberFormatException e){
-            return ILLEGAL_PORT;
+            logger.severe(ARGS_DIGEST);
+            System.out.println(ARGS_DIGEST);
         }
     }
-
 }

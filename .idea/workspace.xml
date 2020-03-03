@@ -131,14 +131,7 @@
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
       <workItem from="1583227007738" duration="7859000" />
-      <workItem from="1583240003912" duration="8510000" />
-    </task>
-    <task id="LOCAL-00001" summary="Init workspace">
-      <created>1582798358711</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1582798358711</updated>
+      <workItem from="1583240003912" duration="8896000" />
     </task>
     <task id="LOCAL-00002" summary="Added interfaces, main, scratch of SocketListener">
       <created>1582799510844</created>
@@ -476,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583248466756</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Javadoc Main">
+      <created>1583248533714</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1583248533718</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add ServerSocketRunnable, Removed ConnectionAcceptor.java, ClientConnectionManager.java" />
     <MESSAGE value="Update PrimitiveParser, ClientCommandListener, P2PConnection, MessagingMiddlewareImpl" />
     <MESSAGE value="Add BrokenProtocolException" />
     <MESSAGE value="Update PrimitiveParser, ServerSocketRunnable&#10;Finalized generic instantiation in ServerSocketRunnable&#10;Removed method PrimitiveParser.getInstance" />
@@ -521,7 +520,8 @@
     <MESSAGE value="Update DatabaseManager&#10;Removed useless modules" />
     <MESSAGE value="Update ClientCommandListener&#10;Extended ClientCommandListener.parseCommand method" />
     <MESSAGE value="Update Main&#10;Added DatabaseManager initialization and usage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Main&#10;Added DatabaseManager initialization and usage" />
+    <MESSAGE value="Javadoc Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Javadoc Main" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -587,11 +587,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583248466614">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583248533581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248466614" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248533581" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583234570438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -630,11 +630,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583248475922">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1583248535788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248475922" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248535788" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
