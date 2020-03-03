@@ -1,14 +1,18 @@
 package distributedStorage.database;
 
+import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.io.*;
 import java.net.URI;
-import java.util.HashMap;
+import java.util.Hashtable;
 
 public class DatabaseManager <K,V>{
-
-    private HashMap<K,V> database;
+    /**
+     * The actual database. Using {@link Hashtable} grants a thread-safe behaviour.
+     */
+    @Getter
+    private Hashtable<K,V> database;
     private final ObjectOutputStream fileOut;
     private static DatabaseManager<?,?> instance;
     private static Class<?> keyClass;
@@ -21,9 +25,9 @@ public class DatabaseManager <K,V>{
         fileOut = new ObjectOutputStream(new FileOutputStream(file));
 
         try(ObjectInputStream fin = new ObjectInputStream(new FileInputStream(file))){
-            database = (HashMap<K, V>) fin.readObject();
+            database = (Hashtable<K, V>) fin.readObject();
         } catch (IOException e) {
-            database = new HashMap<>();
+            database = new Hashtable<>();
         }
 
         DatabaseManager.instance = this;
@@ -52,22 +56,5 @@ public class DatabaseManager <K,V>{
             throw new IllegalAccessError("Trying to change data type is forbidden");
         return (DatabaseManager<K, V>) instance;
     }
-
-    public synchronized V put(K key, V value){
-        return database.put(key,value);
-    }
-
-    public synchronized V get(K key){
-        return database.get(key);
-    }
-
-    public synchronized V delete(K key){
-        return database.remove(key);
-    }
-
-    public synchronized boolean delete(K key, V value){
-        return database.remove(key,value);
-    }
-
 
 }
