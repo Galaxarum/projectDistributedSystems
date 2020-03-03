@@ -4,20 +4,20 @@ import distributedStorage.Main;
 import distributedStorage.database.DatabaseManager;
 import exceptions.ParsingException;
 import middleware.MessagingMiddleware;
-import middleware.primitives.DataOperations;
+import primitives.DataOperations;
 import templates.PrimitiveParser;
 
 import java.io.IOException;
 import java.net.Socket;
 
-import static middleware.primitives.DataOperations.*;
+import static primitives.DataOperations.*;
 
 public class ClientCommandListener extends PrimitiveParser<DataOperations> {
 
     /**
      * Used to communicate with other replicas
      */
-    private final MessagingMiddleware<String,Object> messagingMiddleware = Main.getMessagingMiddleware();
+    private final MessagingMiddleware<String, Object, DataOperations> messagingMiddleware = Main.getMessagingMiddleware();
     /**
      * The actual storage
      */
@@ -48,7 +48,4 @@ public class ClientCommandListener extends PrimitiveParser<DataOperations> {
         }
     }
 
-    public static ClientCommandListener getInstance(Socket clientSocket) throws IOException {
-        return new ClientCommandListener(clientSocket);
-    }
 }

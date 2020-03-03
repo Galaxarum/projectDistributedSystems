@@ -5,7 +5,7 @@ import distributedStorage.network.ClientCommandListener;
 import lombok.Getter;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
-import middleware.primitives.DataOperations;
+import primitives.DataOperations;
 import templates.ServerSocketRunnable;
 
 import java.io.IOException;
