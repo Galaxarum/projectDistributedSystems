@@ -17,35 +17,42 @@ public class ClientCommandListener extends PrimitiveParser<DataOperations> {
     /**
      * Used to communicate with other replicas
      */
-    private final MessagingMiddleware<String, Object, DataOperations> messagingMiddleware = Main.getMessagingMiddleware();
+    private final MessagingMiddleware<String,Object, DataOperations> messagingMiddleware;
     /**
      * The actual storage
      */
-    private final DatabaseManager databaseManager = Main.getDatabaseManager();
+    private final DatabaseManager<String,Object> databaseManager;
 
-    private ClientCommandListener(Socket clientSocket) throws IOException {
+    public ClientCommandListener(Socket clientSocket) throws IOException {
         super(clientSocket);
+        this.messagingMiddleware = Main.getMessagingMiddleware();
+        this.databaseManager = Main.getDatabaseManager();
     }
 
     @Override
     protected void parseCommand(DataOperations command) throws ParsingException {
-        //TODO: actuate operations
+        String key = (String) readObjectSafe();
+        Object value;
+        Object result;
         switch (command) {
             case GET:
-
-                messagingMiddleware.shareOperation(GET, null, null);
+                result = databaseManager.getDatabase().get(key);
+                //OPT: not needed?
+                messagingMiddleware.shareOperation(GET, key, null);
                 break;
             case PUT:
-
-                messagingMiddleware.shareOperation(PUT, null, null);
+                value = readObjectSafe();
+                result = databaseManager.getDatabase().put(key, value);
+                messagingMiddleware.shareOperation(PUT, key, value);
                 break;
             case DELETE:
-
-                messagingMiddleware.shareOperation(DELETE, null, null);
+                result = databaseManager.getDatabase().remove(key);
+                messagingMiddleware.shareOperation(DELETE, key, null);
                 break;
             default:
                 throw new ParsingException(command.toString());
         }
+        writeObjectSafe(result);
     }
 
 }
