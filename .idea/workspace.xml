@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocksManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocksManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/primitives/DataOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" afterDir="false" />
@@ -139,7 +135,7 @@
       <workItem from="1583072872857" duration="6800000" />
       <workItem from="1583080471391" duration="18000" />
       <workItem from="1583166314428" duration="3865000" />
-      <workItem from="1583227007738" duration="6838000" />
+      <workItem from="1583227007738" duration="7110000" />
     </task>
     <task id="LOCAL-00001" summary="Init workspace">
       <created>1582798358711</created>
@@ -414,7 +410,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583233590220</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Moved DataOperations to application level">
+      <created>1583234069389</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1583234069389</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl">
+      <created>1583234120394</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1583234120394</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,8 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add DataOperations" />
-    <MESSAGE value="Update JoinGroupUseCase, GroupManager&#10;-Removed DatabaseManager instances&#10;-Removed unneeded 'throws'" />
     <MESSAGE value="Update MessagingMiddlewareImpl&#10;Removed unused 'throws'" />
     <MESSAGE value="Update ClientCommandListener&#10;Added some code" />
     <MESSAGE value="Update Main&#10;Rationalized execution flow" />
@@ -459,7 +467,9 @@
     <MESSAGE value="Update GroupManager&#10;-Managed IOException in the constructor, converted to a BrokenProtocolException" />
     <MESSAGE value="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Added generic type ApplicationPrimitive to both to allow to specify it at application level&#10;-Generified MessagingMiddlewareImpl" />
     <MESSAGE value="Update Main&#10;-Adapted to latest commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Main&#10;-Adapted to latest commits" />
+    <MESSAGE value="Moved DataOperations to application level" />
+    <MESSAGE value="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -525,11 +535,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583233644626" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583234069252">
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2" timestamp="1583234120275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583234069252" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583234120275" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583000797721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

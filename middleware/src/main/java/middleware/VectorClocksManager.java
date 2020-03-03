@@ -3,9 +3,6 @@ package middleware;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class VectorClocksManager {
 

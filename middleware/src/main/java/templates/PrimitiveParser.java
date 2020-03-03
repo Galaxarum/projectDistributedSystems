@@ -1,12 +1,10 @@
 package templates;
 
 import exceptions.ParsingException;
-import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.ParameterizedType;
 import java.net.Socket;
 import java.util.logging.Logger;
 
@@ -43,6 +41,7 @@ public abstract class PrimitiveParser<T> implements Runnable{
     public final void run() {
         while (!clientSocket.isClosed()){
             try {
+                @SuppressWarnings("unchecked")
                 T command = (T) in.readObject();
                 parseCommand(command);
             }catch (ParsingException e){

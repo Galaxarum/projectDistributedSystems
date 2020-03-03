@@ -1,6 +1,7 @@
 package middleware.group;
 
 import exceptions.BrokenProtocolException;
+import lombok.Getter;
 import middleware.networkThreads.P2PConnection;
 import middleware.primitives.GroupCommands;
 import middleware.primitives.PrimitiveOps;
@@ -19,9 +20,11 @@ public class GroupManager <K,V>{
     private final String MY_ID;
     private final Socket leaderSocket;
     //TODO: this must be shared with messaging middleware impl
+    @Getter
     private Map<String,Socket> socketMap = new HashMap<>();
     //TODO: this must be shared with messaging middleware impl
     // OPT: this is mandatory only for the leader replica
+    @Getter
     private Map<String,NodeInfo> replicas = new HashMap<>();
 
     public GroupManager(String id, int port, String leaderHost) {
@@ -49,6 +52,7 @@ public class GroupManager <K,V>{
      * @implNote Since processes will never fail by assumption, we may assume that the known replica will always be the same replica (for instance the first replica created).
      * This allows us to avoid implementing some kind of distributed mutex mechanism, keeping it a local mutex managed by the leader process
      */
+    @SuppressWarnings("unchecked")
     public Map<K,V> join() {
 
         try(ObjectOutputStream out = new ObjectOutputStream(leaderSocket.getOutputStream());
@@ -117,7 +121,7 @@ public class GroupManager <K,V>{
      *     <li>Store the tuple {@code <id, socket>} into {@linkplain #socketMap}</li>
      * </ul>
      * @param id the identifier of the replica to initialize
-     * @param nodeInfo the informations about the replica to initialize
+     * @param nodeInfo the information about the replica to initialize
      */
     //Inform other replicas of your existence and store a socket to communicate with them (They'll add you to their local list)
     //OPT: Split sending JOINING and receiving ACK for better parallelism

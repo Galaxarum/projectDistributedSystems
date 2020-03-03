@@ -3,7 +3,6 @@ package middleware;
 import middleware.group.GroupManager;
 import middleware.primitives.Primitive;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class MessagingMiddlewareImpl<Key,Value,ApplicationPrimitive extends Enum<ApplicationPrimitive> & Primitive> implements MessagingMiddleware<Key,Value,ApplicationPrimitive> {

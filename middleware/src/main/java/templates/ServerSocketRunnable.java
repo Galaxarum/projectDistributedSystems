@@ -3,7 +3,6 @@ package templates;
 import middleware.networkThreads.P2PConnection;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -48,6 +47,7 @@ public class ServerSocketRunnable<T extends PrimitiveParser> implements Runnable
     private T getInstanceOfT(Socket socket) throws IOException {
         try {
             ParameterizedType superClass = (ParameterizedType) getClass().getGenericSuperclass();
+            @SuppressWarnings("unchecked")
             Class<T> type = (Class<T>) superClass.getActualTypeArguments()[0];
             return type.getConstructor(Socket.class).newInstance(socket);
         } catch (Exception e) {
