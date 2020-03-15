@@ -1,4 +1,4 @@
-package templates;
+package runnables;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
@@ -17,11 +17,11 @@ class PrimitiveParser<T extends Primitive> implements Runnable{
      */
     private final Socket clientSocket;
     /**
-     * Used to read messages from the client
+     * Used to read middleware.messages from the client
      */
     private final ObjectInputStream in;
     /**
-     * Used to write messages to the client
+     * Used to write middleware.messages to the client
      */
     private final ObjectOutputStream out;
     private final ParsingFunction<T> parsingFunction;

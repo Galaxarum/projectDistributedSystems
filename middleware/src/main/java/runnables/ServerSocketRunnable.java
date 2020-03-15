@@ -1,4 +1,4 @@
-package templates;
+package runnables;
 
 import functional_interfaces.ParsingFunction;
 import middleware.primitives.Primitive;
