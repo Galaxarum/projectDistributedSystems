@@ -1,17 +1,17 @@
 package distributedStorage;
 
 import distributedStorage.database.DatabaseManager;
-import distributedStorage.network.ClientCommandListener;
+import exceptions.ParsingException;
 import lombok.Getter;
-import lombok.SneakyThrows;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
-import middleware.primitives.Primitive;
 import primitives.DataOperations;
 import templates.ServerSocketRunnable;
 
 import java.io.IOException;
 import java.util.logging.Logger;
+
+import static primitives.DataOperations.*;
 
 public class Main {
 
@@ -105,7 +105,32 @@ public class Main {
             databaseManager = DatabaseManager.getInstance(persistencePath, String.class, Object.class);
 
             try {
-                new Thread(new ServerSocketRunnable<ClientCommandListener>(clientPort)).start();
+                //TODO: this is just a template
+                new Thread(new ServerSocketRunnable<DataOperations>(clientPort,(operation,writer,reader)->{
+                    String key = (String) reader.readObject();
+                    Object value;
+                    Object result;
+                    switch (operation) {
+                        case GET:
+                            result = databaseManager.getDatabase().get(key);
+                            //OPT: not needed?
+                            messagingMiddleware.shareOperation(GET, key, null);
+                            break;
+                        case PUT:
+                            value = reader.readObject();
+                            result = databaseManager.getDatabase().put(key, value);
+                            messagingMiddleware.shareOperation(PUT, key, value);
+                            break;
+                        case DELETE:
+                            result = databaseManager.getDatabase().remove(key);
+                            messagingMiddleware.shareOperation(DELETE, key, null);
+                            break;
+                        default:
+                            throw new ParsingException(operation.toString());
+                    }
+                    writer.writeObject(result);
+                })).start();
+
                 //Very first replica has no group to join
                 if (!FIRST_REPLICA_DISCRIMINATOR.equals(leaderHost))
                     messagingMiddleware.join();
