@@ -2,11 +2,13 @@ package distributedStorage.database;
 
 import lombok.Getter;
 import lombok.SneakyThrows;
+import middleware.Message;
+import middleware.MessageConsumer;
 
 import java.io.*;
 import java.util.Hashtable;
 
-public class DatabaseManager <K,V>{
+public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> {
     /**
      * The actual database. Using {@link Hashtable} grants a thread-safe behaviour.
      */
@@ -51,5 +53,18 @@ public class DatabaseManager <K,V>{
     public void close() {
         persist();
         fileOut.close();
+    }
+
+    @Override
+    public void consumeMessage(Message<DataContent<K,V>> msg) {
+        switch (msg.getContent().getOperations()) {
+            case DELETE:
+                database.remove(msg.getContent().getKey());
+                return;
+
+            case PUT:
+                database.put(msg.getContent().getKey(), msg.getContent().getValue());
+                return;
+        }
     }
 }
