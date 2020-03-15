@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update Message, MessageConsumer, MessageProducer, MessageProducerImpl&#10;-Moved to 'messages' package&#10;-Declared ParsingException in MessageConsumer.consumeMessage">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageProducerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -674,11 +663,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="2406" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1584232929911">
+    <state x="2406" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1584269788633">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
-    <state x="2406" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584232929911" />
+    <state x="2406" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584269788633" />
     <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583249106747" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
       <screen x="0" y="0" width="1920" height="1040" />
