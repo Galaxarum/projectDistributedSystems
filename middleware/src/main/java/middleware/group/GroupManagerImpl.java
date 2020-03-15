@@ -33,7 +33,27 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
         try {
             this.MY_ID = id;
             this.leaderSocket = new Socket(leaderHost, port);
-            new Thread(new ServerSocketRunnable<P2PConnection>(port)).start();
+            new Thread(new ServerSocketRunnable<GroupCommands>(0,(command, writer, reader) -> {
+                //TODO
+                switch (command){
+                    case JOIN:
+                        //Register the replica
+                        //Write replica list to out
+                        break;
+                    case JOINING:
+                        //Register the replica
+                        writer.writeObject(ACK);
+                        break;
+                    case SYNC:
+                        //Send a copy of the local data
+                        //Send a copy of the local vector clock
+
+                    case ACK:
+
+                    default:
+                        throw new ParsingException(command.toString());
+                }
+            })).start();
         }catch (IOException e){
             throw new BrokenProtocolException("Impossible to initialize the connection",e);
         }
