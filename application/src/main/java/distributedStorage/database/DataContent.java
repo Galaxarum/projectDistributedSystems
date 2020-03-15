@@ -1,7 +1,7 @@
 package distributedStorage.database;
 
 import lombok.Data;
-import primitives.DataOperations;
+import distributedStorage.primitives.DataOperations;
 
 @Data
 public class DataContent<K, V> {

@@ -1,6 +1,6 @@
-package primitives;
+package distributedStorage.primitives;
 
-import middleware.primitives.Primitive;
+import markers.Primitive;
 
 /**
  * This enum contains the applicative primitives

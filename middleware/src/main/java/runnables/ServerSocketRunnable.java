@@ -1,7 +1,7 @@
 package runnables;
 
 import functional_interfaces.ParsingFunction;
-import middleware.primitives.Primitive;
+import markers.Primitive;
 
 import java.io.IOException;
 import java.net.ServerSocket;

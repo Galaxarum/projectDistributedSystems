@@ -5,13 +5,13 @@ import exceptions.ParsingException;
 import lombok.Getter;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
-import primitives.DataOperations;
+import distributedStorage.primitives.DataOperations;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import static primitives.DataOperations.*;
+import static distributedStorage.primitives.DataOperations.*;
 
 public class Main {
 
@@ -90,7 +90,7 @@ public class Main {
      *     </tr>
      * </table>
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, IllegalAccessException {
         try {
 
             final String id = args[ID_INDEX];
@@ -102,7 +102,7 @@ public class Main {
             messagingMiddleware = middlewarePort == ILLEGAL_PORT ?
                     new MessagingMiddlewareImpl<>(id, leaderHost) :
                     new MessagingMiddlewareImpl<>(id, middlewarePort, leaderHost);
-            databaseManager = DatabaseManager.getInstance(persistencePath, String.class, Object.class);
+            databaseManager = DatabaseManager.getInstance(persistencePath);
 
             try {
                 //TODO: this is just a template

@@ -3,8 +3,7 @@ package middleware.group;
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
 import lombok.Getter;
-import middleware.primitives.GroupCommands;
-import middleware.primitives.Primitive;
+import markers.Primitive;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-import static middleware.primitives.GroupCommands.*;
+import static middleware.group.GroupCommands.*;
 
 
 public class GroupManagerImpl<K,V> implements GroupManager<K,V>{

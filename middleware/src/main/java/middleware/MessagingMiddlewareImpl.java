@@ -2,7 +2,7 @@ package middleware;
 
 import middleware.group.GroupManager;
 import middleware.group.GroupManagerImpl;
-import middleware.primitives.Primitive;
+import markers.Primitive;
 
 import java.util.Map;
 

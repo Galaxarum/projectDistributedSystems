@@ -1,7 +1,7 @@
 package functional_interfaces;
 
 import exceptions.ParsingException;
-import middleware.primitives.Primitive;
+import markers.Primitive;
 
 @FunctionalInterface
 public interface ParsingFunction<P extends Primitive> {

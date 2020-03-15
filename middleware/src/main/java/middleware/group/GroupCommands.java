@@ -1,4 +1,6 @@
-package middleware.primitives;
+package middleware.group;
+
+import markers.Primitive;
 
 /**
  * This {@linkplain Primitive} contains the commands used for group management
