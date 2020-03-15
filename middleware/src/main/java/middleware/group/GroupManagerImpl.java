@@ -4,8 +4,8 @@ import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
 import lombok.Getter;
 import middleware.primitives.GroupCommands;
-import middleware.primitives.PrimitiveOps;
-import templates.ServerSocketRunnable;
+import middleware.primitives.Primitive;
+import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -124,7 +124,7 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
 
                 //Expect Ack
                 final GroupCommands ack = (GroupCommands) in.readObject();
-                PrimitiveOps.checkEquals(GroupCommands.ACK,ack);
+                Primitive.checkEquals(GroupCommands.ACK,ack);
 
             } catch (IOException e) {
                 throw new BrokenProtocolException("Assumption on channel reliability failed");
@@ -158,7 +158,7 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
                  ObjectInputStream newIn = new ObjectInputStream(newSocket.getInputStream())) {
                 newOut.writeObject(JOINING);
                 final GroupCommands ack = (GroupCommands) newIn.readObject();
-                PrimitiveOps.checkEquals(GroupCommands.ACK,ack);
+                Primitive.checkEquals(GroupCommands.ACK,ack);
             }
 
             //Save the replica
