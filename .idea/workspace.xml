@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update Main&#10;- Changed parsing exception behaviour">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/network/ClientCommandListener.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/networkThreads/P2PConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/GroupCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ParsingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/ParsingFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,28 +143,7 @@
       <workItem from="1584200387153" duration="3496000" />
       <workItem from="1584223100662" duration="232000" />
       <workItem from="1584223386947" duration="3185000" />
-      <workItem from="1584229842755" duration="2648000" />
-    </task>
-    <task id="LOCAL-00006" summary="Add HandShakeMessage, ClientSocketListener, ReplicaSocketListener, ServerSocketListener">
-      <created>1582821383210</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1582821383210</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Update Main, ReplicaList (rationalized)">
-      <created>1582821445197</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1582821445197</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Refactored into two different modules">
-      <created>1582823288562</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1582823288562</updated>
+      <workItem from="1584229842755" duration="2889000" />
     </task>
     <task id="LOCAL-00009" summary="Added JoinGroupUseCase and DatabaseManager">
       <created>1582932585890</created>
@@ -495,7 +467,28 @@
       <option name="project" value="LOCAL" />
       <updated>1584231354167</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Update ParsingFunction, PrimitiveParser&#10;ParsingFunction.parse throwing ParsingException">
+      <created>1584232587250</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1584232587250</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Update GroupManager&#10;Made actually an interface">
+      <created>1584232669663</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1584232669663</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java">
+      <created>1584232731457</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1584232731457</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,9 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls" />
-    <MESSAGE value="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Made MessagingMiddleware.join return the received map&#10;-Added support for generic typed Group Manager" />
-    <MESSAGE value="Update BrokenProtocolException&#10;Extending IllegalStateException instead of IllegalArgumentException" />
     <MESSAGE value="Add Primitive (marker interface) and PrimitiveOps (containing utility validation methods)" />
     <MESSAGE value="Update DataOperations, GroupCommands&#10;-Implementing Primitive marker interface&#10;-Added 'LEAVE' to GroupCommands" />
     <MESSAGE value="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager" />
@@ -540,7 +530,10 @@
     <MESSAGE value="Add NetworkReader, NetworkWriter&#10;Custom functional interfaces to read and write objects. &#10;Intended to be used with lambdas in order to allow specification of classes exploiting network communication transparently" />
     <MESSAGE value="Add ParsingFunction&#10;Functional interface allowing developers to use 'writerFunction' and 'readerFunction' transparently when specifying the code used to parse 'primitive'" />
     <MESSAGE value="Update PrimitiveParser, ServerSocketRunnable&#10;Exploiting new functional interfaces to allow a safer and cleaner implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PrimitiveParser, ServerSocketRunnable&#10;Exploiting new functional interfaces to allow a safer and cleaner implementation" />
+    <MESSAGE value="Update ParsingFunction, PrimitiveParser&#10;ParsingFunction.parse throwing ParsingException" />
+    <MESSAGE value="Update GroupManager&#10;Made actually an interface" />
+    <MESSAGE value="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -610,11 +603,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1584232669422">
+    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1584232757292">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584232669422" />
+    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584232757292" />
     <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583249104762" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583234570438">
       <screen x="0" y="0" width="1920" height="1040" />
