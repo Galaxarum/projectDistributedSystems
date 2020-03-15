@@ -1,7 +1,5 @@
 package templates;
 
-import middleware.networkThreads.P2PConnection;
-import middleware.primitives.GroupCommands;
 import middleware.primitives.Primitive;
 
 import java.io.IOException;
@@ -32,7 +30,7 @@ public class ServerSocketRunnable<T extends Primitive> implements Runnable {
     }
 
     /**
-     * While {@link #serverSocket} is opened, accepts incoming connections and starts a {@link P2PConnection} using the created Socket
+     * While {@link #serverSocket} is opened, accepts incoming connections and starts a {@link PrimitiveParser} using the created Socket
      */
     @Override
     public void run() {
