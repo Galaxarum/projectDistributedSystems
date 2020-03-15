@@ -1,5 +1,6 @@
 package templates;
 
+import functional_interfaces.ParsingFunction;
 import middleware.primitives.Primitive;
 
 import java.io.IOException;

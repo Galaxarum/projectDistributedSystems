@@ -2,13 +2,13 @@ package templates;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
+import functional_interfaces.ParsingFunction;
 import middleware.primitives.Primitive;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.function.Consumer;
 import java.util.logging.Logger;
 
 class PrimitiveParser<T extends Primitive> implements Runnable{

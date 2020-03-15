@@ -1,4 +1,4 @@
-package templates;
+package functional_interfaces;
 
 import exceptions.ParsingException;
 import middleware.primitives.Primitive;

@@ -1,4 +1,4 @@
-package templates;
+package functional_interfaces;
 
 @FunctionalInterface
 public interface NetworkReader {
