@@ -1,19 +1,20 @@
 package templates;
 
 import middleware.networkThreads.P2PConnection;
+import middleware.primitives.GroupCommands;
 import middleware.primitives.Primitive;
 
 import java.io.IOException;
-import java.lang.reflect.ParameterizedType;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-public class ServerSocketRunnable<T extends PrimitiveParser<? extends Primitive>> implements Runnable {
+public class ServerSocketRunnable<T extends Primitive> implements Runnable {
     /**
      * Used to accept connections with the other replicas
      */
     private final ServerSocket serverSocket;
+    private final ParsingFunction<T> parsingFunction;
     /**
      * A logger
      */
@@ -25,8 +26,9 @@ public class ServerSocketRunnable<T extends PrimitiveParser<? extends Primitive>
      * @param port The port to listen to
      * @throws IOException If thrown by {@linkplain ServerSocket#ServerSocket(int)}
      */
-    public ServerSocketRunnable(int port) throws IOException {
+    public ServerSocketRunnable(int port,ParsingFunction<T> parsingFunction) throws IOException {
         this.serverSocket = new ServerSocket(port);
+        this.parsingFunction = parsingFunction;
     }
 
     /**
@@ -37,7 +39,7 @@ public class ServerSocketRunnable<T extends PrimitiveParser<? extends Primitive>
         while (!serverSocket.isClosed()) {
             try {
                 Socket clientSocket = serverSocket.accept();
-                new Thread(getInstanceOfT(clientSocket)).start();
+                new Thread(new PrimitiveParser<>(clientSocket, parsingFunction)).start();
             } catch (IOException e) {
                 logger.warning("An error occurred while accepting a connection by " + serverSocket);
             }
@@ -45,18 +47,5 @@ public class ServerSocketRunnable<T extends PrimitiveParser<? extends Primitive>
 
     }
 
-    private T getInstanceOfT(Socket socket) throws IOException {
-        try {
-            ParameterizedType superClass = (ParameterizedType) getClass().getGenericSuperclass();
-            @SuppressWarnings("unchecked")
-            Class<T> type = (Class<T>) superClass.getActualTypeArguments()[0];
-            return type.getConstructor(Socket.class).newInstance(socket);
-        } catch (Exception e) {
-            String errorMsg = "Unable to reflectively construct an instance of generic parameter T. Printing exception stack trace";
-            logger.severe(errorMsg);
-            e.printStackTrace();
-            throw new IOException(errorMsg,e);
-        }
-    }
 }
 

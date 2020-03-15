@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.function.Consumer;
 import java.util.logging.Logger;
 
-public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
+class PrimitiveParser<T extends Primitive> implements Runnable{
     /**
      * The connection to the client
      */
@@ -23,20 +24,22 @@ public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
      * Used to write messages to the client
      */
     private final ObjectOutputStream out;
+    private final ParsingFunction<T> parsingFunction;
     /**
      * A logger
      */
     private static final Logger logger = Logger.getLogger(PrimitiveParser.class.getName());
 
-    protected PrimitiveParser(Socket clientSocket) throws IOException {
+    protected PrimitiveParser(Socket clientSocket, ParsingFunction<T> parsingFunction) throws IOException {
         this.clientSocket = clientSocket;
         this.in = new ObjectInputStream(clientSocket.getInputStream());
         this.out = new ObjectOutputStream(clientSocket.getOutputStream());
+        this.parsingFunction = parsingFunction;
     }
 
     /**
      * While {@linkplain #clientSocket} is opened,
-     * calls {@linkplain #parseCommand(Primitive)} over the next command in {@linkplain #in}.
+     * executes {@linkplain #parsingFunction)} over the next command in {@linkplain #in}.
      * Catches {@link ParsingException}, {@link ClassCastException}, {@link ClassNotFoundException}, {@link IOException} logging the exception and closing the connection
      */
     @Override
@@ -45,12 +48,8 @@ public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
             try {
                 @SuppressWarnings("unchecked")
                 T command = (T) in.readObject();
-                parseCommand(command);
-            }catch (ParsingException e){
-                logger.warning("Unexpected command (" + e.getUnexpectedCommand() + ") received by the address " + clientSocket.getInetAddress() + "." + System.lineSeparator() +
-                        "The connection will be interrupted");
-                stop();
-            }catch (ClassCastException | ClassNotFoundException e){
+                parsingFunction.parse(command,this::writeObjectSafe,this::readObjectSafe);
+            } catch (ClassCastException | ClassNotFoundException e){
                 logger.warning("Unable to deserialize an object received by the following stream: "+in.toString()+". The connection will be interrupted");
                 stop();
             }catch (IOException e){
@@ -79,7 +78,7 @@ public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
      * Writes the given object to {@linkplain #out}, closing the connection in case of {@link IOException}
      * @param object the Object to be written
      */
-    protected final void writeObjectSafe(Object object){
+    protected void writeObjectSafe(Object object){
         try{
             out.writeObject(object);
             out.flush();
@@ -88,18 +87,12 @@ public abstract class PrimitiveParser<T extends Primitive> implements Runnable{
         }
     }
 
-    protected final Object readObjectSafe(){
+    protected Object readObjectSafe(){
         try {
             return in.readObject();
         }catch (IOException | ClassNotFoundException e){
             throw new BrokenProtocolException("Unable to read incoming data from the stream: "+in.toString());
         }
     }
-
-    /**
-     * What to actually do with the received command
-     * @param command the command to manage
-     */
-    protected abstract void parseCommand(T command) throws ParsingException;
 
 }
