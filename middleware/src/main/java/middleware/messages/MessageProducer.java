@@ -1,7 +1,7 @@
 package middleware.messages;
 
 public interface MessageProducer<T> {
-    public void addConsumer(MessageConsumer<T> consumer);
-    public void addMessageToBuffer(Message<T> msg);
-    public void shareMessage(Message<T> msg);
+    void addConsumer(MessageConsumer<T> consumer);
+    void addMessageToBuffer(Message<T> msg);
+    void shareMessage(Message<T> msg);
 }
