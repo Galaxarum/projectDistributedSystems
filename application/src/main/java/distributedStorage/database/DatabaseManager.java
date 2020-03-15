@@ -1,9 +1,11 @@
 package distributedStorage.database;
 
+import exceptions.BrokenProtocolException;
+import exceptions.ParsingException;
 import lombok.Getter;
 import lombok.SneakyThrows;
-import middleware.Message;
-import middleware.MessageConsumer;
+import middleware.messages.Message;
+import middleware.messages.MessageConsumer;
 
 import java.io.*;
 import java.util.Hashtable;
@@ -60,11 +62,14 @@ public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> 
         switch (msg.getContent().getOperations()) {
             case DELETE:
                 database.remove(msg.getContent().getKey());
-                return;
+                break;
 
             case PUT:
                 database.put(msg.getContent().getKey(), msg.getContent().getValue());
-                return;
+                break;
+
+            default:
+                throw new BrokenProtocolException("Unexpected value: "+msg);
         }
     }
 }

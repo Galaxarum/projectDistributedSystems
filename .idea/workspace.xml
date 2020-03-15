@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update Main&#10;- Changed parsing exception behaviour">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update Message, MessageConsumer, MessageProducer, MessageProducerImpl&#10;-Moved to 'messages' package&#10;-Declared ParsingException in MessageConsumer.consumeMessage">
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessageProducerImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/Primitive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/primitives/PrimitiveOps.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/templates/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" afterDir="false" />
     </list>
@@ -152,13 +152,6 @@
       <workItem from="1584223100662" duration="232000" />
       <workItem from="1584223386947" duration="3185000" />
       <workItem from="1584229842755" duration="2889000" />
-    </task>
-    <task id="LOCAL-00010" summary="Added Main, ClientConnectionManager, ClientCommandListener">
-      <created>1582995072378</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1582995072378</updated>
     </task>
     <task id="LOCAL-00011" summary="Moved package database into the applicative module">
       <created>1583000331899</created>
@@ -496,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584267893308</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Moved Message, MessageConsumer, MessageProducer, MessageProducerImpl to 'messages' package">
+      <created>1584268135185</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1584268135186</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update DataOperations, GroupCommands&#10;-Implementing Primitive marker interface&#10;-Added 'LEAVE' to GroupCommands" />
     <MESSAGE value="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager" />
     <MESSAGE value="Javadocs" />
     <MESSAGE value="Update GroupManager&#10;-Managed IOException in the constructor, converted to a BrokenProtocolException" />
@@ -541,7 +540,8 @@
     <MESSAGE value="Update GroupManager&#10;Made actually an interface" />
     <MESSAGE value="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java" />
     <MESSAGE value="Update Primitive, Delete PrimitiveOps.java&#10;Moved utility method Primitive.checkEquals from PrimitiveOps.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Primitive, Delete PrimitiveOps.java&#10;Moved utility method Primitive.checkEquals from PrimitiveOps.java" />
+    <MESSAGE value="Moved Message, MessageConsumer, MessageProducer, MessageProducerImpl to 'messages' package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved Message, MessageConsumer, MessageProducer, MessageProducerImpl to 'messages' package" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -613,11 +613,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1584268028316">
+    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1584268134791">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584268028316" />
+    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584268134791" />
     <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583249104762" />
     <state x="100" y="99" width="1720" height="840" key="DiffContextDialog" timestamp="1583234570438">
       <screen x="0" y="0" width="1920" height="1040" />

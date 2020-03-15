@@ -6,7 +6,7 @@ import lombok.Getter;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
 import primitives.DataOperations;
-import templates.ServerSocketRunnable;
+import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
 import java.util.logging.Logger;
