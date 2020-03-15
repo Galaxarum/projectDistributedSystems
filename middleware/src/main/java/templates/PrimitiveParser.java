@@ -55,6 +55,8 @@ class PrimitiveParser<T extends Primitive> implements Runnable{
             }catch (IOException e){
                 logger.fine("IOException happened occurred communicating to the following address: "+clientSocket.getInetAddress().getHostAddress()+". The connection will be interrupted");
                 stop();
+            } catch (ParsingException e) {
+                throw new BrokenProtocolException("Parsing failed",e);
             }
         }
         stop();
