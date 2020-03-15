@@ -1,8 +1,8 @@
 package middleware.group;
 
 import exceptions.BrokenProtocolException;
+import exceptions.ParsingException;
 import lombok.Getter;
-import middleware.networkThreads.P2PConnection;
 import middleware.primitives.GroupCommands;
 import middleware.primitives.PrimitiveOps;
 import templates.ServerSocketRunnable;
@@ -14,8 +14,10 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import static middleware.primitives.GroupCommands.*;
 
-public class GroupManagerImpl<K,V> implements GroupManager{
+
+public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
 
     private final String MY_ID;
     private final Socket leaderSocket;
@@ -60,7 +62,7 @@ public class GroupManagerImpl<K,V> implements GroupManager{
 
             Map<K, V> data;
 
-            out.writeObject(GroupCommands.JOIN);
+            out.writeObject(JOIN);
             out.writeObject(MY_ID);
 
             //Receive list of actual replicas from the leader (the list will include the leader itself)
@@ -134,7 +136,7 @@ public class GroupManagerImpl<K,V> implements GroupManager{
             //Send "JOINING" and expect "ACK"
             try (ObjectOutputStream newOut = new ObjectOutputStream(newSocket.getOutputStream());
                  ObjectInputStream newIn = new ObjectInputStream(newSocket.getInputStream())) {
-                newOut.writeObject(GroupCommands.JOINING);
+                newOut.writeObject(JOINING);
                 final GroupCommands ack = (GroupCommands) newIn.readObject();
                 PrimitiveOps.checkEquals(GroupCommands.ACK,ack);
             }
