@@ -26,11 +26,7 @@ public class MessageProducerImpl<T> implements MessageProducer<T>{
 
     private void notifyConsumers(Message<T> msg) {
         consumers.forEach(c-> {
-            try {
-                c.consumeMessage(msg);
-            } catch (ParsingException e) {
-                throw new BrokenProtocolException("Parsing failed",e);
-            }
+            c.consumeMessage(msg);
         });
     }
 }

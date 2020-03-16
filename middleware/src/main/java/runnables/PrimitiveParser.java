@@ -65,7 +65,7 @@ class PrimitiveParser<T extends Primitive> implements Runnable{
     /**
      * Closes {@link #in}, {@link #out}, {@link #clientSocket}.
      */
-    protected final void stop(){
+    private void stop(){
         try {
             in.close();
             out.close();

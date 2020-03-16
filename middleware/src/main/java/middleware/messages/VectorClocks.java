@@ -1,4 +1,4 @@
-package middleware;
+package middleware.messages;
 
 import java.util.HashMap;
 
