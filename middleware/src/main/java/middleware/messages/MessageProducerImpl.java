@@ -1,8 +1,5 @@
 package middleware.messages;
 
-import exceptions.BrokenProtocolException;
-import exceptions.ParsingException;
-
 import java.util.HashSet;
 
 public class MessageProducerImpl<T> implements MessageProducer<T>{
@@ -25,8 +22,6 @@ public class MessageProducerImpl<T> implements MessageProducer<T>{
     }
 
     private void notifyConsumers(Message<T> msg) {
-        consumers.forEach(c-> {
-            c.consumeMessage(msg);
-        });
+        consumers.forEach(c-> c.consumeMessage(msg));
     }
 }

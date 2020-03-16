@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/VectorClocksManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -508,7 +510,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Added generic type ApplicationPrimitive to both to allow to specify it at application level&#10;-Generified MessagingMiddlewareImpl" />
     <MESSAGE value="Update Main&#10;-Adapted to latest commits" />
     <MESSAGE value="Moved DataOperations to application level" />
     <MESSAGE value="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl" />
@@ -533,7 +534,8 @@
     <MESSAGE value="Update DatabaseManager&#10;Cleaned instantiation" />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Moved stuff, adapted Main to DatabaseManager changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved stuff, adapted Main to DatabaseManager changes" />
+    <MESSAGE value="Increased transparency, improved packaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Increased transparency, improved packaging" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -602,15 +604,17 @@
     </state>
     <state x="2526" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584224556871" />
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583230055143" />
-    <state x="2504" y="362" width="617" height="318" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584273785785">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state x="667" y="348" width="706" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584350089324">
+      <screen x="0" y="0" width="1920" height="1010" />
     </state>
+    <state x="667" y="348" width="706" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350089324" />
     <state x="2504" y="362" width="617" height="318" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584273785785" />
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1584274520757">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state x="438" y="106" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1584350071701">
+      <screen x="0" y="0" width="1920" height="1010" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
+    <state x="438" y="106" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350071701" />
     <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584274520757" />
     <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583249104762" />
     <state x="2008" y="100" width="1536" height="833" key="DiffContextDialog" timestamp="1584273836029">
