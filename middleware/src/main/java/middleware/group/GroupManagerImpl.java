@@ -53,6 +53,9 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
                         replicaInfo = (NodeInfo) reader.readObject();
                         replicaSocket = replicaInfo.getSocket();
                         socketMap.put(replicaId,replicaSocket);
+                        //Send ack to ensure you won't proceed execution
+                        writer.writeObject(ACK);
+                        //TODO: stop message exchanging everywhere
                         Primitive.checkEquals(ACK,reader.readObject());
                         break;
                     case SYNC:
@@ -169,8 +172,10 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
             Socket newSocket = new Socket(nodeInfo.getHostname(), nodeInfo.getPort());
 
             //Send "JOINING"
-            try (ObjectOutputStream newOut = new ObjectOutputStream(newSocket.getOutputStream())) {
+            try (ObjectOutputStream newOut = new ObjectOutputStream(newSocket.getOutputStream());
+                 ObjectInputStream newIn = new ObjectInputStream(newSocket.getInputStream())) {
                 newOut.writeObject(JOINING);
+                Primitive.checkEquals(ACK,newIn.readObject());
             }
 
             //Save the replica
@@ -178,7 +183,7 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
 
         } catch (IOException e) {
             throw new BrokenProtocolException("Assumption on channel reliability failed");
-        } catch (ClassCastException e) {
+        } catch (ClassCastException | ClassNotFoundException e) {
             throw new BrokenProtocolException("Unexpected object received",e);
         }
     }
