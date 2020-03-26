@@ -8,8 +8,6 @@ import java.util.Map;
 
 public class MessagingMiddlewareImpl<Key,Value,ApplicationPrimitive extends Enum<ApplicationPrimitive> & Primitive> implements MessagingMiddleware<Key,Value,ApplicationPrimitive> {
 
-    public static final int DEFAULT_PORT = 12345;
-
     private final GroupManager<Key,Value> groupManager;
 
 

@@ -18,6 +18,7 @@ public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> 
     private Hashtable<K,V> database;
     private final ObjectOutputStream fileOut;
     private static DatabaseManager<?,?> instance;
+    public static final String DEFAULT_PATH  = "./"+DatabaseManager.class.getName();
 
     @SuppressWarnings("unchecked")
     @SneakyThrows(ClassNotFoundException.class)
