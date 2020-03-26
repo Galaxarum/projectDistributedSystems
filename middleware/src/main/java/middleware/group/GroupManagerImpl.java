@@ -4,6 +4,7 @@ import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
 import lombok.Getter;
 import markers.Primitive;
+import middleware.MessagingMiddleware;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -55,8 +56,12 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
                         socketMap.put(replicaId,replicaSocket);
                         //Send ack to ensure you won't proceed execution
                         writer.writeObject(ACK);
-                        //TODO: stop message exchanging everywhere
-                        Primitive.checkEquals(ACK,reader.readObject());
+                        try {
+                            MessagingMiddleware.operativeLock.lock();
+                            Primitive.checkEquals(ACK, reader.readObject());
+                        }finally {
+                            MessagingMiddleware.operativeLock.unlock();
+                        }
                         break;
                     case SYNC:
                         //TODO: Send a copy of the local data

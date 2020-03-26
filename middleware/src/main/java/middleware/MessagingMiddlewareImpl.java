@@ -23,17 +23,32 @@ public class MessagingMiddlewareImpl<Key,Value,ApplicationPrimitive extends Enum
 
     @Override
     public Map<Key, Value> join() {
-        return groupManager.join();
+        try {
+            operativeLock.lock();
+            return groupManager.join();
+        }finally {
+            operativeLock.unlock();
+        }
     }
 
     @Override
     public void leave() {
-        groupManager.leave();
+        try {
+            operativeLock.lock();
+            groupManager.leave();
+        }finally {
+            operativeLock.unlock();
+        }
     }
 
     @Override
     public void shareOperation(ApplicationPrimitive command, Key key, Value value) {
-
+        try{
+            operativeLock.lock();
+            //TODO
+        }finally {
+            operativeLock.unlock();
+        }
     }
 
 
