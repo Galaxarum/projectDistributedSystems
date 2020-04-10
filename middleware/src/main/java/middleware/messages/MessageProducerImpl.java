@@ -2,7 +2,7 @@ package middleware.messages;
 
 import java.util.HashSet;
 
-public class MessageProducerImpl<T> implements MessageProducer<T>{
+public class MessageProducerImpl<T> implements MessageProducer<T> {
     HashSet<MessageConsumer<T>> consumers;
     HashSet<Message<T>> buffer;
 
