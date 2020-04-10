@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="compareTo VectorClocks">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,9 +71,12 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="middleware.MessagingMiddleware" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="templates" />
@@ -85,7 +90,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="First replica" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
       <option name="PROGRAM_PARAMETERS" value="1 first" />
@@ -101,7 +106,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.First replica" />
       </list>
     </recent_temporary>
   </component>
@@ -143,55 +148,10 @@
       <workItem from="1584223100662" duration="232000" />
       <workItem from="1584223386947" duration="3185000" />
       <workItem from="1584229842755" duration="2889000" />
-    </task>
-    <task id="LOCAL-00014" summary="Update MessagingMiddlewareImpl&#10;-Added generics&#10;-Cleaned up misplaced attributes">
-      <created>1583000669933</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1583000669933</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add DataOperations">
-      <created>1583000691848</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1583000691848</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Update JoinGroupUseCase, GroupManager&#10;-Removed DatabaseManager instances&#10;-Removed unneeded 'throws'">
-      <created>1583000791257</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1583000791258</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Update MessagingMiddlewareImpl&#10;Removed unused 'throws'">
-      <created>1583000816847</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1583000816847</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Update ClientCommandListener&#10;Added some code">
-      <created>1583000861083</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1583000861083</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Update Main&#10;Rationalized execution flow">
-      <created>1583000892522</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1583000892522</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Documented Main">
-      <created>1583002350645</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1583002350645</updated>
+      <workItem from="1584349978087" duration="275000" />
+      <workItem from="1584456456117" duration="10000" />
+      <workItem from="1585241675938" duration="3796000" />
+      <workItem from="1585245495958" duration="833000" />
     </task>
     <task id="LOCAL-00021" summary="Add ParsingException, ConnectionAcceptor, P2PConnection">
       <created>1583077844884</created>
@@ -487,7 +447,56 @@
       <option name="project" value="LOCAL" />
       <updated>1584274520985</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Increased transparency, improved packaging">
+      <created>1584350072099</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1584350072099</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Automatic code cleanup, removed eclipse files">
+      <created>1584350231223</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1584350231224</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Update NodeInfo&#10;-removed unneeded attributes&#10;-added NodeInfo.getSocket">
+      <created>1585244340718</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1585244340719</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Made PrimitiveParser final">
+      <created>1585244363867</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1585244363867</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Update GroupManagerImpl&#10;-Managed all commands except GroupCommands.SYNC&#10;-Reduced ACK usage (channels are reliable, so they're only needed for synchronization among processes [like resume execution after JOINING])">
+      <created>1585244475454</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1585244475454</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Update GroupManagerImpl&#10;-Made JOINING behaviour more robust">
+      <created>1585244621668</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1585244621668</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining">
+      <created>1585245145826</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1585245145826</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,11 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved DataOperations to application level" />
-    <MESSAGE value="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl" />
-    <MESSAGE value="Fixed some warnings" />
-    <MESSAGE value="Fixed more warnings" />
-    <MESSAGE value="Update NodeInfo, P2PConnection, VectorClocksManager&#10;-Replaced boilerplate code using Lombok&#10;-removed useless method in P2PConnection" />
     <MESSAGE value="Update DatabaseManager, Removed Database.java&#10;- DatabaseManager made a singleton class&#10;- Added primitives to DatabaseManager&#10;- Replaced Database.java with a simple HashMap" />
     <MESSAGE value="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour" />
     <MESSAGE value="Update DatabaseManager&#10;Removed useless modules" />
@@ -531,8 +535,13 @@
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Moved stuff, adapted Main to DatabaseManager changes" />
     <MESSAGE value="Increased transparency, improved packaging" />
-    <MESSAGE value="compareTo VectorClocks" />
-    <option name="LAST_COMMIT_MESSAGE" value="compareTo VectorClocks" />
+    <MESSAGE value="Automatic code cleanup, removed eclipse files" />
+    <MESSAGE value="Update NodeInfo&#10;-removed unneeded attributes&#10;-added NodeInfo.getSocket" />
+    <MESSAGE value="Made PrimitiveParser final" />
+    <MESSAGE value="Update GroupManagerImpl&#10;-Managed all commands except GroupCommands.SYNC&#10;-Reduced ACK usage (channels are reliable, so they're only needed for synchronization among processes [like resume execution after JOINING])" />
+    <MESSAGE value="Update GroupManagerImpl&#10;-Made JOINING behaviour more robust" />
+    <MESSAGE value="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -547,10 +556,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="180" width="800" height="672" key="#TODO/0.0.1920.1040@0.0.1920.1040" timestamp="1583247998779" />
-    <state x="541" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582995504843">
+    <state x="541" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585241878789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="541" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582995504843" />
+    <state x="541" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585241878789" />
     <state x="866" y="273" width="424" height="579" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1582995353835">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -565,10 +574,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582799583205" />
-    <state x="591" y="361" width="299" height="184" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584820813315">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2609" y="421" width="293" height="214" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584267422307">
+      <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state x="591" y="361" width="299" height="184" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1584820813315" />
     <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582928272214" />
     <state x="2609" y="421" width="293" height="214" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584267422307" />
     <state x="787" y="417" width="293" height="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582993375797" />
@@ -591,6 +599,10 @@
     </state>
     <state x="2570" y="406" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584274394720" />
     <state x="743" y="402" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1582822801154" />
+    <state x="674" y="231" width="561" height="570" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1585245783153">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="674" y="231" width="561" height="570" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585245783153" />
     <state x="2204" y="0" width="869" height="1010" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584200538898">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
@@ -608,14 +620,13 @@
     <state x="667" y="348" width="706" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350089324" />
     <state x="2504" y="362" width="617" height="318" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584273785785" />
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="455" y="55" width="1010" height="836" key="CommitChangelistDialog2" timestamp="1586549497437">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="438" y="109" width="1010" height="818" key="CommitChangelistDialog2" timestamp="1585245462539">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="455" y="55" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1586549497437" />
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
-    <state x="438" y="106" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350071701" />
+    <state x="438" y="106" width="1010" height="818" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350231036" />
     <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584274520757" />
-    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583249104762" />
+    <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585245462539" />
     <state x="2008" y="100" width="1536" height="833" key="DiffContextDialog" timestamp="1584273836029">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
@@ -661,10 +672,9 @@
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="2452" y="232" width="702" height="587" key="RollbackChangesDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584232605486" />
-    <state x="540" y="46" width="900" height="727" key="SettingsEditor" timestamp="1585145092783">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2630" y="54" width="900" height="848" key="SettingsEditor" timestamp="1584201474749">
+      <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state x="540" y="46" width="900" height="727" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1585145092783" />
     <state x="388" y="97" width="900" height="849" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1582928266609" />
     <state x="2630" y="54" width="900" height="848" key="SettingsEditor/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584201474749" />
     <state x="811" y="53" width="1024" height="839" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583325440708" />
@@ -673,11 +683,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="417" y="220" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1586549425478">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="555" y="247" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1584350233588">
+      <screen x="0" y="0" width="1920" height="1010" />
     </state>
-    <state x="417" y="220" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1586549425478" />
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
+    <state x="555" y="247" key="Vcs.Push.Dialog.v2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350233588" />
     <state x="2406" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584269788633" />
     <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583249106747" />
     <state x="480" y="260" width="950" height="513" key="caller.chooser.dialog" timestamp="1583077218036">
@@ -692,22 +702,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1584234159377" />
-    <state x="643" y="336" key="com.intellij.ide.util.TipDialog" timestamp="1584349999962">
-      <screen x="0" y="0" width="1920" height="1010" />
+    <state x="643" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1585245495408">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="563" y="349" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582980714678" />
     <state x="643" y="336" key="com.intellij.ide.util.TipDialog/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584349999962" />
     <state x="2483" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584229843698" />
-    <state x="643" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583849937580" />
+    <state x="643" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585245495408" />
     <state x="483" y="302" key="com.intellij.ide.util.TipDialog/0.23.1440.838@0.23.1440.838" timestamp="1582981654807" />
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582799463706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="673" y="413" width="553" height="201" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1582799463706" />
-    <state x="567" y="380" width="421" height="152" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584820784432">
+    <state x="567" y="380" width="421" height="152" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584234159365">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="567" y="380" width="421" height="152" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1584820784432" />
+    <state x="567" y="380" width="421" height="152" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1584234159365" />
     <state x="2582" y="443" width="395" height="162" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584223639929" />
     <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248468900" />
     <state x="578" y="299" key="extract.method.dialog" timestamp="1582931101680">
@@ -732,10 +742,9 @@
     </state>
     <state x="2537" y="151" key="refactoring.ChangeSignatureDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584223216680" />
     <state x="705" y="150" width="500" height="732" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583246376286" />
-    <state x="467" y="197" width="670" height="587" key="search.everywhere.popup" timestamp="1584821148972">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1583234504755">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="467" y="197" width="670" height="587" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1584821148972" />
     <state x="545" y="230" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1582931684020" />
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583234504755" />
   </component>

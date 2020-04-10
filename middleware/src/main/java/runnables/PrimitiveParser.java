@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-class PrimitiveParser<T extends Primitive> implements Runnable{
+final class PrimitiveParser<T extends Primitive> implements Runnable{
     /**
      * The connection to the client
      */

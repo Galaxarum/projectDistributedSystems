@@ -21,7 +21,6 @@ public class ServerSocketRunnable<T extends Primitive> implements Runnable {
 
     /**
      * Creates a ConnectionAcceptor listening to the given port
-     *
      * @param port The port to listen to
      * @throws IOException If thrown by {@linkplain ServerSocket#ServerSocket(int)}
      */
