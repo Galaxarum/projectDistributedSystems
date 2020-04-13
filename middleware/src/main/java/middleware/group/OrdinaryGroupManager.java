@@ -26,14 +26,18 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
     private Map<String,Socket> socketMap = new HashMap<>();
     //TODO: this must be shared with messaging middleware impl
     // OPT: this is needed only for the leader replica
-    @Getter
-    private Map<String,NodeInfo> replicas = new HashMap<>();
+    protected final Map<String, NodeInfo> replicas;
 
-    public GroupManagerImpl(String id, int port, String leaderHost) {
+    public OrdinaryGroupManager(String id,
+                                int port,
+                                String leaderHost,
+                                Map<String, NodeInfo> replicas) {
         try {
             this.MY_ID = id;
             this.leaderSocket = new Socket(leaderHost, port);
-            new Thread(new ServerSocketRunnable<GroupCommands>(0,(command, writer, reader) -> {
+            this.replicas = replicas;
+            logger.info("Starting socket listener");
+            new Thread(new ServerSocketRunnable<GroupCommands>(0, (command, writer, reader, socket) -> {
                 final String replicaId;
                 final NodeInfo replicaInfo;
                 final Socket replicaSocket;
