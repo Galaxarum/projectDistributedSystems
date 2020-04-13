@@ -2,7 +2,6 @@ package middleware.group;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
-import lombok.Getter;
 import markers.Primitive;
 import middleware.MessagingMiddleware;
 import runnables.ServerSocketRunnable;
@@ -11,20 +10,16 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import static middleware.group.GroupCommands.*;
 
+public class OrdinaryGroupManager<K, V> implements GroupManager<K, V> {
 
-public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
-
-    private final String MY_ID;
+    private static final Logger logger = Logger.getLogger(OrdinaryGroupManager.class.getName());
+    protected final String MY_ID;
     private final Socket leaderSocket;
-    //TODO: this must be shared with messaging middleware impl
-    @Getter
-    private Map<String,Socket> socketMap = new HashMap<>();
-    //TODO: this must be shared with messaging middleware impl
     // OPT: this is needed only for the leader replica
     protected final Map<String, NodeInfo> replicas;
 
@@ -41,45 +36,36 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
                 final String replicaId;
                 final NodeInfo replicaInfo;
                 final Socket replicaSocket;
-                switch (command){
-                    case JOIN:
-                        //Register the replica
-                        replicaId = (String) reader.readObject();
-                        replicaInfo = (NodeInfo) reader.readObject();
-                        replicaSocket = replicaInfo.getSocket();
-                        replicas.put(replicaId,replicaInfo);
-                        socketMap.put(replicaId,replicaSocket);
-                        //Write replica list to out
-                        writer.writeObject(replicas);
-                        break;
+                switch ( command ) {
                     case JOINING:
                         //Register the replica
-                        replicaId = (String) reader.readObject();
-                        replicaInfo = (NodeInfo) reader.readObject();
+                        replicaId = ( String ) reader.readObject();
+                        replicaInfo = ( NodeInfo ) reader.readObject();
                         replicaSocket = replicaInfo.getSocket();
-                        socketMap.put(replicaId,replicaSocket);
                         //Send ack to ensure you won't proceed execution
                         writer.writeObject(ACK);
                         try {
                             MessagingMiddleware.operativeLock.lock();
                             Primitive.checkEquals(ACK, reader.readObject());
-                        }finally {
+                        } finally {
                             MessagingMiddleware.operativeLock.unlock();
                         }
                         break;
-                    case SYNC:
-                        //TODO: Send a copy of the local data
-                        //TODO: Send a copy of the local vector clock
-                        break;
                     case LEAVE:
-                        replicaId = (String) reader.readObject();
+                        replicaId = ( String ) reader.readObject();
+                        try {
+                            replicas.get(replicaId).getSocket().close();
+                        } catch ( IOException e ) {/*Ignored*/}
                         replicas.remove(replicaId);
-                        try { socketMap.get(replicaId).close();} catch (IOException e) {/*Ignored*/}
-                        socketMap.remove(replicaId);
-                    case ACK: default:  //ACK should be catched in the methods expecting them
+                        break;
+                    case JOIN:
+                    case SYNC:
+                    case ACK:
+                    default:  //ACK should be catched in the methods expecting them
                         throw new ParsingException(command.toString());
                 }
             })).start();
+            logger.info("network listener started");
         }catch (IOException e){
             throw new BrokenProtocolException("Impossible to initialize the connection",e);
         }
@@ -103,35 +89,47 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
     @Override
     public Map<K,V> join() {
 
-        try(ObjectOutputStream out = new ObjectOutputStream(leaderSocket.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(leaderSocket.getInputStream())) {
+        try ( ObjectOutputStream out = new ObjectOutputStream(leaderSocket.getOutputStream());
+              ObjectInputStream in = new ObjectInputStream(leaderSocket.getInputStream()) ) {
 
             final Map<K, V> data;
 
             out.writeObject(JOIN);
+
             out.writeObject(MY_ID);
+            out.flush();
+
+            final String leaderId = ( String ) in.readObject();
+            final NodeInfo leaderInfo = new NodeInfo(leaderSocket.getInetAddress().getHostName(), leaderSocket.getPort());
+            leaderInfo.setSocket(leaderSocket);
 
             //Receive list of actual replicas from the leader (the list will include the leader itself)
-            replicas = (Map<String, NodeInfo>) in.readObject();
+            replicas.putAll(( Map<String, NodeInfo> ) in.readObject());
 
             replicas.forEach(this::initReplica);
 
             //Get data from the master replica
             out.writeObject(GroupCommands.SYNC);
-            data = (Map<K, V>) in.readObject();
-            socketMap.forEach((id,socket)->{
-                try(ObjectOutputStream r_out = new ObjectOutputStream(socket.getOutputStream())){
-                    r_out.writeObject(ACK);
-                } catch (IOException e) {
-                    throw new BrokenProtocolException("Unable to contact the replica: "+id);
-                }
-            });
+            data = ( Map<K, V> ) in.readObject();
+            //TODO: read vector clocks
+            replicas.values().stream()
+                    .map(NodeInfo::getSocket)
+                    .forEach(socket -> {
+                        try ( ObjectOutputStream r_out = new ObjectOutputStream(socket.getOutputStream()) ) {
+                            r_out.writeObject(ACK);
+                        } catch ( IOException e ) {
+                            throw new BrokenProtocolException("Unable to contact the replica: " + socket.getInetAddress());
+                        }
+                    });
+
+            replicas.put(leaderId, leaderInfo);
+
             return data;
 
         }catch (ClassNotFoundException | ClassCastException e) {
             throw new BrokenProtocolException("Unexpected object received: ", e);
         }catch (IOException e){
-            throw new BrokenProtocolException("Assumption on channel reliability failed");
+            throw new BrokenProtocolException("Assumption on channel reliability failed", e);
         }
     }
 
@@ -146,20 +144,22 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
      */
     @Override
     public void leave() {
-        socketMap.forEach((id,socket)->{
-            try(ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())){
+        replicas.values().stream()
+                .map(NodeInfo::getSocket)
+                .forEach(socket -> {
+                    try ( ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream()) ) {
 
-                //Inform current replica of leaving
-                out.writeObject(GroupCommands.LEAVE);
-                out.writeObject(MY_ID);
+                        //Inform current replica of leaving
+                        out.writeObject(GroupCommands.LEAVE);
+                        out.writeObject(MY_ID);
 
-                socket.close();
-            } catch (IOException e) {
-                throw new BrokenProtocolException("Assumption on channel reliability failed");
-            } catch (ClassCastException e) {
-                throw new BrokenProtocolException("Unexpected object received",e);
-            }
-        });
+                        socket.close();
+                    } catch ( IOException e ) {
+                        throw new BrokenProtocolException("Assumption on channel reliability failed");
+                    } catch ( ClassCastException e ) {
+                        throw new BrokenProtocolException("Unexpected object received", e);
+                    }
+                });
     }
 
     /**
@@ -168,7 +168,6 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
      *     <li>Open a {@linkplain Socket} connection with the given replica, using the information holden into {@code nodeInfo}</li>
      *     <li>Send {@linkplain GroupCommands#JOINING} to the replica</li>
      *     <li>Wait for {@linkplain GroupCommands#ACK}</li>
-     *     <li>Store the tuple {@code <id, socket>} into {@linkplain #socketMap}</li>
      * </ul>
      * @param id the identifier of the replica to initialize
      * @param nodeInfo the information about the replica to initialize
@@ -177,18 +176,16 @@ public class GroupManagerImpl<K,V> implements GroupManager<K,V>{
     private void initReplica(String id,NodeInfo nodeInfo) throws BrokenProtocolException {
         try {
 
-            //Create a socket for the replica
-            Socket newSocket = new Socket(nodeInfo.getHostname(), nodeInfo.getPort());
+            //Save the replica
+            replicas.put(id, nodeInfo);
 
             //Send "JOINING"
-            try (ObjectOutputStream newOut = new ObjectOutputStream(newSocket.getOutputStream());
-                 ObjectInputStream newIn = new ObjectInputStream(newSocket.getInputStream())) {
+            try ( ObjectOutputStream newOut = new ObjectOutputStream(replicas.get(id).getSocket().getOutputStream());
+                  ObjectInputStream newIn = new ObjectInputStream(replicas.get(id).getSocket().getInputStream()) ) {
                 newOut.writeObject(JOINING);
-                Primitive.checkEquals(ACK,newIn.readObject());
+                Primitive.checkEquals(ACK, newIn.readObject());
             }
 
-            //Save the replica
-            socketMap.put(id, newSocket);
 
         } catch (IOException e) {
             throw new BrokenProtocolException("Assumption on channel reliability failed");
