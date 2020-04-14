@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining">
-      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClocksTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/middleware.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/ParsingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/ParsingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +31,7 @@
         <option value="Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -58,8 +67,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/middleware/src/main/java/templates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -76,12 +83,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="middleware.messages" />
-    </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="middleware.MessagingMiddleware" />
     </key>
@@ -97,7 +98,7 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VectorClocksTest.update">
+  <component name="RunManager">
     <configuration name="First replica" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
@@ -112,58 +113,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorClocksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.messages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClocksTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VectorClocksTest.compareToUncorrelated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.messages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClocksTest" />
-      <option name="METHOD_NAME" value="compareToUncorrelated" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VectorClocksTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.messages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClocksTest" />
-      <option name="METHOD_NAME" value="update" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VectorClocksTest.update" />
-        <item itemvalue="JUnit.VectorClocksTest" />
-        <item itemvalue="JUnit.VectorClocksTest.compareToUncorrelated" />
         <item itemvalue="Application.First replica" />
       </list>
     </recent_temporary>
@@ -618,10 +569,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="541" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585241878789" />
-    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1586719279057">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1440.900@0.0.1440.900" timestamp="1586719279057" />
     <state x="866" y="273" width="424" height="579" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1582995353835">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -642,10 +589,6 @@
     <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582928272214" />
     <state x="2609" y="421" width="293" height="214" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584267422307" />
     <state x="787" y="417" width="293" height="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582993375797" />
-    <state x="297" y="123" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1586860167532">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="297" y="123" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1440.900@0.0.1440.900" timestamp="1586860167532" />
     <state x="643" y="250" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583166323759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -706,42 +649,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="782" y="426" key="GitRewordDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583077985630" />
-    <state width="1396" height="182" key="GridCell.Tab.0.bottom" timestamp="1586862323802">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="276" key="GridCell.Tab.0.bottom" timestamp="1583002729913">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="182" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586862323802" />
     <state width="1878" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583002729913" />
-    <state width="1396" height="182" key="GridCell.Tab.0.center" timestamp="1586862323801">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="276" key="GridCell.Tab.0.center" timestamp="1583002729912">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="182" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586862323801" />
     <state width="1878" height="276" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583002729912" />
-    <state width="1396" height="182" key="GridCell.Tab.0.left" timestamp="1586862323800">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="276" key="GridCell.Tab.0.left" timestamp="1583002729912">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="182" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586862323800" />
     <state width="1878" height="276" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583002729912" />
-    <state width="1396" height="182" key="GridCell.Tab.0.right" timestamp="1586862323801">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="276" key="GridCell.Tab.0.right" timestamp="1583002729912">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="182" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586862323801" />
     <state width="1878" height="276" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583002729912" />
-    <state width="1396" height="182" key="GridCell.Tab.1.bottom" timestamp="1586862302171">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1396" height="182" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586862302171" />
-    <state width="1396" height="182" key="GridCell.Tab.1.center" timestamp="1586862302170">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1396" height="182" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1586862302170" />
-    <state width="1396" height="182" key="GridCell.Tab.1.left" timestamp="1586862302169">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1396" height="182" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1586862302169" />
-    <state width="1396" height="182" key="GridCell.Tab.1.right" timestamp="1586862302171">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1396" height="182" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1586862302171" />
     <state x="258" y="112" key="Maven.ArtifactSearchDialog" timestamp="1584233901789">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -769,10 +692,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="438" width="292" height="157" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583000532477" />
-    <state x="416" y="220" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1586549622603">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="555" y="247" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1584350233588">
+      <screen x="0" y="0" width="1920" height="1010" />
     </state>
-    <state x="416" y="220" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1586549622603" />
     <state x="486" y="257" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582932590413" />
     <state x="555" y="247" key="Vcs.Push.Dialog.v2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350233588" />
     <state x="2406" y="257" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584269788633" />
@@ -807,18 +729,13 @@
     <state x="567" y="380" width="421" height="152" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1584234159365" />
     <state x="2582" y="443" width="395" height="162" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584223639929" />
     <state x="757" y="439" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583248468900" />
-    <state x="499" y="184" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1586717925658">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="499" y="184" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1440.900@0.0.1440.900" timestamp="1586717925658" />
     <state x="578" y="299" key="extract.method.dialog" timestamp="1582931101680">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="299" key="extract.method.dialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582931101680" />
-    <state x="427" y="241" width="816" height="550" key="find.popup" timestamp="1586710930096">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="569" y="279" width="781" height="536" key="find.popup" timestamp="1583227305371">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="427" y="241" width="816" height="550" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586710930096" />
     <state x="498" y="282" width="683" height="486" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1582932040502" />
     <state x="569" y="279" width="781" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583227305371" />
     <state x="312" y="248" key="git4idea.merge.GitPullDialog" timestamp="1584234192048">
@@ -839,19 +756,5 @@
     </state>
     <state x="545" y="230" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1582931684020" />
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583234504755" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java</url>
-          <line>13</line>
-          <properties class="middleware.messages.VectorClocks" method="update">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

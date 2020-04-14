@@ -1,17 +1,19 @@
 package distributedStorage;
 
 import distributedStorage.database.DatabaseManager;
+import distributedStorage.primitives.DataOperations;
 import exceptions.ParsingException;
 import lombok.Getter;
 import middleware.MessagingMiddleware;
 import middleware.MessagingMiddlewareImpl;
-import distributedStorage.primitives.DataOperations;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static distributedStorage.primitives.DataOperations.*;
+import static distributedStorage.primitives.DataOperations.DELETE;
+import static distributedStorage.primitives.DataOperations.PUT;
 
 public class Main {
 
@@ -19,6 +21,7 @@ public class Main {
      * A logger
      */
     private static final Logger logger = Logger.getLogger(Main.class.getName());
+    public static final Level LOG_LEVEL = Level.ALL;
     /**
      * The index in args where the replica Id is expected
      */
@@ -92,18 +95,23 @@ public class Main {
      * </table>
      */
     public static void main(String[] args) throws IOException, IllegalAccessException {
+
+        logger.setLevel(LOG_LEVEL);
+
         try {
 
             final String id = args[ID_INDEX];
-            final String leaderHost = args[LEADER_HOST_INDEX];
-            final int middlewarePort = args[MIDDLEWARE_PORT_INDEX].equals(DEFAULT_STRING)?
-                    MessagingMiddleware.DEFAULT_PORT:
+            final String leaderHost = args[LEADER_HOST_INDEX].equals(FIRST_REPLICA_DISCRIMINATOR) ?
+                    null :
+                    args[LEADER_HOST_INDEX];
+            final int middlewarePort = args[MIDDLEWARE_PORT_INDEX].equals(DEFAULT_STRING) ?
+                    MessagingMiddleware.DEFAULT_PORT :
                     Integer.parseInt(args[MIDDLEWARE_PORT_INDEX]);
-            final int clientPort = args[CLIENT_PORT_INDEX].equals(DEFAULT_STRING)?
-                    DEFAULT_CLIENT_PORT:
+            final int clientPort = args[CLIENT_PORT_INDEX].equals(DEFAULT_STRING) ?
+                    DEFAULT_CLIENT_PORT :
                     Integer.parseInt(args[CLIENT_PORT_INDEX]);
-            final String persistencePath = args[STORAGE_PATH_INDEX].equals(DEFAULT_STRING)?
-                    DatabaseManager.DEFAULT_PATH:
+            final String persistencePath = args[STORAGE_PATH_INDEX].equals(DEFAULT_STRING) ?
+                    DatabaseManager.DEFAULT_PATH :
                     args[STORAGE_PATH_INDEX];
 
             assert (middlewarePort != clientPort) : "Conflicting port. Please change one between arg "+MIDDLEWARE_PORT_INDEX+" and "+CLIENT_PORT_INDEX;
@@ -111,14 +119,14 @@ public class Main {
             messagingMiddleware = new MessagingMiddlewareImpl<>(id, middlewarePort, leaderHost);
             databaseManager = DatabaseManager.getInstance(persistencePath);
 
-            logger.finest("Starting client listener");
+            logger.info("Starting client listener");
             try {
                 //TODO: this is just a template
-                new Thread(new ServerSocketRunnable<DataOperations>(clientPort,(operation,writer,reader)->{
-                    String key = (String) reader.readObject();
+                new Thread(new ServerSocketRunnable<DataOperations>(clientPort, (operation, writer, reader, socket) -> {
+                    String key = ( String ) reader.readObject();
                     Object value;
                     Object result;
-                    switch (operation) {
+                    switch ( operation ) {
                         case GET:
                             result = databaseManager.getDatabase().get(key);
                             break;
@@ -136,11 +144,10 @@ public class Main {
                     }
                     writer.writeObject(result);
                 })).start();
-                logger.finest("started client listener");
+                logger.info("started client listener");
 
-                //Very first replica has no group to join
-                if (!FIRST_REPLICA_DISCRIMINATOR.equals(leaderHost))
-                    messagingMiddleware.join();
+                messagingMiddleware.join();
+
             } catch (IOException e) {
                 logger.severe("IO exception occurred at startup");
                 e.printStackTrace();
@@ -150,16 +157,16 @@ public class Main {
             logger.finest("setting up shutdown hook");
             //Add a shutdownHook to leave before shutting down
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                logger.finest("Leaving the group");
-                messagingMiddleware.leave();
-                logger.finest("Closing db state");
+                logger.info("Closing db state");
                 databaseManager.close();
-                logger.finest("Shutdown completed");
+                logger.info("Leaving the group");
+                messagingMiddleware.leave();
+                logger.info("Shutdown completed");
             }));
         }catch (ArrayIndexOutOfBoundsException | NumberFormatException e){
             logger.severe(ARGS_DIGEST);
             System.out.println(ARGS_DIGEST);
         }
-        logger.finest("application started successfully");
+        logger.info("application started successfully");
     }
 }

@@ -32,8 +32,8 @@ final class PrimitiveParser<T extends Primitive> implements Runnable{
 
     protected PrimitiveParser(Socket clientSocket, ParsingFunction<T> parsingFunction) throws IOException {
         this.clientSocket = clientSocket;
-        this.in = new ObjectInputStream(clientSocket.getInputStream());
         this.out = new ObjectOutputStream(clientSocket.getOutputStream());
+        this.in = new ObjectInputStream(clientSocket.getInputStream());
         this.parsingFunction = parsingFunction;
     }
 
@@ -48,7 +48,7 @@ final class PrimitiveParser<T extends Primitive> implements Runnable{
             try {
                 @SuppressWarnings("unchecked")
                 T command = (T) in.readObject();
-                parsingFunction.parse(command,this::writeObjectSafe,this::readObjectSafe);
+                parsingFunction.parse(command, this::writeObjectSafe, this::readObjectSafe, clientSocket);
             } catch (ClassCastException | ClassNotFoundException e){
                 logger.warning("Unable to deserialize an object received by the following stream: "+in.toString()+". The connection will be interrupted");
                 stop();
