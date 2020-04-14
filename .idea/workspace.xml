@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/middleware.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/ParsingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/ParsingFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,13 +149,6 @@
       <workItem from="1584456456117" duration="10000" />
       <workItem from="1585241675938" duration="3796000" />
       <workItem from="1585245495958" duration="833000" />
-    </task>
-    <task id="LOCAL-00021" summary="Add ParsingException, ConnectionAcceptor, P2PConnection">
-      <created>1583077844884</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1583077844884</updated>
     </task>
     <task id="LOCAL-00022" summary="Update ClientCommandListener to extend PrimitiveParser">
       <created>1583077900770</created>
@@ -505,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585245145826</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Added VectorClocksTest">
+      <created>1586862545115</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1586862545117</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update DatabaseManager, Removed Database.java&#10;- DatabaseManager made a singleton class&#10;- Added primitives to DatabaseManager&#10;- Replaced Database.java with a simple HashMap" />
     <MESSAGE value="Update DatabaseManager&#10;- Replaced implementation of the database with an hashtable to grant thread-safe behaviour" />
     <MESSAGE value="Update DatabaseManager&#10;Removed useless modules" />
     <MESSAGE value="Update ClientCommandListener&#10;Extended ClientCommandListener.parseCommand method" />
@@ -550,7 +537,8 @@
     <MESSAGE value="Update GroupManagerImpl&#10;-Managed all commands except GroupCommands.SYNC&#10;-Reduced ACK usage (channels are reliable, so they're only needed for synchronization among processes [like resume execution after JOINING])" />
     <MESSAGE value="Update GroupManagerImpl&#10;-Made JOINING behaviour more robust" />
     <MESSAGE value="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining" />
+    <MESSAGE value="Added VectorClocksTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added VectorClocksTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -583,9 +571,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582799583205" />
-    <state x="2609" y="421" width="293" height="214" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584267422307">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state x="591" y="361" width="299" height="184" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586862854459">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="591" y="361" width="299" height="184" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1586862854459" />
     <state x="689" y="421" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582928272214" />
     <state x="2609" y="421" width="293" height="214" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584267422307" />
     <state x="787" y="417" width="293" height="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582993375797" />
@@ -665,10 +654,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="276" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583002729912" />
-    <state x="258" y="112" key="Maven.ArtifactSearchDialog" timestamp="1584233901789">
+    <state x="258" y="112" key="Maven.ArtifactSearchDialog" timestamp="1586862929508">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="258" y="112" key="Maven.ArtifactSearchDialog/0.0.1440.900@0.0.1440.900" timestamp="1584233901789" />
+    <state x="258" y="112" key="Maven.ArtifactSearchDialog/0.0.1440.900@0.0.1440.900" timestamp="1586862929508" />
     <state x="1982" y="83" width="1536" height="833" key="MergeDialog" timestamp="1584223657900">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
