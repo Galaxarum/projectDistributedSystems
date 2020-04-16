@@ -1,18 +1,21 @@
 package middleware.messages;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class VectorClocksTest {
-    VectorClocks vectorA = new VectorClocks();
-    VectorClocks vectorB = new VectorClocks();
-    VectorClocks vectorC = new VectorClocks();
+    VectorClocks vectorA;
+    VectorClocks vectorB;
+    VectorClocks vectorC;
 
-    @Before
+    @BeforeEach
     public void init() {
+        vectorA = new VectorClocks("a");
+        vectorB = new VectorClocks("b");
+        vectorC = new VectorClocks("c");
         vectorA.put("a", 2);
         vectorA.put("b", 1);
         vectorA.put("c", 3);
@@ -27,33 +30,46 @@ class VectorClocksTest {
         vectorC.put("d", 4);
     }
 
-    @org.junit.jupiter.api.Test
-    void compareToGT() {
+    @Test
+    @DisplayName("(2,1,3,3)<(3,3,4,4)")
+    void compareToGTandLT() {
         assertEquals(1, vectorB.compareTo(vectorA));
-    }
-
-    @org.junit.jupiter.api.Test
-    void compareToLT() {
-        assertEquals(-1, vectorA.compareTo(vectorB));
-    }
-
-    @org.junit.jupiter.api.Test
-    void compareToUncorrelated() {
-        assertEquals(0, vectorB.compareTo(vectorA));
+        assertEquals(-1,vectorA.compareTo(vectorB));
     }
 
     @Test
-    void update() {
-        VectorClocks vector = new VectorClocks();
-        vector.put("a", 2);
-        vector.put("b", 3);
-        vector.put("c", 4);
-        vector.put("d", 4);
+    @DisplayName("(2,1,3,3)||(1,3,4,4)")
+    void compareToUncorrelated() {
+        assertEquals(0, vectorC.compareTo(vectorA));
+    }
+
+    @Test
+    @DisplayName("(2,1,3,3) updated with (3,3,4,4) gives (3,3,4,4)")
+    void updateGrater() {
+        vectorA.update(vectorB);
+        assertEquals(vectorB, vectorA);
+    }
+
+    @Test
+    @DisplayName("(2,1,3,3) updated with (1,3,4,4) gives (2,3,4,4)")
+    void updateParallel(){
+        VectorClocks expected = new VectorClocks("a");
+        expected.put("a",2);
+        expected.put("b",3);
+        expected.put("c",4);
+        expected.put("d",4);
         vectorA.update(vectorC);
-        assertSame(vector, vectorA);
+        assertEquals(expected,vectorA);
     }
 
     @Test
     void incrementLocal() {
+        VectorClocks expected = new VectorClocks("a");
+        expected.put("a",3);
+        expected.put("b", 1);
+        expected.put("c", 3);
+        expected.put("d", 3);
+        vectorA.incrementLocal();
+        assertEquals(expected,vectorA);
     }
 }

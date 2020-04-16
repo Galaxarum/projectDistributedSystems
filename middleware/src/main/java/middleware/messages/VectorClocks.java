@@ -20,8 +20,7 @@ public class VectorClocks extends HashMap<String, Integer> implements Comparable
     }
 
     public void update(VectorClocks vector) {
-        //vector.forEach((k,v)->this.merge(k,v, Integer::max));
-        vector.forEach((k,v)->this.merge(k,v, (v1, v2)-> v1 > v2 ? v1 : v2));
+        vector.forEach((k,v)->this.merge(k,v, Integer::max));
     }
 
     public void incrementLocal() {
