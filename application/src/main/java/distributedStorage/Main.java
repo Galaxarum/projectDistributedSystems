@@ -116,8 +116,8 @@ public class Main {
 
             assert (middlewarePort != clientPort) : "Conflicting port. Please change one between arg "+MIDDLEWARE_PORT_INDEX+" and "+CLIENT_PORT_INDEX;
 
-            messagingMiddleware = new MessagingMiddlewareImpl<>(id, middlewarePort, leaderHost);
             databaseManager = DatabaseManager.getInstance(persistencePath);
+            messagingMiddleware = new MessagingMiddlewareImpl<>(id, middlewarePort, leaderHost, databaseManager.getDatabase());
 
             logger.info("Starting client listener");
             try {
