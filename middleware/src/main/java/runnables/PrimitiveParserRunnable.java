@@ -2,7 +2,6 @@ package runnables;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
-import functional_interfaces.ParsingFunction;
 import markers.Primitive;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-final class PrimitiveParser<T extends Primitive> implements Runnable{
+final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
     /**
      * The connection to the client
      */
@@ -24,17 +23,17 @@ final class PrimitiveParser<T extends Primitive> implements Runnable{
      * Used to write middleware.messages to the client
      */
     private final ObjectOutputStream out;
-    private final ParsingFunction<T> parsingFunction;
+    private final functional_interfaces.PrimitiveParser<T> parsingFunction;
     /**
      * A logger
      */
-    private static final Logger logger = Logger.getLogger(PrimitiveParser.class.getName());
+    private static final Logger logger = Logger.getLogger(PrimitiveParserRunnable.class.getName());
 
-    protected PrimitiveParser(Socket clientSocket, ParsingFunction<T> parsingFunction) throws IOException {
+    protected PrimitiveParserRunnable(Socket clientSocket, functional_interfaces.PrimitiveParser<T> primitiveParser) throws IOException {
         this.clientSocket = clientSocket;
         this.out = new ObjectOutputStream(clientSocket.getOutputStream());
         this.in = new ObjectInputStream(clientSocket.getInputStream());
-        this.parsingFunction = parsingFunction;
+        this.parsingFunction = primitiveParser;
     }
 
     /**

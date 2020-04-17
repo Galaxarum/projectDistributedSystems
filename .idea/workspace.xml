@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/ParsingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/PrimitiveParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -610,11 +609,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="866" y="273" width="424" height="579" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582995353835" />
-    <state x="2869" y="376" width="374" height="570" key="#com.intellij.ide.util.MemberChooser" timestamp="1587128785638">
+    <state x="2869" y="376" width="374" height="570" key="#com.intellij.ide.util.MemberChooser" timestamp="1587130190816">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="672" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1582932411091" />
-    <state x="2869" y="376" width="374" height="570" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587128785638" />
+    <state x="2869" y="376" width="374" height="570" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587130190816" />
     <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583246204073" />
     <state x="583" y="211" width="744" height="611" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1582799583205">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -631,10 +630,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="643" y="250" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583166323759" />
-    <state x="2462" y="259" width="585" height="484" key="#com.intellij.refactoring.memberPullUp.PullUpDialog" timestamp="1587128868679">
+    <state x="2462" y="259" width="585" height="484" key="#com.intellij.refactoring.memberPullUp.PullUpDialog" timestamp="1587129905153">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state x="2462" y="259" width="585" height="484" key="#com.intellij.refactoring.memberPullUp.PullUpDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587128868679" />
+    <state x="2462" y="259" width="585" height="484" key="#com.intellij.refactoring.memberPullUp.PullUpDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587129905153" />
     <state x="2354" y="451" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1584274388478">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
@@ -654,11 +653,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="674" y="231" width="561" height="570" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585245783153" />
-    <state x="2204" y="0" width="869" height="1010" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584200538898">
+    <state x="2204" y="0" width="869" height="1010" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587130153182">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="284" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582932449184" />
-    <state x="2204" y="0" width="869" height="1010" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584200538898" />
+    <state x="2204" y="0" width="869" height="1010" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587130153182" />
     <state x="325" y="0" width="993" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583074936550" />
     <state x="2526" y="272" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584224556871">
       <screen x="1920" y="0" width="1680" height="1050" />
@@ -671,12 +670,12 @@
     <state x="667" y="348" width="706" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350089324" />
     <state x="2504" y="362" width="617" height="318" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584273785785" />
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="2303" y="110" width="1088" height="836" key="CommitChangelistDialog2" timestamp="1587129147948">
+    <state x="2303" y="110" width="1088" height="836" key="CommitChangelistDialog2" timestamp="1587130549594">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
     <state x="438" y="106" width="1010" height="818" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350231036" />
-    <state x="2303" y="110" width="1088" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587129147948" />
+    <state x="2303" y="110" width="1088" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587130549594" />
     <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585245462539" />
     <state x="2008" y="100" width="1536" height="833" key="DiffContextDialog" timestamp="1584273836029">
       <screen x="1920" y="0" width="1680" height="1050" />
