@@ -51,4 +51,10 @@ public class VectorClocks extends HashMap<String, Integer> implements Comparable
 
         return res;   //equal or concurrent
     }
+
+    public VectorClocks clone(){
+        VectorClocks result = new VectorClocks(localKey);
+        result.putAll(this);
+        return result;
+    }
 }
