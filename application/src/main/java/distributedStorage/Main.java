@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
@@ -52,6 +53,7 @@ public class Main {
     public static final int STORAGE_PATH_INDEX = 5;
     private static String storage_path;
     private static boolean isLeader;
+
     /**
      * The value that will be assigned to an illegal or missing port specification
      */
@@ -79,6 +81,8 @@ public class Main {
      */
     @Getter
     private static DatabaseManager<String,Object> databaseManager;
+
+    private static ServerSocketRunnable<DataOperations> clientListener;
 
     /**
      * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join()}.
@@ -110,6 +114,7 @@ public class Main {
      */
     public static void main(String[] args) throws IOException, IllegalAccessException {
         try {
+            initClientListener();
 
             logger.setLevel(LOG_LEVEL);
             ConsoleHandler handler = new ConsoleHandler();
@@ -150,6 +155,40 @@ public class Main {
         logger.info("Running on ports: "+client_port+", "+middleware_port+"-"+(middleware_port+MessagingMiddleware.NEEDED_PORTS-1));
     }
 
+    private static void initClientListener(){
+        try {
+            clientListener = new ServerSocketRunnable<>(new ServerSocket(client_port), (operation, writer, reader, socket) -> {
+                try {
+                    String key = ( String ) reader.readObject();
+                    Object value;
+                    Object result;
+                    switch ( operation ) {
+                        case GET:
+                            result = databaseManager.getDatabase().get(key);
+                            break;
+                        case PUT:
+                            value = reader.readObject();
+                            result = databaseManager.getDatabase().put(key, value);
+                            messagingMiddleware.shareOperation(PUT, key, value);
+                            break;
+                        case DELETE:
+                            result = databaseManager.getDatabase().remove(key);
+                            messagingMiddleware.shareOperation(DELETE, key, null);
+                            break;
+                        default:
+                            throw new ParsingException(operation.toString());
+                    }
+                    writer.writeObject(result);
+                } catch ( IOException | ClassNotFoundException e ) {
+                    e.printStackTrace();
+                    //TODO
+                }
+            });
+        }catch ( IOException e ){
+            throw new BrokenProtocolException("Cannot start Client Listener", e);
+        }
+    }
+
     private static void parse(@NotNull String[] args){
         logger.entering(Main.class.getName(),"parse",args);
         try{
@@ -186,33 +225,7 @@ public class Main {
 
     private static void startClientListener() throws IOException {
         logger.entering(Main.class.getName(),"startClientListener",client_port);
-        new Thread(new ServerSocketRunnable<DataOperations>(client_port, (operation, writer, reader, socket) -> {
-            try {
-                String key = ( String ) reader.readObject();
-                Object value;
-                Object result;
-                switch ( operation ) {
-                    case GET:
-                        result = databaseManager.getDatabase().get(key);
-                        break;
-                    case PUT:
-                        value = reader.readObject();
-                        result = databaseManager.getDatabase().put(key, value);
-                        messagingMiddleware.shareOperation(PUT, key, value);
-                        break;
-                    case DELETE:
-                        result = databaseManager.getDatabase().remove(key);
-                        messagingMiddleware.shareOperation(DELETE, key, null);
-                        break;
-                    default:
-                        throw new ParsingException(operation.toString());
-                }
-                writer.writeObject(result);
-            }catch ( IOException | ClassNotFoundException e ){
-                e.printStackTrace();
-                //TODO
-            }
-        })).start();
+        new Thread(clientListener).start();
         logger.exiting(Main.class.getName(),"startClientListener");
     }
 
@@ -220,6 +233,8 @@ public class Main {
         logger.entering(Main.class.getName(),"setShutdownOperation");
         //Add a shutdownHook to leave before shutting down
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            logger.info("Stopping client listener");
+            clientListener.close();
             logger.info("Closing db state");
             databaseManager.close();
             logger.info("Leaving the group");

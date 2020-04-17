@@ -124,6 +124,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                         throw new BrokenProtocolException("Unexpected object received", e);
                     }
                 });
+        super.leave();
     }
 
     /**

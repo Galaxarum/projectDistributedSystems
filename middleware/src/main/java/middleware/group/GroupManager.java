@@ -6,6 +6,7 @@ import middleware.messages.VectorClocks;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -15,9 +16,12 @@ public abstract class GroupManager <K,V> implements PrimitiveParser<GroupCommand
     protected static String id;
     protected static Map<String, NodeInfo> replicas;
     protected static Map data;
+    private static ServerSocketRunnable<GroupCommands> socketListener;
 
     public abstract void join(VectorClocks vectorClocks);
-    public abstract void leave();
+    public void leave(){
+        socketListener.close();
+    };
 
     GroupManager(String id, int port, Map<String, NodeInfo> replicas,Map<K,V> data){
         logger.entering(GroupManager.class.getName(),"GroupManager");
@@ -25,7 +29,8 @@ public abstract class GroupManager <K,V> implements PrimitiveParser<GroupCommand
         GroupManager.replicas = replicas;
         GroupManager.data = data;
         try {
-            new Thread(new ServerSocketRunnable<>(port, this)).start();
+            socketListener = new ServerSocketRunnable<>(new ServerSocket(port), this);
+            new Thread(socketListener).start();
         } catch ( IOException e ) {
             BrokenProtocolException e1 = new BrokenProtocolException("Impossible to initialize the connection", e);
             logger.throwing(GroupManager.class.getName(),"GroupManager",e1);

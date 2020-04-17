@@ -6,6 +6,7 @@ import markers.Primitive;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.logging.Logger;
 
 public class ServerSocketRunnable<T extends Primitive> implements Runnable {
@@ -22,11 +23,10 @@ public class ServerSocketRunnable<T extends Primitive> implements Runnable {
 
     /**
      * Creates a ConnectionAcceptor listening to the given port
-     * @param port The port to listen to
-     * @throws IOException If thrown by {@linkplain ServerSocket#ServerSocket(int)}
+     * @param serverSocket the ServerSocket that will listen for incoming connections
      */
-    public ServerSocketRunnable(int port, PrimitiveParser<T> primitiveParser) throws IOException {
-        this.serverSocket = new ServerSocket(port);
+    public ServerSocketRunnable(ServerSocket serverSocket, PrimitiveParser<T> primitiveParser) {
+        this.serverSocket = serverSocket;
         this.primitiveParser = primitiveParser;
     }
 
@@ -39,11 +39,21 @@ public class ServerSocketRunnable<T extends Primitive> implements Runnable {
             try {
                 Socket clientSocket = serverSocket.accept();
                 new Thread(new PrimitiveParserRunnable<>(clientSocket, primitiveParser)).start();
-            } catch (IOException e) {
+            } catch ( SocketException e ){
+                logger.info("ServerSocket has been closed");
+            }catch (IOException e) {
                 logger.warning("An error occurred while accepting a connection by " + serverSocket);
             }
         }
 
+    }
+
+    public void close(){
+        try {
+            serverSocket.close();
+        } catch ( IOException e ) {
+            //ignored
+        }
     }
 
 }

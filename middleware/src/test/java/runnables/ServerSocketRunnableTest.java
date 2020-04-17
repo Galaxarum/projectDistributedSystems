@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,7 +32,7 @@ public class ServerSocketRunnableTest {
 
 	@BeforeAll
 	public static void startListener() throws IOException {
-		new Thread(new ServerSocketRunnable<>(PORT, PARSING_FUNCTION)).start();
+		new Thread(new ServerSocketRunnable<>(new ServerSocket(PORT), PARSING_FUNCTION)).start();
 	}
 
 	@Test
