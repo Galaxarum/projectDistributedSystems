@@ -21,12 +21,8 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
     public MessagingMiddlewareImpl(String id, int port, String leaderHost, Map<Key, Value> data) {
         this.data = data;
         logger.info("creating group manager");
-        this.groupManager = GroupManagerFactory.factory(id,port,leaderHost,replicas);
+        this.groupManager = GroupManagerFactory.factory(id,port,leaderHost,replicas,data);
         this.vectorClocks = new VectorClocks(id);
-    }
-
-    public MessagingMiddlewareImpl(String id, String leaderHost, Map<Key, Value> data) {
-        this(id, DEFAULT_PORT, leaderHost, data);
     }
 
     @Override
@@ -35,7 +31,7 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
         try {
             operativeLock.lock();
             logger.fine("locked ordinary operations");
-            groupManager.join(data,vectorClocks);
+            groupManager.join(vectorClocks);
         }finally {
             operativeLock.unlock();
             logger.fine("unlocked ordinary operations");
