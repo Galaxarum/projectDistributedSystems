@@ -2,8 +2,10 @@ package middleware.group;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
+import functional_interfaces.ParsingFunction;
 import markers.Primitive;
 import middleware.MessagingMiddleware;
+import middleware.messages.VectorClocks;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -15,56 +17,56 @@ import java.util.logging.Logger;
 
 import static middleware.group.GroupCommands.*;
 
-public class OrdinaryGroupManager<K, V> implements GroupManager<K, V> {
+class OrdinaryGroupManager<K, V> implements GroupManager<K, V> {
 
     private static final Logger logger = Logger.getLogger(OrdinaryGroupManager.class.getName());
-    protected final String MY_ID;
-    private final Socket leaderSocket;
-    // OPT: this is needed only for the leader replica
-    protected final Map<String, NodeInfo> replicas;
+    private static String MY_ID;
+    private static Socket leaderSocket;
+    private static Map<String, NodeInfo> replicas;
+    private static final ParsingFunction<GroupCommands> parser =  (command, writer, reader, socket) -> {
+        final String replicaId;
+        final NodeInfo replicaInfo;
+        final Socket replicaSocket;
+        switch ( command ) {
+            case JOINING:
+                //Register the replica
+                replicaId = ( String ) reader.readObject();
+                replicaInfo = ( NodeInfo ) reader.readObject();
+                replicaSocket = replicaInfo.getSocket();
+                //Send ack to ensure you won't proceed execution
+                writer.writeObject(ACK);
+                try {
+                    MessagingMiddleware.operativeLock.lock();
+                    Primitive.checkEquals(ACK, reader.readObject());
+                } finally {
+                    MessagingMiddleware.operativeLock.unlock();
+                }
+                break;
+            case LEAVE:
+                replicaId = ( String ) reader.readObject();
+                try {
+                    replicas.get(replicaId).getSocket().close();
+                } catch ( IOException e ) {/*Ignored*/}
+                replicas.remove(replicaId);
+                break;
+            case JOIN:
+            case SYNC:
+            case ACK:
+            default:  //ACK should be catched in the methods expecting them
+                throw new ParsingException(command.toString());
+        }
+    };
 
-    public OrdinaryGroupManager(String id,
+    OrdinaryGroupManager(String id,
                                 int port,
                                 String leaderHost,
                                 Map<String, NodeInfo> replicas) {
         try {
-            this.MY_ID = id;
-            this.leaderSocket = new Socket(leaderHost, port);
-            this.replicas = replicas;
+            OrdinaryGroupManager.MY_ID = id;
+            OrdinaryGroupManager.leaderSocket = new Socket(leaderHost, port);
+            OrdinaryGroupManager.replicas = replicas;
             logger.info("Starting socket listener");
-            new Thread(new ServerSocketRunnable<GroupCommands>(0, (command, writer, reader, socket) -> {
-                final String replicaId;
-                final NodeInfo replicaInfo;
-                final Socket replicaSocket;
-                switch ( command ) {
-                    case JOINING:
-                        //Register the replica
-                        replicaId = ( String ) reader.readObject();
-                        replicaInfo = ( NodeInfo ) reader.readObject();
-                        replicaSocket = replicaInfo.getSocket();
-                        //Send ack to ensure you won't proceed execution
-                        writer.writeObject(ACK);
-                        try {
-                            MessagingMiddleware.operativeLock.lock();
-                            Primitive.checkEquals(ACK, reader.readObject());
-                        } finally {
-                            MessagingMiddleware.operativeLock.unlock();
-                        }
-                        break;
-                    case LEAVE:
-                        replicaId = ( String ) reader.readObject();
-                        try {
-                            replicas.get(replicaId).getSocket().close();
-                        } catch ( IOException e ) {/*Ignored*/}
-                        replicas.remove(replicaId);
-                        break;
-                    case JOIN:
-                    case SYNC:
-                    case ACK:
-                    default:  //ACK should be catched in the methods expecting them
-                        throw new ParsingException(command.toString());
-                }
-            })).start();
+            new Thread(new ServerSocketRunnable<>(port, parser)).start();
             logger.info("network listener started");
         }catch (IOException e){
             throw new BrokenProtocolException("Impossible to initialize the connection",e);
@@ -81,18 +83,15 @@ public class OrdinaryGroupManager<K, V> implements GroupManager<K, V> {
      *     <li>Ack the leader</li>
      *     <li>Return the received data</li>
      * </ul>
-     * @return A copy of the application data
      * @implNote Since processes will never fail by assumption, we may assume that the known replica will always be the same replica (for instance the first replica created).
      * This allows us to avoid implementing some kind of distributed mutex mechanism, keeping it a local mutex managed by the leader process
      */
     @SuppressWarnings("unchecked")
     @Override
-    public Map<K,V> join() {
+    public void join(Map<K,V> data, VectorClocks vectorClocks) {
 
         try ( ObjectOutputStream out = new ObjectOutputStream(leaderSocket.getOutputStream());
               ObjectInputStream in = new ObjectInputStream(leaderSocket.getInputStream()) ) {
-
-            final Map<K, V> data;
 
             out.writeObject(JOIN);
 
@@ -110,8 +109,8 @@ public class OrdinaryGroupManager<K, V> implements GroupManager<K, V> {
 
             //Get data from the master replica
             out.writeObject(GroupCommands.SYNC);
-            data = ( Map<K, V> ) in.readObject();
-            //TODO: read vector clocks
+            data.putAll( ( Map<K, V> ) in.readObject() );
+            vectorClocks.update(( VectorClocks ) in.readObject());
             replicas.values().stream()
                     .map(NodeInfo::getSocket)
                     .forEach(socket -> {
@@ -123,8 +122,6 @@ public class OrdinaryGroupManager<K, V> implements GroupManager<K, V> {
                     });
 
             replicas.put(leaderId, leaderInfo);
-
-            return data;
 
         }catch (ClassNotFoundException | ClassCastException e) {
             throw new BrokenProtocolException("Unexpected object received: ", e);

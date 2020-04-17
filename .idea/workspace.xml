@@ -192,14 +192,7 @@
       <workItem from="1585245495958" duration="833000" />
       <workItem from="1587068974578" duration="2330000" />
       <workItem from="1587117134083" duration="234000" />
-      <workItem from="1587126618443" duration="2157000" />
-    </task>
-    <task id="LOCAL-00023" summary="Moved GroupCommands, Update GroupManager">
-      <created>1583077932723</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1583077932723</updated>
+      <workItem from="1587126618443" duration="2404000" />
     </task>
     <task id="LOCAL-00024" summary="Update GroupManager, JoinGroupUseCase">
       <created>1583077967490</created>
@@ -537,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587069948617</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Update VectorClocks&#10;-Added clone method">
+      <created>1587129023396</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1587129023397</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update DatabaseManager&#10;Removed useless modules" />
     <MESSAGE value="Update ClientCommandListener&#10;Extended ClientCommandListener.parseCommand method" />
     <MESSAGE value="Update Main&#10;Added DatabaseManager initialization and usage" />
     <MESSAGE value="Javadoc Main" />
@@ -582,7 +581,8 @@
     <MESSAGE value="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining" />
     <MESSAGE value="Added VectorClocksTest" />
     <MESSAGE value="Update VectorClocks, VectorClocksTest&#10;-simplified VectorClocks.update&#10;-Fixed VectorClocksTest with new constructor&#10;-Added a couple test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update VectorClocks, VectorClocksTest&#10;-simplified VectorClocks.update&#10;-Fixed VectorClocksTest with new constructor&#10;-Added a couple test cases" />
+    <MESSAGE value="Update VectorClocks&#10;-Added clone method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update VectorClocks&#10;-Added clone method" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1582817851250">
@@ -671,12 +671,12 @@
     <state x="667" y="348" width="706" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350089324" />
     <state x="2504" y="362" width="617" height="318" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1584273785785" />
     <state x="667" y="359" width="576" height="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583234585859" />
-    <state x="2303" y="110" width="1010" height="818" key="CommitChangelistDialog2" timestamp="1587069948445">
+    <state x="2303" y="110" width="1010" height="818" key="CommitChangelistDialog2" timestamp="1587129023050">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="383" y="110" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582980741279" />
     <state x="438" y="106" width="1010" height="818" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@0.0.1920.1010" timestamp="1584350231036" />
-    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587069948445" />
+    <state x="2303" y="110" width="1010" height="836" key="CommitChangelistDialog2/0.0.1920.1010/1920.0.1680.1050@1920.0.1680.1050" timestamp="1587129023050" />
     <state x="438" y="109" width="1379" height="881" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585245462539" />
     <state x="2008" y="100" width="1536" height="833" key="DiffContextDialog" timestamp="1584273836029">
       <screen x="1920" y="0" width="1680" height="1050" />
