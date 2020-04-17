@@ -1,6 +1,5 @@
 package middleware;
 
-import middleware.group.GroupManager;
 import markers.Primitive;
 
 import java.util.concurrent.locks.Lock;
@@ -13,7 +12,8 @@ public interface MessagingMiddleware <Key, Value, ApplicativePrimitive extends E
      * Needed to ensure that the distributed execution pauses while a new replica is joining
      */
     Lock operativeLock = new ReentrantLock(true);
-    int DEFAULT_PORT = 12345;
+    int DEFAULT_STARTING_PORT = 12345;
+    int NEEDED_PORTS = 2;
 
     void leave();
 

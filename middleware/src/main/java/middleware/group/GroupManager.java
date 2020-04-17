@@ -20,15 +20,17 @@ public abstract class GroupManager <K,V> implements PrimitiveParser<GroupCommand
     public abstract void leave();
 
     GroupManager(String id, int port, Map<String, NodeInfo> replicas,Map<K,V> data){
+        logger.entering(GroupManager.class.getName(),"GroupManager");
         GroupManager.id = id;
         GroupManager.replicas = replicas;
         GroupManager.data = data;
         try {
-            logger.info("Starting socket listener");
             new Thread(new ServerSocketRunnable<>(port, this)).start();
-            logger.info("Socket listener started");
         } catch ( IOException e ) {
-            throw new BrokenProtocolException("Impossible to initialize the connection", e);
+            BrokenProtocolException e1 = new BrokenProtocolException("Impossible to initialize the connection", e);
+            logger.throwing(GroupManager.class.getName(),"GroupManager",e1);
+            throw e1;
         }
+        logger.exiting(GroupManager.class.getName(),"GroupManager");
     }
 }

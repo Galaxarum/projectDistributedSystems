@@ -2,6 +2,7 @@ package runnables;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
+import functional_interfaces.PrimitiveParser;
 import markers.Primitive;
 
 import java.io.IOException;
@@ -23,18 +24,20 @@ final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
      * Used to write middleware.messages to the client
      */
     private final ObjectOutputStream out;
-    private final functional_interfaces.PrimitiveParser<T> parsingFunction;
+    private final PrimitiveParser<T> parsingFunction;
     /**
      * A logger
      */
     private static final Logger logger = Logger.getLogger(PrimitiveParserRunnable.class.getName());
 
-    protected PrimitiveParserRunnable(Socket clientSocket, functional_interfaces.PrimitiveParser<T> primitiveParser) throws IOException {
+    protected PrimitiveParserRunnable(Socket clientSocket, PrimitiveParser<T> primitiveParser) throws IOException {
         this.clientSocket = clientSocket;
         this.out = new ObjectOutputStream(clientSocket.getOutputStream());
         this.in = new ObjectInputStream(clientSocket.getInputStream());
         this.parsingFunction = primitiveParser;
     }
+
+
 
     /**
      * While {@linkplain #clientSocket} is opened,
@@ -47,12 +50,9 @@ final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
             try {
                 @SuppressWarnings("unchecked")
                 T command = (T) in.readObject();
-                parsingFunction.parse(command, this::writeObjectSafe, this::readObjectSafe, clientSocket);
-            } catch (ClassCastException | ClassNotFoundException e){
-                logger.warning("Unable to deserialize an object received by the following stream: "+in.toString()+". The connection will be interrupted");
-                stop();
-            }catch (IOException e){
-                logger.fine("IOException happened occurred communicating to the following address: "+clientSocket.getInetAddress().getHostAddress()+". The connection will be interrupted");
+                parsingFunction.parse(command, this.out, this.in, clientSocket);
+            } catch ( ClassCastException | ClassNotFoundException | IOException e){
+                logger.throwing(PrimitiveParserRunnable.class.getName(),"run",e);
                 stop();
             } catch (ParsingException e) {
                 throw new BrokenProtocolException("Parsing failed",e);
@@ -65,6 +65,7 @@ final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
      * Closes {@link #in}, {@link #out}, {@link #clientSocket}.
      */
     private void stop(){
+        logger.entering(PrimitiveParserRunnable.class.getName(),"stop",clientSocket);
         try {
             in.close();
             out.close();
@@ -72,28 +73,7 @@ final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
         } catch (IOException e) {
             logger.finer("IOException raised while closing an IO channel. Not a problem");
         }
-        logger.finest("Stopped listening to the client at the address: "+clientSocket.getInetAddress());
-    }
-
-    /**
-     * Writes the given object to {@linkplain #out}, closing the connection in case of {@link IOException}
-     * @param object the Object to be written
-     */
-    protected void writeObjectSafe(Object object){
-        try{
-            out.writeObject(object);
-            out.flush();
-        } catch (IOException e) {
-            throw new BrokenProtocolException("IOException happened when writing on the following stream: "+out.toString()+". The connection will be interrupted");
-        }
-    }
-
-    protected Object readObjectSafe(){
-        try {
-            return in.readObject();
-        }catch (IOException | ClassNotFoundException e){
-            throw new BrokenProtocolException("Unable to read incoming data from the stream: "+in.toString());
-        }
+        logger.exiting(PrimitiveParserRunnable.class.getName(),"stop",clientSocket);
     }
 
 }

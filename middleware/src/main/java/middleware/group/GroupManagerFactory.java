@@ -1,18 +1,20 @@
 package middleware.group;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.Map;
 
 public class GroupManagerFactory {
 	private static GroupManager instance;
 	public static <K,V> GroupManager<K,V> factory(String id,
 	                                              int port,
-	                                              String leaderHost,
+	                                              Socket leaderGroupSocket,
 	                                              Map<String, NodeInfo> replicas,
-	                                              Map<K,V> data) {
+	                                              Map<K,V> data) throws IOException {
 		if(instance == null)
-			instance = leaderHost == null ?
+			instance = leaderGroupSocket == null ?
 					new LeaderGroupManager<>(id, port, replicas,data) :
-					new OrdinaryGroupManager<>(id, port, leaderHost, replicas,data);
+					new OrdinaryGroupManager<>(id, port, leaderGroupSocket, replicas,data);
 		return instance;
 	}
 }

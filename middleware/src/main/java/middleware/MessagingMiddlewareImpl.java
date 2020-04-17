@@ -1,9 +1,13 @@
 package middleware;
 
 import markers.Primitive;
-import middleware.group.*;
+import middleware.group.GroupManager;
+import middleware.group.GroupManagerFactory;
+import middleware.group.NodeInfo;
 import middleware.messages.VectorClocks;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -11,6 +15,7 @@ import java.util.logging.Logger;
 public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends Enum<ApplicationPrimitive> & Primitive> implements
         MessagingMiddleware<Key, Value, ApplicationPrimitive> {
 
+    private static final int GROUP_PORT_OFFSET = 0;
     public static final Map<String, NodeInfo> replicas = new Hashtable<>();
     private final Map<Key,Value> data;
     private VectorClocks vectorClocks;
@@ -18,10 +23,10 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
     private static final Logger logger = Logger.getLogger(MessagingMiddlewareImpl.class.getName());
 
 
-    public MessagingMiddlewareImpl(String id, int port, String leaderHost, Map<Key, Value> data) {
+    public MessagingMiddlewareImpl(String id, int port, Socket leaderGroupSocket, Map<Key, Value> data) throws IOException {
         this.data = data;
         logger.info("creating group manager");
-        this.groupManager = GroupManagerFactory.factory(id,port,leaderHost,replicas,data);
+        this.groupManager = GroupManagerFactory.factory(id,port+GROUP_PORT_OFFSET,leaderGroupSocket,replicas,data);
         this.vectorClocks = new VectorClocks(id);
     }
 

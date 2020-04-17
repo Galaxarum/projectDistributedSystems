@@ -2,12 +2,10 @@ package middleware.group;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
-import functional_interfaces.NetworkReader;
-import functional_interfaces.NetworkWriter;
 import markers.Primitive;
 import middleware.MessagingMiddleware;
 import middleware.messages.VectorClocks;
-import runnables.ServerSocketRunnable;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,19 +19,20 @@ import static middleware.group.GroupCommands.*;
 class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
     private static final Logger logger = Logger.getLogger(OrdinaryGroupManager.class.getName());
-    private static Socket leaderSocket;
+    private final NodeInfo leaderInfo;
 
     OrdinaryGroupManager(String id,
                          int port,
-                         String leaderHost,
+                         Socket leaderSocket,
                          Map<String, NodeInfo> replicas,
-                         Map<K,V> data) {
+                         Map<K,V> data) throws IOException {
         super(id, port, replicas, data);
-        try {
-            OrdinaryGroupManager.leaderSocket = new Socket(leaderHost, port);
-        } catch ( IOException e ) {
-            throw new BrokenProtocolException("Cannot establish connection with the leader");
-        }
+
+        //Create leader info
+        leaderInfo = new NodeInfo(leaderSocket.getInetAddress().getHostName(),leaderSocket.getPort());
+
+        //Init connection
+        leaderInfo.setSocket(leaderSocket,true);
     }
 
     /**
@@ -53,37 +52,39 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
     @Override
     public void join(VectorClocks vectorClocks) {
 
-        try ( ObjectOutputStream out = new ObjectOutputStream(leaderSocket.getOutputStream());
-              ObjectInputStream in = new ObjectInputStream(leaderSocket.getInputStream()) ) {
+        try {
+            //Get streams
+            ObjectOutputStream leaderOut = leaderInfo.getOut();
+            ObjectInputStream leaderIn = leaderInfo.getIn();
+            leaderOut.writeObject(JOIN);
+            leaderOut.writeObject(id);
 
-            out.writeObject(JOIN);
-
-            out.writeObject(id);
-            out.flush();
-
-            final String leaderId = ( String ) in.readObject();
-            final NodeInfo leaderInfo = new NodeInfo(leaderSocket.getInetAddress().getHostName(), leaderSocket.getPort());
-            leaderInfo.setSocket(leaderSocket);
+            //Save leader id for later
+            final String leaderId = ( String ) leaderIn.readObject();
 
             //Receive list of actual replicas from the leader (the list will include the leader itself)
-            replicas.putAll(( Map<String, NodeInfo> ) in.readObject());
+            replicas.putAll(( Map<String, NodeInfo> ) leaderIn.readObject());
 
+            //Inform other replicas that you're joining
             replicas.forEach(this::initReplica);
 
             //Get data from the master replica
-            out.writeObject(GroupCommands.SYNC);
-            data.putAll( ( Map<K, V> ) in.readObject() );
-            vectorClocks.update(( VectorClocks ) in.readObject());
-            replicas.values().stream()
-                    .map(NodeInfo::getSocket)
-                    .forEach(socket -> {
-                        try ( ObjectOutputStream r_out = new ObjectOutputStream(socket.getOutputStream()) ) {
-                            r_out.writeObject(ACK);
-                        } catch ( IOException e ) {
-                            throw new BrokenProtocolException("Unable to contact the replica: " + socket.getInetAddress());
-                        }
-                    });
+            leaderOut.writeObject(SYNC);
+            data.putAll( ( Map<K, V> ) leaderIn.readObject() );
+            vectorClocks.update(( VectorClocks ) leaderIn.readObject());
 
+            //Inform other replicas that you're done
+            replicas.values().forEach(
+                    nodeInfo -> {
+                        try{
+                            nodeInfo.getOut().writeObject(ACK);
+                        }catch ( IOException e ) {
+                            throw new BrokenProtocolException("Unable to contact the replica: " + nodeInfo.getHostname());
+                        }
+                    }
+            );
+
+            //Save leader info
             replicas.put(leaderId, leaderInfo);
 
         }catch (ClassNotFoundException | ClassCastException e) {
@@ -104,18 +105,21 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
      */
     @Override
     public void leave() {
-        replicas.values().stream()
-                .map(NodeInfo::getSocket)
-                .forEach(socket -> {
-                    try ( ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream()) ) {
+        //For each replica
+        replicas.values()
+                .forEach(nodeInfo -> {
+                    try {
+                        //Load stream
+                        ObjectOutputStream out = nodeInfo.getOut();
 
                         //Inform current replica of leaving
                         out.writeObject(GroupCommands.LEAVE);
                         out.writeObject(id);
 
-                        socket.close();
+                        //Close connection
+                        nodeInfo.close();
                     } catch ( IOException e ) {
-                        throw new BrokenProtocolException("Assumption on channel reliability failed");
+                        throw new BrokenProtocolException("Assumption on channel reliability failed",e);
                     } catch ( ClassCastException e ) {
                         throw new BrokenProtocolException("Unexpected object received", e);
                     }
@@ -136,57 +140,80 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
     private void initReplica(String id,NodeInfo nodeInfo) throws BrokenProtocolException {
         try {
 
+            //Establish connection
+            nodeInfo.setSocket(new Socket(nodeInfo.getHostname(),nodeInfo.getPort()),true);
+
+            //Load streams
+            ObjectOutputStream newOut = nodeInfo.getOut();
+            ObjectInputStream newIn = nodeInfo.getIn();
+
+            //Send "JOINING"
+            newOut.writeObject(JOINING);
+            newOut.writeObject(GroupManager.id);
+            Primitive.checkEquals(ACK, newIn.readObject());
+
             //Save the replica
             replicas.put(id, nodeInfo);
 
-            //Send "JOINING"
-            try ( ObjectOutputStream newOut = new ObjectOutputStream(replicas.get(id).getSocket().getOutputStream());
-                  ObjectInputStream newIn = new ObjectInputStream(replicas.get(id).getSocket().getInputStream()) ) {
-                newOut.writeObject(JOINING);
-                newOut.writeObject(GroupManager.id);
-                Primitive.checkEquals(ACK, newIn.readObject());
-            }
-
-
         } catch (IOException e) {
-            throw new BrokenProtocolException("Assumption on channel reliability failed");
+            throw new BrokenProtocolException("Assumption on channel reliability failed",e);
         } catch (ClassCastException | ClassNotFoundException e) {
             throw new BrokenProtocolException("Unexpected object received: ",e);
         }
     }
 
     @Override
-    public void parse(GroupCommands command, NetworkWriter writer, NetworkReader reader, Socket socket) throws ParsingException {
-        final String replicaId;
-        final NodeInfo replicaInfo;
-        switch ( command ) {
-            case JOINING:
-                //Register the replica
-                replicaId = ( String ) reader.readObject();
-                replicaInfo = new NodeInfo(socket.getInetAddress().getHostName(),socket.getPort());
-                replicaInfo.setSocket(socket);
-                replicas.put(replicaId,replicaInfo);
-                //Send ack to ensure you won't proceed execution
-                writer.writeObject(ACK);
-                try {
-                    MessagingMiddleware.operativeLock.lock();
-                    Primitive.checkEquals(ACK, reader.readObject());
-                } finally {
-                    MessagingMiddleware.operativeLock.unlock();
-                }
-                break;
-            case LEAVE:
-                replicaId = ( String ) reader.readObject();
-                try {
-                    replicas.get(replicaId).getSocket().close();
-                } catch ( IOException e ) {/*Ignored*/}
-                replicas.remove(replicaId);
-                break;
-            case JOIN:
-            case SYNC:
-            case ACK:
-            default:  //ACK should be catched in the methods expecting them
-                throw new ParsingException(command.toString());
+    public void parse(@NotNull GroupCommands command, ObjectOutputStream writer, ObjectInputStream reader, Socket socket) throws ParsingException {
+        try {
+            final String replicaId;
+            final NodeInfo replicaInfo;
+            switch ( command ) {
+                case JOINING:
+
+                    //Read id
+                    replicaId = ( String ) reader.readObject();
+
+                    //Create info
+                    replicaInfo = new NodeInfo(socket.getInetAddress().getHostName(), socket.getPort());
+
+                    //Save connection
+                    replicaInfo.setSocket(socket);
+
+                    //Save info
+                    replicas.put(replicaId, replicaInfo);
+
+                    //Send ack to ensure you won't proceed execution
+                    writer.writeObject(ACK);
+
+                    //Wait until you recive an ACK
+                    try {
+                        MessagingMiddleware.operativeLock.lock();
+                        Primitive.checkEquals(ACK, reader.readObject());
+                    } finally {
+                        MessagingMiddleware.operativeLock.unlock();
+                    }
+                    break;
+
+                case LEAVE:
+
+                    //Get id of leaving
+                    replicaId = ( String ) reader.readObject();
+
+                    //Close connection
+                    replicas.get(replicaId).close();
+
+                    //Forget the replica
+                    replicas.remove(replicaId);
+                    break;
+                case JOIN:
+                case SYNC:
+                case ACK:
+                default:
+                    throw new ParsingException(command.toString());
+            }
+        }catch ( IOException | ClassNotFoundException e ){
+            //TODO
+            e.printStackTrace();
         }
     }
 }

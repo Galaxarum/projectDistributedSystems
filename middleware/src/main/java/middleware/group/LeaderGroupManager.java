@@ -1,11 +1,12 @@
 package middleware.group;
 
+import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
-import functional_interfaces.NetworkReader;
-import functional_interfaces.NetworkWriter;
 import middleware.messages.VectorClocks;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -32,36 +33,44 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 	}
 
 	@Override
-	public void parse(GroupCommands command, NetworkWriter writer, NetworkReader reader, Socket socket) throws ParsingException {
-		final String replicaId;
-		final NodeInfo replicaInfo;
-		switch ( command ) {
-			case JOIN:
-				//Register the replica
-				replicaId = ( String ) reader.readObject();
-				replicaInfo = new NodeInfo(socket.getInetAddress().getHostName(), socket.getPort());
-				replicaInfo.setSocket(socket);
-				writer.writeObject(id);
-				//Write replica list to out
-				writer.writeObject(replicas);
-				replicas.put(replicaId, replicaInfo);
-				break;
-			case SYNC:
-				writer.writeObject(data);
-				writer.writeObject(vectorClocks);
-				break;
-			case LEAVE:
-				replicaId = ( String ) reader.readObject();
-				try {
-					replicas.get(replicaId).getSocket().close();
-				} catch ( IOException e ) {/*Ignored: the connection is already closed*/} finally {
+	public void parse(GroupCommands command, ObjectOutputStream out, ObjectInputStream in, Socket socket) throws ParsingException {
+		try {
+			final String replicaId;
+			final NodeInfo replicaInfo;
+			switch ( command ) {
+				case JOIN:
+					//Register the replica
+					replicaInfo = new NodeInfo(socket.getInetAddress().getHostName(), socket.getPort());
+					try {
+						replicaInfo.setSocket(socket,false);
+						replicaInfo.setOut(out);
+						replicaInfo.setIn(in);
+					} catch ( IOException e ) {
+						throw new BrokenProtocolException("Cannot connect with joining replica", e);
+					}
+					replicaId = ( String ) in.readObject();
+					out.writeObject(id);
+					//Write replica list to out
+					out.writeObject(replicas);
+					replicas.put(replicaId, replicaInfo);
+					break;
+				case SYNC:
+					out.writeObject(data);
+					out.writeObject(vectorClocks);
+					break;
+				case LEAVE:
+					replicaId = ( String ) in.readObject();
+					replicas.get(replicaId).close();
 					replicas.remove(replicaId);
-				}
-				break;
-			case JOINING:
-			case ACK:
-			default:  //ACK should be catched in the methods expecting them
-				throw new ParsingException(command.toString());
+					break;
+				case JOINING:
+				case ACK:
+				default:  //ACK should be catched in the methods expecting them
+					throw new ParsingException(command.toString());
+			}
+		}catch ( IOException | ClassNotFoundException e ){
+			//TODO
+			throw new BrokenProtocolException("", e);
 		}
 	}
 }

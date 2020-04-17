@@ -1,5 +1,6 @@
 package runnables;
 
+import exceptions.BrokenProtocolException;
 import functional_interfaces.PrimitiveParser;
 import lombok.AllArgsConstructor;
 import markers.Primitive;
@@ -19,9 +20,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ServerSocketRunnableTest {
 	private static final int PORT = 12345;
 	private static final PrimitiveParser<TestPrimitive> PARSING_FUNCTION = (x, writer, reader, socket) -> {
-		writer.writeObject(x.asInt + 1);
-		TestPrimitive response = ( TestPrimitive ) reader.readObject();
-		writer.writeObject(response.equals(TestPrimitive.ZERO));
+		try {
+			writer.writeObject(x.asInt + 1);
+			TestPrimitive response = ( TestPrimitive ) reader.readObject();
+			writer.writeObject(response.equals(TestPrimitive.ZERO));
+		}catch ( IOException | ClassNotFoundException e ){
+			throw new BrokenProtocolException("Broken protocol!");
+		}
 	};
 
 	@BeforeAll
