@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/runnables/MesssageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,14 +243,7 @@
       <workItem from="1587139137367" duration="2998000" />
       <workItem from="1587142163555" duration="9282000" />
       <workItem from="1587155036755" duration="15000" />
-      <workItem from="1595854132307" duration="3171000" />
-    </task>
-    <task id="LOCAL-00030" summary="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls">
-      <created>1583170104332</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1583170104332</updated>
+      <workItem from="1595854132307" duration="3669000" />
     </task>
     <task id="LOCAL-00031" summary="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Made MessagingMiddleware.join return the received map&#10;-Added support for generic typed Group Manager">
       <created>1583170158418</created>
@@ -588,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595857209482</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Add MessageTest">
+      <created>1595857609717</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1595857609717</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,7 +607,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update ParsingFunction, PrimitiveParser&#10;ParsingFunction.parse throwing ParsingException" />
     <MESSAGE value="Update GroupManager&#10;Made actually an interface" />
     <MESSAGE value="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java" />
     <MESSAGE value="Update Primitive, Delete PrimitiveOps.java&#10;Moved utility method Primitive.checkEquals from PrimitiveOps.java" />
@@ -632,7 +631,8 @@
     <MESSAGE value="Update ServerSocketRunnable" />
     <MESSAGE value="Update ServerSocketRunnableTest" />
     <MESSAGE value="Update VectorClocksTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update VectorClocksTest" />
+    <MESSAGE value="Add MessageTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MessageTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595854327385">
@@ -651,26 +651,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595854324123" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595857209365">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595857609603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595857209365" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595857183111">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595857609603" />
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595857557957">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183111" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595857183111">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595857557957" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595857557957">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183111" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595857183110">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595857557957" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595857557956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183110" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595857183111">
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595857557956" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595857557957">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183111" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595857557957" />
     <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595855206699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -687,10 +687,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595855206699" />
-    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595857320616">
+    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595857346051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595857320616" />
+    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595857346051" />
+    <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction" timestamp="1595857518776">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction/0.0.1920.1040@0.0.1920.1040" timestamp="1595857518776" />
     <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1595855159296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

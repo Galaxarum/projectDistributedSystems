@@ -2,9 +2,8 @@ package middleware.messages;
 
 import java.util.HashSet;
 
-public class MessageProducerImpl<T> implements MessageProducer<T> {
+public abstract class MessageProducerImpl<T> implements MessageProducer<T> {
     HashSet<MessageConsumer<T>> consumers;
-    HashSet<Message<T>> buffer;
 
     @Override
     public void addConsumer(MessageConsumer<T> consumer) {
@@ -12,16 +11,8 @@ public class MessageProducerImpl<T> implements MessageProducer<T> {
     }
 
     @Override
-    public void addMessageToBuffer(Message<T> msg) {
-        buffer.add(msg);
+    public synchronized void shareMessage(Message<T> msg) {
+        consumers.forEach(c->c.consumeMessage(msg));
     }
 
-    @Override
-    public void shareMessage(Message<T> msg) {
-        //TODO
-    }
-
-    private void notifyConsumers(Message<T> msg) {
-        consumers.forEach(c-> c.consumeMessage(msg));
-    }
 }
