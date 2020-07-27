@@ -4,7 +4,7 @@ import markers.Primitive;
 import middleware.group.GroupManager;
 import middleware.group.GroupManagerFactory;
 import middleware.group.NodeInfo;
-import middleware.messages.VectorClocks;
+import middleware.messages.VectorClock;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -18,7 +18,7 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
     private static final int GROUP_PORT_OFFSET = 0;
     public static final Map<String, NodeInfo> replicas = new Hashtable<>();
     private final Map<Key,Value> data;
-    private VectorClocks vectorClocks;
+    private VectorClock vectorClock;
     private final GroupManager<Key, Value> groupManager;
     private static final Logger logger = Logger.getLogger(MessagingMiddlewareImpl.class.getName());
 
@@ -27,7 +27,7 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
         this.data = data;
         logger.info("creating group manager");
         this.groupManager = GroupManagerFactory.factory(id,port+GROUP_PORT_OFFSET,leaderGroupSocket,replicas,data);
-        this.vectorClocks = new VectorClocks(id);
+        this.vectorClock = new VectorClock(id);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
         try {
             operativeLock.lock();
             logger.fine("locked ordinary operations");
-            groupManager.join(vectorClocks);
+            groupManager.join(vectorClock);
         }finally {
             operativeLock.unlock();
             logger.fine("unlocked ordinary operations");

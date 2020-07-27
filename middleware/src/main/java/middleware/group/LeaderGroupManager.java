@@ -2,7 +2,7 @@ package middleware.group;
 
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
-import middleware.messages.VectorClocks;
+import middleware.messages.VectorClock;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -13,15 +13,15 @@ import java.util.logging.Logger;
 
 class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 	private static final Logger logger = Logger.getLogger(LeaderGroupManager.class.getName());
-	private static VectorClocks vectorClocks;
+	private static VectorClock vectorClock;
 
 	LeaderGroupManager(String id, int port, Map<String, NodeInfo> replicas,Map<K,V> data) {
 		super(id, port, replicas, data);
-		LeaderGroupManager.vectorClocks = new VectorClocks(id);
+		LeaderGroupManager.vectorClock = new VectorClock(id);
 	}
 
 	@Override
-	public void join(VectorClocks vectorClocks) {
+	public void join(VectorClock vectorClock) {
 	}
 
 	/**
@@ -56,7 +56,7 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 					break;
 				case SYNC:
 					out.writeObject(data);
-					out.writeObject(vectorClocks);
+					out.writeObject(vectorClock);
 					break;
 				case LEAVE:
 					replicaId = ( String ) in.readObject();

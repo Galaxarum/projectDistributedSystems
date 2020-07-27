@@ -2,7 +2,7 @@ package middleware.group;
 
 import exceptions.BrokenProtocolException;
 import functional_interfaces.PrimitiveParser;
-import middleware.messages.VectorClocks;
+import middleware.messages.VectorClock;
 import runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public abstract class GroupManager <K,V> implements PrimitiveParser<GroupCommand
     protected static Map data;
     private static ServerSocketRunnable<GroupCommands> socketListener;
 
-    public abstract void join(VectorClocks vectorClocks);
+    public abstract void join(VectorClock vectorClock);
     public void leave(){
         socketListener.close();
     };

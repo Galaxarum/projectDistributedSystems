@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MessageTest {
 
-	@Mock private VectorClocks vectorClock;
+	@Mock private VectorClock vectorClock;
 	private static final String CONTENT = "content";
 
 	@Test

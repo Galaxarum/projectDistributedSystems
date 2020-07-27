@@ -4,7 +4,7 @@ import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
 import markers.Primitive;
 import middleware.MessagingMiddleware;
-import middleware.messages.VectorClocks;
+import middleware.messages.VectorClock;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -50,7 +50,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void join(VectorClocks vectorClocks) {
+    public void join(VectorClock vectorClock) {
 
         try {
             //Get streams
@@ -71,7 +71,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             //Get data from the master replica
             leaderOut.writeObject(SYNC);
             data.putAll( ( Map<K, V> ) leaderIn.readObject() );
-            vectorClocks.update(( VectorClocks ) leaderIn.readObject());
+            vectorClock.update(( VectorClock ) leaderIn.readObject());
 
             //Inform other replicas that you're done
             replicas.values().forEach(

@@ -8,18 +8,18 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class VectorClocksTest {
-    private VectorClocks vectorA;
-    private VectorClocks vectorB;
-    private VectorClocks vectorC;
+class VectorClockTest {
+    private VectorClock vectorA;
+    private VectorClock vectorB;
+    private VectorClock vectorC;
     private final List<String> keys = List.of("a","b","c","d");
 
 
     @BeforeEach
     public void init() {
-        vectorA = new VectorClocks("a");
-        vectorB = new VectorClocks("b");
-        vectorC = new VectorClocks("c");
+        vectorA = new VectorClock("a");
+        vectorB = new VectorClock("b");
+        vectorC = new VectorClock("c");
         vectorA.put("a", 2);
         vectorA.put("b", 1);
         vectorA.put("c", 3);
@@ -68,7 +68,7 @@ class VectorClocksTest {
     @Test
     @DisplayName("(2,1,3,3) updated with (1,3,4,4) gives (2,3,4,4)")
     void updateParallel(){
-        VectorClocks expected = new VectorClocks("a");
+        VectorClock expected = new VectorClock("a");
         expected.put("a",2);
         expected.put("b",3);
         expected.put("c",4);
@@ -79,7 +79,7 @@ class VectorClocksTest {
 
     @Test
     void incrementLocal() {
-        VectorClocks expected = new VectorClocks("a");
+        VectorClock expected = new VectorClock("a");
         expected.put("a",3);
         expected.put("b", 1);
         expected.put("c", 3);
