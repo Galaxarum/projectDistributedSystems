@@ -43,6 +43,9 @@ class VectorClockTest {
         assertTrue(vectorB.keySet().containsAll(this.keys));
         assertTrue(this.keys.containsAll(vectorC.keySet()));
         assertTrue(vectorC.keySet().containsAll(this.keys));
+        assertNotNull(vectorA.toString());
+        assertNotNull(vectorB.toString());
+        assertNotNull(vectorC.toString());
     }
 
     @Test
@@ -61,8 +64,13 @@ class VectorClockTest {
     @Test
     @DisplayName("(2,1,3,3) updated with (3,3,4,4) gives (3,3,4,4)")
     void updateGrater() {
+        VectorClock expected = new VectorClock("a");
+        expected.put("a",3);
+        expected.put("b",3);
+        expected.put("c",4);
+        expected.put("d",4);
         vectorA.update(vectorB);
-        assertEquals(vectorB, vectorA);
+        assertEquals(expected, vectorA);
     }
 
     @Test
@@ -75,6 +83,18 @@ class VectorClockTest {
         expected.put("d",4);
         vectorA.update(vectorC);
         assertEquals(expected,vectorA);
+    }
+
+    @Test
+    @DisplayName("(2,1,3,3) can accept (2,2,3,3)")
+    void vector2133_canAccept_2233(){
+        VectorClock toAccept = new VectorClock("b");
+        toAccept.put("a",2);
+        toAccept.put("b",2);
+        toAccept.put("c",3);
+        toAccept.put("d",3);
+        assertTrue(vectorA.canAccept(toAccept));
+        assertTrue(toAccept.canAccept(vectorA));
     }
 
     @Test

@@ -1,7 +1,12 @@
 package middleware.messages;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.HashMap;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class VectorClock extends HashMap<String, Integer> implements Comparable<VectorClock> {
 
     private final String localKey;
@@ -79,3 +84,4 @@ public class VectorClock extends HashMap<String, Integer> implements Comparable<
         return result;
     }
 }
+
