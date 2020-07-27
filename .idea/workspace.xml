@@ -4,8 +4,15 @@
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/runnables/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClocksTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +175,7 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorClocksTest.removeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorClockTest.removeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -177,7 +184,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClocksTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockTest" />
       <option name="METHOD_NAME" value="removeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -195,10 +202,10 @@
     <list>
       <item itemvalue="Application.Other replicas" />
       <item itemvalue="JUnit.All in middleware" />
-      <item itemvalue="JUnit.VectorClocksTest.removeTest" />
       <item itemvalue="JUnit.MessageTest" />
       <item itemvalue="JUnit.MessageProducerImpltest.consumersBehavesLikeASet" />
       <item itemvalue="JUnit.MessageProducerImpltest" />
+      <item itemvalue="JUnit.VectorClockTest.removeTest" />
     </list>
     <recent_temporary>
       <list>
@@ -206,7 +213,7 @@
         <item itemvalue="JUnit.MessageProducerImpltest.consumersBehavesLikeASet" />
         <item itemvalue="JUnit.All in middleware" />
         <item itemvalue="JUnit.MessageTest" />
-        <item itemvalue="JUnit.VectorClocksTest.removeTest" />
+        <item itemvalue="JUnit.VectorClockTest.removeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -246,14 +253,7 @@
       <workItem from="1587139137367" duration="2998000" />
       <workItem from="1587142163555" duration="9282000" />
       <workItem from="1587155036755" duration="15000" />
-      <workItem from="1595854132307" duration="4610000" />
-    </task>
-    <task id="LOCAL-00032" summary="Update BrokenProtocolException&#10;Extending IllegalStateException instead of IllegalArgumentException">
-      <created>1583231924750</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1583231924750</updated>
+      <workItem from="1595854132307" duration="7697000" />
     </task>
     <task id="LOCAL-00033" summary="Add Primitive (marker interface) and PrimitiveOps (containing utility validation methods)">
       <created>1583231938348</created>
@@ -591,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595857842306</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Update MessageTest">
+      <created>1595858977651</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1595858977651</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +617,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java" />
     <MESSAGE value="Update Primitive, Delete PrimitiveOps.java&#10;Moved utility method Primitive.checkEquals from PrimitiveOps.java" />
     <MESSAGE value="Moved Message, MessageConsumer, MessageProducer, MessageProducerImpl to 'messages' package" />
     <MESSAGE value="Update DatabaseManager&#10;Cleaned instantiation" />
@@ -635,7 +641,8 @@
     <MESSAGE value="Update VectorClocksTest" />
     <MESSAGE value="Add MessageTest" />
     <MESSAGE value="Update MessageProducer, MessageProducerImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update MessageProducer, MessageProducerImpl" />
+    <MESSAGE value="Update MessageTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update MessageTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595854327385">
@@ -646,10 +653,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="324" width="739" height="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595854212812" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1595858004561">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1595859292458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595858004561" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595859292458" />
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1595854324123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -658,26 +665,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1595857855802" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595857842196">
+    <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595859771538">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595857842196" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595858266801">
+    <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771538" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595858977521">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595858266801" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595858266801">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595858977521" />
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595859771746">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595858266801" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595858266800">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771746" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595859771745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595858266800" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595858266801">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771745" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595859771745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595858266801" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771745" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595859771745">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771745" />
     <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595855206699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
