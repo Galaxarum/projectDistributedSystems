@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClocksTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClocksTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/runnables/MesssageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VectorClocksTest.removeTest">
+  <component name="RunManager" selected="JUnit.All in middleware">
     <configuration name="Other replicas" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
@@ -117,6 +116,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="middleware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runnables.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runnables" />
+      <option name="MAIN_CLASS_NAME" value="runnables.MessageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VectorClocksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
@@ -128,23 +143,6 @@
       <option name="PACKAGE_NAME" value="middleware.messages" />
       <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClocksTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VectorClocksTest.checkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.messages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClocksTest" />
-      <option name="METHOD_NAME" value="checkTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
@@ -194,18 +192,18 @@
     <list>
       <item itemvalue="Application.Other replicas" />
       <item itemvalue="JUnit.All in middleware" />
-      <item itemvalue="JUnit.VectorClocksTest.checkTest" />
       <item itemvalue="JUnit.VectorClocksTest" />
       <item itemvalue="JUnit.VectorClocksTest.cloneTest" />
       <item itemvalue="JUnit.VectorClocksTest.removeTest" />
+      <item itemvalue="JUnit.MessageTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VectorClocksTest.removeTest" />
         <item itemvalue="JUnit.All in middleware" />
+        <item itemvalue="JUnit.MessageTest" />
+        <item itemvalue="JUnit.VectorClocksTest.removeTest" />
         <item itemvalue="JUnit.VectorClocksTest.cloneTest" />
         <item itemvalue="JUnit.VectorClocksTest" />
-        <item itemvalue="JUnit.VectorClocksTest.checkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -245,14 +243,7 @@
       <workItem from="1587139137367" duration="2998000" />
       <workItem from="1587142163555" duration="9282000" />
       <workItem from="1587155036755" duration="15000" />
-      <workItem from="1595854132307" duration="2861000" />
-    </task>
-    <task id="LOCAL-00029" summary="Update GroupManager&#10;-Generified GroupManager&#10;-Made GroupManager.join return the initial data (received after synch)&#10;-Finalized JOIN and JOINING behaviour">
-      <created>1583170015842</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1583170015842</updated>
+      <workItem from="1595854132307" duration="3171000" />
     </task>
     <task id="LOCAL-00030" summary="Update JoinGroupUseCase&#10;-Removed JOIN and JOINING (must be into GroupManager for side-effects)&#10;-Removed methods&#10;-Made JoinGroupUseCase.synch return the received map&#10;-Simplified forEach calls">
       <created>1583170104332</created>
@@ -590,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595856104150</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Update VectorClocksTest">
+      <created>1595857209482</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1595857209482</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +607,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PrimitiveParser, ServerSocketRunnable&#10;Exploiting new functional interfaces to allow a safer and cleaner implementation" />
     <MESSAGE value="Update ParsingFunction, PrimitiveParser&#10;ParsingFunction.parse throwing ParsingException" />
     <MESSAGE value="Update GroupManager&#10;Made actually an interface" />
     <MESSAGE value="Update GroupManagerImpl, Delete P2PConnection.java&#10;Exploiting ParsingFunction to achieve the functionality of P2PConnection.java" />
@@ -634,7 +631,8 @@
     <MESSAGE value="Update ServerSocketRunnable&#10;-Added ServerSocketRunnable.close&#10;-Adapted subclasses consequently" />
     <MESSAGE value="Update ServerSocketRunnable" />
     <MESSAGE value="Update ServerSocketRunnableTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update ServerSocketRunnableTest" />
+    <MESSAGE value="Update VectorClocksTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update VectorClocksTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595854327385">
@@ -653,26 +651,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595854324123" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595856103926">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595857209365">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595856103926" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595856852451">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595857209365" />
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595857183111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595856852451" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595856852450">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183111" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595857183111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595856852450" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595856852448">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183111" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595857183110">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595856852448" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595856852450">
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183110" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595857183111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595856852450" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595857183111" />
     <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595855206699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -689,10 +687,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595855206699" />
-    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595854197678">
+    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595857320616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595854197678" />
+    <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595857320616" />
     <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1595855159296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -731,7 +729,10 @@
     <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClocksTest_removeTest.ic" NAME="VectorClocksTest.removeTest Coverage Results" MODIFIED="1595857183092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.messages.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$All_in_middleware.ic" NAME="All in middleware Coverage Results" MODIFIED="1595857032384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$MesssageTest.ic" NAME="MesssageTest Coverage Results" MODIFIED="1595857470094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>runnables.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$All_in_middleware.ic" NAME="All in middleware Coverage Results" MODIFIED="1595857557796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.*</FILTER>
       <FILTER>runnables.*</FILTER>
     </SUITE>
