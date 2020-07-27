@@ -4,12 +4,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class VectorClocksTest {
-    VectorClocks vectorA;
-    VectorClocks vectorB;
-    VectorClocks vectorC;
+    private VectorClocks vectorA;
+    private VectorClocks vectorB;
+    private VectorClocks vectorC;
+    private final List<String> keys = List.of("a","b","c","d");
+
 
     @BeforeEach
     public void init() {
@@ -28,6 +32,17 @@ class VectorClocksTest {
         vectorC.put("b", 3);
         vectorC.put("c", 4);
         vectorC.put("d", 4);
+    }
+
+    @Test
+    @DisplayName("Helpers are coherent with tested values")
+    void checkTest(){
+        assertTrue(this.keys.containsAll(vectorA.keySet()));
+        assertTrue(vectorA.keySet().containsAll(this.keys));
+        assertTrue(this.keys.containsAll(vectorB.keySet()));
+        assertTrue(vectorB.keySet().containsAll(this.keys));
+        assertTrue(this.keys.containsAll(vectorC.keySet()));
+        assertTrue(vectorC.keySet().containsAll(this.keys));
     }
 
     @Test
@@ -71,5 +86,21 @@ class VectorClocksTest {
         expected.put("d", 3);
         vectorA.incrementLocal();
         assertEquals(expected,vectorA);
+    }
+
+    @Test
+    void cloneTest(){
+        assertEquals(vectorA,vectorA.clone());
+        assertEquals(vectorB,vectorB.clone());
+        assertEquals(vectorC,vectorC.clone());
+    }
+
+    @Test
+    void removeTest(){
+        vectorA.remove("d");
+        assertEquals(2,vectorA.get("a"));
+        assertEquals(1,vectorA.get("b"));
+        assertEquals(3,vectorA.get("c"));
+        assertNull(vectorA.get("d"));
     }
 }
