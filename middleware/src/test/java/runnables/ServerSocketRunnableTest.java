@@ -4,9 +4,7 @@ import exceptions.BrokenProtocolException;
 import functional_interfaces.PrimitiveParser;
 import lombok.AllArgsConstructor;
 import markers.Primitive;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -15,8 +13,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ServerSocketRunnableTest {
 	private static final int PORT = 12345;
@@ -30,17 +27,34 @@ public class ServerSocketRunnableTest {
 		}
 	};
 
+	private static Thread tested;
+	private Socket socket;
+	private ObjectOutputStream out;
+	private ObjectInputStream in;
+
 	@BeforeAll
 	public static void startListener() throws IOException {
-		new Thread(new ServerSocketRunnable<>(new ServerSocket(PORT), PARSING_FUNCTION)).start();
+		tested = new Thread(new ServerSocketRunnable<>(new ServerSocket(PORT), PARSING_FUNCTION));
+		tested.start();
+	}
+
+	@BeforeEach
+	public void openConnection() throws IOException {
+		socket = new Socket(InetAddress.getLoopbackAddress(), PORT);
+		out = new ObjectOutputStream(socket.getOutputStream());
+		in = new ObjectInputStream(socket.getInputStream());
+	}
+
+	@AfterEach
+	public void closeConnection() throws IOException {
+			in.close();
+			out.close();
+			socket.close();
 	}
 
 	@Test
-	@DisplayName("A socket to localhost:PORT can read and write to the ServerSocketRunnable and the specified PrimitiveParserRunnable is created")
-	public void newSocketToLocalhostAndPORT__createdAndCanReadAndWriteAndTheParsingFunctionRunsWell() throws IOException, ClassNotFoundException {
-		final Socket socket = new Socket(InetAddress.getLoopbackAddress(), PORT);
-		final ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-		final ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+	@DisplayName("A socket can read and write to the ServerSocketRunnable and the specified PrimitiveParserRunnable is created")
+	public void newSocket__createdAndCanReadAndWriteAndTheParsingFunctionRunsWell() throws IOException, ClassNotFoundException {
 		out.writeObject(TestPrimitive.ONE);
 		int answer = ( int ) in.readObject();
 		assertEquals(2, answer);
@@ -48,12 +62,27 @@ public class ServerSocketRunnableTest {
 		assertTrue(( Boolean ) in.readObject());
 	}
 
+	 @Test
+	 @DisplayName("Closing the connection doesn't throw any exception client side")
+	 public void socketClosed__noException(){
+		assertDoesNotThrow(()->{
+			out.close();
+			in.close();
+			socket.close();
+		});
+	 }
+
+	 @AfterAll
+	 public static void closeThread(){
+		tested.interrupt();
+	 }
+
 	@AllArgsConstructor
 	private enum TestPrimitive implements Primitive {
 		ZERO(0),
 		ONE(1),
 		TWO(2),
 		THREE(3);
-		private int asInt;
+		private final int asInt;
 	}
 }
