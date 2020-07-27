@@ -1,7 +1,5 @@
-package runnables;
+package middleware.messages;
 
-import middleware.messages.Message;
-import middleware.messages.VectorClocks;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
