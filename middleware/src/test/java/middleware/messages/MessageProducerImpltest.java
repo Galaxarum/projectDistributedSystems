@@ -16,7 +16,7 @@ public class MessageProducerImpltest {
 
 	@BeforeEach
 	void init(){
-		producer = new MessageProducerImpl<>() {};
+		producer = new MessageProducerImpl<>("a") {};
 	}
 
 	@Test

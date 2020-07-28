@@ -23,7 +23,7 @@ public class MessageProducerImpl<T> implements MessageProducer<T> {
     }
 
     @Override
-    public final synchronized void shareMessage(Message<T> msg) {
+    public final synchronized void acceptMessage(Message<T> msg) {
         buffer.add(msg);
         flushBuffer();
     }
