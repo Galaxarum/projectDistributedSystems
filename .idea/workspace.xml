@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImplIntegration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +89,7 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LeaderGroupManagerTest">
+  <component name="RunManager" selected="JUnit.NodeInfoTest">
     <configuration name="Other replicas" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
@@ -117,7 +120,7 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LeaderGroupManagerTest.parseJoinTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NodeInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -126,15 +129,31 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
-      <option name="METHOD_NAME" value="parseJoinTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NodeInfoTest.closeClosesUnderlyingConnections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="middleware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="middleware.group.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="middleware.group" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
+      <option name="METHOD_NAME" value="closeClosesUnderlyingConnections" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LeaderGroupManagerTest.parseJoiningTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NodeInfoTest.constructorAndToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -143,15 +162,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
-      <option name="METHOD_NAME" value="parseJoiningTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
+      <option name="METHOD_NAME" value="constructorAndToString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LeaderGroupManagerTest.parseLeaveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NodeInfoTest.createWithExistingSocketWithoutCreatingChannels" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -160,25 +179,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
-      <option name="METHOD_NAME" value="parseLeaveTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LeaderGroupManagerTest.parseSynchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.group.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
-      <option name="METHOD_NAME" value="parseSynchTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
+      <option name="METHOD_NAME" value="createWithExistingSocketWithoutCreatingChannels" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -195,18 +197,18 @@
     <list>
       <item itemvalue="Application.Other replicas" />
       <item itemvalue="JUnit.LeaderGroupManagerTest" />
-      <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoinTest" />
-      <item itemvalue="JUnit.LeaderGroupManagerTest.parseSynchTest" />
-      <item itemvalue="JUnit.LeaderGroupManagerTest.parseLeaveTest" />
-      <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoiningTest" />
+      <item itemvalue="JUnit.NodeInfoTest" />
+      <item itemvalue="JUnit.NodeInfoTest.constructorAndToString" />
+      <item itemvalue="JUnit.NodeInfoTest.createWithExistingSocketWithoutCreatingChannels" />
+      <item itemvalue="JUnit.NodeInfoTest.closeClosesUnderlyingConnections" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NodeInfoTest" />
+        <item itemvalue="JUnit.NodeInfoTest.constructorAndToString" />
+        <item itemvalue="JUnit.NodeInfoTest.createWithExistingSocketWithoutCreatingChannels" />
+        <item itemvalue="JUnit.NodeInfoTest.closeClosesUnderlyingConnections" />
         <item itemvalue="JUnit.LeaderGroupManagerTest" />
-        <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoiningTest" />
-        <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoinTest" />
-        <item itemvalue="JUnit.LeaderGroupManagerTest.parseLeaveTest" />
-        <item itemvalue="JUnit.LeaderGroupManagerTest.parseSynchTest" />
       </list>
     </recent_temporary>
   </component>
@@ -250,6 +252,7 @@
       <workItem from="1595925666797" duration="1878000" />
       <workItem from="1595940977548" duration="6274000" />
       <workItem from="1595948398050" duration="5389000" />
+      <workItem from="1595964081631" duration="3464000" />
     </task>
     <task id="LOCAL-00042" summary="Fixed some warnings">
       <created>1583234163728</created>
@@ -673,46 +676,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771538" />
-    <state x="1128" y="307" key="#xdebugger.evaluate" timestamp="1595953601977">
+    <state x="1128" y="307" key="#xdebugger.evaluate" timestamp="1595967430845">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1128" y="307" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595953601977" />
+    <state x="1128" y="307" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595967430845" />
     <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595947249763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595947249763" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595953762015">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595967508406">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762015" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595953762015">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595967508406" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595967508405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762015" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595953762014">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595967508405" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595967508405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762014" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595953762015">
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595967508405" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595967508405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762015" />
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595953643722">
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595967508405" />
+    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595967468990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643722" />
-    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1595953643721">
+    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595967468990" />
+    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1595967468989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643721" />
-    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1595953643721">
+    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595967468989" />
+    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1595967468989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643721" />
-    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1595953643722">
+    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595967468989" />
+    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1595967468989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643722" />
+    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595967468989" />
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595857346051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -729,6 +732,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1595926473759" />
+    <state x="741" y="269" width="428" height="494" key="refactoring.ChangeSignatureDialog" timestamp="1595965446706">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="741" y="269" width="428" height="494" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595965446706" />
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1595953138462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -752,14 +759,29 @@
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="54" />
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="64" />
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

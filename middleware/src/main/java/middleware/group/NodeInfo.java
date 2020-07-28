@@ -11,21 +11,39 @@ import java.net.Socket;
 @Data
 @RequiredArgsConstructor
 public class NodeInfo implements Serializable {
-	private final String hostname;
-	private final int port;
-	@EqualsAndHashCode.Exclude
+	@Setter(AccessLevel.NONE)
+	private String hostname;
+	@Setter(AccessLevel.NONE)
+	private int port;
+	@EqualsAndHashCode.Exclude @NonNull
 	private transient Socket socket;
-	@EqualsAndHashCode.Exclude
+	@EqualsAndHashCode.Exclude @NonNull
 	private transient ObjectOutputStream out;
-	@EqualsAndHashCode.Exclude
+	@EqualsAndHashCode.Exclude @NonNull
 	private transient ObjectInputStream in;
 
-	public void setSocket(Socket socket,boolean createStreams) throws IOException {
+	public NodeInfo(Socket socket) throws IOException {
+		setSocket(socket);
+	}
+
+	public String getHostname(){
+		return socket.getInetAddress().getHostName();
+	}
+
+	public int getPort(){
+		return socket.getPort();
+	}
+
+	public void connect() throws IOException {
+		setSocket(new Socket(hostname,port));
+	}
+
+	private void setSocket(Socket socket) throws IOException {
 		this.socket = socket;
-		if(createStreams) {
-			this.out = new ObjectOutputStream(socket.getOutputStream());
-			this.in = new ObjectInputStream(socket.getInputStream());
-		}
+		this.out = new ObjectOutputStream(socket.getOutputStream());
+		this.in = new ObjectInputStream(socket.getInputStream());
+		this.hostname = socket.getInetAddress().getHostName();
+		this.port = socket.getPort();
 	}
 
 	public void close(){

@@ -18,43 +18,35 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
     private static final int GROUP_PORT_OFFSET = 0;
     public static final Map<String, NodeInfo> replicas = new Hashtable<>();
     private final Map<Key,Value> data;
-    private VectorClock vectorClock;
+    private final VectorClock vectorClock;
     private final GroupManager<Key, Value> groupManager;
     private static final Logger logger = Logger.getLogger(MessagingMiddlewareImpl.class.getName());
 
 
     public MessagingMiddlewareImpl(String id, int port, Socket leaderGroupSocket, Map<Key, Value> data) throws IOException {
         this.data = data;
-        logger.info("creating group manager");
         this.groupManager = GroupManagerFactory.factory(id,port+GROUP_PORT_OFFSET,leaderGroupSocket,replicas,data);
         this.vectorClock = new VectorClock(id);
     }
 
     @Override
     public void join() {
-        logger.info("joining group");
         try {
             operativeLock.lock();
-            logger.fine("locked ordinary operations");
             groupManager.join(vectorClock);
         }finally {
             operativeLock.unlock();
-            logger.fine("unlocked ordinary operations");
-            logger.info("joined");
         }
     }
 
     @Override
     public void leave() {
         try {
-            logger.info("leaving the group");
             operativeLock.lock();
-            logger.fine("locked ordinary operations");
             groupManager.leave();
             logger.info("left");
         }finally {
             operativeLock.unlock();
-            logger.fine("unlocked ordinary operations");
         }
     }
 

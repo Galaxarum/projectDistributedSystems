@@ -12,13 +12,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import static middleware.group.GroupCommands.*;
 
 class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
-    private static final Logger logger = Logger.getLogger(OrdinaryGroupManager.class.getName());
     private final NodeInfo leaderInfo;
 
     OrdinaryGroupManager(String id,
@@ -29,10 +27,8 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
         super(id, port, replicas, data);
 
         //Create leader info
-        leaderInfo = new NodeInfo(leaderSocket.getInetAddress().getHostName(),leaderSocket.getPort());
+        leaderInfo = new NodeInfo(leaderSocket);
 
-        //Init connection
-        leaderInfo.setSocket(leaderSocket,true);
     }
 
     /**
@@ -142,7 +138,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
         try {
 
             //Establish connection
-            nodeInfo.setSocket(new Socket(nodeInfo.getHostname(),nodeInfo.getPort()),true);
+            nodeInfo.connect();
 
             //Load streams
             ObjectOutputStream newOut = nodeInfo.getOut();
@@ -175,10 +171,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                     replicaId = ( String ) reader.readObject();
 
                     //Create info
-                    replicaInfo = new NodeInfo(socket.getInetAddress().getHostName(), socket.getPort());
-
-                    //Save connection
-                    replicaInfo.setSocket(socket);
+                    replicaInfo = new NodeInfo(socket,writer,reader);
 
                     //Save info
                     replicas.put(replicaId, replicaInfo);

@@ -2,9 +2,7 @@ package middleware.group;
 
 import org.junit.jupiter.api.*;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -20,10 +18,9 @@ public class NodeInfoTest {
 	private Socket socket;
 	private static ServerSocket serverSocket;
 	private Socket socketServerSide;
-	private ObjectOutputStream out;
-	private ObjectInputStream in;
-	private ObjectOutputStream sout;
-	private ObjectInputStream sin;
+	private Thread acceptorThread;
+	private InputStream sin;
+	private OutputStream sout;
 
 	@BeforeAll
 	static void initServerSocket() throws IOException {
@@ -32,74 +29,48 @@ public class NodeInfoTest {
 
 	@BeforeEach
 	void initTested() throws IOException {
-		tested = new NodeInfo(HOST_NAME,SERVER_PORT);
-		new Thread(()-> {
+		acceptorThread = new Thread(()-> {
 			try {
 				socketServerSide = serverSocket.accept();
 				sout = new ObjectOutputStream(socketServerSide.getOutputStream());
+				sout.flush();
 				sin = new ObjectInputStream(socketServerSide.getInputStream());
 			} catch ( IOException e ) {
-				//ignored
+				fail();
 			}
-		}).start();
+		});
+		acceptorThread.start();
 		socket = new Socket(HOST_NAME,SERVER_PORT);
-	}
-
-	@AfterEach
-	void closeChannels(){
-		try{
-			if(out!=null) out.close();
-			if(in!=null) in.close();
-		}catch ( IOException e ){
-			//ignored
-		}finally {
-			out=null;
-			in=null;
-		}
-		try{
-			if(socket!=null) socket.close();
-		}catch ( IOException e ){
-			//ignored
-		}finally {
-			socket=null;
-		}
-		try{
-			if(socketServerSide!=null) socketServerSide.close();
-		}catch ( IOException e ){
-			//ignored
-		}finally {
-			socketServerSide=null;
-		}
 	}
 
 	@Test
 	@DisplayName("Can construct and toString is not null")
-	void constructorAndToString(){
+	void constructorAndToString() throws IOException {
+		tested = new NodeInfo(socket);
 		assertNotNull(tested);
 		assertNotNull(tested.toString());
 	}
 
 	@Test
-	@DisplayName("Can assign existing socket having existing channels")
-	void setExistingSocketWithoutCreatingChannels() throws IOException {
-		out  =  new ObjectOutputStream(socket.getOutputStream());
-		in = new ObjectInputStream(socket.getInputStream());
-		try{
-			tested.setSocket(socket,false);
-		}catch ( IOException e ){
-			fail();
+	@DisplayName("Can create using existing socket preserving existing channels")
+	void createWithExistingSocketWithoutCreatingChannels() throws IOException {
+		try (
+				ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+				ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
+		) {
+			tested = new NodeInfo(socket, out, in);
+			assertSame(in,tested.getIn());
+			assertSame(out,tested.getOut());
+			assertEquals(socket, tested.getSocket());
 		}
-		assertNull(tested.getIn());
-		assertNull(tested.getOut());
-		assertEquals(socket,tested.getSocket());
 	}
 
 	@Test
-	@DisplayName("Can create channels")
+	@DisplayName("Can create channels on creation")
 	void setNewSocketCreatingChannelsNoExceptions(){
-		try{
-			tested.setSocket(socket,true);
-		}catch ( IOException e ){
+		try {
+			tested = new NodeInfo(socket);
+		} catch ( IOException e ) {
 			fail();
 		}
 		assertNotNull(tested.getIn());
@@ -111,9 +82,9 @@ public class NodeInfoTest {
 	@DisplayName("Can use nodeinfo to close the socket")
 	void closeClosesUnderlyingConnections() {
 		try {
-			tested.setSocket(socket, true);
+			tested = new NodeInfo(socket);
 		} catch (IOException e){
-			fail("Cannot create socket channels");
+			fail();
 		}
 		assumeNotNull(tested.getIn());
 		assumeNotNull(tested.getOut());
@@ -122,4 +93,28 @@ public class NodeInfoTest {
 		assertTrue(socket.isClosed());
 	}
 
+
+	@AfterEach
+	void closeChannels(){
+		acceptorThread.interrupt();
+		try{
+			if(socket!=null) socket.close();
+		}catch ( IOException ignored ){
+		}finally {
+			socket=null;
+		}
+		try{
+			if(socketServerSide!=null) socketServerSide.close();
+		}catch ( IOException ignored ){
+		}finally {
+			socketServerSide=null;
+		}
+		try {
+			sout.close();
+			sin.close();
+		}catch ( IOException ignored ){}
+		finally {
+			sout=null;sin=null;
+		}
+	}
 }

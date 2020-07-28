@@ -39,14 +39,7 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 			switch ( command ) {
 				case JOIN:
 					//Register the replica
-					replicaInfo = new NodeInfo(socket.getInetAddress().getHostName(), socket.getPort());
-					try {
-						replicaInfo.setSocket(socket,false);
-						replicaInfo.setOut(out);
-						replicaInfo.setIn(in);
-					} catch ( IOException e ) {
-						throw new BrokenProtocolException("Cannot connect with joining replica", e);
-					}
+					replicaInfo = new NodeInfo(socket,out,in);
 					replicaId = ( String ) in.readObject();
 					out.writeObject(id);
 					//Write replica list to out
