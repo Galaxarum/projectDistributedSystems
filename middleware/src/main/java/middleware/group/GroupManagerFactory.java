@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class GroupManagerFactory {
 	private static GroupManager instance;
-	public static <K,V> GroupManager<K,V> factory(String id,
+	public static synchronized <K,V> GroupManager<K,V> factory(String id,
 	                                              int port,
 	                                              Socket leaderGroupSocket,
 	                                              Map<String, NodeInfo> replicas,
