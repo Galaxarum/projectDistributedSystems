@@ -86,18 +86,6 @@ class VectorClockTest {
     }
 
     @Test
-    @DisplayName("(2,1,3,3) can accept (2,2,3,3)")
-    void vector2133_canAccept_2233(){
-        VectorClock toAccept = new VectorClock("b");
-        toAccept.put("a",2);
-        toAccept.put("b",2);
-        toAccept.put("c",3);
-        toAccept.put("d",3);
-        assertTrue(vectorA.canAccept(toAccept));
-        assertTrue(toAccept.canAccept(vectorA));
-    }
-
-    @Test
     void incrementLocal() {
         VectorClock expected = new VectorClock("a");
         expected.put("a",3);

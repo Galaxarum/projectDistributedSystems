@@ -26,6 +26,4 @@ public enum GroupCommands implements Primitive{
      * Sent to other replica to signal intention to leave
      */
     LEAVE
-
-
 }

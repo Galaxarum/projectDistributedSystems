@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockCanAcceptTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockTest.java" afterDir="false" />
     </list>
@@ -81,7 +83,7 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in middleware">
+  <component name="RunManager" selected="JUnit.VectorClockCanAcceptTest.vector2033_canAccept_2U33">
     <configuration name="Other replicas" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
@@ -96,29 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in middleware" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="runnables.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MessageProducerImpltest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorClockCanAcceptTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -127,14 +107,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.MessageProducerImpltest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockCanAcceptTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MessageProducerImpltest.consumersBehavesLikeASet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorClockCanAcceptTest.vector2033_canAccept_2U33" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -143,15 +123,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.MessageProducerImpltest" />
-      <option name="METHOD_NAME" value="consumersBehavesLikeASet" />
+      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockCanAcceptTest" />
+      <option name="METHOD_NAME" value="vector2033_canAccept_2U33" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorClockCanAcceptTest.vector2233_canAccept_2U33" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -160,14 +140,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.MessageTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockCanAcceptTest" />
+      <option name="METHOD_NAME" value="vector2233_canAccept_2U33" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorClockTest.vector2133_canAccept_2233" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorClockCanAcceptTest.vector2U33_canAccept_0100" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -176,8 +157,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockTest" />
-      <option name="METHOD_NAME" value="vector2133_canAccept_2233" />
+      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockCanAcceptTest" />
+      <option name="METHOD_NAME" value="vector2U33_canAccept_0100" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VectorClockCanAcceptTest.vector2U33_cannotAccept_0200" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="middleware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="middleware.messages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="middleware.messages" />
+      <option name="MAIN_CLASS_NAME" value="middleware.messages.VectorClockCanAcceptTest" />
+      <option name="METHOD_NAME" value="vector2U33_cannotAccept_0200" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,19 +191,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Other replicas" />
-      <item itemvalue="JUnit.All in middleware" />
-      <item itemvalue="JUnit.MessageTest" />
-      <item itemvalue="JUnit.MessageProducerImpltest.consumersBehavesLikeASet" />
-      <item itemvalue="JUnit.MessageProducerImpltest" />
-      <item itemvalue="JUnit.VectorClockTest.vector2133_canAccept_2233" />
+      <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2U33_cannotAccept_0200" />
+      <item itemvalue="JUnit.VectorClockCanAcceptTest" />
+      <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2033_canAccept_2U33" />
+      <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2233_canAccept_2U33" />
+      <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2U33_canAccept_0100" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in middleware" />
-        <item itemvalue="JUnit.VectorClockTest.vector2133_canAccept_2233" />
-        <item itemvalue="JUnit.MessageProducerImpltest" />
-        <item itemvalue="JUnit.MessageProducerImpltest.consumersBehavesLikeASet" />
-        <item itemvalue="JUnit.MessageTest" />
+        <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2033_canAccept_2U33" />
+        <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2233_canAccept_2U33" />
+        <item itemvalue="JUnit.VectorClockCanAcceptTest" />
+        <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2U33_canAccept_0100" />
+        <item itemvalue="JUnit.VectorClockCanAcceptTest.vector2U33_cannotAccept_0200" />
       </list>
     </recent_temporary>
   </component>
@@ -245,14 +243,8 @@
       <workItem from="1587139137367" duration="2998000" />
       <workItem from="1587142163555" duration="9282000" />
       <workItem from="1587155036755" duration="15000" />
-      <workItem from="1595854132307" duration="8306000" />
-    </task>
-    <task id="LOCAL-00035" summary="Update GroupManager, Deleted JoinGroupUseCase.java&#10;-Moved JoinGroupUseCase operations into GroupManager.join&#10;-Finalized and documented GroupManager">
-      <created>1583232095904</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1583232095904</updated>
+      <workItem from="1595854132307" duration="8989000" />
+      <workItem from="1595925666797" duration="1878000" />
     </task>
     <task id="LOCAL-00036" summary="Javadocs">
       <created>1583233001203</created>
@@ -590,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595862057674</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Update VectorClock, VectorClockTest">
+      <created>1595862705751</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1595862705751</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +608,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update DatabaseManager&#10;Cleaned instantiation" />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Moved stuff, adapted Main to DatabaseManager changes" />
     <MESSAGE value="Increased transparency, improved packaging" />
@@ -634,7 +632,8 @@
     <MESSAGE value="Update MessageTest" />
     <MESSAGE value="Update Message: added Message.compareTo (wraps VectorClock.compareTo)" />
     <MESSAGE value="Update VectorClock: renamed, simplified VectorClock.compareTo, added VectorClock.canAccept" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update VectorClock: renamed, simplified VectorClock.compareTo, added VectorClock.canAccept" />
+    <MESSAGE value="Update VectorClock, VectorClockTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update VectorClock, VectorClockTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595862124834">
@@ -653,6 +652,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595862123987" />
+    <state x="692" y="312" width="525" height="409" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1595926471784">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="692" y="312" width="525" height="409" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595926471784" />
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595857855802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -661,42 +664,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771538" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595862057556">
+    <state x="1128" y="307" key="#xdebugger.evaluate" timestamp="1595926529836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595862057556" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595862129466">
+    <state x="1128" y="307" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595926529836" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595862705651">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595862129466" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595862129465">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595862705651" />
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595927272929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595862129465" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595862129465">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595927272929" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595927272925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595862129465" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595862129466">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595927272925" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595927272925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595862129466" />
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595855206699">
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595927272925" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595927272928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595855206699" />
-    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1595855206698">
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595927272928" />
+    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595926578610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595855206698" />
-    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1595855206698">
+    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595926578610" />
+    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1595926578609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595855206698" />
-    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1595855206699">
+    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595926578609" />
+    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1595926578609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595855206699" />
+    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595926578609" />
+    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1595926578609">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595926578609" />
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595857346051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -705,32 +712,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction/0.0.1920.1040@0.0.1920.1040" timestamp="1595857518776" />
-    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1595855159296">
+    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1595926473759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1595855159296" />
+    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1595926473759" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1595925819832">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595925819832" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="exceptions.BrokenProtocolException" package="exceptions" />
-          <option name="timeStamp" value="35" />
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="48" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClock.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
       </breakpoints>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="java-exception" />
-      </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -740,6 +743,9 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClockCanAcceptTest_vector2033_canAccept_2U33.ic" NAME="VectorClockCanAcceptTest.vector2033_canAccept_2U33 Coverage Results" MODIFIED="1595927547208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.messages.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClocksTest_removeTest.ic" NAME="VectorClocksTest.removeTest Coverage Results" MODIFIED="1595857183092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.messages.*</FILTER>
     </SUITE>
@@ -749,7 +755,7 @@
     <SUITE FILE_PATH="coverage/projectDistributedSystems$MesssageTest.ic" NAME="MesssageTest Coverage Results" MODIFIED="1595857470094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>runnables.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$All_in_middleware.ic" NAME="All in middleware Coverage Results" MODIFIED="1595862662544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$All_in_middleware.ic" NAME="All in middleware Coverage Results" MODIFIED="1595925684274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.*</FILTER>
       <FILTER>runnables.*</FILTER>
     </SUITE>

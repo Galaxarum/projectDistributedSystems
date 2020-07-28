@@ -67,7 +67,8 @@ public class VectorClock extends HashMap<String, Integer> implements Comparable<
     public boolean canAccept(VectorClock ts){
         boolean incrementFound = false;
         for ( Entry<String, Integer> entry : ts.entrySet()) {
-            final int increasedBy1 = this.get(entry.getKey())+1;
+            final String key = entry.getKey();
+            final int increasedBy1 = this.containsKey(key)?this.get(key)+1:1;
             final int ts_i = entry.getValue();
             if( ts_i == increasedBy1 )
                 if ( incrementFound ) return false;
