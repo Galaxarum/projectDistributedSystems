@@ -1,12 +1,21 @@
 package middleware.messages;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.HashSet;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
-public abstract class MessageProducerImpl<T> implements MessageProducer<T> {
-    HashSet<MessageConsumer<T>> consumers = new HashSet<>();
-    Set<Message<T>> buffer = new HashSet<>();
-    VectorClock currentClock;
+@RequiredArgsConstructor
+public class MessageProducerImpl<T> implements MessageProducer<T> {
+    final HashSet<MessageConsumer<T>> consumers = new HashSet<>();
+    final SortedSet<Message<T>> buffer = new TreeSet<>();
+    final VectorClock localClock;
+
+    public MessageProducerImpl(String localId){
+        localClock = new VectorClock(localId);
+    }
 
     @Override
     public final void addConsumer(MessageConsumer<T> consumer) {
@@ -24,11 +33,15 @@ public abstract class MessageProducerImpl<T> implements MessageProducer<T> {
      * If a  message can be accepted, use it to update the current clock and deliver it
      */
     private void flushBuffer(){
+        Set<Message<T>> toRemove = new HashSet<>();
+        //TODO: check special cases when message ordering by timestamp as used may be not enough
         for ( Message<T> msg: buffer )
-            if(currentClock.canAccept(msg.getTimestamp())){
-                currentClock.update(msg.getTimestamp());
+            if( localClock.canAccept(msg.getTimestamp())){
+                localClock.update(msg.getTimestamp());
                 consumers.forEach(c->c.consumeMessage(msg));
+                toRemove.add(msg);
             }
+        buffer.removeAll(toRemove);
     }
 
 
