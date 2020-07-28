@@ -86,7 +86,7 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NodeInfoTest">
+  <component name="RunManager" selected="JUnit.GroupCommandsTest.noNulls">
     <configuration name="Other replicas" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
@@ -101,17 +101,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MessageProducerImplIntegration.reverseReceivingOrderDeliveredCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupCommandsTest.noNulls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="middleware.messages.*" />
+          <option name="PATTERN" value="middleware.group.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="middleware.messages" />
-      <option name="MAIN_CLASS_NAME" value="middleware.messages.MessageProducerImplIntegration" />
-      <option name="METHOD_NAME" value="reverseReceivingOrderDeliveredCorrectly" />
+      <option name="PACKAGE_NAME" value="middleware.group" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.GroupCommandsTest" />
+      <option name="METHOD_NAME" value="noNulls" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,19 +194,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Other replicas" />
-      <item itemvalue="JUnit.MessageProducerImplIntegration.reverseReceivingOrderDeliveredCorrectly" />
       <item itemvalue="JUnit.NodeInfoTest.constructorAndToString" />
       <item itemvalue="JUnit.NodeInfoTest.setExistingSocketWithoutCreatingChannels" />
       <item itemvalue="JUnit.NodeInfoTest" />
       <item itemvalue="JUnit.NodeInfoTest.closeClosesUnderlyingConnections" />
+      <item itemvalue="JUnit.GroupCommandsTest.noNulls" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GroupCommandsTest.noNulls" />
         <item itemvalue="JUnit.NodeInfoTest" />
         <item itemvalue="JUnit.NodeInfoTest.closeClosesUnderlyingConnections" />
         <item itemvalue="JUnit.NodeInfoTest.setExistingSocketWithoutCreatingChannels" />
         <item itemvalue="JUnit.NodeInfoTest.constructorAndToString" />
-        <item itemvalue="JUnit.MessageProducerImplIntegration.reverseReceivingOrderDeliveredCorrectly" />
       </list>
     </recent_temporary>
   </component>
@@ -759,6 +759,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClockCanAcceptTest_vector2033_canAccept_2U33.ic" NAME="VectorClockCanAcceptTest.vector2033_canAccept_2U33 Coverage Results" MODIFIED="1595927547208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.messages.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupCommandsTest_noNulls.ic" NAME="GroupCommandsTest.noNulls Coverage Results" MODIFIED="1595945682234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClocksTest_removeTest.ic" NAME="VectorClocksTest.removeTest Coverage Results" MODIFIED="1595857183092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.messages.*</FILTER>
