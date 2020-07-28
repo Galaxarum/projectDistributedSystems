@@ -1,7 +1,6 @@
 package middleware.group;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -9,19 +8,17 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
 
-@Getter
-@Setter
+@Data
+@RequiredArgsConstructor
 public class NodeInfo implements Serializable {
-	private String hostname;
-	private int port;
+	private final String hostname;
+	private final int port;
+	@EqualsAndHashCode.Exclude
 	private transient Socket socket;
+	@EqualsAndHashCode.Exclude
 	private transient ObjectOutputStream out;
+	@EqualsAndHashCode.Exclude
 	private transient ObjectInputStream in;
-
-	public NodeInfo(String hostname, int port) {
-		this.hostname = hostname;
-		this.port = port;
-	}
 
 	public void setSocket(Socket socket,boolean createStreams) throws IOException {
 		this.socket = socket;
