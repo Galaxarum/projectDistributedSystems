@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.net.Socket;
 
 @Data
-@RequiredArgsConstructor
 public class NodeInfo implements Serializable {
 	@Setter(AccessLevel.NONE)
 	private String hostname;
@@ -23,22 +22,22 @@ public class NodeInfo implements Serializable {
 	private transient ObjectInputStream in;
 
 	public NodeInfo(Socket socket) throws IOException {
-		setSocket(socket);
+		setSocketAndChannels(socket);
 	}
 
-	public String getHostname(){
-		return socket.getInetAddress().getHostName();
-	}
-
-	public int getPort(){
-		return socket.getPort();
+	public NodeInfo(Socket socket, ObjectOutputStream out, ObjectInputStream in){
+		this.socket = socket;
+		this.hostname = socket.getInetAddress().getHostName();
+		this.port = socket.getPort();
+		this.out = out;
+		this.in = in;
 	}
 
 	public void connect() throws IOException {
-		setSocket(new Socket(hostname,port));
+		setSocketAndChannels(new Socket(hostname,port));
 	}
 
-	private void setSocket(Socket socket) throws IOException {
+	private void setSocketAndChannels(Socket socket) throws IOException {
 		this.socket = socket;
 		this.out = new ObjectOutputStream(socket.getOutputStream());
 		this.in = new ObjectInputStream(socket.getInputStream());
