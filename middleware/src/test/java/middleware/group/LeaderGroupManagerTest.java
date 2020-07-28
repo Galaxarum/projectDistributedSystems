@@ -11,8 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static middleware.group.GroupCommands.*;
 import static org.junit.Assert.*;
@@ -27,12 +26,8 @@ public class LeaderGroupManagerTest {
 	private static final int SERVER_PORT = 12121;
 	private static final String HOSTNAME = "localhost";
 	private static ServerSocket socketAcceptor;
-	private static Socket serverSocket;
-	private static Socket socket;
-	private static ObjectOutputStream cout;
-	private static ObjectInputStream cin;
-	private static ObjectOutputStream sout;
-	private static ObjectInputStream sin;
+	private static final Map<String,NodeInfo> sockets = new HashMap<>(2);
+	private static final List<NodeInfo> serverSockets = new ArrayList<>(2);
 	private static Thread acceptorThread;
 	private static final Map<String,NodeInfo> replicas = new HashMap<>();
 	private static final Map<Integer,Integer> data = new HashMap<>();
@@ -45,19 +40,19 @@ public class LeaderGroupManagerTest {
 	static void initServer() throws IOException {
 		socketAcceptor = new ServerSocket(SERVER_PORT);
 		acceptorThread = new Thread(()->{
-			try {
-				serverSocket = socketAcceptor.accept();
-				sout = new ObjectOutputStream(serverSocket.getOutputStream());
-				sin = new ObjectInputStream(serverSocket.getInputStream());
-			} catch ( IOException e ) {
-				fail();
+			while ( true ){
+				try {
+					final Socket accepted = socketAcceptor.accept();
+					serverSockets.add(new NodeInfo(accepted));
+				} catch ( IOException e ) {
+					fail();
+				}
 			}
 		});
 		acceptorThread.start();
-		tested = ( LeaderGroupManager<Integer, Integer> ) GroupManagerFactory.factory(ID,PORT,serverSocket,replicas,data);
-		socket = new Socket(HOSTNAME,SERVER_PORT);
-		cout = new ObjectOutputStream(socket.getOutputStream());
-		cin = new ObjectInputStream(socket.getInputStream());
+		tested = ( LeaderGroupManager<Integer, Integer> ) GroupManagerFactory.factory(ID,PORT,null,replicas,data);
+		sockets.put(REPLICA_ID,new NodeInfo(new Socket(HOSTNAME,SERVER_PORT)));
+		sockets.put(LEAVING_REPLICA_ID,new NodeInfo(new Socket(HOSTNAME,SERVER_PORT)));
 	}
 
 	@Test
@@ -66,6 +61,8 @@ public class LeaderGroupManagerTest {
 	void factoryOk(){
 		assertNotNull(tested);
 		assertTrue(tested instanceof LeaderGroupManager);
+		assertEquals(2,sockets.size());
+		assertEquals(2,serverSockets.size());
 	}
 
 	@Test
@@ -78,53 +75,41 @@ public class LeaderGroupManagerTest {
 	@Test
 	@Order(3)
 	void parseJoinTest() throws ParsingException, IOException, ClassNotFoundException {
-		final Thread clientThread = new Thread(()->{
-			try {
-				cout.writeObject(REPLICA_ID);
-				cout.writeObject(LEAVING_REPLICA_ID);
-				cout.flush();
-			}catch ( IOException e ) {
-				fail();
-			}
-		});
-		clientThread.start();
+
+		sockets.get(REPLICA_ID).getOut().writeObject(REPLICA_ID);
+		sockets.get(LEAVING_REPLICA_ID).getOut().writeObject(LEAVING_REPLICA_ID);
+
 		final Map<String, NodeInfo> replicasBefore = new HashMap<>(replicas);
-		tested.parse(JOIN,sout,sin,serverSocket);
-		assertEquals(ID,cin.readObject());
-		assertEquals(replicasBefore,cin.readObject());
+		tested.parse(JOIN,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(), serverSockets.get(0).getSocket());
+		assertEquals(ID, sockets.get(REPLICA_ID).getIn().readObject());
+		assertEquals(replicasBefore, sockets.get(REPLICA_ID).getIn().readObject());
 		assertTrue(replicas.containsKey(REPLICA_ID));
 
 		replicasBefore.put(REPLICA_ID,replicas.get(REPLICA_ID));
 
-		tested.parse(JOIN,sout,sin,serverSocket);
-		cin.readObject();
-		cin.readObject();
+		tested.parse(JOIN,serverSockets.get(1).getOut(),serverSockets.get(1).getIn(), serverSockets.get(1).getSocket());
+		assertEquals(ID, sockets.get(LEAVING_REPLICA_ID).getIn().readObject());
+		assertEquals(replicasBefore, sockets.get(LEAVING_REPLICA_ID).getIn().readObject());
 		assertTrue(replicas.containsKey(REPLICA_ID));
 		assertTrue(replicas.containsKey(LEAVING_REPLICA_ID));
 
-		clientThread.interrupt();
 	}
 
 	@Test
 	@Order(4)
 	void parseSynchTest() throws ParsingException, IOException, ClassNotFoundException {
-		tested.parse(SYNC,sout,sin,serverSocket);
-		assertEquals(data,cin.readObject());
-		assertEquals(vectorClock,cin.readObject());
+		tested.parse(SYNC,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(),serverSockets.get(0).getSocket());
+		assertEquals(data, sockets.get(REPLICA_ID).getIn().readObject());
+		assertEquals(vectorClock, sockets.get(REPLICA_ID).getIn().readObject());
 	}
 
 	@Test
 	@Order(5)
-	void parseLeaveTest() throws ParsingException {
-		final Thread leavingClientThread = new Thread(()->{
-			try {
-				cout.writeObject(LEAVING_REPLICA_ID);
-			} catch ( IOException e ) {
-				fail();
-			}
-		});
-		leavingClientThread.start();
-		tested.parse(LEAVE,sout,sin,serverSocket);
+	void parseLeaveTest() throws ParsingException, IOException {
+
+		sockets.get(LEAVING_REPLICA_ID).getOut().writeObject(LEAVING_REPLICA_ID);
+
+		tested.parse(LEAVE,serverSockets.get(1).getOut(),serverSockets.get(1).getIn(),serverSockets.get(1).getSocket());
 		assertFalse(replicas.containsKey(LEAVING_REPLICA_ID));
 	}
 
@@ -133,7 +118,7 @@ public class LeaderGroupManagerTest {
 	@DisplayName("Exception raised if trying to parse JOINING")
 	void parseJoiningTest() {
 		try{
-			tested.parse(JOINING,sout,sin,serverSocket);
+			tested.parse(JOINING,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(),serverSockets.get(0).getSocket());
 		}catch ( ParsingException e ){
 			assertTrue(e.getMessage().contains(JOINING.toString()));
 			return;
@@ -146,7 +131,7 @@ public class LeaderGroupManagerTest {
 	@DisplayName("Exception raised if trying to parse ACK")
 	void parseAckTest() {
 		try{
-			tested.parse(ACK,sout,sin,serverSocket);
+			tested.parse(ACK,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(),serverSockets.get(0).getSocket());
 		}catch ( ParsingException e ){
 			assertTrue(e.getMessage().contains(ACK.toString()));
 			return;
@@ -163,9 +148,39 @@ public class LeaderGroupManagerTest {
 	@AfterAll
 	static void closeConnections() throws IOException {
 		acceptorThread.interrupt();
-		if(serverSocket!=null) serverSocket.close();
+		for ( NodeInfo serverSocket: serverSockets )
+			serverSocket.close();
+		for ( NodeInfo socket: sockets.values() )
+			socket.close();
 		socketAcceptor.close();
 	}
 
 
+}
+
+class replicaStub{
+	private final Socket socket;
+	private final ObjectInputStream in;
+	private final ObjectOutputStream out;
+
+	replicaStub(String host, int port) throws IOException {
+		socket = new Socket(host,port);
+		out=new ObjectOutputStream(socket.getOutputStream());
+		in=new ObjectInputStream(socket.getInputStream());
+	}
+
+	void send(Object object) throws IOException {
+		out.writeObject(object);
+		out.flush();
+	}
+
+	Object read() throws IOException, ClassNotFoundException {
+		return in.readObject();
+	}
+
+	void close(){
+		try{in.close();}catch ( IOException ignored ){}
+		try{out.close();}catch ( IOException ignored ){}
+		try{socket.close();}catch ( IOException ignored ){}
+	}
 }
