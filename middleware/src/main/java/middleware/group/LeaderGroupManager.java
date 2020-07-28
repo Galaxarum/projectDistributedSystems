@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 class LeaderGroupManager<K, V> extends GroupManager<K, V> {
-	private static final Logger logger = Logger.getLogger(LeaderGroupManager.class.getName());
 	private static VectorClock vectorClock;
 
 	LeaderGroupManager(String id, int port, Map<String, NodeInfo> replicas,Map<K,V> data) {
@@ -21,19 +20,19 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 	}
 
 	@Override
-	public void join(VectorClock vectorClock) {
+	public synchronized void join(VectorClock vectorClock) {
 	}
 
 	/**
 	 * @throws UnsupportedOperationException always
 	 */
 	@Override
-	public void leave() {
+	public synchronized void leave() {
 		throw new UnsupportedOperationException("The leader cannot leave the group");
 	}
 
 	@Override
-	public void parse(GroupCommands command, ObjectOutputStream out, ObjectInputStream in, Socket socket) throws ParsingException {
+	public synchronized void parse(GroupCommands command, ObjectOutputStream out, ObjectInputStream in, Socket socket) throws ParsingException {
 		try {
 			final String replicaId;
 			final NodeInfo replicaInfo;
@@ -52,6 +51,7 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 					out.writeObject(id);
 					//Write replica list to out
 					out.writeObject(replicas);
+					out.flush();
 					replicas.put(replicaId, replicaInfo);
 					break;
 				case SYNC:
@@ -69,8 +69,7 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 					throw new ParsingException(command.toString());
 			}
 		}catch ( IOException | ClassNotFoundException e ){
-			//TODO
-			throw new BrokenProtocolException("", e);
+			throw new BrokenProtocolException("Comething went wrong", e);
 		}
 	}
 }

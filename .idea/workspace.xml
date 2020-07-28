@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/GroupManagerFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImplIntegration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" afterDir="false" />
     </list>
@@ -86,7 +86,7 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GroupManagerFactoryTest.ordinaryCreationTest">
+  <component name="RunManager" selected="JUnit.LeaderGroupManagerTest">
     <configuration name="Other replicas" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
       <module name="application" />
@@ -101,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupCommandsTest.noNulls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LeaderGroupManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -110,31 +110,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.GroupCommandsTest" />
-      <option name="METHOD_NAME" value="noNulls" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GroupManagerFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.group.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.GroupManagerFactoryTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupManagerFactoryTest.leaderCreationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LeaderGroupManagerTest.parseJoinTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -143,15 +126,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.GroupManagerFactoryTest" />
-      <option name="METHOD_NAME" value="leaderCreationTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
+      <option name="METHOD_NAME" value="parseJoinTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupManagerFactoryTest.ordinaryCreationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LeaderGroupManagerTest.parseJoiningTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -160,15 +143,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.GroupManagerFactoryTest" />
-      <option name="METHOD_NAME" value="ordinaryCreationTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
+      <option name="METHOD_NAME" value="parseJoiningTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupManagerFactoryTest.singletonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LeaderGroupManagerTest.parseLeaveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
@@ -177,8 +160,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.GroupManagerFactoryTest" />
-      <option name="METHOD_NAME" value="singletonTest" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
+      <option name="METHOD_NAME" value="parseLeaveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaderGroupManagerTest.parseSynchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="middleware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="middleware.group.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="middleware.group" />
+      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
+      <option name="METHOD_NAME" value="parseSynchTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,19 +194,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Other replicas" />
-      <item itemvalue="JUnit.GroupCommandsTest.noNulls" />
-      <item itemvalue="JUnit.GroupManagerFactoryTest.singletonTest" />
-      <item itemvalue="JUnit.GroupManagerFactoryTest.leaderCreationTest" />
-      <item itemvalue="JUnit.GroupManagerFactoryTest.ordinaryCreationTest" />
-      <item itemvalue="JUnit.GroupManagerFactoryTest" />
+      <item itemvalue="JUnit.LeaderGroupManagerTest" />
+      <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoinTest" />
+      <item itemvalue="JUnit.LeaderGroupManagerTest.parseSynchTest" />
+      <item itemvalue="JUnit.LeaderGroupManagerTest.parseLeaveTest" />
+      <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoiningTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GroupManagerFactoryTest.ordinaryCreationTest" />
-        <item itemvalue="JUnit.GroupManagerFactoryTest.leaderCreationTest" />
-        <item itemvalue="JUnit.GroupManagerFactoryTest.singletonTest" />
-        <item itemvalue="JUnit.GroupManagerFactoryTest" />
-        <item itemvalue="JUnit.GroupCommandsTest.noNulls" />
+        <item itemvalue="JUnit.LeaderGroupManagerTest" />
+        <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoiningTest" />
+        <item itemvalue="JUnit.LeaderGroupManagerTest.parseJoinTest" />
+        <item itemvalue="JUnit.LeaderGroupManagerTest.parseLeaveTest" />
+        <item itemvalue="JUnit.LeaderGroupManagerTest.parseSynchTest" />
       </list>
     </recent_temporary>
   </component>
@@ -248,35 +248,8 @@
       <workItem from="1587155036755" duration="15000" />
       <workItem from="1595854132307" duration="8989000" />
       <workItem from="1595925666797" duration="1878000" />
-      <workItem from="1595940977548" duration="6036000" />
-    </task>
-    <task id="LOCAL-00038" summary="Update MessagingMiddleware, MessagingMiddlewareImpl&#10;-Added generic type ApplicationPrimitive to both to allow to specify it at application level&#10;-Generified MessagingMiddlewareImpl">
-      <created>1583233563601</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1583233563601</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Update Main&#10;-Adapted to latest commits">
-      <created>1583233590220</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1583233590220</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Moved DataOperations to application level">
-      <created>1583234069389</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1583234069389</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Update ClientCommandListener, Main&#10;-Adapted to generification of MessagingMiddlewareImpl">
-      <created>1583234120394</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1583234120394</updated>
+      <workItem from="1595940977548" duration="6274000" />
+      <workItem from="1595948398050" duration="5389000" />
     </task>
     <task id="LOCAL-00042" summary="Fixed some warnings">
       <created>1583234163728</created>
@@ -593,7 +566,35 @@
       <option name="project" value="LOCAL" />
       <updated>1595945709166</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Update GroupManagerFactory, Add GroupManagerFactoryTest">
+      <created>1595947070009</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1595947070009</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Update Message: added utility constructor">
+      <created>1595947197828</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1595947197828</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Update GroupManager: removed logger">
+      <created>1595947216102</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1595947216102</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Update MessageProducerImpl: fixed buffer logic">
+      <created>1595947249870</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1595947249870</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,10 +613,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Increased transparency, improved packaging" />
-    <MESSAGE value="Automatic code cleanup, removed eclipse files" />
-    <MESSAGE value="Update NodeInfo&#10;-removed unneeded attributes&#10;-added NodeInfo.getSocket" />
-    <MESSAGE value="Made PrimitiveParser final" />
     <MESSAGE value="Update GroupManagerImpl&#10;-Managed all commands except GroupCommands.SYNC&#10;-Reduced ACK usage (channels are reliable, so they're only needed for synchronization among processes [like resume execution after JOINING])" />
     <MESSAGE value="Update GroupManagerImpl&#10;-Made JOINING behaviour more robust" />
     <MESSAGE value="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining" />
@@ -637,13 +634,21 @@
     <MESSAGE value="Update VectorClock, VectorClockTest" />
     <MESSAGE value="Update NodeInfo, Add NodeInfoTest" />
     <MESSAGE value="Add GroupCommandsTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GroupCommandsTest" />
+    <MESSAGE value="Update GroupManagerFactory, Add GroupManagerFactoryTest" />
+    <MESSAGE value="Update Message: added utility constructor" />
+    <MESSAGE value="Update GroupManager: removed logger" />
+    <MESSAGE value="Update MessageProducerImpl: fixed buffer logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update MessageProducerImpl: fixed buffer logic" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595941076476">
+    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595949873275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595941076476" />
+    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595949873275" />
+    <state x="100" y="99" width="1720" height="840" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1595953123558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="100" y="99" width="1720" height="840" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595953123558" />
     <state x="585" y="324" width="739" height="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595854212812">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -652,10 +657,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595941469966" />
-    <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1595941075017">
+    <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1595948789721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595941075017" />
+    <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595948789721" />
     <state x="692" y="312" width="525" height="409" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1595926471784">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -668,62 +673,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771538" />
-    <state x="1128" y="307" key="#xdebugger.evaluate" timestamp="1595946710150">
+    <state x="1128" y="307" key="#xdebugger.evaluate" timestamp="1595953601977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1128" y="307" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595946710150" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595945708901">
+    <state x="1128" y="307" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595953601977" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595947249763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595945708901" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595946904385">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595947249763" />
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1595953762015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595946904385" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595946904385">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762015" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1595953762015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595946904385" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595946904384">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762015" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1595953762014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595946904384" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595946904385">
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762014" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1595953762015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595946904385" />
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595946722729">
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595953762015" />
+    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1595953643722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595946722729" />
-    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1595946722729">
+    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643722" />
+    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1595953643721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595946722729" />
-    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1595946722728">
+    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643721" />
+    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1595953643721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595946722728" />
-    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1595946722729">
+    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643721" />
+    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1595953643722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595946722729" />
+    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595953643722" />
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1595857346051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595857346051" />
-    <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction" timestamp="1595857518776">
+    <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1595953542147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction/0.0.1920.1040@0.0.1920.1040" timestamp="1595857518776" />
+    <state width="960" height="520" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1595953542147" />
+    <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction" timestamp="1595949798264">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction/0.0.1920.1040@0.0.1920.1040" timestamp="1595949798264" />
     <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1595926473759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1595926473759" />
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1595925819832">
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1595953138462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595925819832" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595953138462" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -748,9 +757,9 @@
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/GroupManagerFactoryTest.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="59" />
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -771,7 +780,7 @@
     <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest.ic" NAME="GroupManagerFactoryTest Coverage Results" MODIFIED="1595946904363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_ordinaryCreationTest.ic" NAME="GroupManagerFactoryTest.ordinaryCreationTest Coverage Results" MODIFIED="1595947032421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_leave_unsupportedException.ic" NAME="LeaderGroupManagerTest.leave_unsupportedException Coverage Results" MODIFIED="1595949952247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClocksTest_removeTest.ic" NAME="VectorClocksTest.removeTest Coverage Results" MODIFIED="1595857183092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -789,14 +798,27 @@
     <SUITE FILE_PATH="coverage/projectDistributedSystems$NodeInfoTest.ic" NAME="NodeInfoTest Coverage Results" MODIFIED="1595945553875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_factoryOk.ic" NAME="LeaderGroupManagerTest.factoryOk Coverage Results" MODIFIED="1595949688030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$All_in_middleware.ic" NAME="All in middleware Coverage Results" MODIFIED="1595948795014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.*</FILTER>
+      <FILTER>runnables.*</FILTER>
+      <FILTER>distributedStorage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_join_noException.ic" NAME="LeaderGroupManagerTest.join_noException Coverage Results" MODIFIED="1595949780683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest.ic" NAME="LeaderGroupManagerTest Coverage Results" MODIFIED="1595953791339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_ordinaryCreationTest.ic" NAME="GroupManagerFactoryTest.ordinaryCreationTest Coverage Results" MODIFIED="1595947032421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_leaderCreationTest.ic" NAME="GroupManagerFactoryTest.leaderCreationTest Coverage Results" MODIFIED="1595947026236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$MesssageTest.ic" NAME="MesssageTest Coverage Results" MODIFIED="1595857470094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>runnables.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$All_in_middleware.ic" NAME="All in middleware Coverage Results" MODIFIED="1595941092532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.*</FILTER>
       <FILTER>runnables.*</FILTER>
     </SUITE>
   </component>
