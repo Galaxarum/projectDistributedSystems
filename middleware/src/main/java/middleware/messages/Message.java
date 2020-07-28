@@ -1,9 +1,11 @@
 package middleware.messages;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
-@Data
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Message<T> implements Comparable<Message<T>>{
     private T content;
     private VectorClock timestamp;
