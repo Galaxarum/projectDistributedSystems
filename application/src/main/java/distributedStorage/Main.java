@@ -49,8 +49,6 @@ public class Main {
         final int client_port = Integer.parseInt(argsMap.get(CLIENT_PORT_INDEX));
         final String storage_path = argsMap.get(STORAGE_PATH_INDEX);
 
-        clientListener = new ClientListener(client_port,messagingMiddleware,databaseManager);
-
         if ( client_port >= middleware_port && client_port < middleware_port + MessagingMiddleware.NEEDED_PORTS ) {
             System.out.println("Conflicting ports. Client port cannot be between [middleware_port,middleware_port+" + (MessagingMiddleware.NEEDED_PORTS - 1) + "]" + System.lineSeparator() +
                     "Actually, " + client_port + " is in [" + middleware_port + "," + (middleware_port + MessagingMiddleware.NEEDED_PORTS - 1) + "]");
@@ -58,10 +56,10 @@ public class Main {
         }
 
         databaseManager = DatabaseManager.getInstance(storage_path);
-        final Socket leaderSocket  = leader_host ==null?
-                null:
-                new Socket(leader_host,leader_port);
-        messagingMiddleware = new MessagingMiddlewareImpl<>(id, middleware_port, leaderSocket, databaseManager.getDatabase());
+
+        messagingMiddleware = new MessagingMiddlewareImpl<>(id, middleware_port, leader_host==null?null:new Socket(leader_host,leader_port), databaseManager.getDatabase());
+
+        clientListener = new ClientListener(client_port,messagingMiddleware,databaseManager);
 
         new Thread(clientListener).start();
 
