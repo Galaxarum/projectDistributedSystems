@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,13 +270,6 @@
       <workItem from="1596019118959" duration="9000" />
       <workItem from="1596100659132" duration="2005000" />
       <workItem from="1596102785744" duration="453000" />
-    </task>
-    <task id="LOCAL-00055" summary="Update ParsingFunction, PrimitiveParser&#10;ParsingFunction.parse throwing ParsingException">
-      <created>1584232587250</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1584232587250</updated>
     </task>
     <task id="LOCAL-00056" summary="Update GroupManager&#10;Made actually an interface">
       <created>1584232669663</created>
@@ -614,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596126030505</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Cleanup">
+      <created>1596126113698</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1596126113699</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +633,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update ServerSocketRunnableTest" />
     <MESSAGE value="Update VectorClocksTest" />
     <MESSAGE value="Add MessageTest" />
     <MESSAGE value="Update MessageProducer, MessageProducerImpl" />
@@ -658,7 +657,8 @@
     <MESSAGE value="Cleanup Main, Add ClientListener" />
     <MESSAGE value="Cleanup Main" />
     <MESSAGE value="Update Main, MessagingMiddleware, MessagingMiddlewareImpl: MessagingMiddleware now joins on creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Main, MessagingMiddleware, MessagingMiddlewareImpl: MessagingMiddleware now joins on creation" />
+    <MESSAGE value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
@@ -701,10 +701,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596126030381">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596126113606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596126030381" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596126113606" />
     <state width="1878" height="340" key="GridCell.Tab.0.bottom" timestamp="1596102664330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

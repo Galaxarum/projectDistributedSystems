@@ -55,7 +55,7 @@ public class Main {
             return;
         }
 
-        databaseManager = DatabaseManager.getInstance(storage_path);
+        databaseManager = new DatabaseManager<>(storage_path);
 
         messagingMiddleware = new MessagingMiddlewareImpl<>(id,
                 middleware_port,

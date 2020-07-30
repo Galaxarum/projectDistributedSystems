@@ -8,6 +8,7 @@ import middleware.messages.MessageConsumer;
 
 import java.io.*;
 import java.nio.file.FileSystemAlreadyExistsException;
+import java.nio.file.FileSystemException;
 import java.util.Hashtable;
 
 public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> {
@@ -15,47 +16,27 @@ public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> 
      * The actual database. Using {@link Hashtable} grants a thread-safe behaviour.
      */
     @Getter
-    private Hashtable<K,V> database;
+    private final Hashtable<K,V> database;
     private final ObjectOutputStream fileOut;
-    private static DatabaseManager<?,?> instance;
     public static final String DEFAULT_PATH  = "./"+DatabaseManager.class.getName();
 
     @SuppressWarnings("unchecked")
-    @SneakyThrows(ClassNotFoundException.class)
-    private DatabaseManager(File file) throws IOException {
-
-        fileOut = new ObjectOutputStream(new FileOutputStream(file));
-
-        try(ObjectInputStream fin = new ObjectInputStream(new FileInputStream(file))){
-            database = (Hashtable<K, V>) fin.readObject();
-        } catch (IOException e) {
-            database = new Hashtable<>();
-        } catch (ClassCastException e){
-            throw new FileSystemAlreadyExistsException("An instance with different types is already persisted");
-        }
-
-        DatabaseManager.instance = this;
+    public DatabaseManager(String persistencePath) throws IOException {
+        final File persistedFile  = new File(persistencePath);
+        if(!persistedFile.exists()) database = new Hashtable<>();
+        else if(!persistedFile.isFile()) throw new FileSystemException(persistencePath + "is not a valid file");
+        else if(!persistedFile.canRead() || !persistedFile.canWrite()) throw new FileSystemException("Missing read/write rigths over " + persistencePath);
+        else try ( ObjectInputStream fin = new ObjectInputStream(new FileInputStream(persistedFile)) ) {
+                database = ( Hashtable<K, V> ) fin.readObject();
+            } catch ( ClassNotFoundException e ) {
+                throw new FileSystemAlreadyExistsException("An instance with different types is already persisted for path " + persistencePath);
+            }
+        fileOut = new ObjectOutputStream(new FileOutputStream(persistedFile));
     }
 
-    @SuppressWarnings("unchecked")
-    public static <K,V> DatabaseManager<K,V> getInstance(String persistencePath) throws IOException, IllegalAccessException {
-        if(instance == null){
-            return new DatabaseManager<>(new File(persistencePath));
-        }
-        try {
-            return (DatabaseManager<K, V>) instance;
-        }catch (ClassCastException e){
-            throw new IllegalAccessException("Another instance with different types has already been created");
-        }
-    }
-
-    public void persist() throws IOException {
-        fileOut.writeObject(database);
-    }
-
-    @SneakyThrows
+    @SneakyThrows(IOException.class)
     public void close() {
-        persist();
+        fileOut.writeObject(database);
         fileOut.close();
     }
 
