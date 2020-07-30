@@ -49,36 +49,7 @@ public class Main {
         final int client_port = Integer.parseInt(argsMap.get(CLIENT_PORT_INDEX));
         final String storage_path = argsMap.get(STORAGE_PATH_INDEX);
 
-        try {
-            clientListener = new ServerSocketRunnable<>(new ServerSocket(client_port), (operation, writer, reader, socket) -> {
-                try {
-                    String key = ( String ) reader.readObject();
-                    Object value;
-                    Object result;
-                    switch ( operation ) {
-                        case GET:
-                            result = databaseManager.getDatabase().get(key);
-                            break;
-                        case PUT:
-                            value = reader.readObject();
-                            result = databaseManager.getDatabase().put(key, value);
-                            messagingMiddleware.shareOperation(PUT, key, value);
-                            break;
-                        case DELETE:
-                            result = databaseManager.getDatabase().remove(key);
-                            messagingMiddleware.shareOperation(DELETE, key, null);
-                            break;
-                        default:
-                            throw new ParsingException(operation.toString());
-                    }
-                    writer.writeObject(result);
-                } catch ( IOException | ClassNotFoundException e ) {
-                    throw new BrokenProtocolException("Something went wrong with communication",e);
-                }
-            });
-        }catch ( IOException e ){
-            throw new BrokenProtocolException("Cannot start Client Listener", e);
-        }
+        clientListener = new ClientListener(client_port,messagingMiddleware,databaseManager);
 
         if ( client_port >= middleware_port && client_port < middleware_port + MessagingMiddleware.NEEDED_PORTS ) {
             System.out.println("Conflicting ports. Client port cannot be between [middleware_port,middleware_port+" + (MessagingMiddleware.NEEDED_PORTS - 1) + "]" + System.lineSeparator() +
@@ -96,16 +67,13 @@ public class Main {
 
         messagingMiddleware.join();
 
-        setShutdownOperation();
-
-    }
-
-    private static void setShutdownOperation(){
         //Add a shutdownHook to leave before shutting down
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             clientListener.close();
             databaseManager.close();
             messagingMiddleware.leave();
         }));
+
     }
+
 }

@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,13 +270,6 @@
       <workItem from="1596019118959" duration="9000" />
       <workItem from="1596100659132" duration="2005000" />
       <workItem from="1596102785744" duration="453000" />
-    </task>
-    <task id="LOCAL-00050" summary="Javadoc Main">
-      <created>1583248533714</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1583248533718</updated>
     </task>
     <task id="LOCAL-00051" summary="Update Main&#10;- Changed parsing exception behaviour">
       <created>1583249104884</created>
@@ -615,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596124278786</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Cleanup Main, Add Args">
+      <created>1596125398020</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1596125398020</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +633,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="HUGE DEBUG IN GROUP COMMUNICATION&#10;-Added support for usage of different ports, both ad applicative and middleware level&#10;--Made GroupManager be created with Socket instead String (hostname)&#10;--Made MessagingMiddleware be created with Socket instead String (hostname)&#10;-Divided Main.main into sub-functions for maintainability&#10;-Made PrimitiveParser work with ObjectStreams instead of custom interfaces&#10;--Deleted NetworkReader.java and NetworkWriter.java&#10;--Deleted PrimitiveParserRunnable.writeObjectSafe, readObjectSafe&#10;-NodeInfo tracks streams also, not only socket&#10;--2 setters for socket, the one with a boolean arg can initialize the streams&#10;--Update LeaderGroupManager, OrdinaryGroupManager so to use the correct setters (if the streams has already been created, they shouldn't be created again)" />
     <MESSAGE value="Update ServerSocketRunnable&#10;-Added ServerSocketRunnable.close&#10;-Adapted subclasses consequently" />
     <MESSAGE value="Update ServerSocketRunnable" />
     <MESSAGE value="Update ServerSocketRunnableTest" />
@@ -659,7 +657,8 @@
     <MESSAGE value="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest" />
     <MESSAGE value="Update Main, OrdinaryGroupManager: handled protocol exceptions" />
     <MESSAGE value="Cleanup Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup Main" />
+    <MESSAGE value="Cleanup Main, Add Args" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup Main, Add Args" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
@@ -698,10 +697,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596124278556">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596125397868">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596124278556" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596125397868" />
     <state width="1878" height="340" key="GridCell.Tab.0.bottom" timestamp="1596102664330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
