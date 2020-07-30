@@ -119,6 +119,7 @@ public class NodeInfoTest {
 		}
 		assertDoesNotThrow(deserialized::connect);
 		assertFalse(deserialized.getSocket().isClosed());
+		forSerialize.delete();
 		temporaryFolder.delete();
 	}
 

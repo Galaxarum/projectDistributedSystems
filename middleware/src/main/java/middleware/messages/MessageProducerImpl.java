@@ -44,5 +44,7 @@ public class MessageProducerImpl<T> implements MessageProducer<T> {
         buffer.removeAll(toRemove);
     }
 
+    //URG: implement a new runnable to receive messages
+    //URG: implement a method to send messages over the network -> may be stubbed by a Network-Sender MessageConsumer?
 
 }
