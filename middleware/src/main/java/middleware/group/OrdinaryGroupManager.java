@@ -206,8 +206,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                     throw new ParsingException(command.toString());
             }
         }catch ( IOException | ClassNotFoundException e ){
-            //TODO
-            e.printStackTrace();
+            throw new BrokenProtocolException("Something went wrong with socket communication",e);
         }
     }
 }

@@ -21,12 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Update NodeInfo, NodeInfoTest: smarter OO programming">
       <change afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImplIntegration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/GroupManagerFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/GroupManagerFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,14 +269,7 @@
       <workItem from="1595948398050" duration="5389000" />
       <workItem from="1595964081631" duration="7692000" />
       <workItem from="1596019118959" duration="9000" />
-      <workItem from="1596100659132" duration="1375000" />
-    </task>
-    <task id="LOCAL-00047" summary="Update DatabaseManager&#10;Removed useless modules">
-      <created>1583248354436</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1583248354436</updated>
+      <workItem from="1596100659132" duration="1778000" />
     </task>
     <task id="LOCAL-00048" summary="Update ClientCommandListener&#10;Extended ClientCommandListener.parseCommand method">
       <created>1583248405213</created>
@@ -618,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595970559705</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest">
+      <created>1596102107744</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1596102107744</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +633,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update VectorClocks&#10;-Added clone method" />
     <MESSAGE value="Renaming" />
     <MESSAGE value="Made GroupManager an abstract class" />
     <MESSAGE value="HUGE DEBUG IN GROUP COMMUNICATION&#10;-Added support for usage of different ports, both ad applicative and middleware level&#10;--Made GroupManager be created with Socket instead String (hostname)&#10;--Made MessagingMiddleware be created with Socket instead String (hostname)&#10;-Divided Main.main into sub-functions for maintainability&#10;-Made PrimitiveParser work with ObjectStreams instead of custom interfaces&#10;--Deleted NetworkReader.java and NetworkWriter.java&#10;--Deleted PrimitiveParserRunnable.writeObjectSafe, readObjectSafe&#10;-NodeInfo tracks streams also, not only socket&#10;--2 setters for socket, the one with a boolean arg can initialize the streams&#10;--Update LeaderGroupManager, OrdinaryGroupManager so to use the correct setters (if the streams has already been created, they shouldn't be created again)" />
@@ -662,7 +657,8 @@
     <MESSAGE value="Update LeaderGroupManagerTest: fixed after updates to NodeInfo" />
     <MESSAGE value="Update MessageProducer, MessageProducerImpl, MessageProducerImpltest" />
     <MESSAGE value="Update PrimitiveParserRunnable: shrinked" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PrimitiveParserRunnable: shrinked" />
+    <MESSAGE value="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
@@ -701,26 +697,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1595971567430">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596102107513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595971567430" />
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1596101999390">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596102107513" />
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1596102315004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596101999390" />
-    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1596101999385">
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596102315004" />
+    <state width="1878" height="302" key="GridCell.Tab.0.center" timestamp="1596102315001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596101999385" />
-    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1596101999382">
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596102315001" />
+    <state width="1878" height="302" key="GridCell.Tab.0.left" timestamp="1596102315000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596101999382" />
-    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1596101999388">
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596102315000" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right" timestamp="1596102315002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596101999388" />
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596102315002" />
     <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1596101964488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

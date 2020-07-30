@@ -180,8 +180,7 @@ public class Main {
                     }
                     writer.writeObject(result);
                 } catch ( IOException | ClassNotFoundException e ) {
-                    e.printStackTrace();
-                    //TODO
+                    throw new BrokenProtocolException("Something went wrong with communication",e);
                 }
             });
         }catch ( IOException e ){
