@@ -4,7 +4,6 @@ import distributedStorage.database.DatabaseManager;
 import distributedStorage.primitives.DataOperations;
 import exceptions.BrokenProtocolException;
 import exceptions.ParsingException;
-import functional_interfaces.PrimitiveParser;
 import middleware.MessagingMiddleware;
 import runnables.ServerSocketRunnable;
 
@@ -17,7 +16,6 @@ import static distributedStorage.primitives.DataOperations.PUT;
 public class ClientListener extends ServerSocketRunnable<DataOperations> {
 	/**
 	 * Creates a ConnectionAcceptor listening to the given port
-	 * @param serverSocket    the ServerSocket that will listen for incoming connections
 	 */
 	public ClientListener(int port,
 	                      MessagingMiddleware<String,Object,DataOperations> messagingMiddleware,

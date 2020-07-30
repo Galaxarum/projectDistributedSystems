@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,34 +270,6 @@
       <workItem from="1596019118959" duration="9000" />
       <workItem from="1596100659132" duration="2005000" />
       <workItem from="1596102785744" duration="453000" />
-    </task>
-    <task id="LOCAL-00051" summary="Update Main&#10;- Changed parsing exception behaviour">
-      <created>1583249104884</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1583249104884</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Add NetworkReader, NetworkWriter&#10;Custom functional interfaces to read and write objects. &#10;Intended to be used with lambdas in order to allow specification of classes exploiting network communication transparently">
-      <created>1584231139116</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1584231139162</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Add ParsingFunction&#10;Functional interface allowing developers to use 'writerFunction' and 'readerFunction' transparently when specifying the code used to parse 'primitive'">
-      <created>1584231226967</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1584231226967</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Update PrimitiveParser, ServerSocketRunnable&#10;Exploiting new functional interfaces to allow a safer and cleaner implementation">
-      <created>1584231354167</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1584231354167</updated>
     </task>
     <task id="LOCAL-00055" summary="Update ParsingFunction, PrimitiveParser&#10;ParsingFunction.parse throwing ParsingException">
       <created>1584232587250</created>
@@ -614,7 +586,35 @@
       <option name="project" value="LOCAL" />
       <updated>1596125398020</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Cleanup Main, Add ClientListener">
+      <created>1596125741935</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1596125741936</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Cleanup Main">
+      <created>1596125907470</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1596125907470</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Update Main, MessagingMiddleware, MessagingMiddlewareImpl: MessagingMiddleware now joins on creation">
+      <created>1596126004026</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1596126004026</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Update Main, MessagingMiddleware, MessagingMiddlewareImpl: MessagingMiddleware now joins on creation">
+      <created>1596126030505</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1596126030505</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,8 +633,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update ServerSocketRunnable&#10;-Added ServerSocketRunnable.close&#10;-Adapted subclasses consequently" />
-    <MESSAGE value="Update ServerSocketRunnable" />
     <MESSAGE value="Update ServerSocketRunnableTest" />
     <MESSAGE value="Update VectorClocksTest" />
     <MESSAGE value="Add MessageTest" />
@@ -656,9 +654,11 @@
     <MESSAGE value="Update PrimitiveParserRunnable: shrinked" />
     <MESSAGE value="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest" />
     <MESSAGE value="Update Main, OrdinaryGroupManager: handled protocol exceptions" />
-    <MESSAGE value="Cleanup Main" />
     <MESSAGE value="Cleanup Main, Add Args" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup Main, Add Args" />
+    <MESSAGE value="Cleanup Main, Add ClientListener" />
+    <MESSAGE value="Cleanup Main" />
+    <MESSAGE value="Update Main, MessagingMiddleware, MessagingMiddlewareImpl: MessagingMiddleware now joins on creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Main, MessagingMiddleware, MessagingMiddlewareImpl: MessagingMiddleware now joins on creation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
@@ -693,14 +693,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595859771538" />
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596125934579">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596125934579" />
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate" timestamp="1595969972823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596125397868">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596126030381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596125397868" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596126030381" />
     <state width="1878" height="340" key="GridCell.Tab.0.bottom" timestamp="1596102664330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
