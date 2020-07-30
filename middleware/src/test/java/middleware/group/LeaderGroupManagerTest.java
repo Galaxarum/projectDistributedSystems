@@ -23,7 +23,6 @@ public class LeaderGroupManagerTest {
 	private static final String REPLICA_ID = "replica";
 	private static final String LEAVING_REPLICA_ID = "leaving";
 	private static final int PORT = 12345;
-	private static final int SERVER_PORT = 12121;
 	private static final String HOSTNAME = "localhost";
 	private static ServerSocket socketAcceptor;
 	private static final Map<String,NodeInfo> sockets = new HashMap<>(2);
@@ -38,9 +37,10 @@ public class LeaderGroupManagerTest {
 
 	@BeforeAll
 	static void initServer() throws IOException {
-		socketAcceptor = new ServerSocket(SERVER_PORT);
+		socketAcceptor = new ServerSocket(0);
+		int SERVER_PORT = socketAcceptor.getLocalPort();
 		acceptorThread = new Thread(()->{
-			while ( true ){
+			while ( !socketAcceptor.isClosed() ){
 				try {
 					final Socket accepted = socketAcceptor.accept();
 					serverSockets.add(new NodeInfo(accepted));
@@ -51,8 +51,8 @@ public class LeaderGroupManagerTest {
 		});
 		acceptorThread.start();
 		tested = ( LeaderGroupManager<Integer, Integer> ) GroupManagerFactory.factory(ID,PORT,null,replicas,data);
-		sockets.put(REPLICA_ID,new NodeInfo(new Socket(HOSTNAME,SERVER_PORT)));
-		sockets.put(LEAVING_REPLICA_ID,new NodeInfo(new Socket(HOSTNAME,SERVER_PORT)));
+		sockets.put(REPLICA_ID,new NodeInfo(new Socket(HOSTNAME, SERVER_PORT)));
+		sockets.put(LEAVING_REPLICA_ID,new NodeInfo(new Socket(HOSTNAME, SERVER_PORT)));
 	}
 
 	@Test

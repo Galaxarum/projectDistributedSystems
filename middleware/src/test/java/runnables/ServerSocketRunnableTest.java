@@ -16,7 +16,7 @@ import java.net.Socket;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ServerSocketRunnableTest {
-	private static final int PORT = 12345;
+	private static int PORT;
 	private static final PrimitiveParser<TestPrimitive> PARSING_FUNCTION = (x, writer, reader, socket) -> {
 		try {
 			writer.writeObject(x.asInt + 1);
@@ -34,7 +34,9 @@ public class ServerSocketRunnableTest {
 
 	@BeforeAll
 	public static void startListener() throws IOException {
-		tested = new Thread(new ServerSocketRunnable<>(new ServerSocket(PORT), PARSING_FUNCTION));
+		final ServerSocket serverSocket = new ServerSocket(0);
+		PORT = serverSocket.getLocalPort();
+		tested = new Thread(new ServerSocketRunnable<>(serverSocket, PARSING_FUNCTION));
 		tested.start();
 	}
 
@@ -50,6 +52,7 @@ public class ServerSocketRunnableTest {
 			in.close();
 			out.close();
 			socket.close();
+			tested.interrupt();
 	}
 
 	@Test

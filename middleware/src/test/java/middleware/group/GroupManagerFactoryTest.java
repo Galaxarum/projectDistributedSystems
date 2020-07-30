@@ -17,7 +17,7 @@ public class GroupManagerFactoryTest {
 
 	private static final String ID = "a";
 	private static final int PORT = 12345;
-	private static final int SERVER_PORT = 12121;
+	private static int SERVER_PORT;
 	private static final String HOST = "localhost";
 	private static ServerSocket serverAcceptor;
 	private Socket serverSocket;
@@ -27,7 +27,8 @@ public class GroupManagerFactoryTest {
 
 	@BeforeAll
 	static void startServerSocket() throws IOException {
-		serverAcceptor = new ServerSocket(SERVER_PORT);
+		serverAcceptor = new ServerSocket(0);
+		SERVER_PORT = serverAcceptor.getLocalPort();
 	}
 
 	@BeforeEach
@@ -74,5 +75,11 @@ public class GroupManagerFactoryTest {
 		final GroupManager<Integer,Integer> firstInstance =
 				GroupManagerFactory.factory(ID,PORT,new Socket(HOST,SERVER_PORT),null,null);
 		assertTrue(firstInstance instanceof OrdinaryGroupManager);
+	}
+
+	@AfterEach
+	void close() throws IOException {
+		if(acceptingThread!=null) acceptingThread.interrupt();
+		if(serverSocket!=null) serverSocket.close();
 	}
 }
