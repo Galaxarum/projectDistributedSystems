@@ -27,16 +27,7 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
         this.data = data;
         this.groupManager = GroupManagerFactory.factory(id,port+GROUP_PORT_OFFSET,leaderGroupSocket,replicas,data);
         this.vectorClock = new VectorClock(id);
-    }
-
-    @Override
-    public void join() {
-        try {
-            operativeLock.lock();
-            groupManager.join(vectorClock);
-        }finally {
-            operativeLock.unlock();
-        }
+        groupManager.join(vectorClock);
     }
 
     @Override

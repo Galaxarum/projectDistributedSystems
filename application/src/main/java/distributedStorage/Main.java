@@ -34,7 +34,7 @@ public class Main {
     private static ServerSocketRunnable<DataOperations> clientListener;
 
     /**
-     * Starts a {@link ServerSocketRunnable} and (if not the first replica) calls {@link MessagingMiddleware#join()}.
+     * Starts a {@link ServerSocketRunnable}.
      * Adds {@link MessagingMiddleware#leave()} during the {@link Runtime#addShutdownHook(Thread)} method
      * @param args the command line arguments
      */
@@ -57,13 +57,14 @@ public class Main {
 
         databaseManager = DatabaseManager.getInstance(storage_path);
 
-        messagingMiddleware = new MessagingMiddlewareImpl<>(id, middleware_port, leader_host==null?null:new Socket(leader_host,leader_port), databaseManager.getDatabase());
+        messagingMiddleware = new MessagingMiddlewareImpl<>(id,
+                middleware_port,
+                leader_host==null?null:new Socket(leader_host,leader_port),
+                databaseManager.getDatabase());
 
         clientListener = new ClientListener(client_port,messagingMiddleware,databaseManager);
 
         new Thread(clientListener).start();
-
-        messagingMiddleware.join();
 
         //Add a shutdownHook to leave before shutting down
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

@@ -6,7 +6,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public interface MessagingMiddleware <Key, Value, ApplicativePrimitive extends Enum<ApplicativePrimitive> & Primitive>{
-        void join();
     /**
      * This lock can be used to disable any active behaviour (generation of new messages) from this replica.
      * Needed to ensure that the distributed execution pauses while a new replica is joining
