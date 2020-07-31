@@ -20,10 +20,15 @@ public class NodeInfoTest {
 	private NodeInfo tested;
 	private Socket socket;
 	private static ServerSocket serverSocket;
+	private static ServerSocket messageServerSocket;
 	private Socket socketServerSide;
+	private Socket messageSocket;
 	private Thread acceptorThread;
-	private InputStream sin;
-	private OutputStream sout;
+	private Thread messagegAcceptorThread;
+	private InputStream gin;
+	private OutputStream gout;
+	private OutputStream mout;
+	private InputStream min;
 
 	@Rule private final TemporaryFolder temporaryFolder = new TemporaryFolder();
 
@@ -31,23 +36,37 @@ public class NodeInfoTest {
 	static void initServerSocket() throws IOException {
 		serverSocket = new ServerSocket(0);
 		SERVER_PORT = serverSocket.getLocalPort();
+		messageServerSocket = new ServerSocket(SERVER_PORT+NodeInfo.MESSAGES_PORT_OFFSET);
 	}
 
 	@BeforeEach
 	void initTested() throws IOException {
 		acceptorThread = new Thread(()-> {
-			while ( acceptorThread.isAlive() ) {
-				try {
-					socketServerSide = serverSocket.accept();
-					sout = new ObjectOutputStream(socketServerSide.getOutputStream());
-					sout.flush();
-					sin = new ObjectInputStream(socketServerSide.getInputStream());
-				} catch ( IOException e ) {
-					fail();
-				}
+			while ( !serverSocket.isClosed()) try {
+				socketServerSide = serverSocket.accept();
+				gout = new ObjectOutputStream(socketServerSide.getOutputStream());
+				gin = new ObjectInputStream(socketServerSide.getInputStream());
+				gout.flush();
+			} catch ( IOException e ) {
+				e.printStackTrace();
+				fail();
 			}
 		});
+
+		messagegAcceptorThread =  new Thread(()->{
+			while ( !serverSocket.isClosed()) try {
+				messageSocket = messageServerSocket.accept();
+				mout = new ObjectOutputStream(messageSocket.getOutputStream());
+				min = new ObjectInputStream(messageSocket.getInputStream());
+				mout.flush();
+			} catch ( IOException e ) {
+				e.printStackTrace();
+				fail();
+			}
+		});
+
 		acceptorThread.start();
+		messagegAcceptorThread.start();
 		socket = new Socket(HOST_NAME,SERVER_PORT);
 	}
 
@@ -75,12 +94,8 @@ public class NodeInfoTest {
 
 	@Test
 	@DisplayName("Can create channels on creation")
-	void setNewSocketCreatingChannelsNoExceptions(){
-		try {
-			tested = new NodeInfo(socket);
-		} catch ( IOException e ) {
-			fail();
-		}
+	void setNewSocketCreatingChannelsNoExceptions() throws IOException {
+		tested = new NodeInfo(socket);
 		assertNotNull(tested.getGroupIn());
 		assertNotNull(tested.getGroupOut());
 		assertEquals(socket,tested.getGroupSocket());
@@ -88,12 +103,8 @@ public class NodeInfoTest {
 
 	@Test
 	@DisplayName("Can use nodeinfo to close the socket")
-	void closeClosesUnderlyingConnections() {
-		try {
-			tested = new NodeInfo(socket);
-		} catch (IOException e){
-			fail();
-		}
+	void closeClosesUnderlyingConnections() throws IOException {
+		tested = new NodeInfo(socket);
 		assumeNotNull(tested.getGroupIn());
 		assumeNotNull(tested.getGroupOut());
 		assumeTrue(socket.equals(tested.getGroupSocket()));
@@ -103,7 +114,7 @@ public class NodeInfoTest {
 
 	@Test
 	@DisplayName("A deserialized nodeInfo can be used to open a fresh connection")
-	void canCreateConnectionAfterDeserialization() throws IOException {
+	void canCreateConnectionAfterDeserialization() throws IOException, ClassNotFoundException {
 		temporaryFolder.create();
 		tested = new NodeInfo(socket);
 		final File forSerialize = temporaryFolder.newFile();
@@ -111,12 +122,7 @@ public class NodeInfoTest {
 		fout.writeObject(tested);
 		final ObjectInputStream fin = new ObjectInputStream(new FileInputStream(forSerialize));
 		final NodeInfo deserialized;
-		try {
-			deserialized = ( NodeInfo ) fin.readObject();
-		} catch ( ClassNotFoundException e ) {
-			fail();
-			return;
-		}
+		deserialized = ( NodeInfo ) fin.readObject();
 		assertDoesNotThrow(deserialized::connect);
 		assertFalse(deserialized.getGroupSocket().isClosed());
 		forSerialize.delete();
@@ -124,26 +130,16 @@ public class NodeInfoTest {
 	}
 
 	@AfterEach
-	void closeChannels(){
+	void closeChannels() throws IOException {
 		acceptorThread.interrupt();
-		try{
-			if(socket!=null) socket.close();
-		}catch ( IOException ignored ){
-		}finally {
-			socket=null;
-		}
-		try{
-			if(socketServerSide!=null) socketServerSide.close();
-		}catch ( IOException ignored ){
-		}finally {
-			socketServerSide=null;
-		}
+		if(socket!=null && !socket.isClosed()) socket.close();
+		if(socketServerSide!=null && !socketServerSide.isClosed()) socketServerSide.close();
+		if(messageSocket!=null && !messageSocket.isClosed()) messageSocket.close();
 		try {
-			sout.close();
-			sin.close();
-		}catch ( IOException | NullPointerException ignored ){}
-		finally {
-			sout=null;sin=null;
-		}
+			if(gout!=null) gout.close();
+			if(gin!=null)gin.close();
+			if(mout!=null)mout.close();
+			if(min!=null)min.close();
+		}catch ( IOException ignored ){}
 	}
 }
