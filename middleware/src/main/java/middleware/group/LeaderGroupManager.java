@@ -19,9 +19,6 @@ public class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 		LeaderGroupManager.vectorClock = new VectorClock(id);
 	}
 
-	public synchronized void join(VectorClock vectorClock) {
-	}
-
 	/**
 	 * @throws UnsupportedOperationException always
 	 */

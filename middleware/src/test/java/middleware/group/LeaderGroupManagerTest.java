@@ -1,10 +1,16 @@
 package middleware.group;
 
 import exceptions.ParsingException;
+import markers.Primitive;
+import middleware.MessagingMiddleware;
 import middleware.messages.VectorClock;
 import org.junit.Rule;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.rules.ExpectedException;
+import org.mockito.Mock;
+import org.mockito.exceptions.base.MockitoException;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -15,10 +21,14 @@ import java.util.*;
 
 import static middleware.group.GroupCommands.*;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ExtendWith(MockitoExtension.class)
 public class LeaderGroupManagerTest {
-	private static LeaderGroupManager<Integer,Integer> tested;
 	private static final String ID = "leader";
 	private static final String REPLICA_ID = "replica";
 	private static final String LEAVING_REPLICA_ID = "leaving";
@@ -30,7 +40,9 @@ public class LeaderGroupManagerTest {
 	private static Thread acceptorThread;
 	private static final Map<String,NodeInfo> replicas = new HashMap<>();
 	private static final Map<Integer,Integer> data = new HashMap<>();
+	private MessagingMiddleware<Integer,Integer,StubApplicativePrimitive> middleware;
 	private static final VectorClock vectorClock = new VectorClock(ID);
+	private LeaderGroupManager<Integer,Integer> tested;
 
 	@Rule
 	ExpectedException expectedException = ExpectedException.none();
@@ -45,15 +57,23 @@ public class LeaderGroupManagerTest {
 					final Socket accepted = socketAcceptor.accept();
 					serverSockets.add(new NodeInfo(accepted));
 				} catch ( IOException e ) {
+					e.printStackTrace();
 					fail();
 				}
 			}
 		});
 		acceptorThread.start();
-		tested = new LeaderGroupManager<>(ID,PORT,null);
 		sockets.put(REPLICA_ID,new NodeInfo(new Socket(HOSTNAME, SERVER_PORT)));
 		sockets.put(LEAVING_REPLICA_ID,new NodeInfo(new Socket(HOSTNAME, SERVER_PORT)));
 	}
+
+	LeaderGroupManagerTest(){
+		middleware = mock(MessagingMiddleware.class);
+		when(middleware.getReplicas()).thenReturn(replicas);
+		when(middleware.getData()).thenReturn(data);
+		tested = new LeaderGroupManager<>(ID,PORT,middleware);
+	}
+
 
 	@Test
 	@DisplayName("Safety test")
@@ -63,13 +83,6 @@ public class LeaderGroupManagerTest {
 		assertTrue(tested instanceof LeaderGroupManager);
 		assertEquals(2,sockets.size());
 		assertEquals(2,serverSockets.size());
-	}
-
-	@Test
-	@DisplayName("Join throws no exception")
-	@Order(2)
-	void join_noException(){
-		tested.join(vectorClock);
 	}
 
 	@Test
@@ -145,6 +158,11 @@ public class LeaderGroupManagerTest {
 		assertThrows(UnsupportedOperationException.class,()->tested.leave());
 	}
 
+	@AfterEach
+	void reset(){
+
+	}
+
 	@AfterAll
 	static void closeConnections() throws IOException {
 		acceptorThread.interrupt();
@@ -183,4 +201,8 @@ class replicaStub{
 		try{out.close();}catch ( IOException ignored ){}
 		try{socket.close();}catch ( IOException ignored ){}
 	}
+}
+
+enum StubApplicativePrimitive implements Primitive {
+	A,B;
 }
