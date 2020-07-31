@@ -17,41 +17,26 @@ import static middleware.group.GroupCommands.*;
 
 class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
-    private final NodeInfo leaderInfo;
+    private MessagingMiddleware<K,V,?> owner;
 
     OrdinaryGroupManager(String id,
                          int port,
                          Socket leaderSocket,
                          Map<String, NodeInfo> replicas,
-                         Map<K,V> data) throws IOException {
+                         Map<K, V> data,
+                         VectorClock initialClock,
+                         MessagingMiddleware<K,V,?> owner) throws IOException {
         super(id, port, replicas, data);
 
+        this.owner  = owner;
+
         //Create leader info
-        leaderInfo = new NodeInfo(leaderSocket);
-
-    }
-
-    /**
-     * This implementation runs the following communication protocol:
-     * <ul>
-     *     <li>Inform the leader of the fact you're joining</li>
-     *     <li>Receive replica list</li>
-     *     <li>Inform all the replicas of the fact you're joining</li>
-     *     <li>Ask the leader for a copy of the data</li>
-     *     <li>Ack the leader</li>
-     *     <li>Return the received data</li>
-     * </ul>
-     * @implNote Since processes will never fail by assumption, we may assume that the known replica will always be the same replica (for instance the first replica created).
-     * This allows us to avoid implementing some kind of distributed mutex mechanism, keeping it a local mutex managed by the leader process
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void join(VectorClock vectorClock) {
+        final NodeInfo leaderInfo = new NodeInfo(leaderSocket);
 
         try {
             //Get streams
-            ObjectOutputStream leaderOut = leaderInfo.getGroupOut();
-            ObjectInputStream leaderIn = leaderInfo.getGroupIn();
+            final ObjectOutputStream leaderOut = leaderInfo.getGroupOut();
+            final ObjectInputStream leaderIn = leaderInfo.getGroupIn();
             leaderOut.writeObject(JOIN);
             leaderOut.writeObject(id);
 
@@ -67,7 +52,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             //Get data from the master replica
             leaderOut.writeObject(SYNC);
             data.putAll( ( Map<K, V> ) leaderIn.readObject() );
-            vectorClock.update(( VectorClock ) leaderIn.readObject());
+            initialClock.update(( VectorClock ) leaderIn.readObject());
 
             //Inform other replicas that you're done
             replicas.values().forEach(
@@ -88,6 +73,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
         }catch (IOException e){
             throw new BrokenProtocolException("Assumption on channel reliability failed", e);
         }
+
     }
 
     /**
@@ -148,6 +134,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             newOut.writeObject(JOINING);
             newOut.writeObject(GroupManager.id);
             Primitive.checkEquals(ACK, newIn.readObject());
+            newOut.writeObject(ACK);
 
             //Save the replica
             replicas.put(id, nodeInfo);
@@ -176,16 +163,15 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                     //Save info
                     replicas.put(replicaId, replicaInfo);
 
-                    //Send ack to ensure you won't proceed execution
-                    writer.writeObject(ACK);
-
-                    //Wait until you recive an ACK
-                    try {
-                        MessagingMiddleware.operativeLock.lock();
-                        Primitive.checkEquals(ACK, reader.readObject());
-                    } finally {
-                        MessagingMiddleware.operativeLock.unlock();
-                    }
+                    //Wait until you receive an ACK
+                    owner.runCriticalOperation(()->{
+                        try {
+                            writer.writeObject(ACK);
+                            Primitive.checkEquals(ACK,reader.readObject());
+                        }catch ( IOException | ClassNotFoundException e ){
+                            throw new BrokenProtocolException("");
+                        }
+                    });
                     break;
 
                 case LEAVE:

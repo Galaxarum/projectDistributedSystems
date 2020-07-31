@@ -9,7 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Map;
-import java.util.logging.Logger;
 
 class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 	private static VectorClock vectorClock;
@@ -19,7 +18,6 @@ class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 		LeaderGroupManager.vectorClock = new VectorClock(id);
 	}
 
-	@Override
 	public synchronized void join(VectorClock vectorClock) {
 	}
 

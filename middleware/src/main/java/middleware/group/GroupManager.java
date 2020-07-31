@@ -17,7 +17,6 @@ public abstract class GroupManager <K,V> implements PrimitiveParser<GroupCommand
     protected static Map data;
     private static ServerSocketRunnable<GroupCommands> socketListener;
 
-    public abstract void join(VectorClock vectorClock);
     public void leave(){
         socketListener.close();
     };
