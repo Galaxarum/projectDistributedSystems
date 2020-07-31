@@ -15,20 +15,16 @@ import java.util.Map;
 
 import static middleware.group.GroupCommands.*;
 
-class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
+public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
-    private MessagingMiddleware<K,V,?> owner;
-
-    OrdinaryGroupManager(String id,
+    public OrdinaryGroupManager(String id,
                          int port,
                          Socket leaderSocket,
-                         Map<String, NodeInfo> replicas,
-                         Map<K, V> data,
                          VectorClock initialClock,
                          MessagingMiddleware<K,V,?> owner) throws IOException {
-        super(id, port, replicas, data);
-
-        this.owner  = owner;
+        super(id, port, owner);
+        final Map<String, NodeInfo> replicas = owner.getReplicas();
+        final Map<K,V> data = owner.getData();
 
         //Create leader info
         final NodeInfo leaderInfo = new NodeInfo(leaderSocket);
@@ -88,7 +84,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
     @Override
     public void leave() {
         //For each replica
-        replicas.values()
+        owner.getReplicas().values()
                 .forEach(nodeInfo -> {
                     try {
                         //Load stream
@@ -132,12 +128,12 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
             //Send "JOINING"
             newOut.writeObject(JOINING);
-            newOut.writeObject(GroupManager.id);
+            newOut.writeObject(id);
             Primitive.checkEquals(ACK, newIn.readObject());
             newOut.writeObject(ACK);
 
             //Save the replica
-            replicas.put(id, nodeInfo);
+            owner.getReplicas().put(id, nodeInfo);
 
         } catch (IOException e) {
             throw new BrokenProtocolException("Assumption on channel reliability failed",e);
@@ -151,6 +147,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
         try {
             final String replicaId;
             final NodeInfo replicaInfo;
+            final Map<String,NodeInfo> replicas = owner.getReplicas();
             switch ( command ) {
                 case JOINING:
 

@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/Procedure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManagerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -276,27 +270,6 @@
       <workItem from="1596019118959" duration="9000" />
       <workItem from="1596100659132" duration="2005000" />
       <workItem from="1596102785744" duration="453000" />
-    </task>
-    <task id="LOCAL-00059" summary="Moved Message, MessageConsumer, MessageProducer, MessageProducerImpl to 'messages' package">
-      <created>1584268135185</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1584268135186</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Update DatabaseManager&#10;Cleaned instantiation">
-      <created>1584271551338</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1584271551338</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Code cleanup">
-      <created>1584273875129</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1584273875130</updated>
     </task>
     <task id="LOCAL-00062" summary="Moved stuff, adapted Main to DatabaseManager changes">
       <created>1584274520985</created>
@@ -620,7 +593,28 @@
       <option name="project" value="LOCAL" />
       <updated>1596184215486</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Add Procedure">
+      <created>1596185843684</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1596185843684</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Update MessagingMiddleware, GroupManager, GroupManagerFactory: simplified synchronization&#10;-Synch by MessagingMiddleware methods&#10;-MessagingMiddleware passed in GroupManager construction">
+      <created>1596185943477</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1596185943477</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Delete GroupManagerFactory.java, Update GroupManager: removed unneeded factory">
+      <created>1596187008376</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1596187008376</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,9 +633,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update MessageProducer, MessageProducerImpl" />
-    <MESSAGE value="Update MessageTest" />
-    <MESSAGE value="Update Message: added Message.compareTo (wraps VectorClock.compareTo)" />
     <MESSAGE value="Update VectorClock: renamed, simplified VectorClock.compareTo, added VectorClock.canAccept" />
     <MESSAGE value="Update VectorClock, VectorClockTest" />
     <MESSAGE value="Update NodeInfo, Add NodeInfoTest" />
@@ -664,7 +655,10 @@
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Update DatabaseManager, Main: simplified DatabaseManager" />
     <MESSAGE value="Renaming in NodeInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renaming in NodeInfo" />
+    <MESSAGE value="Add Procedure" />
+    <MESSAGE value="Update MessagingMiddleware, GroupManager, GroupManagerFactory: simplified synchronization&#10;-Synch by MessagingMiddleware methods&#10;-MessagingMiddleware passed in GroupManager construction" />
+    <MESSAGE value="Delete GroupManagerFactory.java, Update GroupManager: removed unneeded factory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete GroupManagerFactory.java, Update GroupManager: removed unneeded factory" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
@@ -679,10 +673,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="324" width="739" height="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595854212812" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1596185414179">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1596185684209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596185414179" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596185684209" />
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596101102322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -699,18 +693,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596184121558" />
-    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596184594924">
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596186965034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596184594924" />
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596186965034" />
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate" timestamp="1595969972823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596184215271">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596187008196">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596184215271" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596187008196" />
     <state width="1878" height="340" key="GridCell.Tab.0.bottom" timestamp="1596102664330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -796,7 +790,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
-          <line>39</line>
+          <line>41</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

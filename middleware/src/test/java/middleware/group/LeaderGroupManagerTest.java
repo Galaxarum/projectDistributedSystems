@@ -50,7 +50,7 @@ public class LeaderGroupManagerTest {
 			}
 		});
 		acceptorThread.start();
-		tested = ( LeaderGroupManager<Integer, Integer> ) GroupManagerFactory.factory(ID,PORT,null,replicas,data);
+		tested = new LeaderGroupManager<>(ID,PORT,null);
 		sockets.put(REPLICA_ID,new NodeInfo(new Socket(HOSTNAME, SERVER_PORT)));
 		sockets.put(LEAVING_REPLICA_ID,new NodeInfo(new Socket(HOSTNAME, SERVER_PORT)));
 	}
