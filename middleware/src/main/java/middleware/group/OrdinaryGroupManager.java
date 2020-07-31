@@ -50,8 +50,8 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
         try {
             //Get streams
-            ObjectOutputStream leaderOut = leaderInfo.getOut();
-            ObjectInputStream leaderIn = leaderInfo.getIn();
+            ObjectOutputStream leaderOut = leaderInfo.getGroupOut();
+            ObjectInputStream leaderIn = leaderInfo.getGroupIn();
             leaderOut.writeObject(JOIN);
             leaderOut.writeObject(id);
 
@@ -73,7 +73,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             replicas.values().forEach(
                     nodeInfo -> {
                         try{
-                            nodeInfo.getOut().writeObject(ACK);
+                            nodeInfo.getGroupOut().writeObject(ACK);
                         }catch ( IOException e ) {
                             throw new BrokenProtocolException("Unable to contact the replica: " + nodeInfo.getHostname());
                         }
@@ -106,7 +106,7 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                 .forEach(nodeInfo -> {
                     try {
                         //Load stream
-                        ObjectOutputStream out = nodeInfo.getOut();
+                        ObjectOutputStream out = nodeInfo.getGroupOut();
 
                         //Inform current replica of leaving
                         out.writeObject(GroupCommands.LEAVE);
@@ -141,8 +141,8 @@ class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             nodeInfo.connect();
 
             //Load streams
-            ObjectOutputStream newOut = nodeInfo.getOut();
-            ObjectInputStream newIn = nodeInfo.getIn();
+            ObjectOutputStream newOut = nodeInfo.getGroupOut();
+            ObjectInputStream newIn = nodeInfo.getGroupIn();
 
             //Send "JOINING"
             newOut.writeObject(JOINING);

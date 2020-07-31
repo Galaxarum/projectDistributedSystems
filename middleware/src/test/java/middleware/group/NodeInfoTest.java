@@ -67,9 +67,9 @@ public class NodeInfoTest {
 				ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
 		) {
 			tested = new NodeInfo(socket, out, in);
-			assertSame(in,tested.getIn());
-			assertSame(out,tested.getOut());
-			assertEquals(socket, tested.getSocket());
+			assertSame(in,tested.getGroupIn());
+			assertSame(out,tested.getGroupOut());
+			assertEquals(socket, tested.getGroupSocket());
 		}
 	}
 
@@ -81,9 +81,9 @@ public class NodeInfoTest {
 		} catch ( IOException e ) {
 			fail();
 		}
-		assertNotNull(tested.getIn());
-		assertNotNull(tested.getOut());
-		assertEquals(socket,tested.getSocket());
+		assertNotNull(tested.getGroupIn());
+		assertNotNull(tested.getGroupOut());
+		assertEquals(socket,tested.getGroupSocket());
 	}
 
 	@Test
@@ -94,9 +94,9 @@ public class NodeInfoTest {
 		} catch (IOException e){
 			fail();
 		}
-		assumeNotNull(tested.getIn());
-		assumeNotNull(tested.getOut());
-		assumeTrue(socket.equals(tested.getSocket()));
+		assumeNotNull(tested.getGroupIn());
+		assumeNotNull(tested.getGroupOut());
+		assumeTrue(socket.equals(tested.getGroupSocket()));
 		tested.close();
 		assertTrue(socket.isClosed());
 	}
@@ -118,7 +118,7 @@ public class NodeInfoTest {
 			return;
 		}
 		assertDoesNotThrow(deserialized::connect);
-		assertFalse(deserialized.getSocket().isClosed());
+		assertFalse(deserialized.getGroupSocket().isClosed());
 		forSerialize.delete();
 		temporaryFolder.delete();
 	}

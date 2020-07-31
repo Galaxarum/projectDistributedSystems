@@ -15,22 +15,22 @@ public class NodeInfo implements Serializable {
 	@Setter(AccessLevel.NONE)
 	private int port;
 	@EqualsAndHashCode.Exclude @NonNull
-	private transient Socket socket;
+	private transient Socket groupSocket;
 	@EqualsAndHashCode.Exclude @NonNull
-	private transient ObjectOutputStream out;
+	private transient ObjectOutputStream groupOut;
 	@EqualsAndHashCode.Exclude @NonNull
-	private transient ObjectInputStream in;
+	private transient ObjectInputStream groupIn;
 
-	public NodeInfo(Socket socket) throws IOException {
-		setSocketAndChannels(socket);
+	public NodeInfo(Socket groupSocket) throws IOException {
+		setSocketAndChannels(groupSocket);
 	}
 
-	public NodeInfo(Socket socket, ObjectOutputStream out, ObjectInputStream in){
-		this.socket = socket;
-		this.hostname = socket.getInetAddress().getHostName();
-		this.port = socket.getPort();
-		this.out = out;
-		this.in = in;
+	public NodeInfo(Socket groupSocket, ObjectOutputStream groupOut, ObjectInputStream groupIn){
+		this.groupSocket = groupSocket;
+		this.hostname = groupSocket.getInetAddress().getHostName();
+		this.port = groupSocket.getPort();
+		this.groupOut = groupOut;
+		this.groupIn = groupIn;
 	}
 
 	public void connect() throws IOException {
@@ -38,18 +38,18 @@ public class NodeInfo implements Serializable {
 	}
 
 	private void setSocketAndChannels(Socket socket) throws IOException {
-		this.socket = socket;
-		this.out = new ObjectOutputStream(socket.getOutputStream());
-		this.in = new ObjectInputStream(socket.getInputStream());
+		this.groupSocket = socket;
+		this.groupOut = new ObjectOutputStream(socket.getOutputStream());
+		this.groupIn = new ObjectInputStream(socket.getInputStream());
 		this.hostname = socket.getInetAddress().getHostName();
 		this.port = socket.getPort();
 	}
 
 	public void close(){
 		try {
-			out.close();
-			in.close();
-			socket.close();
+			groupOut.close();
+			groupIn.close();
+			groupSocket.close();
 		}catch ( IOException e ){
 			//Ignored
 		}

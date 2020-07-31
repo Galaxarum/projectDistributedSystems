@@ -7,10 +7,7 @@ import markers.Primitive;
 import middleware.group.NodeInfo;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.logging.Logger;
 
 final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
 
@@ -29,11 +26,11 @@ final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
      */
     @Override
     public final void run() {
-        while (!client.getSocket().isClosed()){
+        while (!client.getGroupSocket().isClosed()){
             try {
                 @SuppressWarnings("unchecked")
-                T command = (T) client.getIn().readObject();
-                parsingFunction.parse(command, client.getOut(), client.getIn(), client.getSocket());
+                T command = (T) client.getGroupIn().readObject();
+                parsingFunction.parse(command, client.getGroupOut(), client.getGroupIn(), client.getGroupSocket());
             } catch ( ClassCastException | ClassNotFoundException | IOException e){
                 client.close();
             } catch (ParsingException e) {

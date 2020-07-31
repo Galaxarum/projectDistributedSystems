@@ -76,20 +76,20 @@ public class LeaderGroupManagerTest {
 	@Order(3)
 	void parseJoinTest() throws ParsingException, IOException, ClassNotFoundException {
 
-		sockets.get(REPLICA_ID).getOut().writeObject(REPLICA_ID);
-		sockets.get(LEAVING_REPLICA_ID).getOut().writeObject(LEAVING_REPLICA_ID);
+		sockets.get(REPLICA_ID).getGroupOut().writeObject(REPLICA_ID);
+		sockets.get(LEAVING_REPLICA_ID).getGroupOut().writeObject(LEAVING_REPLICA_ID);
 
 		final Map<String, NodeInfo> replicasBefore = new HashMap<>(replicas);
-		tested.parse(JOIN,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(), serverSockets.get(0).getSocket());
-		assertEquals(ID, sockets.get(REPLICA_ID).getIn().readObject());
-		assertEquals(replicasBefore, sockets.get(REPLICA_ID).getIn().readObject());
+		tested.parse(JOIN,serverSockets.get(0).getGroupOut(),serverSockets.get(0).getGroupIn(), serverSockets.get(0).getGroupSocket());
+		assertEquals(ID, sockets.get(REPLICA_ID).getGroupIn().readObject());
+		assertEquals(replicasBefore, sockets.get(REPLICA_ID).getGroupIn().readObject());
 		assertTrue(replicas.containsKey(REPLICA_ID));
 
 		replicasBefore.put(REPLICA_ID,replicas.get(REPLICA_ID));
 
-		tested.parse(JOIN,serverSockets.get(1).getOut(),serverSockets.get(1).getIn(), serverSockets.get(1).getSocket());
-		assertEquals(ID, sockets.get(LEAVING_REPLICA_ID).getIn().readObject());
-		assertEquals(replicasBefore, sockets.get(LEAVING_REPLICA_ID).getIn().readObject());
+		tested.parse(JOIN,serverSockets.get(1).getGroupOut(),serverSockets.get(1).getGroupIn(), serverSockets.get(1).getGroupSocket());
+		assertEquals(ID, sockets.get(LEAVING_REPLICA_ID).getGroupIn().readObject());
+		assertEquals(replicasBefore, sockets.get(LEAVING_REPLICA_ID).getGroupIn().readObject());
 		assertTrue(replicas.containsKey(REPLICA_ID));
 		assertTrue(replicas.containsKey(LEAVING_REPLICA_ID));
 
@@ -98,18 +98,18 @@ public class LeaderGroupManagerTest {
 	@Test
 	@Order(4)
 	void parseSynchTest() throws ParsingException, IOException, ClassNotFoundException {
-		tested.parse(SYNC,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(),serverSockets.get(0).getSocket());
-		assertEquals(data, sockets.get(REPLICA_ID).getIn().readObject());
-		assertEquals(vectorClock, sockets.get(REPLICA_ID).getIn().readObject());
+		tested.parse(SYNC,serverSockets.get(0).getGroupOut(),serverSockets.get(0).getGroupIn(),serverSockets.get(0).getGroupSocket());
+		assertEquals(data, sockets.get(REPLICA_ID).getGroupIn().readObject());
+		assertEquals(vectorClock, sockets.get(REPLICA_ID).getGroupIn().readObject());
 	}
 
 	@Test
 	@Order(5)
 	void parseLeaveTest() throws ParsingException, IOException {
 
-		sockets.get(LEAVING_REPLICA_ID).getOut().writeObject(LEAVING_REPLICA_ID);
+		sockets.get(LEAVING_REPLICA_ID).getGroupOut().writeObject(LEAVING_REPLICA_ID);
 
-		tested.parse(LEAVE,serverSockets.get(1).getOut(),serverSockets.get(1).getIn(),serverSockets.get(1).getSocket());
+		tested.parse(LEAVE,serverSockets.get(1).getGroupOut(),serverSockets.get(1).getGroupIn(),serverSockets.get(1).getGroupSocket());
 		assertFalse(replicas.containsKey(LEAVING_REPLICA_ID));
 	}
 
@@ -118,7 +118,7 @@ public class LeaderGroupManagerTest {
 	@DisplayName("Exception raised if trying to parse JOINING")
 	void parseJoiningTest() {
 		try{
-			tested.parse(JOINING,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(),serverSockets.get(0).getSocket());
+			tested.parse(JOINING,serverSockets.get(0).getGroupOut(),serverSockets.get(0).getGroupIn(),serverSockets.get(0).getGroupSocket());
 		}catch ( ParsingException e ){
 			assertTrue(e.getMessage().contains(JOINING.toString()));
 			return;
@@ -131,7 +131,7 @@ public class LeaderGroupManagerTest {
 	@DisplayName("Exception raised if trying to parse ACK")
 	void parseAckTest() {
 		try{
-			tested.parse(ACK,serverSockets.get(0).getOut(),serverSockets.get(0).getIn(),serverSockets.get(0).getSocket());
+			tested.parse(ACK,serverSockets.get(0).getGroupOut(),serverSockets.get(0).getGroupIn(),serverSockets.get(0).getGroupSocket());
 		}catch ( ParsingException e ){
 			assertTrue(e.getMessage().contains(ACK.toString()));
 			return;
