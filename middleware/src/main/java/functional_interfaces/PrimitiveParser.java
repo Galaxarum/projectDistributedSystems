@@ -9,5 +9,5 @@ import java.net.Socket;
 
 @FunctionalInterface
 public interface PrimitiveParser<P extends Primitive> {
-    void parse(P primitive, ObjectOutputStream out, ObjectInputStream in, Socket socket) throws ParsingException;
+    void parse(final P primitive, final ObjectOutputStream out, final ObjectInputStream in, final Socket socket) throws ParsingException;
 }

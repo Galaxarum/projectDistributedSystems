@@ -2,9 +2,10 @@ package middleware;
 
 import functional_interfaces.Procedure;
 import lombok.Getter;
+import lombok.experimental.Delegate;
 import markers.Primitive;
 import middleware.group.*;
-import middleware.messages.VectorClock;
+import middleware.messages.*;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -14,13 +15,12 @@ import java.util.Map;
 public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends Enum<ApplicationPrimitive> & Primitive> implements
         MessagingMiddleware<Key, Value, ApplicationPrimitive> {
 
-    private static final int GROUP_PORT_OFFSET = 0;
-    @Getter
-    private final Map<String, NodeInfo> replicas = new Hashtable<>();
     @Getter
     private final Map<Key,Value> data;
     private final VectorClock vectorClock;
     private final GroupManager<Key, Value> groupManager;
+    @Delegate(types = {MessageBroker.class})
+    private final MessageBrokerIImpl<?> messageBrokerImpl;
 
 
     public MessagingMiddlewareImpl(String id, int port, Socket leaderGroupSocket, Map<Key, Value> data) throws IOException {
@@ -29,6 +29,7 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
         this.groupManager = leaderGroupSocket==null?
                 new LeaderGroupManager<>(id,port,this):
                 new OrdinaryGroupManager<>(id,port,leaderGroupSocket,vectorClock,this);
+        this.messageBrokerImpl = new MessageBrokerIImpl<>(id);
     }
 
     @Override
@@ -45,4 +46,5 @@ public class MessagingMiddlewareImpl<Key, Value, ApplicationPrimitive extends En
     public synchronized void runCriticalOperation(Procedure procedure) {
         procedure.execute();
     }
+
 }

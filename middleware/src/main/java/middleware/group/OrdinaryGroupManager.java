@@ -17,13 +17,12 @@ import static middleware.group.GroupCommands.*;
 
 public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
-    public OrdinaryGroupManager(String id,
-                         int port,
-                         Socket leaderSocket,
-                         VectorClock initialClock,
-                         MessagingMiddleware<K,V,?> owner) throws IOException {
+    public OrdinaryGroupManager(final String id,
+                         final int port,
+                         final Socket leaderSocket,
+                         final VectorClock initialClock,
+                         final MessagingMiddleware<K,V,?> owner) throws IOException {
         super(id, port, owner);
-        final Map<String, NodeInfo> replicas = owner.getReplicas();
         final Map<K,V> data = owner.getData();
 
         //Create leader info
@@ -40,7 +39,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             final String leaderId = ( String ) leaderIn.readObject();
 
             //Receive list of actual replicas from the leader (the list will include the leader itself)
-            replicas.putAll(( Map<String, NodeInfo> ) leaderIn.readObject());
+            final Map<String,NodeInfo> replicas = ( Map<String, NodeInfo> ) leaderIn.readObject();
 
             //Inform other replicas that you're joining
             replicas.forEach(this::initReplica);
@@ -64,6 +63,8 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             //Save leader info
             replicas.put(leaderId, leaderInfo);
 
+            owner.addAllReplicas(replicas);
+
         }catch (ClassNotFoundException | ClassCastException e) {
             throw new BrokenProtocolException("Unexpected object received: ", e);
         }catch (IOException e){
@@ -84,7 +85,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
     @Override
     public void leave() {
         //For each replica
-        owner.getReplicas().values()
+        owner.getReplicasUnmodifiable().values()
                 .forEach(nodeInfo -> {
                     try {
                         //Load stream
@@ -116,15 +117,15 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
      * @param nodeInfo the information about the replica to initialize
      */
     //Inform other replicas of your existence and store a socket to communicate with them (They'll add you to their local list)
-    private void initReplica(String id,NodeInfo nodeInfo) throws BrokenProtocolException {
+    private void initReplica(final String id,final NodeInfo nodeInfo) throws BrokenProtocolException {
         try {
 
             //Establish connection
             nodeInfo.connect();
 
             //Load streams
-            ObjectOutputStream newOut = nodeInfo.getGroupOut();
-            ObjectInputStream newIn = nodeInfo.getGroupIn();
+            final ObjectOutputStream newOut = nodeInfo.getGroupOut();
+            final ObjectInputStream newIn = nodeInfo.getGroupIn();
 
             //Send "JOINING"
             newOut.writeObject(JOINING);
@@ -133,7 +134,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             newOut.writeObject(ACK);
 
             //Save the replica
-            owner.getReplicas().put(id, nodeInfo);
+            owner.addReplica(nodeInfo, id);
 
         } catch (IOException e) {
             throw new BrokenProtocolException("Assumption on channel reliability failed",e);
@@ -143,11 +144,13 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
     }
 
     @Override
-    public void parse(@NotNull GroupCommands command, ObjectOutputStream writer, ObjectInputStream reader, Socket socket) throws ParsingException {
+    public void parse(@NotNull final GroupCommands command,
+                      final ObjectOutputStream writer,
+                      final ObjectInputStream reader,
+                      final Socket socket) throws ParsingException {
         try {
             final String replicaId;
             final NodeInfo replicaInfo;
-            final Map<String,NodeInfo> replicas = owner.getReplicas();
             switch ( command ) {
                 case JOINING:
 
@@ -158,7 +161,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                     replicaInfo = new NodeInfo(socket,writer,reader);
 
                     //Save info
-                    replicas.put(replicaId, replicaInfo);
+                    owner.addReplica(replicaInfo, replicaId);
 
                     //Wait until you receive an ACK
                     owner.runCriticalOperation(()->{
@@ -177,10 +180,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
                     replicaId = ( String ) reader.readObject();
 
                     //Close connection
-                    replicas.get(replicaId).close();
-
-                    //Forget the replica
-                    replicas.remove(replicaId);
+                    owner.removeReplica(replicaId);
                     break;
                 case JOIN:
                 case SYNC:

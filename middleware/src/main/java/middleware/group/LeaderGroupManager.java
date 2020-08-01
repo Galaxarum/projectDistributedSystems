@@ -32,7 +32,6 @@ public class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 		try {
 			final String replicaId;
 			final NodeInfo replicaInfo;
-			final Map<String,NodeInfo> replicas = owner.getReplicas();
 			switch ( command ) {
 				case JOIN:
 					//Register the replica
@@ -40,9 +39,9 @@ public class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 					replicaId = ( String ) in.readObject();
 					out.writeObject(id);
 					//Write replica list to out
-					out.writeObject(replicas);
+					out.writeObject(owner.getReplicasUnmodifiable());
 					out.flush();
-					replicas.put(replicaId, replicaInfo);
+					owner.addReplica(replicaInfo,replicaId);
 					break;
 				case SYNC:
 					out.writeObject(owner.getData());
@@ -50,8 +49,7 @@ public class LeaderGroupManager<K, V> extends GroupManager<K, V> {
 					break;
 				case LEAVE:
 					replicaId = ( String ) in.readObject();
-					replicas.get(replicaId).close();
-					replicas.remove(replicaId);
+					owner.removeReplica(replicaId);
 					break;
 				case JOINING:
 				case ACK:

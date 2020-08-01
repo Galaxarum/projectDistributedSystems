@@ -3,10 +3,12 @@ package middleware;
 import functional_interfaces.Procedure;
 import markers.Primitive;
 import middleware.group.NodeInfo;
+import middleware.messages.MessageBroker;
 
 import java.util.Map;
 
-public interface MessagingMiddleware <Key, Value, ApplicativePrimitive extends Enum<ApplicativePrimitive> & Primitive>{
+public interface MessagingMiddleware <Key, Value, ApplicativePrimitive extends Enum<ApplicativePrimitive> & Primitive>
+        extends MessageBroker<ApplicativePrimitive> {
     int DEFAULT_STARTING_PORT = 12345;
     int NEEDED_PORTS = 2;
 
@@ -17,5 +19,4 @@ public interface MessagingMiddleware <Key, Value, ApplicativePrimitive extends E
     void runCriticalOperation(Procedure procedure);
 
     Map<Key,Value> getData();
-    Map<String, NodeInfo> getReplicas();
 }
