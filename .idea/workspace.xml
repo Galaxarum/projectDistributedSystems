@@ -19,17 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBroker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" afterDir="false" />
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Big update: replicas are now managed from MessageBroker only">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/PrimitiveParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageProducerImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageAcceptorImpltest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,14 +276,7 @@
       <workItem from="1596102785744" duration="453000" />
       <workItem from="1596202849116" duration="18000" />
       <workItem from="1596211989988" duration="84000" />
-      <workItem from="1596272101470" duration="1258000" />
-    </task>
-    <task id="LOCAL-00065" summary="Update NodeInfo&#10;-removed unneeded attributes&#10;-added NodeInfo.getSocket">
-      <created>1585244340718</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1585244340719</updated>
+      <workItem from="1596272101470" duration="3552000" />
     </task>
     <task id="LOCAL-00066" summary="Made PrimitiveParser final">
       <created>1585244363867</created>
@@ -627,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596194663614</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Big update: replicas are now managed from MessageBroker only">
+      <created>1596273394034</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1596273394034</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +640,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update NodeInfo, Add NodeInfoTest" />
     <MESSAGE value="Add GroupCommandsTest" />
     <MESSAGE value="Update GroupManagerFactory, Add GroupManagerFactoryTest" />
     <MESSAGE value="Update Message: added utility constructor" />
@@ -671,7 +664,8 @@
     <MESSAGE value="Delete GroupManagerFactory.java, Update GroupManager: removed unneeded factory" />
     <MESSAGE value="Update LeaderGroupManager, LeaderGroupManagerTest" />
     <MESSAGE value="Update NodeInfo, NodeInfoTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update NodeInfo, NodeInfoTest" />
+    <MESSAGE value="Big update: replicas are now managed from MessageBroker only" />
+    <option name="LAST_COMMIT_MESSAGE" value="Big update: replicas are now managed from MessageBroker only" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
@@ -714,10 +708,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596194663472">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596274906747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596194663472" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596274906747" />
     <state width="1878" height="340" key="GridCell.Tab.0.bottom" timestamp="1596195734567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -758,10 +752,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="960" height="520" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1595969781103" />
-    <state x="514" y="270" width="881" height="492" key="caller.chooser.dialog" timestamp="1596125260771">
+    <state x="704" y="293" width="881" height="492" key="caller.chooser.dialog" timestamp="1596273529127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="514" y="270" width="881" height="492" key="caller.chooser.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596125260771" />
+    <state x="704" y="293" width="881" height="492" key="caller.chooser.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596273529127" />
     <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction" timestamp="1595949798264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

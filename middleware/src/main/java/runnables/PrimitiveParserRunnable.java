@@ -7,16 +7,22 @@ import markers.Primitive;
 import middleware.group.NodeInfo;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
 
-    private final NodeInfo client;
+    private final Socket socket;
+    private final ObjectInputStream in;
+    private final ObjectOutputStream out;
 
     private final PrimitiveParser<T> parsingFunction;
 
     protected PrimitiveParserRunnable(Socket clientSocket, PrimitiveParser<T> primitiveParser) throws IOException {
-        client = new NodeInfo(clientSocket);
+        socket = clientSocket;
+        out = new ObjectOutputStream(socket.getOutputStream());
+        in = new ObjectInputStream(socket.getInputStream());
         this.parsingFunction = primitiveParser;
     }
 
@@ -26,18 +32,26 @@ final class PrimitiveParserRunnable<T extends Primitive> implements Runnable{
      */
     @Override
     public final void run() {
-        while (!client.getGroupSocket().isClosed()){
+        while (!socket.isClosed()){
             try {
                 @SuppressWarnings("unchecked")
-                T command = (T) client.getGroupIn().readObject();
-                parsingFunction.parse(command, client.getGroupOut(), client.getGroupIn(), client.getGroupSocket());
+                T command = (T) in.readObject();
+                parsingFunction.parse(command, out, in, socket);
             } catch ( ClassCastException | ClassNotFoundException | IOException e){
-                client.close();
+                close();
             } catch (ParsingException e) {
                 throw new BrokenProtocolException("Parsing failed",e);
             }
         }
-        client.close();
+        close();
+    }
+
+    private void close(){
+        try{
+            out.close();
+            in.close();
+            socket.close();
+        } catch ( IOException ignored ) {        }
     }
 
 }
