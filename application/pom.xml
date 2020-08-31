@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>application</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -28,13 +29,23 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>it.polimi.cs.distributed_storage.Main</mainClass>
+                            <mainClass>it.polimi.cs.ds.distributed_storage.Main</mainClass>
                         </manifest>
                     </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

@@ -1,8 +1,8 @@
-package it.polimi.cs.distributed_storage;
+package it.polimi.cs.ds.distributed_storage;
 
-import it.polimi.cs.distributed_storage.database.DatabaseManager;
-import it.polimi.cs.distributed_storage.primitives.DataOperations;
-import it.polimi.cs.distributed_storage.primitives.Operation;
+import it.polimi.cs.ds.distributed_storage.database.DatabaseManager;
+import it.polimi.cs.ds.distributed_storage.primitives.DataOperations;
+import it.polimi.cs.ds.distributed_storage.primitives.Operation;
 import lombok.Getter;
 import it.polimi.cs.ds.distributed_storage.middleware.MessagingMiddleware;
 import it.polimi.cs.ds.distributed_storage.middleware.MessagingMiddlewareImpl;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Map;
 
-import static it.polimi.cs.distributed_storage.Args.*;
+import static it.polimi.cs.ds.distributed_storage.Args.*;
 
 public class Main {
 
@@ -34,7 +34,7 @@ public class Main {
      * Adds {@link MessagingMiddleware#leave()} during the {@link Runtime#addShutdownHook(Thread)} method
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, IllegalAccessException {
+    public static void main(String[] args) throws IOException {
 
         final Map<Integer,String> argsMap = Args.parse(args);
 

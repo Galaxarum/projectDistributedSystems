@@ -1,8 +1,8 @@
-package it.polimi.cs.distributed_storage;
+package it.polimi.cs.ds.distributed_storage;
 
-import it.polimi.cs.distributed_storage.database.DatabaseManager;
-import it.polimi.cs.distributed_storage.primitives.DataOperations;
-import it.polimi.cs.distributed_storage.primitives.Operation;
+import it.polimi.cs.ds.distributed_storage.database.DatabaseManager;
+import it.polimi.cs.ds.distributed_storage.primitives.DataOperations;
+import it.polimi.cs.ds.distributed_storage.primitives.Operation;
 import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
 import it.polimi.cs.ds.distributed_storage.exceptions.ParsingException;
 import it.polimi.cs.ds.distributed_storage.middleware.MessagingMiddleware;
@@ -11,8 +11,8 @@ import it.polimi.cs.ds.distributed_storage.runnables.ServerSocketRunnable;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-import static it.polimi.cs.distributed_storage.primitives.DataOperations.DELETE;
-import static it.polimi.cs.distributed_storage.primitives.DataOperations.PUT;
+import static it.polimi.cs.ds.distributed_storage.primitives.DataOperations.DELETE;
+import static it.polimi.cs.ds.distributed_storage.primitives.DataOperations.PUT;
 
 public class ClientListener<K,V> extends ServerSocketRunnable<DataOperations> {
 	/**

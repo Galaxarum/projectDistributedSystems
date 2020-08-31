@@ -1,4 +1,4 @@
-package it.polimi.cs.distributed_storage.primitives;
+package it.polimi.cs.ds.distributed_storage.primitives;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

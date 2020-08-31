@@ -12,9 +12,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
-      <module name="application" target="1.11" />
-      <module name="middleware" target="1.11" />
-      <module name="projectDistributedSystems" target="1.11" />
+      <module name="application" target="11" />
+      <module name="middleware" target="11" />
+      <module name="projectDistributedSystems" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

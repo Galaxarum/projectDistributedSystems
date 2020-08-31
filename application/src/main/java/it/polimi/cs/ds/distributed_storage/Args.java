@@ -1,6 +1,6 @@
-package it.polimi.cs.distributed_storage;
+package it.polimi.cs.ds.distributed_storage;
 
-import it.polimi.cs.distributed_storage.database.DatabaseManager;
+import it.polimi.cs.ds.distributed_storage.database.DatabaseManager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import it.polimi.cs.ds.distributed_storage.middleware.MessagingMiddleware;
@@ -59,7 +59,9 @@ public final class Args {
 			return result;
 		}catch (ArrayIndexOutOfBoundsException | NumberFormatException e){
 			IllegalArgumentException e1 = new IllegalArgumentException(e);
+			System.out.println("----------------------------------");
 			System.out.println(ARGS_DIGEST);
+			System.out.println("----------------------------------");
 			throw e1;
 		}
 	}

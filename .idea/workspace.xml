@@ -22,55 +22,60 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Big update: replicas are now managed from MessageBroker only">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/primitives/Operation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBroker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" afterDir="false" />
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/application/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/application/application.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/Args.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/database/DataContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/primitives/DataOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/Args.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/database/DataContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/primitives/DataOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/primitives/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/primitives/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/middleware.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/BrokenProtocolException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/ParsingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/ParsingException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/PrimitiveParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/Procedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/Procedure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/markers/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/markers/Primitive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBroker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/PrimitiveParserRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/GroupCommandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommandsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageAcceptorImpltest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockCanAcceptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockCanAcceptTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/BrokenProtocolException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/ParsingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/ParsingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/PrimitiveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/Procedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/Procedure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/markers/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/markers/Primitive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/PrimitiveParserRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommandsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageAcceptorImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageAcceptorImpltest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockCanAcceptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockCanAcceptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnableTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectDistributedSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projectDistributedSystems.iml" afterDir="false" />
     </list>
@@ -137,7 +142,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -148,6 +153,7 @@
       <recent name="middleware.MessagingMiddleware" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="it.polimi.cs.ds" />
       <recent name="it.polimi.cs.ds.distributed_storage" />
       <recent name="middleware.messages" />
       <recent name="" />
@@ -170,7 +176,7 @@
   </component>
   <component name="RunManager" selected="JAR Application.application-1.0-SNAPSHOT-jar-with-dependencies.jar">
     <configuration name="Leader" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.distributed_storage.Main" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.Main" />
       <module name="application" />
       <option name="PROGRAM_PARAMETERS" value="1 first" />
       <method v="2">
@@ -178,12 +184,12 @@
       </method>
     </configuration>
     <configuration name="Other replicas" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.distributed_storage.Main" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.Main" />
       <module name="application" />
       <option name="PROGRAM_PARAMETERS" value="2 localhost d 12360" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.polimi.cs.distributed_storage.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -328,14 +334,7 @@
       <workItem from="1596467436223" duration="3679000" />
       <workItem from="1596474352489" duration="28000" />
       <workItem from="1598862384494" duration="419000" />
-      <workItem from="1598862829318" duration="1283000" />
-    </task>
-    <task id="LOCAL-00067" summary="Update GroupManagerImpl&#10;-Managed all commands except GroupCommands.SYNC&#10;-Reduced ACK usage (channels are reliable, so they're only needed for synchronization among processes [like resume execution after JOINING])">
-      <created>1585244475454</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1585244475454</updated>
+      <workItem from="1598862829318" duration="2554000" />
     </task>
     <task id="LOCAL-00068" summary="Update GroupManagerImpl&#10;-Made JOINING behaviour more robust">
       <created>1585244621668</created>
@@ -673,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596275686604</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Better packaging">
+      <created>1598864233927</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1598864233928</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +698,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update GroupManagerFactory, Add GroupManagerFactoryTest" />
     <MESSAGE value="Update Message: added utility constructor" />
     <MESSAGE value="Update GroupManager: removed logger" />
     <MESSAGE value="Update MessageProducerImpl: fixed buffer logic" />
@@ -717,7 +722,8 @@
     <MESSAGE value="Update NodeInfo, NodeInfoTest" />
     <MESSAGE value="Big update: replicas are now managed from MessageBroker only" />
     <MESSAGE value="Update PrimitiveParserRunnable: using sockets instead of NodeInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PrimitiveParserRunnable: using sockets instead of NodeInfo" />
+    <MESSAGE value="Better packaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better packaging" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="141" width="646" height="750" key="#Leader" timestamp="1596290196026">
@@ -748,18 +754,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="692" y="312" width="525" height="409" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595926471784" />
-    <state x="768" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598863882814">
+    <state x="727" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598865320394">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="768" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598863882814" />
+    <state x="727" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598865320394" />
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595857855802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1595857855802" />
-    <state x="743" y="403" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1598863852391">
+    <state x="743" y="403" width="472" height="226" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1598865325135">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="403" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1598863852391" />
+    <state x="743" y="403" width="472" height="226" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1598865325135" />
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596460129638">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -780,26 +786,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1596275738857" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596289651580">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1598864233599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596289651580" />
-    <state width="1878" height="345" key="GridCell.Tab.0.bottom" timestamp="1598864073331">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1598864233599" />
+    <state width="1878" height="345" key="GridCell.Tab.0.bottom" timestamp="1598865388007">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073331" />
-    <state width="1878" height="345" key="GridCell.Tab.0.center" timestamp="1598864073329">
+    <state width="1878" height="345" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598865388007" />
+    <state width="1878" height="345" key="GridCell.Tab.0.center" timestamp="1598865388005">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073329" />
-    <state width="1878" height="345" key="GridCell.Tab.0.left" timestamp="1598864073328">
+    <state width="1878" height="345" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598865388005" />
+    <state width="1878" height="345" key="GridCell.Tab.0.left" timestamp="1598865388003">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073328" />
-    <state width="1878" height="345" key="GridCell.Tab.0.right" timestamp="1598864073330">
+    <state width="1878" height="345" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598865388003" />
+    <state width="1878" height="345" key="GridCell.Tab.0.right" timestamp="1598865388006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073330" />
+    <state width="1878" height="345" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598865388006" />
     <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1596471116368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -820,10 +826,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596188844595" />
-    <state x="464" y="154" key="SettingsEditor" timestamp="1598862852576">
+    <state x="464" y="154" width="1024" height="840" key="SettingsEditor" timestamp="1598864705390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598862852576" />
+    <state x="464" y="154" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598864705390" />
     <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1595969781103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

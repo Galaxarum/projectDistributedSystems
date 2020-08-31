@@ -1,4 +1,4 @@
-package it.polimi.cs.distributed_storage.database;
+package it.polimi.cs.ds.distributed_storage.database;
 
 import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
 import lombok.Getter;
