@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,16 +23,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Big update: replicas are now managed from MessageBroker only">
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/primitives/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBroker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageAcceptorImpltest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/application/application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/Args.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/database/DataContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/distributedStorage/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/distributed_storage/primitives/DataOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/middleware.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/BrokenProtocolException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/exceptions/ParsingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/ParsingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/PrimitiveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/functional_interfaces/Procedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/Procedure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/markers/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/markers/Primitive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddleware.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/MessagingMiddlewareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/GroupManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBroker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageBrokerIImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/PrimitiveParserRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/GroupCommandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommandsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageProducerImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageAcceptorImpltest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockCanAcceptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockCanAcceptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/middleware/messages/VectorClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectDistributedSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projectDistributedSystems.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
@@ -39,8 +90,8 @@
       <list>
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
         <option value="Class" />
       </list>
     </option>
@@ -49,6 +100,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -78,17 +136,19 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="middleware.MessagingMiddleware" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="it.polimi.cs.ds.distributed_storage" />
       <recent name="middleware.messages" />
       <recent name="" />
       <recent name="templates" />
@@ -101,14 +161,29 @@
       <recent name="middleware.messages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NodeInfoTest">
-    <configuration name="Other replicas" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="distributedStorage.Main" />
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn compile -V" />
+      <command value="mvn install -X" />
+      <command value="mvn compile -X" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JAR Application.application-1.0-SNAPSHOT-jar-with-dependencies.jar">
+    <configuration name="Leader" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.distributed_storage.Main" />
       <module name="application" />
-      <option name="PROGRAM_PARAMETERS" value="2 localhost d 12347 12351" />
+      <option name="PROGRAM_PARAMETERS" value="1 first" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Other replicas" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.distributed_storage.Main" />
+      <module name="application" />
+      <option name="PROGRAM_PARAMETERS" value="2 localhost d 12360" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="distributedStorage.*" />
+          <option name="PATTERN" value="it.polimi.cs.distributed_storage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,120 +191,91 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in middleware" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="runnables.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LeaderGroupManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.group.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.LeaderGroupManagerTest" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="middleware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.IntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="NodeInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="middleware.group.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.group.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
+      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.group" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.group.NodeInfoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NodeInfoTest.constructorAndToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="middleware.group.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
-      <option name="METHOD_NAME" value="constructorAndToString" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="NodeInfoTest.createWithExistingSocketWithoutCreatingChannels" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="middleware.group.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.group.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="middleware.group" />
-      <option name="MAIN_CLASS_NAME" value="middleware.group.NodeInfoTest" />
+      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.group" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.group.NodeInfoTest" />
       <option name="METHOD_NAME" value="createWithExistingSocketWithoutCreatingChannels" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
+    <configuration name="application-1.0-SNAPSHOT-jar-with-dependencies.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/application/target/application-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="application-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/application/target/application-1.0-SNAPSHOT.jar" />
+      <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.Leader" />
       <item itemvalue="Application.Other replicas" />
-      <item itemvalue="JUnit.LeaderGroupManagerTest" />
-      <item itemvalue="JUnit.All in middleware" />
       <item itemvalue="JUnit.NodeInfoTest" />
-      <item itemvalue="JUnit.NodeInfoTest.constructorAndToString" />
       <item itemvalue="JUnit.NodeInfoTest.createWithExistingSocketWithoutCreatingChannels" />
+      <item itemvalue="JUnit.IntegrationTest" />
+      <item itemvalue="JAR Application.application-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JAR Application.application-1.0-SNAPSHOT-jar-with-dependencies.jar" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NodeInfoTest" />
+        <item itemvalue="JAR Application.application-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+        <item itemvalue="JAR Application.application-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JUnit.IntegrationTest" />
         <item itemvalue="JUnit.NodeInfoTest.createWithExistingSocketWithoutCreatingChannels" />
-        <item itemvalue="JUnit.NodeInfoTest.constructorAndToString" />
-        <item itemvalue="JUnit.All in middleware" />
-        <item itemvalue="JUnit.LeaderGroupManagerTest" />
+        <item itemvalue="JUnit.NodeInfoTest" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -276,14 +322,13 @@
       <workItem from="1596102785744" duration="453000" />
       <workItem from="1596202849116" duration="18000" />
       <workItem from="1596211989988" duration="84000" />
-      <workItem from="1596272101470" duration="3552000" />
-    </task>
-    <task id="LOCAL-00066" summary="Made PrimitiveParser final">
-      <created>1585244363867</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1585244363867</updated>
+      <workItem from="1596272101470" duration="14193000" />
+      <workItem from="1596449337036" duration="1084000" />
+      <workItem from="1596458633033" duration="2435000" />
+      <workItem from="1596467436223" duration="3679000" />
+      <workItem from="1596474352489" duration="28000" />
+      <workItem from="1598862384494" duration="419000" />
+      <workItem from="1598862829318" duration="1283000" />
     </task>
     <task id="LOCAL-00067" summary="Update GroupManagerImpl&#10;-Managed all commands except GroupCommands.SYNC&#10;-Reduced ACK usage (channels are reliable, so they're only needed for synchronization among processes [like resume execution after JOINING])">
       <created>1585244475454</created>
@@ -621,11 +666,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596273394034</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Update PrimitiveParserRunnable: using sockets instead of NodeInfo">
+      <created>1596275686604</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1596275686604</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -640,7 +692,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add GroupCommandsTest" />
     <MESSAGE value="Update GroupManagerFactory, Add GroupManagerFactoryTest" />
     <MESSAGE value="Update Message: added utility constructor" />
     <MESSAGE value="Update GroupManager: removed logger" />
@@ -665,13 +716,18 @@
     <MESSAGE value="Update LeaderGroupManager, LeaderGroupManagerTest" />
     <MESSAGE value="Update NodeInfo, NodeInfoTest" />
     <MESSAGE value="Big update: replicas are now managed from MessageBroker only" />
-    <option name="LAST_COMMIT_MESSAGE" value="Big update: replicas are now managed from MessageBroker only" />
+    <MESSAGE value="Update PrimitiveParserRunnable: using sockets instead of NodeInfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PrimitiveParserRunnable: using sockets instead of NodeInfo" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596101103736">
+    <state x="632" y="141" width="646" height="750" key="#Leader" timestamp="1596290196026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596101103736" />
+    <state x="632" y="141" width="646" height="750" key="#Leader/0.0.1920.1040@0.0.1920.1040" timestamp="1596290196026" />
+    <state x="544" y="264" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596460317065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="544" y="264" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596460317065" />
     <state x="100" y="99" width="1720" height="840" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1595953123558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -680,10 +736,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="324" width="739" height="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595854212812" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1596272975968">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1596469079332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596272975968" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596469079332" />
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596101102322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -692,62 +748,82 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="692" y="312" width="525" height="409" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595926471784" />
+    <state x="768" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598863882814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="768" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598863882814" />
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595857855802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1595857855802" />
-    <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596272297795">
+    <state x="743" y="403" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1598863852391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272297795" />
+    <state x="743" y="403" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1598863852391" />
+    <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596460129638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596460129638" />
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596272263723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272263723" />
-    <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate" timestamp="1595969972823">
+    <state x="428" y="0" width="1054" height="1035" key="#org.jetbrains.kotlin.idea.refactoring.safeDelete.KotlinOverridingDialog" timestamp="1596281653361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1595969972823" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596274906747">
+    <state x="428" y="0" width="1054" height="1035" key="#org.jetbrains.kotlin.idea.refactoring.safeDelete.KotlinOverridingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596281653361" />
+    <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate" timestamp="1596290338148">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596274906747" />
-    <state width="1878" height="340" key="GridCell.Tab.0.bottom" timestamp="1596195734567">
+    <state x="631" y="497" width="1136" height="505" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1596290338148" />
+    <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1596275738857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734567" />
-    <state width="1878" height="340" key="GridCell.Tab.0.center" timestamp="1596195734567">
+    <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1596275738857" />
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1596289651580">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734567" />
-    <state width="1878" height="340" key="GridCell.Tab.0.left" timestamp="1596195734566">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596289651580" />
+    <state width="1878" height="345" key="GridCell.Tab.0.bottom" timestamp="1598864073331">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734566" />
-    <state width="1878" height="340" key="GridCell.Tab.0.right" timestamp="1596195734567">
+    <state width="1878" height="345" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073331" />
+    <state width="1878" height="345" key="GridCell.Tab.0.center" timestamp="1598864073329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734567" />
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom" timestamp="1596195734568">
+    <state width="1878" height="345" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073329" />
+    <state width="1878" height="345" key="GridCell.Tab.0.left" timestamp="1598864073328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734568" />
-    <state width="1878" height="340" key="GridCell.Tab.1.center" timestamp="1596195734567">
+    <state width="1878" height="345" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073328" />
+    <state width="1878" height="345" key="GridCell.Tab.0.right" timestamp="1598864073330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734567" />
-    <state width="1878" height="340" key="GridCell.Tab.1.left" timestamp="1596195734567">
+    <state width="1878" height="345" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598864073330" />
+    <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1596471116368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734567" />
-    <state width="1878" height="340" key="GridCell.Tab.1.right" timestamp="1596195734568">
+    <state width="1878" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596471116368" />
+    <state width="1878" height="347" key="GridCell.Tab.1.center" timestamp="1596471116367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="340" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596195734568" />
+    <state width="1878" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596471116367" />
+    <state width="1878" height="347" key="GridCell.Tab.1.left" timestamp="1596471116367">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596471116367" />
+    <state width="1878" height="347" key="GridCell.Tab.1.right" timestamp="1596471116367">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596471116367" />
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1596188844595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596188844595" />
+    <state x="464" y="154" key="SettingsEditor" timestamp="1598862852576">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598862852576" />
     <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1595969781103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -760,62 +836,78 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1784" height="1038" key="com.intellij.byteCodeViewer.ShowByteCodeAction/0.0.1920.1040@0.0.1920.1040" timestamp="1595949798264" />
-    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1596188410791">
+    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1596285149771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1596188410791" />
+    <state x="482" y="251" width="946" height="620" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1596285149771" />
     <state x="741" y="269" width="428" height="494" key="refactoring.ChangeSignatureDialog" timestamp="1596190588144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="741" y="269" width="428" height="494" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596190588144" />
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1596272615327">
+    <state x="624" y="238" width="672" height="677" key="run.anything.popup" timestamp="1598863562713">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596272615327" />
+    <state x="624" y="238" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598863562713" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1596474372047">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596474372047" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java</url>
+          <line>186</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManager.java</url>
           <line>37</line>
-          <option name="timeStamp" value="76" />
+          <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="77" />
+          <url>file://$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupManager.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="155" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/LeaderGroupManager.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="86" />
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java</url>
+          <line>30</line>
+          <properties field="gin" class="middleware.group.NodeInfoTest" />
+          <option name="timeStamp" value="135" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/LeaderGroupManagerTest.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/middleware/group/NodeInfoTest.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/main/java/middleware/group/NodeInfo.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="98" />
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java</url>
+          <line>31</line>
+          <properties field="gout" class="middleware.group.NodeInfoTest" />
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo typeName="middleware.group.NodeInfo" fieldName="port" />
+        <PinnedItemInfo />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
@@ -826,13 +918,22 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClockCanAcceptTest_vector2033_canAccept_2U33.ic" NAME="VectorClockCanAcceptTest.vector2033_canAccept_2U33 Coverage Results" MODIFIED="1595927547208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.messages.*</FILTER>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_leaderCreationTest.ic" NAME="GroupManagerFactoryTest.leaderCreationTest Coverage Results" MODIFIED="1595947026236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_singletonTest.ic" NAME="GroupManagerFactoryTest.singletonTest Coverage Results" MODIFIED="1595947018841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupCommandsTest_noNulls.ic" NAME="GroupCommandsTest.noNulls Coverage Results" MODIFIED="1595945682234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest.ic" NAME="GroupManagerFactoryTest Coverage Results" MODIFIED="1595946904363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$MesssageTest.ic" NAME="MesssageTest Coverage Results" MODIFIED="1595857470094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>runnables.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$NodeInfoTest.ic" NAME="NodeInfoTest Coverage Results" MODIFIED="1596101999359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_join_noException.ic" NAME="LeaderGroupManagerTest.join_noException Coverage Results" MODIFIED="1595949780683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_leave_unsupportedException.ic" NAME="LeaderGroupManagerTest.leave_unsupportedException Coverage Results" MODIFIED="1595949952247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -841,16 +942,19 @@
     <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClocksTest_removeTest.ic" NAME="VectorClocksTest.removeTest Coverage Results" MODIFIED="1595857183092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.messages.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$MessageProducerImpltest.ic" NAME="MessageProducerImpltest Coverage Results" MODIFIED="1595858266781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.messages.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_singletonTest.ic" NAME="GroupManagerFactoryTest.singletonTest Coverage Results" MODIFIED="1595947018841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.group.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$NodeInfoTest_constructorAndToString.ic" NAME="NodeInfoTest.constructorAndToString Coverage Results" MODIFIED="1595943766550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$NodeInfoTest.ic" NAME="NodeInfoTest Coverage Results" MODIFIED="1596101999359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$VectorClockCanAcceptTest_vector2033_canAccept_2U33.ic" NAME="VectorClockCanAcceptTest.vector2033_canAccept_2U33 Coverage Results" MODIFIED="1595927547208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.messages.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest.ic" NAME="LeaderGroupManagerTest Coverage Results" MODIFIED="1595953791339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_ordinaryCreationTest.ic" NAME="GroupManagerFactoryTest.ordinaryCreationTest Coverage Results" MODIFIED="1595947032421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.group.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest.ic" NAME="GroupManagerFactoryTest Coverage Results" MODIFIED="1595946904363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>middleware.group.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_factoryOk.ic" NAME="LeaderGroupManagerTest.factoryOk Coverage Results" MODIFIED="1595949688030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -860,20 +964,8 @@
       <FILTER>middleware.*</FILTER>
       <FILTER>runnables.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest_join_noException.ic" NAME="LeaderGroupManagerTest.join_noException Coverage Results" MODIFIED="1595949780683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.group.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$LeaderGroupManagerTest.ic" NAME="LeaderGroupManagerTest Coverage Results" MODIFIED="1595953791339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.group.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_ordinaryCreationTest.ic" NAME="GroupManagerFactoryTest.ordinaryCreationTest Coverage Results" MODIFIED="1595947032421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.group.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$GroupManagerFactoryTest_leaderCreationTest.ic" NAME="GroupManagerFactoryTest.leaderCreationTest Coverage Results" MODIFIED="1595947026236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>middleware.group.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/projectDistributedSystems$MesssageTest.ic" NAME="MesssageTest Coverage Results" MODIFIED="1595857470094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>runnables.*</FILTER>
+    <SUITE FILE_PATH="coverage/projectDistributedSystems$MessageProducerImpltest.ic" NAME="MessageProducerImpltest Coverage Results" MODIFIED="1595858266781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>middleware.messages.*</FILTER>
     </SUITE>
   </component>
 </project>
