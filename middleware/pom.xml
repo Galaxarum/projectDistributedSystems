@@ -11,4 +11,6 @@
 
     <artifactId>middleware</artifactId>
 
+    <packaging>jar</packaging>
+
 </project>

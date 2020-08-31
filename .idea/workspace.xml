@@ -22,17 +22,49 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/it/polimi/cs/ds/distributed_storage/client/Main.java" afterDir="false" />
+    <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="Repackaged, fixed maven">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/primitives/DataOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Args.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/primitives/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/primitives/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/it/polimi/cs/ds/distributed_storage/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/it/polimi/cs/ds/distributed_storage/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/exceptions/BrokenProtocolException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/ParsingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/exceptions/ParsingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/functional_interfaces/PrimitiveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/functional_interfaces/Procedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/functional_interfaces/Procedure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/markers/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/markers/Primitive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageBrokerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/primitives/DataOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/runnables/PrimitiveParserRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/runnables/ServerSocketRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/IntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/GroupCommandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupCommandsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageAcceptorImpltest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageAcceptorImpltest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockCanAcceptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClockCanAcceptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/messages/VectorClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/runnables/ServerSocketRunnableTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +162,7 @@
       <command value="mvn compile -X" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="JAR Application.application-1.0-SNAPSHOT.jar">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.client.Main" />
       <module name="client" />
@@ -146,7 +178,7 @@
       </method>
     </configuration>
     <configuration name="Leader" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.Main" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.server.Main" />
       <module name="application" />
       <option name="PROGRAM_PARAMETERS" value="1 first" />
       <method v="2">
@@ -154,12 +186,12 @@
       </method>
     </configuration>
     <configuration name="Other replicas" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.Main" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.server.Main" />
       <module name="application" />
       <option name="PROGRAM_PARAMETERS" value="2 localhost d 12360" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,28 +199,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="middleware" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.IntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,62 +216,66 @@
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.server.middleware.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.IntegrationTest" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.cs.ds.distributed_storage.server.middleware.IntegrationTest" />
       <option name="METHOD_NAME" value="integrationTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="it.polimi.cs.ds.distributed_storage.middleware.group in middleware" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="it.polimi.cs.ds.distributed_storage.server.middleware.group in middleware" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.group.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.server.middleware.group.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.group" />
+      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.server.middleware.group" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="it.polimi.cs.ds.distributed_storage.middleware.messages in middleware" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="it.polimi.cs.ds.distributed_storage.server.middleware.messages in middleware" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="middleware" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.middleware.messages.*" />
+          <option name="PATTERN" value="it.polimi.cs.ds.distributed_storage.server.middleware.messages.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.middleware.messages" />
+      <option name="PACKAGE_NAME" value="it.polimi.cs.ds.distributed_storage.server.middleware.messages" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="application-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/docker/application/application-1.0-SNAPSHOT.jar" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Leader" />
       <item itemvalue="Application.Other replicas" />
       <item itemvalue="Application.Client" />
-      <item itemvalue="JUnit.IntegrationTest" />
       <item itemvalue="JUnit.IntegrationTest.integrationTest" />
-      <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.middleware.messages in middleware" />
-      <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.middleware.group in middleware" />
+      <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.server.middleware.messages in middleware" />
+      <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.server.middleware.group in middleware" />
+      <item itemvalue="JAR Application.application-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.application-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Client" />
-        <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.middleware.group in middleware" />
-        <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.middleware.messages in middleware" />
+        <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.server.middleware.group in middleware" />
+        <item itemvalue="JUnit.it.polimi.cs.ds.distributed_storage.server.middleware.messages in middleware" />
         <item itemvalue="JUnit.IntegrationTest.integrationTest" />
-        <item itemvalue="JUnit.IntegrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -309,14 +332,10 @@
       <workItem from="1596467436223" duration="3679000" />
       <workItem from="1596474352489" duration="28000" />
       <workItem from="1598862384494" duration="419000" />
-      <workItem from="1598862829318" duration="4086000" />
-    </task>
-    <task id="LOCAL-00069" summary="Update GroupManagerImpl, MessagingMiddleware, MessagingMiddlewareImpl&#10;Activated a local lock in MessagingMiddleware that enables to stop all (active) operations while a new replica is joining">
-      <created>1585245145826</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1585245145826</updated>
+      <workItem from="1598862829318" duration="4134000" />
+      <workItem from="1598867888336" duration="6000" />
+      <workItem from="1598889284022" duration="623000" />
+      <workItem from="1598889935260" duration="1635000" />
     </task>
     <task id="LOCAL-00070" summary="Added VectorClocksTest">
       <created>1586862545115</created>
@@ -654,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598865662205</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Client done">
+      <created>1598866960827</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1598866960827</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,8 +699,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update GroupManager: removed logger" />
-    <MESSAGE value="Update MessageProducerImpl: fixed buffer logic" />
     <MESSAGE value="Update NodeInfo, NodeInfoTest: smarter OO programming&#10;Updated to adapt:&#10;- LeaderGroupManager&#10;- OrdinaryGroupManager" />
     <MESSAGE value="Update : fixed constructor" />
     <MESSAGE value="Update LeaderGroupManagerTest: fixed after updates to NodeInfo" />
@@ -698,7 +722,9 @@
     <MESSAGE value="Update PrimitiveParserRunnable: using sockets instead of NodeInfo" />
     <MESSAGE value="Better packaging" />
     <MESSAGE value="Working maven setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working maven setup" />
+    <MESSAGE value="Client done" />
+    <MESSAGE value="Repackaged, fixed maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repackaged, fixed maven" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="141" width="646" height="750" key="#Leader" timestamp="1596290196026">
@@ -729,10 +755,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="692" y="312" width="525" height="409" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595926471784" />
-    <state x="727" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598865320394">
+    <state x="645" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598889597829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="727" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598865320394" />
+    <state x="645" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598889597829" />
     <state x="737" y="391" width="445" height="259" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595857855802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -761,42 +787,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1596275738857" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1598865662026">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1598891574134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1598865662026" />
-    <state width="1878" height="345" key="GridCell.Tab.0.bottom" timestamp="1598866924177">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1598891574134" />
+    <state width="1878" height="345" key="GridCell.Tab.0.bottom" timestamp="1598891574260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598866924177" />
-    <state width="1878" height="345" key="GridCell.Tab.0.center" timestamp="1598866924176">
+    <state width="1878" height="345" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598891574260" />
+    <state width="1878" height="345" key="GridCell.Tab.0.center" timestamp="1598891574260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598866924176" />
-    <state width="1878" height="345" key="GridCell.Tab.0.left" timestamp="1598866924176">
+    <state width="1878" height="345" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598891574260" />
+    <state width="1878" height="345" key="GridCell.Tab.0.left" timestamp="1598891574259">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598866924176" />
-    <state width="1878" height="345" key="GridCell.Tab.0.right" timestamp="1598866924176">
+    <state width="1878" height="345" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598891574259" />
+    <state width="1878" height="345" key="GridCell.Tab.0.right" timestamp="1598891574260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="345" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598866924176" />
-    <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1598865776924">
+    <state width="1878" height="345" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598891574260" />
+    <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1598866971933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598865776924" />
-    <state width="1878" height="347" key="GridCell.Tab.1.center" timestamp="1598865776923">
+    <state width="1878" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598866971933" />
+    <state width="1878" height="347" key="GridCell.Tab.1.center" timestamp="1598866971932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598865776923" />
-    <state width="1878" height="347" key="GridCell.Tab.1.left" timestamp="1598865776923">
+    <state width="1878" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598866971932" />
+    <state width="1878" height="347" key="GridCell.Tab.1.left" timestamp="1598866971932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598865776923" />
-    <state width="1878" height="347" key="GridCell.Tab.1.right" timestamp="1598865776923">
+    <state width="1878" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598866971932" />
+    <state width="1878" height="347" key="GridCell.Tab.1.right" timestamp="1598866971933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598865776923" />
+    <state width="1878" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598866971933" />
     <state x="493" y="177" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1598866511208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -805,10 +831,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="464" y="154" width="1024" height="840" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598864705390" />
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598865664434">
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598866965750">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598865664434" />
+    <state x="555" y="255" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598866965750" />
     <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1595969781103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -846,33 +872,33 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java</url>
           <line>186</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/LeaderGroupManagerTest.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java</url>
           <line>114</line>
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java</url>
           <line>48</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/IntegrationTest.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/IntegrationTest.java</url>
           <line>48</line>
           <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java</url>
           <line>30</line>
-          <properties field="gout" class="it.polimi.cs.ds.distributed_storage.middleware.group.NodeInfoTest" />
+          <properties field="min" class="it.polimi.cs.ds.distributed_storage.middleware.group.NodeInfoTest" />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/middleware/group/NodeInfoTest.java</url>
+          <url>file://$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java</url>
           <line>31</line>
           <properties field="mout" class="it.polimi.cs.ds.distributed_storage.middleware.group.NodeInfoTest" />
           <option name="timeStamp" value="136" />
