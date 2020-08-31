@@ -9,10 +9,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import static java.lang.Thread.MAX_PRIORITY;
-import static java.lang.Thread.sleep;
 import static org.junit.Assert.*;
 import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class NodeInfoTest {
@@ -84,7 +82,7 @@ public class NodeInfoTest {
 
 	@Test
 	@DisplayName("Can create using existing socket preserving existing channels")
-	void createWithExistingSocketWithoutCreatingChannels() throws IOException, InterruptedException {
+	void createWithExistingSocketWithoutCreatingChannels() throws IOException {
 		try (
 				ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 				ObjectInputStream in = new ObjectInputStream(socket.getInputStream())

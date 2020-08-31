@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="application" />
+        <module name="client" />
         <module name="middleware" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
       <module name="application" target="11" />
+      <module name="client" target="11" />
       <module name="middleware" target="11" />
       <module name="projectDistributedSystems" target="11" />
     </bytecodeTargetLevel>

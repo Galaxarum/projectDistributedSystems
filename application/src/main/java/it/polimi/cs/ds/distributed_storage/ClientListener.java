@@ -1,11 +1,10 @@
 package it.polimi.cs.ds.distributed_storage;
 
 import it.polimi.cs.ds.distributed_storage.database.DatabaseManager;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
+import it.polimi.cs.ds.distributed_storage.middleware.MessagingMiddleware;
 import it.polimi.cs.ds.distributed_storage.primitives.DataOperations;
 import it.polimi.cs.ds.distributed_storage.primitives.Operation;
-import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
-import it.polimi.cs.ds.distributed_storage.exceptions.ParsingException;
-import it.polimi.cs.ds.distributed_storage.middleware.MessagingMiddleware;
 import it.polimi.cs.ds.distributed_storage.runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class ClientListener<K,V> extends ServerSocketRunnable<DataOperations> {
 						messagingMiddleware.sendMessage(new Operation<K,V>(DELETE, key, null));
 						break;
 					default:
-						throw new ParsingException(operation.toString());
+						result = "Illegal command";
 				}
 				writer.writeObject(result);
 			} catch ( IOException | ClassNotFoundException e ) {

@@ -1,10 +1,10 @@
 package it.polimi.cs.ds.distributed_storage.middleware;
 
+import it.polimi.cs.ds.distributed_storage.middleware.messages.Message;
+import it.polimi.cs.ds.distributed_storage.middleware.messages.MessageConsumer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import it.polimi.cs.ds.distributed_storage.middleware.messages.Message;
-import it.polimi.cs.ds.distributed_storage.middleware.messages.MessageConsumer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.lang.Thread.currentThread;
-import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 

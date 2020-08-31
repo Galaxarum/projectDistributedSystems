@@ -11,6 +11,7 @@
     <modules>
         <module>middleware</module>
         <module>application</module>
+        <module>client</module>
     </modules>
 
     <properties>
