@@ -128,7 +128,7 @@ public class NodeInfoTest {
 		final ObjectInputStream fin = new ObjectInputStream(new FileInputStream(forSerialize));
 		final NodeInfo deserialized;
 		deserialized = ( NodeInfo ) fin.readObject();
-		assertDoesNotThrow(deserialized::connect);
+		assertDoesNotThrow(()->deserialized.connect(socket.getPort()));
 		//TODO: try to send something
 
 		forSerialize.delete();

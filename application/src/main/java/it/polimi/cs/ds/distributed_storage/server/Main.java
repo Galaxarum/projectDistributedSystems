@@ -9,6 +9,7 @@ import it.polimi.cs.ds.distributed_storage.server.runnables.ServerSocketRunnable
 import lombok.Getter;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.Socket;
 import java.util.Map;
 
@@ -20,12 +21,12 @@ public class Main {
      * Used to communicate with the other replicas end enforce the required communication properties
      */
     @Getter
-    private static MessagingMiddleware<String,Object, Operation<String,Object>> messagingMiddleware;
+    private static MessagingMiddleware<String,Serializable, Operation<String,Serializable>> messagingMiddleware;
     /**
      * Used to manage the local data
      */
     @Getter
-    private static DatabaseManager<String,Object> databaseManager;
+    private static DatabaseManager<String,Serializable> databaseManager;
 
     private static ServerSocketRunnable<DataOperations> clientListener;
 
@@ -56,9 +57,9 @@ public class Main {
 
         messagingMiddleware = leader_host==null?
                 new MessagingMiddlewareImpl<>(id, middleware_port, () -> databaseManager.getDatabase()):
-                new MessagingMiddlewareImpl<>(id, middleware_port, new Socket(leader_host, leader_port), data -> databaseManager.getDatabase().putAll(data));
+                new MessagingMiddlewareImpl<>(id, middleware_port, new Socket(leader_host, leader_port), data -> databaseManager.putAll(data));
 
-        clientListener = new ClientListener<>(client_port,messagingMiddleware,databaseManager);
+        clientListener = new ClientListener<>(client_port, messagingMiddleware, databaseManager);
 
         new Thread(clientListener).start();
 

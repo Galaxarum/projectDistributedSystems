@@ -13,10 +13,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
-      <module name="application" target="1.8" />
-      <module name="client" target="1.8" />
-      <module name="middleware" target="1.8" />
-      <module name="projectDistributedSystems" target="1.8" />
+      <module name="application" target="8" />
+      <module name="client" target="8" />
+      <module name="middleware" target="8" />
+      <module name="projectDistributedSystems" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

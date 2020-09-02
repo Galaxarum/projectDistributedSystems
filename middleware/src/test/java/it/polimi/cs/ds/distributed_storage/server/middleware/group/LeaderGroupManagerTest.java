@@ -1,10 +1,10 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.group;
 
 import it.polimi.cs.ds.distributed_storage.server.exceptions.ParsingException;
-import lombok.Data;
 import it.polimi.cs.ds.distributed_storage.server.markers.Primitive;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBroker;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.VectorClock;
+import lombok.Data;
 import org.junit.Rule;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -43,7 +43,7 @@ public class LeaderGroupManagerTest {
 	private static Thread acceptorThread;
 	private static Thread messageAcceptorThread;
 	private static final Map<String,NodeInfo> replicas = new HashMap<>();
-	private static final Map<Integer,Integer> data = new HashMap<>();
+	private static final Hashtable<Integer,Integer> data = new Hashtable<>();
 	private final MessageBroker<?> broker;
 	private static final VectorClock vectorClock = new VectorClock(ID);
 	private final LeaderGroupManager<Integer,Integer> tested;

@@ -2,10 +2,12 @@ package it.polimi.cs.ds.distributed_storage.server.markers;
 
 import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
 
+import java.io.Serializable;
+
 /**
  * Marker interface to mark classes encoding primitives (both at it.polimi.cs.ds.distributed_storage.server.middleware or application level)
  */
-public interface Primitive {
+public interface Primitive extends Serializable {
     /**
      * Check if the given {@link Primitive} equals the given object, throwing {@link BrokenProtocolException} in case they differ
      * @param expected the expected {@link Primitive}

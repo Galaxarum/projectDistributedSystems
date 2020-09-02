@@ -3,13 +3,14 @@ package it.polimi.cs.ds.distributed_storage.server.middleware.messages;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class VectorClock extends HashMap<String, Integer> implements Comparable<VectorClock> {
+public class VectorClock extends HashMap<String, Integer> implements Comparable<VectorClock>, Serializable {
 
-    private final String localKey;
+    private transient final String localKey;
 
     public VectorClock(String localId) {
         this.localKey = localId;

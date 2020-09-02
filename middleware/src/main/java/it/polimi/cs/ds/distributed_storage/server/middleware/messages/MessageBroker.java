@@ -1,11 +1,11 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.messages;
 
-import it.polimi.cs.ds.distributed_storage.server.functional_interfaces.Procedure;
 import it.polimi.cs.ds.distributed_storage.server.middleware.group.NodeInfo;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public interface MessageBroker<Content> {
+public interface MessageBroker<Content extends Serializable> {
     void addConsumer(MessageConsumer<Content> consumer);
     void receiveMessage(Message<Content> msg);
     void broadCastMessage(Content messageContent);
@@ -13,6 +13,6 @@ public interface MessageBroker<Content> {
     void removeReplica(String id);
     Map<String, NodeInfo> getReplicasUnmodifiable();
     void init(VectorClock initialClock, Map<String,NodeInfo> replicas);
-    void runBlocking(Procedure procedure);
+    void runBlocking(Runnable procedure);
     VectorClock getLocalClock();
 }

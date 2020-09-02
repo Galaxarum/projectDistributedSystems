@@ -8,12 +8,15 @@ import it.polimi.cs.ds.distributed_storage.server.primitives.Operation;
 import it.polimi.cs.ds.distributed_storage.server.runnables.ServerSocketRunnable;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.ServerSocket;
+import java.util.logging.Logger;
 
 import static it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations.DELETE;
 import static it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations.PUT;
 
-public class ClientListener<K,V> extends ServerSocketRunnable<DataOperations> {
+public class ClientListener<K extends Serializable, V extends Serializable> extends ServerSocketRunnable<DataOperations> {
+	public static final Logger logger = Logger.getLogger(ClientListener.class.getName());
 	/**
 	 * Creates a ConnectionAcceptor listening to the given port
 	 */
@@ -25,18 +28,22 @@ public class ClientListener<K,V> extends ServerSocketRunnable<DataOperations> {
 				K key = ( K ) reader.readObject();
 				V value;
 				Object result;
+				logger.info("Received "+operation+" "+key);
 				switch ( operation ) {
 					case GET:
 						result = databaseManager.getDatabase().get(key);
+						logger.info("executed in db");
 						break;
 					case PUT:
 						value = ( V ) reader.readObject();
 						result = databaseManager.getDatabase().put(key, value);
-						messagingMiddleware.sendMessage(new Operation<K,V>(PUT,key,value));
+						logger.info("executed in db");
+						messagingMiddleware.sendMessage(new Operation<>(PUT, key, value));
 						break;
 					case DELETE:
 						result = databaseManager.getDatabase().remove(key);
-						messagingMiddleware.sendMessage(new Operation<K,V>(DELETE, key, null));
+						logger.info("executed in db");
+						messagingMiddleware.sendMessage(new Operation<>(DELETE, key, null));
 						break;
 					default:
 						result = "Illegal command";

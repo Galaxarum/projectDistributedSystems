@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ class VectorClockTest {
     private VectorClock vectorA;
     private VectorClock vectorB;
     private VectorClock vectorC;
-    private final List<String> keys = List.of("a","b","c","d");
+    private final List<String> keys = Arrays.asList("a", "b", "c", "d");
 
 
     @BeforeEach

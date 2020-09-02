@@ -32,7 +32,7 @@ public final class Args {
 			"Id_of_this_node, " +
 			"Address_of_the_leader_replica(use \""+FIRST_REPLICA_DISCRIMINATOR+"\" when starting the first replica), " +
 			"[Port_of_the_leader_replica | " + DEFAULT_STRING + "], "+
-			"[Port_for_communication_with_other_replicas | " + DEFAULT_STRING +"], " +
+			"[Port_for_communication_with_other_replicas. Has to be shared among all of the replicas | " + DEFAULT_STRING +"], " +
 			"[Port_for_communication_with_clients | " + DEFAULT_STRING +"], " +
 			"[Path_to_file_used_for_data_persistence | " + DEFAULT_STRING +"]";
 

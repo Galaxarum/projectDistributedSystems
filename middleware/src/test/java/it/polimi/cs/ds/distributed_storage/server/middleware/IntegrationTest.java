@@ -10,9 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 import static java.lang.Thread.currentThread;
@@ -25,8 +26,8 @@ public class IntegrationTest {
 	private static final int LEADER_PORT = 12345;
 	private static final String REPLICA1_ID = "replica1";
 	private static final int REPLICA1_PORT = 12347;
-	private static final Map<Integer,Integer> leader1Data = new HashMap<>();
-	private static final Map<Integer,Integer> replica1Data = new HashMap<>();
+	private static final Hashtable<Integer,Integer> leader1Data = new Hashtable<>();
+	private static final Hashtable<Integer,Integer> replica1Data = new Hashtable<>();
 	private static final MessageConsumer<MockContent<MockOperation>> leaderConsumer = new MockConsumer(leader1Data);
 	private static final MessageConsumer<MockContent<MockOperation>> replica1Consumer = new MockConsumer(replica1Data);
 
@@ -59,13 +60,13 @@ public class IntegrationTest {
 }
 
 @Data @AllArgsConstructor
-class MockContent<T>{
+class MockContent<T extends Serializable> implements Serializable{
 	T operation;
 	Integer data;
 	Integer key;
 }
 
-enum MockOperation{
+enum MockOperation implements Serializable{
 	PUT,
 	DELETE
 }

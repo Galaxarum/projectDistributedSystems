@@ -10,8 +10,9 @@ import java.io.*;
 import java.nio.file.FileSystemAlreadyExistsException;
 import java.nio.file.FileSystemException;
 import java.util.Hashtable;
+import java.util.Map;
 
-public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> {
+public class DatabaseManager <K extends Serializable,V extends Serializable> implements MessageConsumer<DataContent<K,V>> {
     /**
      * The actual database. Using {@link Hashtable} grants a thread-safe behaviour.
      */
@@ -52,5 +53,9 @@ public class DatabaseManager <K,V> implements MessageConsumer<DataContent<K,V>> 
             default:
                 throw new BrokenProtocolException("Unexpected value: "+msg);
         }
+    }
+
+    public <Key extends Serializable, Value extends Serializable> void putAll(Hashtable<Key,Value> data){
+        database.putAll(( Map<? extends K, ? extends V> ) data);
     }
 }

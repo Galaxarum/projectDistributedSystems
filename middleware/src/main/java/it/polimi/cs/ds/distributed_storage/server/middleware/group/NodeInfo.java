@@ -1,5 +1,6 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.group;
 
+import it.polimi.cs.ds.distributed_storage.server.middleware.MessagingMiddlewareImpl;
 import lombok.*;
 
 import java.io.IOException;
@@ -7,14 +8,19 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
+import java.util.concurrent.Semaphore;
+import java.util.logging.Logger;
 
 @Data @Setter(AccessLevel.NONE) @NoArgsConstructor
 public class NodeInfo implements Serializable {
 
 	public static final int MESSAGES_PORT_OFFSET = 1;
+	public static final Logger logger = Logger.getLogger(NodeInfo.class.getName());
+	static {
+		logger.setParent(MessagingMiddlewareImpl.logger);
+	}
 
 	private String hostname;
-	private int port;
 	@EqualsAndHashCode.Exclude @NonNull @Getter(AccessLevel.NONE)
 	transient Socket groupSocket;
 	@EqualsAndHashCode.Exclude @NonNull
@@ -27,6 +33,7 @@ public class NodeInfo implements Serializable {
 	private transient ObjectOutputStream messageOut;
 	@EqualsAndHashCode.Exclude @NonNull
 	private transient ObjectInputStream messageIn;
+	private transient Semaphore availableConnectionsSemaphore = new Semaphore(0);
 
 	public NodeInfo(Socket groupSocket) throws IOException {
 		setGroupChannel(groupSocket);
@@ -42,7 +49,9 @@ public class NodeInfo implements Serializable {
 		setMessageSocket(messageSocket, messageOut, messageIn);
 	}
 
-	public void connect() throws IOException {
+	public void connect(int port) throws IOException {
+		availableConnectionsSemaphore = new Semaphore(2);
+		logger.info("connecting to "+hostname+" on ports "+port+", "+(port+MESSAGES_PORT_OFFSET));
 		setGroupChannel(new Socket(hostname,port));
 		setMessageSocket(new Socket(hostname,port+MESSAGES_PORT_OFFSET));
 	}
@@ -51,9 +60,10 @@ public class NodeInfo implements Serializable {
 		if(this.groupSocket==null) {
 			this.groupSocket = groupSocket;
 			this.hostname = groupSocket.getInetAddress().getHostName();
-			this.port = groupSocket.getPort();
 			this.groupOut = groupOut;
 			this.groupIn = groupIn;
+			availableConnectionsSemaphore.release();
+			logger.info("Set group socket with "+hostname+" on port "+groupSocket.getPort());
 		}else throw new UnsupportedOperationException("Sockets can be set only once");
 	}
 
@@ -66,11 +76,23 @@ public class NodeInfo implements Serializable {
 			this.messageSocket = messageSocket;
 			this.messageOut = out;
 			this.messageIn = in;
+			logger.info("set message socket with "+hostname);
+			availableConnectionsSemaphore.release();
 		}else throw new UnsupportedOperationException("Sockets can be set only once");
 	}
 
 	public void setMessageSocket(Socket messageSocket) throws IOException {
 		setMessageSocket(messageSocket,new ObjectOutputStream(messageSocket.getOutputStream()),new ObjectInputStream(messageSocket.getInputStream()));
+	}
+
+	public void executeOnFullConnection(Runnable operation) {
+		try {
+			availableConnectionsSemaphore.acquire(2);
+			operation.run();
+			availableConnectionsSemaphore.release(2);
+		}catch ( InterruptedException ignored ){
+			//reliable processes
+		}
 	}
 
 	public void close(){

@@ -1,20 +1,21 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.messages;
 
-import it.polimi.cs.ds.distributed_storage.server.functional_interfaces.Procedure;
-import lombok.Getter;
 import it.polimi.cs.ds.distributed_storage.server.middleware.group.NodeInfo;
+import lombok.Getter;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.*;
+import java.util.logging.Logger;
 
-public final class MessageBrokerImpl<T> implements MessageBroker<T> {
+public final class MessageBrokerImpl<T extends Serializable> implements MessageBroker<T> {
     final HashSet<MessageConsumer<T>> consumers = new HashSet<>();
     private final SortedSet<Message<T>> buffer = new TreeSet<>();
     @Getter
     private final VectorClock localClock;
     private final Map<String, NodeInfo> receivers = new Hashtable<>();
-    private final ThreadGroup listenersGroup = new ThreadGroup(this.getClass().getSimpleName());
+    public static final Logger logger = Logger.getLogger(MessageBroker.class.getName());
 
     public MessageBrokerImpl(String localId){
         localClock = new VectorClock(localId);
@@ -23,12 +24,14 @@ public final class MessageBrokerImpl<T> implements MessageBroker<T> {
     @Override
     public synchronized void addConsumer(MessageConsumer<T> consumer) {
         consumers.add(consumer);
+        logger.info("Added consumer. New #consumer is "+consumers.size());
     }
 
     @Override
     public final synchronized void receiveMessage(Message<T> msg) {
         buffer.add(msg);
         flushBuffer();
+        logger.info("Received message "+msg);
     }
 
     /**
@@ -36,38 +39,45 @@ public final class MessageBrokerImpl<T> implements MessageBroker<T> {
      * If a  message can be accepted, use it to update the current clock and deliver it
      */
     private void flushBuffer(){
-        Set<Message<T>> toRemove = new HashSet<>();
+        final Set<Message<T>> toRemove = new HashSet<>();
         for ( Message<T> msg: buffer )
             if( localClock.canAccept(msg.getTimestamp())){
                 localClock.update(msg.getTimestamp());
                 consumers.forEach(c->c.consumeMessage(msg));
                 toRemove.add(msg);
+                logger.info("delivered message "+msg);
             }
         buffer.removeAll(toRemove);
     }
 
     @Override
     public synchronized void broadCastMessage(T content) {
+        localClock.incrementLocal();
+        final Set<String> toRemove = new HashSet<>();
+        final Message<T> message = new Message<>(content,localClock);
+        logger.info("Sending message "+message);
         receivers.forEach((id,node)->{
             try {
-                localClock.incrementLocal();
-                Message<T> message = new Message<>(content,localClock);
                 node.getMessageOut().writeObject(message);
             } catch ( IOException e ) {
-                removeReplica(id);
+                e.printStackTrace();
+                toRemove.add(id);
             }
         });
+        toRemove.forEach(this::removeReplica);
     }
 
     @Override
     public synchronized void addReplica(NodeInfo replica,String id) {
-        startMessageListener(id,replica);
         receivers.put(id,replica);
+        startMessageListener(id,replica);
+        logger.info("Saved replica "+id+" on "+replica.getHostname());
     }
 
     @Override
     public synchronized void removeReplica(String id) {
         receivers.remove(id).close();
+        logger.info("removed replica "+id);
     }
 
     @Override
@@ -83,12 +93,13 @@ public final class MessageBrokerImpl<T> implements MessageBroker<T> {
     }
 
     @Override
-    public synchronized void runBlocking(Procedure procedure) {
-        procedure.execute();
+    public synchronized void runBlocking(Runnable procedure) {
+        procedure.run();
     }
 
     private void startMessageListener(final String id,final NodeInfo replica){
-        new Thread(listenersGroup,()->{
+        new Thread(()-> replica.executeOnFullConnection(()->{
+            logger.info("Starting to listen to replica "+id+" at "+replica.getHostname());
             final ObjectInputStream rin = replica.getMessageIn();
             while ( !replica.isClosed() ){
                 try {
@@ -99,7 +110,7 @@ public final class MessageBrokerImpl<T> implements MessageBroker<T> {
                     break;
                 }
             }
-        }).start();
+        })).start();
     }
 
 }

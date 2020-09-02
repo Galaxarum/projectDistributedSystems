@@ -1,5 +1,7 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.messages;
 
-public interface MessageConsumer<T> {
+import java.io.Serializable;
+
+public interface MessageConsumer<T extends Serializable> {
     void consumeMessage(Message<T> msg);
 }

@@ -5,8 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
+
 @Data @AllArgsConstructor @NoArgsConstructor
-public class Message<T> implements Comparable<Message<T>>{
+public class Message<T extends Serializable> implements Comparable<Message<T>>, Serializable {
     private T content;
     private VectorClock timestamp;
 

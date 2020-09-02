@@ -10,19 +10,26 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.Socket;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
 
 import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.*;
 
-public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
+public class OrdinaryGroupManager<K extends Serializable, V extends Serializable> extends GroupManager {
+    public static final Logger logger = Logger.getLogger(OrdinaryGroupManager.class.getName());
+    static {
+        logger.setParent(GroupManager.logger);
+    }
 
     public OrdinaryGroupManager(final String id,
                                 final int port,
                                 final Socket leaderSocket,
                                 final MessageBroker<?> broker,
-                                final Consumer<Map<K,V>> dataInitializer) {
+                                final Consumer<Hashtable<K,V>> dataInitializer) {
         super(id, port, broker);
 
         try {
@@ -30,34 +37,43 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             final ObjectOutputStream leaderOut = new ObjectOutputStream(leaderSocket.getOutputStream());
             final ObjectInputStream leaderIn = new ObjectInputStream(leaderSocket.getInputStream());
 
+            leaderOut.writeObject(JOIN);
+            leaderOut.writeObject(id);
+            logger.info("Sent join with id "+id);
+
             final Socket messageSocket = new Socket(leaderSocket.getInetAddress(),leaderSocket.getPort()+NodeInfo.MESSAGES_PORT_OFFSET);
             final ObjectOutputStream mOut = new ObjectOutputStream(messageSocket.getOutputStream());
             final ObjectInputStream mIn = new ObjectInputStream(messageSocket.getInputStream());
-            mOut.writeUTF(id);
-
-            leaderOut.writeObject(JOIN);
-            leaderOut.writeObject(id);
+            mOut.writeObject(id);
+            mOut.flush();
+            logger.info("created messaging connection with "+messageSocket.getInetAddress()+" with remote port "+messageSocket.getPort());
 
             //Save leader id for later
             final String leaderId = ( String ) leaderIn.readObject();
+            logger.info("received id: "+leaderId);
 
             //Receive list of actual replicas from the leader (the list will include the leader itself)
             final Map<String,NodeInfo> replicas = ( Map<String, NodeInfo> ) leaderIn.readObject();
+            logger.info("received replica list of length "+replicas.size());
 
             //Inform other replicas that you're joining
             replicas.forEach(this::initReplica);
 
             //Get data from the master replica
             leaderOut.writeObject(SYNC);
-            dataInitializer.accept(( Map<K, V> ) leaderIn.readObject());
+            logger.info("Wrote SYNCH command");
+            dataInitializer.accept(( Hashtable<K, V> ) leaderIn.readObject());
+            logger.info("Received initial data");
 
             final VectorClock initialClock  = ( VectorClock ) leaderIn.readObject();
+            logger.info("received initial clock");
 
             //Inform other replicas that you're done
             replicas.values().forEach(
                     nodeInfo -> {
                         try{
                             nodeInfo.getGroupOut().writeObject(ACK);
+                            logger.info("sent ACK to "+nodeInfo.getHostname());
                         }catch ( IOException e ) {
                             throw new BrokenProtocolException("Unable to contact the replica: " + nodeInfo.getHostname());
                         }
@@ -66,8 +82,10 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
             //Save leader info
             broker.addReplica(new NodeInfo(leaderSocket,leaderOut,leaderIn,messageSocket,mOut,mIn), leaderId);
+            logger.info("saved leader replica");
 
             broker.init(initialClock,replicas);
+            logger.info("setup completed");
 
         }catch (ClassNotFoundException | ClassCastException e) {
             throw new BrokenProtocolException("Unexpected object received: ", e);
@@ -88,24 +106,26 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
      */
     @Override
     public void leave() {
+        logger.info("leaving");
         //For each replica
         broker.getReplicasUnmodifiable().values().forEach(nodeInfo -> {
-                    try {
-                        //Load stream
-                        ObjectOutputStream out = nodeInfo.getGroupOut();
+            try {
+                //Load stream
+                ObjectOutputStream out = nodeInfo.getGroupOut();
 
-                        //Inform current replica of leaving
-                        out.writeObject(GroupCommands.LEAVE);
-                        out.writeObject(id);
+                //Inform current replica of leaving
+                out.writeObject(GroupCommands.LEAVE);
+                out.writeObject(id);
+                logger.info("Informed "+nodeInfo.getHostname()+" of leaving");
 
-                        //Close connection
-                        nodeInfo.close();
-                    } catch ( IOException e ) {
-                        throw new BrokenProtocolException("Assumption on channel reliability failed",e);
-                    } catch ( ClassCastException e ) {
-                        throw new BrokenProtocolException("Unexpected object received", e);
-                    }
-                });
+                //Close connection
+                nodeInfo.close();
+            } catch ( IOException e ) {
+                throw new BrokenProtocolException("Assumption on channel reliability failed",e);
+            } catch ( ClassCastException e ) {
+                throw new BrokenProtocolException("Unexpected object received", e);
+            }
+        });
         super.leave();
     }
 
@@ -124,7 +144,8 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
         try {
 
             //Establish connection
-            nodeInfo.connect();
+            nodeInfo.connect(this.port);
+            logger.info("connecting to "+nodeInfo.getHostname());
 
             //Load streams
             final ObjectOutputStream newOut = nodeInfo.getGroupOut();
@@ -133,8 +154,9 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
             //Send "JOINING"
             newOut.writeObject(JOINING);
             newOut.writeObject(id);
+            logger.info("wrote "+JOINING+" with id "+id+" to "+nodeInfo.getHostname());
             Primitive.checkEquals(ACK, newIn.readObject());
-            newOut.writeObject(ACK);
+            logger.info("Received "+ACK+" from "+nodeInfo.getHostname());
 
             //Save the replica
             broker.addReplica(nodeInfo, id);
@@ -154,6 +176,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
         try {
             final String replicaId;
             final NodeInfo replicaInfo;
+            logger.info("parsing "+command);
             switch ( command ) {
                 case JOINING:
 
@@ -165,6 +188,7 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
                     //Save info
                     broker.addReplica(replicaInfo, replicaId);
+                    logger.info("Added replica "+replicaId+" at "+replicaInfo.getHostname());
 
                     //Wait until you receive an ACK
                     broker.runBlocking(()->{
@@ -184,6 +208,8 @@ public class OrdinaryGroupManager<K, V> extends GroupManager<K, V> {
 
                     //Close connection
                     broker.removeReplica(replicaId);
+
+                    logger.info("removed replica "+replicaId);
                     break;
                 case JOIN:
                 case SYNC:
