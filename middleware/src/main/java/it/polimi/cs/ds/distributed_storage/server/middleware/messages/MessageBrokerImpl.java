@@ -76,8 +76,10 @@ public final class MessageBrokerImpl<T extends Serializable> implements MessageB
 
     @Override
     public synchronized void removeReplica(String id) {
-        receivers.remove(id).close();
-        logger.info("removed replica "+id);
+        if(receivers.containsKey(id)) {
+            receivers.remove(id).close();
+            logger.info("removed replica " + id);
+        }
     }
 
     @Override
@@ -86,8 +88,12 @@ public final class MessageBrokerImpl<T extends Serializable> implements MessageB
     }
 
     @Override
-    public synchronized void init(VectorClock initialClock, Map<String, NodeInfo> replicas) {
+    public synchronized void initClock(VectorClock initialClock) {
         localClock.update(initialClock);
+    }
+
+    @Override
+    public synchronized void initReplicas(Map<String,NodeInfo> replicas){
         replicas.forEach(this::startMessageListener);
         receivers.putAll(replicas);
     }

@@ -12,7 +12,8 @@ public interface MessageBroker<Content extends Serializable> {
     void addReplica(NodeInfo replica, String id);
     void removeReplica(String id);
     Map<String, NodeInfo> getReplicasUnmodifiable();
-    void init(VectorClock initialClock, Map<String,NodeInfo> replicas);
+    void initReplicas(Map<String, NodeInfo> replicas);
     void runBlocking(Runnable procedure);
     VectorClock getLocalClock();
+    void initClock(VectorClock initialClock);
 }

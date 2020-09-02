@@ -11,6 +11,10 @@ import java.net.Socket;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
+import static it.polimi.cs.ds.distributed_storage.server.markers.Primitive.checkEquals;
+import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.ACK;
+import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.JOINING;
+
 @Data @Setter(AccessLevel.NONE) @NoArgsConstructor
 public class NodeInfo implements Serializable {
 
@@ -35,6 +39,11 @@ public class NodeInfo implements Serializable {
 	private transient ObjectInputStream messageIn;
 	private transient Semaphore availableConnectionsSemaphore = new Semaphore(0);
 
+	public synchronized void init(){
+		if ( availableConnectionsSemaphore == null )
+			availableConnectionsSemaphore = new Semaphore(0);
+	}
+
 	public NodeInfo(Socket groupSocket) throws IOException {
 		setGroupChannel(groupSocket);
 	}
@@ -49,11 +58,20 @@ public class NodeInfo implements Serializable {
 		setMessageSocket(messageSocket, messageOut, messageIn);
 	}
 
-	public void connect(int port) throws IOException {
-		availableConnectionsSemaphore = new Semaphore(2);
+	public void connect(int port, String myId) throws IOException, ClassNotFoundException {
 		logger.info("connecting to "+hostname+" on ports "+port+", "+(port+MESSAGES_PORT_OFFSET));
 		setGroupChannel(new Socket(hostname,port));
+		groupOut.writeObject(JOINING);
+		groupOut.writeObject(myId);
+		logger.info("wrote "+JOINING+" with id "+myId+" to "+hostname);
+		groupOut.flush();
+		checkEquals(ACK,groupIn.readObject());
 		setMessageSocket(new Socket(hostname,port+MESSAGES_PORT_OFFSET));
+		messageOut.writeObject(myId);
+		logger.info("Wrote "+myId+" on message connection");
+		messageOut.flush();
+		logger.info("wrote ack on group connection");
+		groupOut.flush();
 	}
 
 	public void setGroupChannel(Socket groupSocket, ObjectOutputStream groupOut, ObjectInputStream groupIn){
@@ -85,7 +103,7 @@ public class NodeInfo implements Serializable {
 		setMessageSocket(messageSocket,new ObjectOutputStream(messageSocket.getOutputStream()),new ObjectInputStream(messageSocket.getInputStream()));
 	}
 
-	public void executeOnFullConnection(Runnable operation) {
+	public synchronized void executeOnFullConnection(Runnable operation) {
 		try {
 			availableConnectionsSemaphore.acquire(2);
 			operation.run();

@@ -29,33 +29,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/application/replica2.dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Args.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Args.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/primitives/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/primitives/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/client/client.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/client/client_leader.dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/markers/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/markers/Primitive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBroker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/IntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +94,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/middleware/src/main/java/templates" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/application" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -143,6 +125,7 @@
       <recent name="templates" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker/client" />
       <recent name="$PROJECT_DIR$/docker/application" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -333,14 +316,7 @@
       <workItem from="1599039683108" duration="1446000" />
       <workItem from="1599046214883" duration="594000" />
       <workItem from="1599054732792" duration="2271000" />
-      <workItem from="1599057033779" duration="2740000" />
-    </task>
-    <task id="LOCAL-00072" summary="Update VectorClocks&#10;-Added clone method">
-      <created>1587129023396</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1587129023397</updated>
+      <workItem from="1599057033779" duration="7653000" />
     </task>
     <task id="LOCAL-00073" summary="Renaming">
       <created>1587130633823</created>
@@ -678,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598990251822</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="xed serializability and some errors in the group setup protocol">
+      <created>1599059820979</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1599059820980</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +680,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update : fixed constructor" />
     <MESSAGE value="Update LeaderGroupManagerTest: fixed after updates to NodeInfo" />
     <MESSAGE value="Update MessageProducer, MessageProducerImpl, MessageProducerImpltest" />
     <MESSAGE value="Update PrimitiveParserRunnable: shrinked" />
@@ -722,7 +704,8 @@
     <MESSAGE value="Client done" />
     <MESSAGE value="Repackaged, fixed maven" />
     <MESSAGE value="Working docker deployment, client, and leader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working docker deployment, client, and leader" />
+    <MESSAGE value="xed serializability and some errors in the group setup protocol" />
+    <option name="LAST_COMMIT_MESSAGE" value="xed serializability and some errors in the group setup protocol" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="141" width="646" height="750" key="#Leader" timestamp="1596290196026">
@@ -741,10 +724,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="324" width="827" height="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599040270381" />
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1599056152691">
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1599061658693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599056152691" />
+    <state x="768" y="238" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599061658693" />
     <state x="693" y="298" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596101102322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -769,10 +752,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="0" width="613" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599055660967" />
-    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599059201539">
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599061754224">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599059201539" />
+    <state x="693" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599061754224" />
     <state x="428" y="0" width="1054" height="1035" key="#org.jetbrains.kotlin.idea.refactoring.safeDelete.KotlinOverridingDialog" timestamp="1599037456762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -785,26 +768,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1596275738857" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1598990251608">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1599059820689">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1598990251608" />
-    <state width="1878" height="185" key="GridCell.Tab.0.bottom" timestamp="1599059685896">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599059820689" />
+    <state width="1878" height="185" key="GridCell.Tab.0.bottom" timestamp="1599064412636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599059685896" />
-    <state width="1878" height="185" key="GridCell.Tab.0.center" timestamp="1599059685895">
+    <state width="1878" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
+    <state width="1878" height="185" key="GridCell.Tab.0.center" timestamp="1599064412636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599059685895" />
-    <state width="1878" height="185" key="GridCell.Tab.0.left" timestamp="1599059685895">
+    <state width="1878" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
+    <state width="1878" height="185" key="GridCell.Tab.0.left" timestamp="1599064412636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599059685895" />
-    <state width="1878" height="185" key="GridCell.Tab.0.right" timestamp="1599059685895">
+    <state width="1878" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
+    <state width="1878" height="185" key="GridCell.Tab.0.right" timestamp="1599064412636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599059685895" />
+    <state width="1878" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
     <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1598866971933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -861,10 +844,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="624" y="238" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599057603166" />
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1599059779116">
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1599061026705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599059779116" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599061026705" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

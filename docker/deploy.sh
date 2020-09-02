@@ -1,6 +1,7 @@
 docker network create 'storage-net' --driver bridge
 
-MACHINES=('leader' 'replica1')
+MACHINES=('leader' 'replica1' 'replica2')
+CLIENTS=('client_leader' 'client1' 'client2')
 
 for machine in "${MACHINES[@]}" ; do
   docker rm -f "$machine"
@@ -9,6 +10,9 @@ for machine in "${MACHINES[@]}" ; do
   echo "---------------------"
 done
 
-docker rm -f "client"
-docker build -t "storage/client" -f "./client/client.dockerfile" "./client/"
-docker run -i -t --network 'storage-net' --name "client" "storage/client"
+for client in "${CLIENTS[@]}" ; do
+  docker rm -f "$client"
+  docker build -t "storage/$client" -f "./client/$client.dockerfile" "./client"
+  docker run -i -t -d --network 'storage-net' --name "$client" "storage/$client"
+  echo "---------------------"
+done

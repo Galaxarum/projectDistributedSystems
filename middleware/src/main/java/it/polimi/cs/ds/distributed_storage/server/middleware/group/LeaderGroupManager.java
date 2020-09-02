@@ -12,6 +12,8 @@ import java.util.Hashtable;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
 
+import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.ACK;
+
 public class LeaderGroupManager<K, V> extends GroupManager {
 	private final Supplier<Hashtable<K, V>> dataSupplier;
 	public static final Logger logger = Logger.getLogger(LeaderGroupManager.class.getName());
@@ -60,6 +62,7 @@ public class LeaderGroupManager<K, V> extends GroupManager {
 				case LEAVE:
 					replicaId = ( String ) in.readObject();
 					logger.info("Removing replica having id "+replicaId);
+					out.writeObject(ACK);
 					broker.removeReplica(replicaId);
 					break;
 				case JOINING:
