@@ -29,15 +29,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/client/client.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/client/client_leader.dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/primitives/Operation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/functional_interfaces/Procedure.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/NodeInfoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,14 +313,7 @@
       <workItem from="1599039683108" duration="1446000" />
       <workItem from="1599046214883" duration="594000" />
       <workItem from="1599054732792" duration="2271000" />
-      <workItem from="1599057033779" duration="7653000" />
-    </task>
-    <task id="LOCAL-00073" summary="Renaming">
-      <created>1587130633823</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1587130633823</updated>
+      <workItem from="1599057033779" duration="8328000" />
     </task>
     <task id="LOCAL-00074" summary="Made GroupManager an abstract class">
       <created>1587133117518</created>
@@ -661,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599059820980</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="Fully working group management">
+      <created>1599064962875</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1599064962875</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +677,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update LeaderGroupManagerTest: fixed after updates to NodeInfo" />
     <MESSAGE value="Update MessageProducer, MessageProducerImpl, MessageProducerImpltest" />
     <MESSAGE value="Update PrimitiveParserRunnable: shrinked" />
     <MESSAGE value="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest" />
@@ -705,7 +701,8 @@
     <MESSAGE value="Repackaged, fixed maven" />
     <MESSAGE value="Working docker deployment, client, and leader" />
     <MESSAGE value="xed serializability and some errors in the group setup protocol" />
-    <option name="LAST_COMMIT_MESSAGE" value="xed serializability and some errors in the group setup protocol" />
+    <MESSAGE value="Fully working group management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully working group management" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="141" width="646" height="750" key="#Leader" timestamp="1596290196026">
@@ -768,26 +765,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1596275738857" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1599059820689">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1599064962708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599059820689" />
-    <state width="1878" height="185" key="GridCell.Tab.0.bottom" timestamp="1599064412636">
+    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599064962708" />
+    <state width="1878" height="185" key="GridCell.Tab.0.bottom" timestamp="1599065335606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
-    <state width="1878" height="185" key="GridCell.Tab.0.center" timestamp="1599064412636">
+    <state width="1878" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599065335606" />
+    <state width="1878" height="185" key="GridCell.Tab.0.center" timestamp="1599065335606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
-    <state width="1878" height="185" key="GridCell.Tab.0.left" timestamp="1599064412636">
+    <state width="1878" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599065335606" />
+    <state width="1878" height="185" key="GridCell.Tab.0.left" timestamp="1599065335605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
-    <state width="1878" height="185" key="GridCell.Tab.0.right" timestamp="1599064412636">
+    <state width="1878" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599065335605" />
+    <state width="1878" height="185" key="GridCell.Tab.0.right" timestamp="1599065335606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599064412636" />
+    <state width="1878" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599065335606" />
     <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1598866971933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -844,10 +841,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="624" y="238" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599057603166" />
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1599061026705">
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1599065301460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599061026705" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599065301460" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -886,7 +883,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java</url>
-          <line>70</line>
+          <line>71</line>
           <properties class="it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBrokerImpl" method="addReplica">
             <option name="EMULATED" value="true" />
           </properties>

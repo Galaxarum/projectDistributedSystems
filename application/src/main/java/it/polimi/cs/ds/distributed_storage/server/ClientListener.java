@@ -1,10 +1,10 @@
 package it.polimi.cs.ds.distributed_storage.server;
 
+import it.polimi.cs.ds.distributed_storage.server.database.DataContent;
 import it.polimi.cs.ds.distributed_storage.server.database.DatabaseManager;
 import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
 import it.polimi.cs.ds.distributed_storage.server.middleware.MessagingMiddleware;
 import it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations;
-import it.polimi.cs.ds.distributed_storage.server.primitives.Operation;
 import it.polimi.cs.ds.distributed_storage.server.runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class ClientListener<K extends Serializable, V extends Serializable> exte
 	 * Creates a ConnectionAcceptor listening to the given port
 	 */
 	public ClientListener(int port,
-	                      MessagingMiddleware<K,V,Operation<K,V>> messagingMiddleware,
+	                      MessagingMiddleware<K,V, DataContent<K,V>> messagingMiddleware,
 	                      DatabaseManager<K,V> databaseManager) throws IOException {
 		super(new ServerSocket(port), (operation, writer, reader, socket)->{
 			try {
@@ -38,12 +38,12 @@ public class ClientListener<K extends Serializable, V extends Serializable> exte
 						value = ( V ) reader.readObject();
 						result = databaseManager.getDatabase().put(key, value);
 						logger.info("executed in db");
-						messagingMiddleware.sendMessage(new Operation<>(PUT, key, value));
+						messagingMiddleware.sendMessage(new DataContent<>(key,value,PUT));
 						break;
 					case DELETE:
 						result = databaseManager.getDatabase().remove(key);
 						logger.info("executed in db");
-						messagingMiddleware.sendMessage(new Operation<>(DELETE, key, null));
+						messagingMiddleware.sendMessage(new DataContent<>(key, null,DELETE));
 						break;
 					default:
 						result = "Illegal command";

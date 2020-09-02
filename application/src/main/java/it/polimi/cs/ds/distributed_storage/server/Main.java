@@ -1,10 +1,10 @@
 package it.polimi.cs.ds.distributed_storage.server;
 
+import it.polimi.cs.ds.distributed_storage.server.database.DataContent;
 import it.polimi.cs.ds.distributed_storage.server.database.DatabaseManager;
 import it.polimi.cs.ds.distributed_storage.server.middleware.MessagingMiddleware;
 import it.polimi.cs.ds.distributed_storage.server.middleware.MessagingMiddlewareImpl;
 import it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations;
-import it.polimi.cs.ds.distributed_storage.server.primitives.Operation;
 import it.polimi.cs.ds.distributed_storage.server.runnables.ServerSocketRunnable;
 import lombok.Getter;
 
@@ -21,7 +21,7 @@ public class Main {
      * Used to communicate with the other replicas end enforce the required communication properties
      */
     @Getter
-    private static MessagingMiddleware<String,Serializable, Operation<String,Serializable>> messagingMiddleware;
+    private static MessagingMiddleware<String,Serializable, DataContent<String,Serializable>> messagingMiddleware;
     /**
      * Used to manage the local data
      */
@@ -62,6 +62,8 @@ public class Main {
         clientListener = new ClientListener<>(client_port, messagingMiddleware, databaseManager);
 
         new Thread(clientListener).start();
+
+        messagingMiddleware.addConsumer(databaseManager);
 
         //Add a shutdownHook to leave before shutting down
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

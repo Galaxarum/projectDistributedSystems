@@ -40,6 +40,7 @@ public final class MessageBrokerImpl<T extends Serializable> implements MessageB
      */
     private void flushBuffer(){
         final Set<Message<T>> toRemove = new HashSet<>();
+        logger.info("Flushing message buffer. There are "+consumers.size()+" consumers");
         for ( Message<T> msg: buffer )
             if( localClock.canAccept(msg.getTimestamp())){
                 localClock.update(msg.getTimestamp());
