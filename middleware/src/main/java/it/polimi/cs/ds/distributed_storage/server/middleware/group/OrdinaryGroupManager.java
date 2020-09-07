@@ -201,10 +201,10 @@ public class OrdinaryGroupManager<K extends Serializable, V extends Serializable
                 case LEAVE:
                     //Get id of leaving
                     replicaId = ( String ) reader.readObject();
+                    writer.writeObject(ACK);
                     //Close connection
                     broker.removeReplica(replicaId);
                     logger.info("removed replica "+replicaId);
-                    writer.writeObject(ACK);
                     break;
                 case JOIN:
                 case SYNC:

@@ -29,38 +29,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6051d163-1395-49b8-99b5-72735e97296e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/primitives/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/primitives/primitives.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/application/application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DataContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/it/polimi/cs/ds/distributed_storage/server/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/middleware.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/exceptions/BrokenProtocolException.java" beforeDir="false" afterPath="$PROJECT_DIR$/primitives/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/BrokenProtocolException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/exceptions/ParsingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/primitives/src/main/java/it/polimi/cs/ds/distributed_storage/exceptions/ParsingException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/functional_interfaces/PrimitiveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/functional_interfaces/PrimitiveParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/markers/Primitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/primitives/src/main/java/it/polimi/cs/ds/distributed_storage/Primitive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddlewareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/MessagingMiddlewareImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/GroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/OrdinaryGroupManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/MessageBrokerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/middleware/messages/VectorClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/primitives/DataOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/primitives/src/main/java/it/polimi/cs/ds/distributed_storage/DataOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/runnables/PrimitiveParserRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/runnables/PrimitiveParserRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/runnables/ServerSocketRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/main/java/it/polimi/cs/ds/distributed_storage/server/runnables/ServerSocketRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/middleware/group/LeaderGroupManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/runnables/ServerSocketRunnableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/src/test/java/it/polimi/cs/ds/distributed_storage/server/runnables/ServerSocketRunnableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,14 +317,7 @@
       <workItem from="1599317484091" duration="623000" />
       <workItem from="1599509382252" duration="1137000" />
       <workItem from="1599510540326" duration="122000" />
-      <workItem from="1599510685914" duration="10660000" />
-    </task>
-    <task id="LOCAL-00075" summary="HUGE DEBUG IN GROUP COMMUNICATION&#10;-Added support for usage of different ports, both ad applicative and middleware level&#10;--Made GroupManager be created with Socket instead String (hostname)&#10;--Made MessagingMiddleware be created with Socket instead String (hostname)&#10;-Divided Main.main into sub-functions for maintainability&#10;-Made PrimitiveParser work with ObjectStreams instead of custom interfaces&#10;--Deleted NetworkReader.java and NetworkWriter.java&#10;--Deleted PrimitiveParserRunnable.writeObjectSafe, readObjectSafe&#10;-NodeInfo tracks streams also, not only socket&#10;--2 setters for socket, the one with a boolean arg can initialize the streams&#10;--Update LeaderGroupManager, OrdinaryGroupManager so to use the correct setters (if the streams has already been created, they shouldn't be created again)">
-      <created>1587153134581</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1587153134581</updated>
+      <workItem from="1599510685914" duration="11310000" />
     </task>
     <task id="LOCAL-00076" summary="Update ServerSocketRunnable&#10;-Added ServerSocketRunnable.close&#10;-Adapted subclasses consequently">
       <created>1587154200007</created>
@@ -693,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599065436694</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Moved Primitive and implementations in dedicated module to make middleware really reusable">
+      <created>1599522047653</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1599522047654</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +681,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PrimitiveParserRunnable: shrinked" />
     <MESSAGE value="Update GroupManagerFactoryTest, LeaderGroupManagerTest, NodeInfoTest, ServerSocketRunnableTest" />
     <MESSAGE value="Update Main, OrdinaryGroupManager: handled protocol exceptions" />
     <MESSAGE value="Cleanup Main, Add Args" />
@@ -737,7 +705,8 @@
     <MESSAGE value="xed serializability and some errors in the group setup protocol" />
     <MESSAGE value="Fully working group management" />
     <MESSAGE value="Unificated Client-server and middleware data messages, added the db as middleware consumer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unificated Client-server and middleware data messages, added the db as middleware consumer" />
+    <MESSAGE value="Moved Primitive and implementations in dedicated module to make middleware really reusable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved Primitive and implementations in dedicated module to make middleware really reusable" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="141" width="646" height="750" key="#Leader" timestamp="1596290196026">
@@ -806,34 +775,35 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="643" y="356" width="624" height="320" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1596275738857" />
-    <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2" timestamp="1599065436545">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1636" y="178" width="1920" height="832" key="CommitChangelistDialog2" timestamp="1599522047254">
+      <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state x="410" y="88" width="1090" height="856" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599065436545" />
+    <state x="1636" y="178" width="1920" height="832" key="CommitChangelistDialog2/0.0.3600.1010@0.0.3600.1010" timestamp="1599522047254" />
     <state x="2543" y="233" width="424" height="536" key="FileChooserDialogImpl" timestamp="1599521033034">
       <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state x="2543" y="233" width="424" height="536" key="FileChooserDialogImpl/0.0.3600.1010@0.0.3600.1010" timestamp="1599521033034" />
-    <state width="1638" height="185" key="GridCell.Tab.0.bottom" timestamp="1599517544083">
+    <state width="1638" height="185" key="GridCell.Tab.0.bottom" timestamp="1599522483426">
       <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state width="1878" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599065444987" />
-    <state width="1638" height="185" key="GridCell.Tab.0.bottom/0.0.3600.1010@0.0.3600.1010" timestamp="1599517544083" />
-    <state width="1638" height="185" key="GridCell.Tab.0.center" timestamp="1599517544082">
+    <state width="1638" height="185" key="GridCell.Tab.0.bottom/0.0.3600.1010@0.0.3600.1010" timestamp="1599522483426" />
+    <state width="1638" height="185" key="GridCell.Tab.0.center" timestamp="1599522483425">
       <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state width="1878" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599065444986" />
-    <state width="1638" height="185" key="GridCell.Tab.0.center/0.0.3600.1010@0.0.3600.1010" timestamp="1599517544082" />
-    <state width="1638" height="185" key="GridCell.Tab.0.left" timestamp="1599517544081">
+    <state width="1638" height="185" key="GridCell.Tab.0.center/0.0.3600.1010@0.0.3600.1010" timestamp="1599522483425" />
+    <state width="1638" height="185" key="GridCell.Tab.0.left" timestamp="1599522483424">
       <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state width="1878" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599065444985" />
-    <state width="1638" height="185" key="GridCell.Tab.0.left/0.0.3600.1010@0.0.3600.1010" timestamp="1599517544081" />
-    <state width="1638" height="185" key="GridCell.Tab.0.right" timestamp="1599517544082">
+    <state width="1638" height="185" key="GridCell.Tab.0.left/0.0.3600.1010@0.0.3600.1010" timestamp="1599522483424" />
+    <state width="1638" height="185" key="GridCell.Tab.0.right" timestamp="1599522483426">
       <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state width="1878" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599065444986" />
-    <state width="1638" height="185" key="GridCell.Tab.0.right/0.0.3600.1010@0.0.3600.1010" timestamp="1599517544082" />
+    <state width="1638" height="185" key="GridCell.Tab.0.right/0.0.3600.1010@0.0.3600.1010" timestamp="1599522483426" />
     <state width="1878" height="347" key="GridCell.Tab.1.bottom" timestamp="1598866971933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -891,11 +861,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1044" y="350" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599511432831" />
-    <state x="1168" y="221" width="1260" height="659" key="search.everywhere.popup" timestamp="1599521440915">
+    <state x="1168" y="221" width="1260" height="659" key="search.everywhere.popup" timestamp="1599522448472">
       <screen x="0" y="0" width="3600" height="1010" />
     </state>
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599065301460" />
-    <state x="1168" y="221" width="1260" height="659" key="search.everywhere.popup/0.0.3600.1010@0.0.3600.1010" timestamp="1599521440915" />
+    <state x="1168" y="221" width="1260" height="659" key="search.everywhere.popup/0.0.3600.1010@0.0.3600.1010" timestamp="1599522448472" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
