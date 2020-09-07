@@ -1,10 +1,10 @@
 package it.polimi.cs.ds.distributed_storage.server;
 
+import it.polimi.cs.ds.distributed_storage.DataOperations;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
 import it.polimi.cs.ds.distributed_storage.server.database.DataContent;
 import it.polimi.cs.ds.distributed_storage.server.database.DatabaseManager;
-import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
 import it.polimi.cs.ds.distributed_storage.server.middleware.MessagingMiddleware;
-import it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations;
 import it.polimi.cs.ds.distributed_storage.server.runnables.ServerSocketRunnable;
 
 import java.io.IOException;
@@ -12,8 +12,9 @@ import java.io.Serializable;
 import java.net.ServerSocket;
 import java.util.logging.Logger;
 
-import static it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations.DELETE;
-import static it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations.PUT;
+import static it.polimi.cs.ds.distributed_storage.DataOperations.DELETE;
+import static it.polimi.cs.ds.distributed_storage.DataOperations.PUT;
+
 
 public class ClientListener<K extends Serializable, V extends Serializable> extends ServerSocketRunnable<DataOperations> {
 	public static final Logger logger = Logger.getLogger(ClientListener.class.getName());

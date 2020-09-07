@@ -1,4 +1,4 @@
-package it.polimi.cs.ds.distributed_storage.server.exceptions;
+package it.polimi.cs.ds.distributed_storage.exceptions;
 
 import lombok.Getter;
 

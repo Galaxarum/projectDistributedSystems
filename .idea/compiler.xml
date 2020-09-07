@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="application" />
         <module name="client" />
+        <module name="primitives" />
+        <module name="application" />
         <module name="middleware" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="application" target="8" />
       <module name="client" target="8" />
       <module name="middleware" target="8" />
+      <module name="primitives" target="8" />
       <module name="projectDistributedSystems" target="8" />
     </bytecodeTargetLevel>
   </component>

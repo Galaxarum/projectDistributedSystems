@@ -1,4 +1,4 @@
-package it.polimi.cs.ds.distributed_storage.server.exceptions;
+package it.polimi.cs.ds.distributed_storage.exceptions;
 
 /**
  * This exception should be raised when a communication protocol doesn't behave as expected

@@ -1,6 +1,7 @@
 package it.polimi.cs.ds.distributed_storage.client;
 
-import it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations;
+
+import it.polimi.cs.ds.distributed_storage.DataOperations;
 
 import java.io.*;
 import java.net.Socket;

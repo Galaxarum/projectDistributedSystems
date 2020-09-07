@@ -1,7 +1,7 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.group;
 
-import it.polimi.cs.ds.distributed_storage.server.exceptions.ParsingException;
-import it.polimi.cs.ds.distributed_storage.server.markers.Primitive;
+import it.polimi.cs.ds.distributed_storage.Primitive;
+import it.polimi.cs.ds.distributed_storage.exceptions.ParsingException;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBroker;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.VectorClock;
 import lombok.Data;

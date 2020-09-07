@@ -1,6 +1,4 @@
-package it.polimi.cs.ds.distributed_storage.server.primitives;
-
-import it.polimi.cs.ds.distributed_storage.server.markers.Primitive;
+package it.polimi.cs.ds.distributed_storage;
 
 /**
  * This enum contains the applicative primitives

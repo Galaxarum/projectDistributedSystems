@@ -1,8 +1,8 @@
 package it.polimi.cs.ds.distributed_storage.server.database;
 
+import it.polimi.cs.ds.distributed_storage.DataOperations;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import it.polimi.cs.ds.distributed_storage.server.primitives.DataOperations;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;

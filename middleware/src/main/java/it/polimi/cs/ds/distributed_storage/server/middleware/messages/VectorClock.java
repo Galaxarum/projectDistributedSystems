@@ -17,29 +17,24 @@ public class VectorClock extends HashMap<String, Integer> implements Comparable<
         add(localId);
     }
 
-    public Integer add(String deviceId) {
+    public synchronized Integer add(String deviceId) {
         return super.put(deviceId, 0);
     }
 
-    public Integer remove(String deviceId) {
+    public synchronized Integer remove(String deviceId) {
         return super.remove(deviceId);
     }
 
-    public void update(VectorClock vector) {
+    public synchronized void update(VectorClock vector) {
         vector.forEach((k,v)->this.merge(k,v, Integer::max));
     }
 
-    public void incrementLocal() {
+    public synchronized void incrementLocal() {
         this.merge(localKey, 1, Integer::sum);
     }
 
-    /**
-     *TODO: reason if missing values can be ignored. Explain here why in case
-     * @param ts
-     * @return 0 if this is concurrent with ts, a value <0 if this[i]<ts[i] forall i, a value >0 if this[i]>ts[i] forall i
-     */
     @Override
-    public int compareTo(VectorClock ts) {
+    public synchronized int compareTo(VectorClock ts) {
         /*
          *thisMinusTs>0 => it cannot be that this<ts
          *thisMinusTs<0 => it cannot be that this>ts
@@ -65,7 +60,7 @@ public class VectorClock extends HashMap<String, Integer> implements Comparable<
      *     <li>If the other doesn't have a clock for some i, ts[i] is considered 0 and so any value of this[i] is accepted=>this case is skipped</li>
      * </ol>
      */
-    public boolean canAccept(VectorClock ts){
+    public synchronized boolean canAccept(VectorClock ts){
         boolean incrementFound = false;
         for ( Entry<String, Integer> entry : ts.entrySet()) {
             final String key = entry.getKey();
@@ -80,7 +75,7 @@ public class VectorClock extends HashMap<String, Integer> implements Comparable<
         return true;
     }
 
-    public VectorClock clone(){
+    public synchronized VectorClock clone(){
         VectorClock result = new VectorClock(localKey);
         result.putAll(this);
         return result;

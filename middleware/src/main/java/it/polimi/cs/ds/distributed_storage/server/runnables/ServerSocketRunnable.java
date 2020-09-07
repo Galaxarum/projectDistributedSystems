@@ -1,13 +1,14 @@
 package it.polimi.cs.ds.distributed_storage.server.runnables;
 
+import it.polimi.cs.ds.distributed_storage.Primitive;
 import it.polimi.cs.ds.distributed_storage.server.functional_interfaces.PrimitiveParser;
-import it.polimi.cs.ds.distributed_storage.server.markers.Primitive;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerSocketRunnable<T extends Primitive> implements Runnable {
+public class ServerSocketRunnable<T extends Primitive> implements Runnable, Closeable {
     /**
      * Used to accept connections with the other replicas
      */
@@ -37,6 +38,7 @@ public class ServerSocketRunnable<T extends Primitive> implements Runnable {
 
     }
 
+    @Override
     public void close(){
         try {
             serverSocket.close();

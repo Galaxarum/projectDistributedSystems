@@ -1,6 +1,6 @@
 package it.polimi.cs.ds.distributed_storage.server.database;
 
-import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.Message;

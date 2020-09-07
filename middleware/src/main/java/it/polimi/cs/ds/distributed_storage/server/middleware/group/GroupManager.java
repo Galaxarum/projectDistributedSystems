@@ -1,6 +1,6 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.group;
 
-import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
 import it.polimi.cs.ds.distributed_storage.server.functional_interfaces.PrimitiveParser;
 import it.polimi.cs.ds.distributed_storage.server.middleware.MessagingMiddlewareImpl;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBroker;

@@ -1,7 +1,7 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.group;
 
-import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
-import it.polimi.cs.ds.distributed_storage.server.exceptions.ParsingException;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
+import it.polimi.cs.ds.distributed_storage.exceptions.ParsingException;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBroker;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.VectorClock;
 import org.jetbrains.annotations.NotNull;
@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 
-import static it.polimi.cs.ds.distributed_storage.server.markers.Primitive.checkEquals;
+import static it.polimi.cs.ds.distributed_storage.Primitive.checkEquals;
 import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.*;
 
 public class OrdinaryGroupManager<K extends Serializable, V extends Serializable> extends GroupManager {

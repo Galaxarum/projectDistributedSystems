@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.logging.Logger;
 
 public final class MessageBrokerImpl<T extends Serializable> implements MessageBroker<T> {
-    final HashSet<MessageConsumer<T>> consumers = new HashSet<>();
+    final Set<MessageConsumer<T>> consumers = new HashSet<>();
     private final SortedSet<Message<T>> buffer = new TreeSet<>();
     @Getter
     private final VectorClock localClock;
@@ -47,7 +47,7 @@ public final class MessageBrokerImpl<T extends Serializable> implements MessageB
                 consumers.forEach(c->c.consumeMessage(msg));
                 toRemove.add(msg);
                 logger.info("delivered message "+msg);
-            }
+            }else break;
         buffer.removeAll(toRemove);
     }
 

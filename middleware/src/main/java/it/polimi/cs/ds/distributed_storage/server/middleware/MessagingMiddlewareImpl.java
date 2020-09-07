@@ -3,6 +3,7 @@ package it.polimi.cs.ds.distributed_storage.server.middleware;
 import it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupManager;
 import it.polimi.cs.ds.distributed_storage.server.middleware.group.LeaderGroupManager;
 import it.polimi.cs.ds.distributed_storage.server.middleware.group.OrdinaryGroupManager;
+import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBroker;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageBrokerImpl;
 import it.polimi.cs.ds.distributed_storage.server.middleware.messages.MessageConsumer;
 
@@ -18,8 +19,7 @@ public class MessagingMiddlewareImpl<K extends Serializable, V extends Serializa
     public static Logger logger = Logger.getLogger(MessagingMiddlewareImpl.class.getName());
 	private final GroupManager groupManager;
 	public final int port;
-
-    private final MessageBrokerImpl<C> messageBroker;
+    private final MessageBroker<C> messageBroker;
 
     public <Key extends Serializable, Value extends Serializable> MessagingMiddlewareImpl(String id, int port, Supplier<Hashtable<Key, Value>> dataSupplier){
         this.messageBroker = new MessageBrokerImpl<>(id);

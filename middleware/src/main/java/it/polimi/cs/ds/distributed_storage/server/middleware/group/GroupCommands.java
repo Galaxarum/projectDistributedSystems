@@ -1,11 +1,12 @@
 package it.polimi.cs.ds.distributed_storage.server.middleware.group;
 
-import it.polimi.cs.ds.distributed_storage.server.markers.Primitive;
+
+import it.polimi.cs.ds.distributed_storage.Primitive;
 
 /**
  * This {@linkplain Primitive} contains the commands used for group management
  */
-public enum GroupCommands implements Primitive{
+public enum GroupCommands implements Primitive {
     /**
      * Sent to the known host when joining
      */

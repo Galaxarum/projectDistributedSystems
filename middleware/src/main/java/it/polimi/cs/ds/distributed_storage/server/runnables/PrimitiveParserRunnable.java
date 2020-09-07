@@ -1,9 +1,9 @@
 package it.polimi.cs.ds.distributed_storage.server.runnables;
 
-import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
-import it.polimi.cs.ds.distributed_storage.server.exceptions.ParsingException;
+import it.polimi.cs.ds.distributed_storage.Primitive;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
+import it.polimi.cs.ds.distributed_storage.exceptions.ParsingException;
 import it.polimi.cs.ds.distributed_storage.server.functional_interfaces.PrimitiveParser;
-import it.polimi.cs.ds.distributed_storage.server.markers.Primitive;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

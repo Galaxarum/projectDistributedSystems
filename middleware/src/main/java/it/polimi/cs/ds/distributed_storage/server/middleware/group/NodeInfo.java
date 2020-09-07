@@ -11,7 +11,7 @@ import java.net.Socket;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
-import static it.polimi.cs.ds.distributed_storage.server.markers.Primitive.checkEquals;
+import static it.polimi.cs.ds.distributed_storage.Primitive.checkEquals;
 import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.ACK;
 import static it.polimi.cs.ds.distributed_storage.server.middleware.group.GroupCommands.JOINING;
 

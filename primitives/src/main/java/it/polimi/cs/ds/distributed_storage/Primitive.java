@@ -1,6 +1,6 @@
-package it.polimi.cs.ds.distributed_storage.server.markers;
+package it.polimi.cs.ds.distributed_storage;
 
-import it.polimi.cs.ds.distributed_storage.server.exceptions.BrokenProtocolException;
+import it.polimi.cs.ds.distributed_storage.exceptions.BrokenProtocolException;
 
 import java.io.Serializable;
 
