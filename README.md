@@ -1,6 +1,6 @@
 # projectDistributedSystems
 
-###now
+### now
 
 <ul>
 <li>Interface at it.polimi.cs.ds.distributed_storage.server.middleware level for distributed mutual exclusion (using totally ordered multicast) -> Matteo</li>
@@ -8,7 +8,7 @@
 <li>Applicative code exploiting the two interfaces above</li>
 </ul>
 
-###later
+### later
 <ul>
 <li>Client code</li>
 </ul>
